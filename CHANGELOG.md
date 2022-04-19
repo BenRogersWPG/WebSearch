@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.1.1] (2022-04-19)
+#### Features
+* Minor formatting updates to project Readme
+* Added screenshot of extension in use to Readme
+
 ## [0.1.0] (2022-04-19)
 #### Features
 * Added changelog to project

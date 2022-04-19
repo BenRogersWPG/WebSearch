@@ -1,8 +1,16 @@
 # Web Search
 
+This extension will help you search for the selected text and perform a web search based on your favorite search engine (editable in extension settings).
+
+![Example of Web Search being used on a code snippet, also displaying result of running the extension from Google](web-search.PNG)
+
 ## Features
 
-This extension will help you search for the selected text and perform a web search based on your favorite search engine (editable in extension settings).
+- Extension Settings for your own customizations
+- Simple and clean Command Pallete entry
+- Easy to use and configure
+
+## How To Use
 
 To utilize the extension:
 
@@ -32,6 +40,10 @@ N/A
 - Add submenu to the function and allow multiple websites to be searched from
 
 ## Release Notes
+
+### 1.0.1
+
+Formatting updates to Readme, including new screenshots
 
 ### 1.0.0
 
