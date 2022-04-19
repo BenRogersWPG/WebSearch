@@ -34,15 +34,23 @@ Search engine to use for the Web Search extension. Replace the query with `%s`, 
 
 N/A
 
-## Future Ideas
+## Future Development Ideas and To-dos
 
+### Ideas
 - Make it a right click menu as well
+- Enable extension to run on VS Code for the web
 - Add submenu to the function and allow multiple websites to be searched from
 - Convert search engine settings to an array, allowing multiple search engines to be used
 - Enable extension to run on all UI elements (currently only works on Text Editor UI)
-- Enable extension to run on VS Code for the web
+
+### To-dos
+- Add license to the project
 
 ## Release Notes
+
+### 1.0.3
+
+Minor project title updates, added another future development idea to the project Readme
 
 ### 1.0.2
 

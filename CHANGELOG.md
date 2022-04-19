@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.1.3] (2022-04-19)
+#### Features
+* Minor project title updates
+* Added another future development idea to the project Readme
+
 ## [0.1.2] (2022-04-19)
 #### Features
 * Formatting updates to Readme

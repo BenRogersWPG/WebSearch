@@ -1,9 +1,9 @@
 {
 	"name": "websearchengine",
-	"displayName": "Web Seach",
+	"displayName": "Web Search",
 	"icon": "icon.png",
 	"description": "Search for selected text on your favorite search engine (customizable in settings)",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
