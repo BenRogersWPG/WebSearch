@@ -1,6 +1,4 @@
-# Web Search README
-
-This is the README for the extension "Web Search".
+# Web Search
 
 ## Features
 
@@ -18,7 +16,11 @@ N/A
 ## Extension Settings
 
 **webSearch.searchEngine**:
-Search engine to use for the Web Search extension. Replace the query with '%s', e.g. 'https://www.google.com/search?q=%s', the same way as you would when adding additional search engines to Chrome's settings.
+
+Search engine to use for the Web Search extension. Replace the query with `%s`, e.g. 'https://www.google.com/search?q=%s', the same way as you would when adding additional search engines to Chrome's settings.
+
+*Default Value:*
+`https://www.google.com/search?q=%s`
 
 ## Known Issues
 
@@ -31,9 +33,11 @@ N/A
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
-
 ### 1.0.0
+
+Bug fixes and minor improvements
+
+### 0.0.1
 
 Initial release of Web Search
 

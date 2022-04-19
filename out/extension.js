@@ -17,7 +17,7 @@ function activate(context) {
         // The code you place here will be executed every time your command is executed
         // Display a message box to the user
         const editor = vscode.window.activeTextEditor;
-        const text = vscode.window.activeTextEditor?.document.getText();
+        const text = vscode.window.activeTextEditor?.document.getText(editor.selection);
         //Retrieve the extension's search engine configuration from the user settings:
         let searchEngine = vscode.workspace.getConfiguration('webSearch').get('searchEngine');
         //Perform a string replacement to replace the %s placeholder of the search engine with the $text search query:

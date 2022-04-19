@@ -1,8 +1,9 @@
 {
 	"name": "websearchengine",
 	"displayName": "Web Seach",
+	"icon": "icon.png",
 	"description": "Search for selected text on your favorite search engine (customizable in settings)",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"publisher": "BenRogersWPG",
 	"repository": {
 		"type": "git",
