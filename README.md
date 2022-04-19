@@ -36,17 +36,17 @@ N/A
 
 ## Future Development Ideas and To-dos
 
-### Ideas
 - Make it a right click menu as well
 - Enable extension to run on VS Code for the web
 - Add submenu to the function and allow multiple websites to be searched from
 - Convert search engine settings to an array, allowing multiple search engines to be used
 - Enable extension to run on all UI elements (currently only works on Text Editor UI)
 
-### To-dos
-- Add license to the project
-
 ## Release Notes
+
+### 1.0.4
+
+Added software license to project
 
 ### 1.0.3
 

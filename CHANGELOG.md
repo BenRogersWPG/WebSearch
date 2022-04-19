@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.1.4] (2022-04-19)
+#### Features
+* Added software license to project
+* Code comment cleanup
+
 ## [0.1.3] (2022-04-19)
 #### Features
 * Minor project title updates
