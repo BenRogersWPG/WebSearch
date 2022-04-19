@@ -1,5 +1,5 @@
 {
-	"name": "websearch",
+	"name": "websearchengine",
 	"displayName": "Web Seach",
 	"description": "Search for selected text on your favorite search engine (customizable in settings)",
 	"version": "0.0.1",
