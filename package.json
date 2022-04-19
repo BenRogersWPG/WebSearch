@@ -3,17 +3,26 @@
 	"displayName": "Web Seach",
 	"icon": "icon.png",
 	"description": "Search for selected text on your favorite search engine (customizable in settings)",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"publisher": "BenRogersWPG",
+	"author": {
+		"name": "Ben Rogers"
+	},
+	"homepage": "https://github.com/BenRogersWPG/WebSearch/blob/master/README.md",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/BenRogersWPG/WebSearch"
 	},
+	"bugs": "https://github.com/BenRogersWPG/WebSearch/issues",
 	"engines": {
 		"vscode": "^1.65.0"
 	},
 	"categories": [
 		"Other"
+	],
+	"extensionKind": [
+		"workspace",
+		"ui"
 	],
 	"activationEvents": [
 		"onCommand:WebSearch.webSearch"

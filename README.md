@@ -2,7 +2,7 @@
 
 This extension will help you search for the selected text and perform a web search based on your favorite search engine (editable in extension settings).
 
-![Example of Web Search being used on a code snippet, also displaying result of running the extension from Google](web-search.PNG)
+![Example of Web Search being used on a code snippet, also displaying result of running the extension from Google](web-search.png)
 
 ## Features
 
@@ -38,8 +38,15 @@ N/A
 
 - Make it a right click menu as well
 - Add submenu to the function and allow multiple websites to be searched from
+- Convert search engine settings to an array, allowing multiple search engines to be used
+- Enable extension to run on all UI elements (currently only works on Text Editor UI)
+- Enable extension to run on VS Code for the web
 
 ## Release Notes
+
+### 1.0.2
+
+Formatting updates to Readme, added additional properties to extension's package.json, added more future development ideas to the project Readme
 
 ### 1.0.1
 

@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.1.2] (2022-04-19)
+#### Features
+* Formatting updates to Readme
+* Added additional properties to extension's package.json
+* Added more future development ideas to the project Readme
+
 ## [0.1.1] (2022-04-19)
 #### Features
 * Minor formatting updates to project Readme
