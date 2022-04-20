@@ -1,5 +1,13 @@
 # Change Log
 
+## [0.1.5] (2022-04-20)
+#### Documentation
+* Added more future development ideas and to-dos
+* Added more search engine examples to Readme
+* Updated project description in Readme
+#### Code Cleanup
+* Cleaned up code in output folder
+
 ## [0.1.4] (2022-04-19)
 #### Features
 * Added software license to project
