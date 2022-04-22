@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "icon.png",
 	"description": "Search for selected text on your favorite search engine (customizable in settings)",
-	"version": "0.1.5",
+	"version": "1.0.0",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -21,12 +21,24 @@
 	"categories": [
 		"Other"
 	],
+	"keywords": [
+		"Search",
+		"Google",
+		"Research",
+		"Browser",
+		"Web",
+		"Customizable",
+		"Settings",
+		"Research",
+		"Menu"
+	],
 	"extensionKind": [
 		"workspace",
 		"ui"
 	],
 	"activationEvents": [
-		"onCommand:WebSearch.webSearch"
+		"onCommand:WebSearch.webSearch",
+		"onCommand:WebSearch.webSearchMenu"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -34,6 +46,10 @@
 			{
 				"command": "WebSearch.webSearch",
 				"title": "Web Search: look up selected text in your search engine of choice"
+			},
+			{
+				"command": "WebSearch.webSearchMenu",
+				"title": "Web Search selected text"
 			}
 		],
 		"configuration": {
@@ -43,10 +59,19 @@
 				"webSearch.searchEngine": {
 					"type": "string",
 					"default": "https://www.google.com/search?q=%s",
-					"description": "Search engine to use for the Web Search extension. Replace the query with '%s', e.g. 'https://www.google.com/search?q=%s', the same way as you would when adding additional search engines to Chrome settings.",
+					"markdownDescription": "Search engine to use for the Web Search extension. Replace the query with ```%s```, e.g. ```https://www.google.com/search?q=%s```, the same way as you would when adding additional search engines to the Chrome browser settings.",
 					"scope": "resource"
 				}
 			}
+		},
+		"menus": {
+			"editor/context": [
+				{
+					"when": "editorHasSelection",
+					"command": "WebSearch.webSearchMenu",
+					"group": "navigation"
+				}
+			]
 		}
 	},
 	"scripts": {

@@ -6,10 +6,19 @@ import * as vscode from 'vscode';
 export function activate(context: vscode.ExtensionContext) {
 
 	// Notify the user that the extension has been activated successfully:
-	console.log('Congratulations, your extension "Web Search" is now active!');
+	console.log('Thank you for installing Web Search, the extension is now active! To use, right click some highlighted text in your editor or type "web search" in the command pallete.');
 
 	// Provide the implementation of the command with registerCommand using the commandId parameter from the command field in package.json
-	let disposable = vscode.commands.registerCommand('WebSearch.webSearch', () => {
+	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.webSearch', () => {
+		PerformWebSearch();
+	}));
+
+	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.webSearchMenu', () => {
+		PerformWebSearch();
+	}));
+
+	function PerformWebSearch() {
+		//Function to perform the web search
 
 		//Gather the user's currently selected text from the active text editor:
 		const editor: any = vscode.window.activeTextEditor;
@@ -26,10 +35,8 @@ export function activate(context: vscode.ExtensionContext) {
 
 		//Perform the web search in the default browser:
 		vscode.env.openExternal(vscode.Uri.parse(searchUrl));
+	}
 
-	});
-
-	context.subscriptions.push(disposable);
 }
 
 // Extension is deactivated

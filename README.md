@@ -6,13 +6,21 @@ This extension allows you search for the selected text and perform a web search 
 
 ## Features
 
-- Extension Settings for your own customizations
+- Extension Settings for your own customizations (choose literally any website with a search feature)
+- **NEW** Available as a right click menu for easy access
 - Simple and clean Command Pallete entry
 - Easy to use and configure
 
 ## How To Use
 
 To utilize the extension:
+
+### Via Context Menu
+
+1. Select the text in your code to search for
+2. Right click and select "Web Search" from dropdown menu
+
+### Via Command Pallete
 
 1. Select the text in your code to search for
 2. Open the Command Palette and select the "Web Search" item from the dropdown menu
@@ -33,10 +41,14 @@ Search engine to use for the Web Search extension. Replace the query with `%s`, 
 ### Search Engine Examples
 
 Want to search for the selected code on Stack Overflow?
+
 *Set it to `https://stackoverflow.com/search?q=%s`*
+
 Want to search for the selected code on GitHub?
 *Set it to `https://github.com/search?q=%s`*
+
 Want to search for the selected code definition on Microsoft Docs?
+
 *Set it to `https://docs.microsoft.com/en-us/search/?terms=%s&category=Reference&scope=.NET`*
 
 ## Known Issues
@@ -48,15 +60,23 @@ N/A
 - Convert search engine settings to an array, allowing multiple search engines to be used
 - Enable extension to run on all UI elements (currently only works on Text Editor UI)
 - Add submenu to the function and allow multiple websites to be searched from
-- Make extension function from the right click menu
+- Remove duplicated release notes and consolidate in Changelog
+- Add extension setting to toggle the right click menu
 - Enable extension to run on VS Code for the web
 - Show search engine name in the Command Palette
+- Add GIF animation to show how extension works
 - Translate the extension to other languages
+- Use default query if no query is provided
+- Add monitors for code dependency changes
 - Add more screenshots of extension usage
 - Move images to consolidated folder
 - Write more tests
 
 ## Release Notes
+
+### 1.0.0
+
+Added right click functionality (right click any selected code to search), added more search engine examples to Readme, updated project description in Readme, added markdown to custom settings description making it easier to add new search engines, moved repeated code to a function, added tags to project for easier discoverability, described new added functionality to Readme, added more future development ideas and to-dos
 
 ### 1.0.5
 
