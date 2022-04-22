@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "icon.png",
 	"description": "Search for selected text on your favorite search engine (customizable in settings)",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -61,13 +61,19 @@
 					"default": "https://www.google.com/search?q=%s",
 					"markdownDescription": "Search engine to use for the Web Search extension. Replace the query with ```%s```, e.g. ```https://www.google.com/search?q=%s```, the same way as you would when adding additional search engines to the Chrome browser settings.",
 					"scope": "resource"
+				},
+				"webSearch.enableContextMenu": {
+					"type": "boolean",
+					"default": "true",
+					"markdownDescription": "Enable the Web Search context menu item (right click menu) in the editor",
+					"scope": "resource"
 				}
 			}
 		},
 		"menus": {
 			"editor/context": [
 				{
-					"when": "editorHasSelection",
+					"when": "editorHasSelection && config.webSearch.enableContextMenu",
 					"command": "WebSearch.webSearchMenu",
 					"group": "navigation"
 				}
