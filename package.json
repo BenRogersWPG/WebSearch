@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "icon.png",
 	"description": "Search for selected text on your favorite search engine (customizable in settings)",
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -59,7 +59,7 @@
 				"webSearch.searchEngine": {
 					"type": "string",
 					"default": "https://www.google.com/search?q=%s",
-					"markdownDescription": "Search engine to use for the Web Search extension. Replace the query with ```%s```, e.g. ```https://www.google.com/search?q=%s```, the same way as you would when adding additional search engines to the Chrome browser settings.",
+					"markdownDescription": "***Depreciated - use `webSearch.searchEngines` instead***\n\nSearch engine to use for the Web Search extension. Replace the query with ```%s```, e.g. ```https://www.google.com/search?q=%s```, the same way as you would when adding additional search engines to the Chrome browser settings.",
 					"scope": "resource"
 				},
 				"webSearch.enableContextMenu": {
@@ -67,6 +67,19 @@
 					"default": "true",
 					"markdownDescription": "Enable the Web Search context menu item (right click menu) in the editor",
 					"scope": "resource"
+				},
+				"webSearch.searchEngines": {
+					"type": "object",
+					"markdownDescription": "Search engine to use for the Web Search extension. \n***Item*** is the search engine name\n***Value*** is the full url with the search query. Replace the query with ```%s```, e.g. ```https://www.google.com/search?q=%s```, the same way as you would when adding additional search engines to the Chrome browser settings.\nAdd additional search engines using the same format below using the Add Item button. ",
+					"additionalProperties": {
+						"type": "string",
+						"description": "Item is the name of the search engine. Value is the search engine URL. The URL must contain the query parameter '%s' which will be replaced with the selected text."
+					},
+					"scope": "resource",
+					"default": {
+						"Google": "https://www.google.com/search?q=%s",
+						"Stack Overflow": "https://stackoverflow.com/search?q=%s"
+					}
 				}
 			}
 		},

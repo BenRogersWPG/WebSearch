@@ -1,5 +1,14 @@
 # Change Log
 
+## [1.1.0] (2022-04-30)
+#### Features
+* Added user setting to enable multiple search engines to be added
+* Added submenu to the Command Pallete to allow the user to select the search engine to use
+* Maintained backwards compatibility with the old `webSearch.searchEngine` setting
+
+#### Documentation
+* Added many more ideas for future development to the Readme
+
 ## [1.0.1] (2022-04-22)
 #### Features
 * Added user setting to control if the right click menu is enabled
