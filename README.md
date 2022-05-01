@@ -28,10 +28,6 @@ To utilize the extension:
 2. Open the Command Palette and select the "Web Search" item from the dropdown menu
 3. Select the search engine you want to use (add more in the extension settings)
 
-## Requirements
-
-N/A
-
 ## Extension Settings
 
 ### `webSearch.searchEngines`
@@ -74,6 +70,10 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 *Default Value:*
 `https://www.google.com/search?q=%s`
 
+## Requirements
+
+N/A
+
 ## Known Issues
 
 N/A
@@ -85,14 +85,15 @@ N/A
 - Add sub context menu to right click menu containing all search engines
 - Add screenshot of new extension settings search engine manager
 - Allow a preferred default search engine to be set in settings
+- Update extension icon and/or add more device sizes
 - Add more default search engines for the extension
 - Add GIF animation to show how extension works
 - Enable extension to run on VS Code for the web
 - Phase out old webSearch.searchEngine setting
-- Add monitors for code dependency changes
 - Translate the extension to other languages
 - Add more screenshots of extension usage
 - Use default query if no query is provided
+- Add screenshots of the new settings
 - Move images to consolidated folder
 - Write more tests
 
@@ -103,6 +104,7 @@ N/A
 - ~~Remove duplicated release notes and consolidate in Changelog~~
 - ~~Add extension setting to toggle the right click menu~~
 - ~~Show search engine name in the Command Palette~~
+- ~~Add monitors for code dependency changes~~
 - ~~Add license to the project~~
 
 ## Release Notes

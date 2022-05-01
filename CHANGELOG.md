@@ -1,4 +1,11 @@
-# Change Log
+# Changelog
+
+## [1.1.2] (2022-05-01)
+#### Code Cleanup
+* Commencing dependency updates
+
+#### Documentation
+* Improved formatting of Readme and Changelog
 
 ## [1.1.1] (2022-05-01)
 #### Code Cleanup
