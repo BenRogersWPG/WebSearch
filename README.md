@@ -101,8 +101,8 @@ N/A
 - ~~Convert search engine settings to an array, allowing multiple search engines to be used~~
 - ~~Add a submenu to the function and allow multiple websites to be searched from~~
 - ~~Remove duplicated release notes and consolidate in Changelog~~
-- ~~Show search engine name in the Command Palette~~
 - ~~Add extension setting to toggle the right click menu~~
+- ~~Show search engine name in the Command Palette~~
 - ~~Add license to the project~~
 
 ## Release Notes

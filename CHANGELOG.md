@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.1.1] (2022-05-01)
+#### Code Cleanup
+* Prevented the extension from displaying nothing when the user had no search engines set
+* Made minor code formatting updates
+* Prepared project for dependency updates
+
 ## [1.1.0] (2022-04-30)
 #### Features
 * Added user setting to enable multiple search engines to be added

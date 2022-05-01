@@ -10,12 +10,12 @@ function activate(context) {
     console.log('Thank you for installing Web Search, the extension is now active! To use, right click some highlighted text in your editor or type "web search" in the command pallete.');
     // Provide the implementation of the command with registerCommand using the commandId parameter from the command field in package.json
     context.subscriptions.push(vscode.commands.registerCommand('WebSearch.webSearch', () => {
-        PerformWebSearch();
+        performWebSearch();
     }));
     context.subscriptions.push(vscode.commands.registerCommand('WebSearch.webSearchMenu', () => {
-        PerformWebSearch();
+        performWebSearch();
     }));
-    async function PerformWebSearch() {
+    async function performWebSearch() {
         //Function to perform the web search
         //Gather the user's currently selected text from the active text editor:
         const editor = vscode.window.activeTextEditor;
@@ -51,16 +51,22 @@ function activate(context) {
         //remove any duplicate items with the same description:
         items = items.filter((item, index, self) => index === self.findIndex((t) => (t.description === item.description)));
         //Use await to wait for the user to select an item from the list:
-        const selectedSearchEngine = await vscode.window.showQuickPick(items);
+        let selectedSearchEngine = await vscode.window.showQuickPick(items);
         //Create the final search url:
         let searchUrl = "";
-        if (selectedSearchEngine == null) {
+        if (selectedSearchEngine === null || selectedSearchEngine === undefined) {
             //Perform a string replacement to replace the %s placeholder of the search engine with the $text search query:
             searchUrl = searchEngineOld.replace('%s', text ? text : "");
+            //Set the search engine to the default search engine if one is not selected:
+            selectedSearchEngine = {
+                label: "Old Search Engine",
+                description: searchEngineOld,
+                detail: "Search Engine from old settings",
+            };
         }
         else {
             //Perform a string replacement to replace the %s placeholder of the search engine with the $text search query:
-            searchUrl = selectedSearchEngine.description?.replace('%s', text ? text : "");
+            searchUrl = selectedSearchEngine?.description?.replace('%s', text ? text : "");
         }
         //Display to the user what action is being taken and on what search engine:
         vscode.window.showInformationMessage(`Searching ${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"} for, ${text} ...`);
