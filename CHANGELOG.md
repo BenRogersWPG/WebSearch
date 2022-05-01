@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1.3] (2022-05-01)
+#### House Keeping
+* Version bumped all dependencies
+
 ## [1.1.2] (2022-05-01)
 #### Code Cleanup
 * Commencing dependency updates
