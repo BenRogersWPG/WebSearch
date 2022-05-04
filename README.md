@@ -1,6 +1,6 @@
 # Web Search
 
-This extension allows you search for the selected text and perform a web search in your favorite search engine (editable in extension settings).
+This extension allows you to search for the selected text and perform a web search in your favorite search engines / websites (editable in extension settings).
 
 ![Example of Web Search being used on a code snippet, also displaying result of running the extension from Google](web-search.png)
 
@@ -36,7 +36,10 @@ Search engines to use for the Web Search extension. Replace the query with `%s`,
 
 *Default Values:*
     `"Google": "https://www.google.com/search?q=%s",`
-    `"Stack Overflow": "https://stackoverflow.com/search?q=%s"`
+    `"Stack Overflow": "https://stackoverflow.com/search?q=%s",`
+    `"Wikipedia": "https://en.wikipedia.org/wiki/Special:Search?search=%s",`
+    `"GitHub": "https://github.com/search?q=%s",`
+    `"Reddit": "https://www.reddit.com/search?q=%s"`
 
 #### Search Engine Examples
 
@@ -81,20 +84,20 @@ N/A
 ## Future Development Ideas and To-dos
 
 - Enable extension to run on all UI elements (currently only works on Text Editor UI)
-- Add a setting to set default search engine when one not selected in submenu
+- Show message to user if they added a search engine that doesn't have a query
 - Add sub context menu to right click menu containing all search engines
 - Add screenshot of new extension settings search engine manager
+- Add setting toggle to use only one search engine, no submenu
 - Allow a preferred default search engine to be set in settings
 - Update extension icon and/or add more device sizes
-- Add more default search engines for the extension
 - Add GIF animation to show how extension works
 - Enable extension to run on VS Code for the web
 - Phase out old webSearch.searchEngine setting
 - Translate the extension to other languages
 - Add more screenshots of extension usage
-- Use default query if no query is provided
 - Add screenshots of the new settings
 - Move images to consolidated folder
+- Perform more code refactoring
 - Write more tests
 
 ## Completed Tasks
@@ -102,9 +105,11 @@ N/A
 - ~~Convert search engine settings to an array, allowing multiple search engines to be used~~
 - ~~Add a submenu to the function and allow multiple websites to be searched from~~
 - ~~Remove duplicated release notes and consolidate in Changelog~~
-- ~~Add extension setting to toggle the right click menu~~
 - ~~Show search engine name in the Command Palette~~
+- ~~Add extension setting to toggle the right click menu~~
+- ~~Add more default search engines for the extension~~
 - ~~Add monitors for code dependency changes~~
+- ~~Use default query if no query is provided~~
 - ~~Add license to the project~~
 
 ## Release Notes

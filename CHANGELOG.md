@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.1.4] (2022-05-03)
+#### Features
+* Added more default search engines to the extension settings:
+  - Wikipedia, Github, and Reddit
+
+#### House Keeping
+* Updated a few more dependencies
+
+#### Documentation
+* Improved formatting of Readme and Changelog
+
 ## [1.1.3] (2022-05-01)
 #### House Keeping
 * Version bumped all dependencies
