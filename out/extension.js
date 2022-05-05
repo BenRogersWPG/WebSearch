@@ -23,31 +23,27 @@ function activate(context) {
         //Retrieve the extension's search engine configuration from the user settings:
         let searchEngineOld = vscode.workspace.getConfiguration('webSearch').get('searchEngine'); //Deprecated, will be removed in future versions
         var searchEngine = new Array(vscode.workspace.getConfiguration('webSearch').get('searchEngines'));
-        //Convert the JSON object to string:
-        var se = JSON.stringify(searchEngine);
-        //Parse the string to an object:
-        var searchEngineList = JSON.parse(se);
+        //Convert the JSON object to string and parse the string to an object:
+        var searchEngineList = JSON.parse(JSON.stringify(searchEngine));
         //Map the searchEngineList to a new array:
         var searchEngineArray = Object.keys(searchEngineList[0]).map((key) => [String(key), searchEngineList[0][key]]);
         //Now that we have an array of search engines, we need to loop through them and display them in a quick pick list
         let items = [];
         //Loop through the search engines array in the configuration settings and add them to the list:
         for (let i = 0; i < searchEngineArray.length; i++) {
-            let searchEngineName = searchEngineArray[i][0];
-            let searchEngineUrl = searchEngineArray[i][1];
-            //Add the search engine to the quick pick list:
             items.push({
-                label: searchEngineName,
-                description: searchEngineUrl,
+                label: searchEngineArray[i][0],
+                description: searchEngineArray[i][1],
                 detail: "Search Engine from configuration settings",
             });
         }
-        //Add the old search engine to the list:
-        items.push({
+        //Create a quick pick list variable to handle the old search engine (defined as it is used a couple times, saving many lines of code):
+        const searchEngineOldArray = {
             label: "Old Search Engine",
             description: searchEngineOld,
             detail: "Search Engine from old settings",
-        });
+        };
+        items.push(searchEngineOldArray);
         //remove any duplicate items with the same description:
         items = items.filter((item, index, self) => index === self.findIndex((t) => (t.description === item.description)));
         //Use await to wait for the user to select an item from the list:
@@ -58,11 +54,7 @@ function activate(context) {
             //Perform a string replacement to replace the %s placeholder of the search engine with the $text search query:
             searchUrl = searchEngineOld.replace('%s', text ? text : "");
             //Set the search engine to the default search engine if one is not selected:
-            selectedSearchEngine = {
-                label: "Old Search Engine",
-                description: searchEngineOld,
-                detail: "Search Engine from old settings",
-            };
+            selectedSearchEngine = searchEngineOldArray;
         }
         else {
             //Perform a string replacement to replace the %s placeholder of the search engine with the $text search query:

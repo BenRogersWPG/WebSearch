@@ -85,19 +85,22 @@ N/A
 
 - Enable extension to run on all UI elements (currently only works on Text Editor UI)
 - Show message to user if they added a search engine that doesn't have a query
-- Add sub context menu to right click menu containing all search engines
+- Examine performance analysis of code to find potential optimizations
+- Display search query in QuickPick URL (maybe, might be too long)
 - Add screenshot of new extension settings search engine manager
 - Add setting toggle to use only one search engine, no submenu
 - Allow a preferred default search engine to be set in settings
+- Edit QuickPick detail, or allow user to write their own detail
 - Update extension icon and/or add more device sizes
 - Add GIF animation to show how extension works
+- Decide on updating brace formatting preferences
 - Enable extension to run on VS Code for the web
 - Phase out old webSearch.searchEngine setting
 - Translate the extension to other languages
+- Add keyboard shortcuts to perform search
 - Add more screenshots of extension usage
 - Add screenshots of the new settings
 - Move images to consolidated folder
-- Perform more code refactoring
 - Write more tests
 
 ## Completed Tasks
@@ -105,12 +108,16 @@ N/A
 - ~~Convert search engine settings to an array, allowing multiple search engines to be used~~
 - ~~Add a submenu to the function and allow multiple websites to be searched from~~
 - ~~Remove duplicated release notes and consolidate in Changelog~~
-- ~~Show search engine name in the Command Palette~~
 - ~~Add extension setting to toggle the right click menu~~
+- ~~Show search engine name in the Command Palette~~
 - ~~Add more default search engines for the extension~~
 - ~~Add monitors for code dependency changes~~
 - ~~Use default query if no query is provided~~
+- ~~Perform more code refactoring~~
 - ~~Add license to the project~~
+
+## Waiting on API Updates
+- Add dynamic sub context menu to right click menu containing all search engines
 
 ## Release Notes
 

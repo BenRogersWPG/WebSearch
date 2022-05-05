@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.5] (2022-05-04)
+#### Code Cleanup
+* Performed some code refactoring
+
+#### Documentation
+* Attempted to create a dynamic submenu for the right click menu, but the VSCode API is not yet capable of this
+* Added many more ideas for future development to the Readme
+
 ## [1.1.4] (2022-05-03)
 #### Features
 * Added more default search engines to the extension settings:
