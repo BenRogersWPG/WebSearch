@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.0.0] (2022-05-07)
+#### Features
+* Released support for VSCode for the Web (vscode.dev)
+
 ## [1.1.6] (2022-05-07)
 #### House Keeping
 * Updated a few more dependencies, now compatible with the latest versions of VSCode
