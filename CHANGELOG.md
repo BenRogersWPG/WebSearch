@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1.6] (2022-05-07)
+#### House Keeping
+* Updated a few more dependencies, now compatible with the latest versions of VSCode
+
 ## [1.1.5] (2022-05-04)
 #### Code Cleanup
 * Performed some code refactoring
