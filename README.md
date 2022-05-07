@@ -6,11 +6,12 @@ This extension allows you to search for the selected text and perform a web sear
 
 ## Features
 
-- **NEW** Add multiple search engines in the extension settings and pick from them when performing a search
+- Add multiple search engines in the extension settings and pick from them when performing a search
 - Extension Settings for your own customizations (choose literally any website with a search feature)
 - Available as a right click menu for easy access
 - Simple and clean Command Pallete entry
 - Easy to use and configure
+- **NEW** Runs on Visual Studio Code for the Web (vscode.dev)
 
 ## How To Use
 
@@ -94,7 +95,6 @@ N/A
 - Update extension icon and/or add more device sizes
 - Add GIF animation to show how extension works
 - Decide on updating brace formatting preferences
-- Enable extension to run on VS Code for the web
 - Phase out old webSearch.searchEngine setting
 - Translate the extension to other languages
 - Add keyboard shortcuts to perform search
@@ -111,6 +111,7 @@ N/A
 - ~~Add extension setting to toggle the right click menu~~
 - ~~Show search engine name in the Command Palette~~
 - ~~Add more default search engines for the extension~~
+- ~~Enable extension to run on VS Code for the web~~
 - ~~Add monitors for code dependency changes~~
 - ~~Use default query if no query is provided~~
 - ~~Perform more code refactoring~~
