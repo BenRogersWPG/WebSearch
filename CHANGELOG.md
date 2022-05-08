@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0] (2022-05-08)
+#### Features
+* Added support for keyboard shortcut `Alt + `\` to run the extension
+
+#### Documentation
+* Streamlined content of Readme
+
 ## [2.0.0] (2022-05-07)
 #### Features
 * Released support for VSCode for the Web (vscode.dev)
