@@ -31,12 +31,17 @@ function activate(context) {
         performWebSearch();
     }));
     function performWebSearch() {
-        var _a, _b;
+        var _a;
         return __awaiter(this, void 0, void 0, function* () {
             //Function to perform the web search
             //Gather the user's currently selected text from the active text editor:
             const editor = vscode.window.activeTextEditor;
             const text = (_a = vscode.window.activeTextEditor) === null || _a === void 0 ? void 0 : _a.document.getText(editor.selection);
+            //Display a message to the user if no text was selected:
+            if (text === undefined || text === "") {
+                vscode.window.showInformationMessage(`No text selected. Please select text in the editor and try again.`);
+                return;
+            }
             //Retrieve the extension's search engine configuration from the user settings:
             let searchEngineOld = vscode.workspace.getConfiguration('webSearch').get('searchEngine'); //Deprecated, will be removed in future versions
             var searchEngine = new Array(vscode.workspace.getConfiguration('webSearch').get('searchEngines'));
@@ -51,7 +56,8 @@ function activate(context) {
                 items.push({
                     label: searchEngineArray[i][0],
                     description: searchEngineArray[i][1],
-                    detail: "Search Engine from configuration settings",
+                    //Display the selected text in the quick pick list. If the text exceeds 60 characters, it will be truncated with an ellipsis:
+                    detail: `Search ${searchEngineArray[i][0]} for ${text ? text.length <= 60 ? text.slice(0, 60) : text.slice(0, 60).concat('…') : ""}`,
                 });
             }
             //Create a quick pick list variable to handle the old search engine (defined as it is used a couple times, saving many lines of code):
@@ -68,19 +74,26 @@ function activate(context) {
             //Create the final search url:
             let searchUrl = "";
             if (selectedSearchEngine === null || selectedSearchEngine === undefined) {
-                //Perform a string replacement to replace the %s placeholder of the search engine with the $text search query:
-                searchUrl = searchEngineOld.replace('%s', text ? text : "");
                 //Set the search engine to the default search engine if one is not selected:
-                selectedSearchEngine = searchEngineOldArray;
+                searchUrl = searchEngineOld;
             }
             else {
-                //Perform a string replacement to replace the %s placeholder of the search engine with the $text search query:
-                searchUrl = (_b = selectedSearchEngine === null || selectedSearchEngine === void 0 ? void 0 : selectedSearchEngine.description) === null || _b === void 0 ? void 0 : _b.replace('%s', text ? text : "");
+                //Set the search engine to the selected Quick Pick engine:
+                searchUrl = selectedSearchEngine === null || selectedSearchEngine === void 0 ? void 0 : selectedSearchEngine.description;
             }
-            //Display to the user what action is being taken and on what search engine:
-            vscode.window.showInformationMessage(`Searching ${(selectedSearchEngine === null || selectedSearchEngine === void 0 ? void 0 : selectedSearchEngine.label) ? selectedSearchEngine === null || selectedSearchEngine === void 0 ? void 0 : selectedSearchEngine.label : "web"} for, ${text} ...`);
-            //Perform the web search in the default browser:
-            vscode.env.openExternal(vscode.Uri.parse(searchUrl));
+            //Determine if the searchURL contains '%s', and if it does not, then display a message to the user that thir setting entry is not valid:
+            if (searchUrl.includes("%s")) {
+                //Perform a string replacement to replace the %s placeholder of the search engine with the $text search query:
+                searchUrl = searchUrl.replace('%s', text ? text : "");
+                //Display to the user what action is being taken and on what search engine:
+                vscode.window.showInformationMessage(`Searching ${(selectedSearchEngine === null || selectedSearchEngine === void 0 ? void 0 : selectedSearchEngine.label) ? selectedSearchEngine === null || selectedSearchEngine === void 0 ? void 0 : selectedSearchEngine.label : "web"} for, ${text} ...`);
+                //Perform the web search in the default browser:
+                vscode.env.openExternal(vscode.Uri.parse(searchUrl));
+            }
+            else {
+                //Display to the user that their search engine setting is not valid:
+                vscode.window.showErrorMessage(`Search engine, ${(selectedSearchEngine === null || selectedSearchEngine === void 0 ? void 0 : selectedSearchEngine.label) ? selectedSearchEngine === null || selectedSearchEngine === void 0 ? void 0 : selectedSearchEngine.label : "web"} setting is not valid. Please check your custom settings.`);
+            }
         });
     }
 }

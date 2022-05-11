@@ -10,9 +10,10 @@ This extension allows you to search for the selected text and perform a web sear
 - Extension Settings for your own customizations (choose literally any website with a search feature)
 - Available as a right click menu for easy access
 - **NEW** Runs on Visual Studio Code for the Web (vscode.dev)
-- **NEW** Keyboard shortcut to perform a quick search `Alt + `\` 
+- **NEW** Keyboard shortcut to perform a quick search ```Alt + ` ``` 
 - Simple and clean Command Pallete entry
 - Easy to use and configure
+- Great for testing SEO and web development projects
 
 ## How To Use
 
@@ -27,7 +28,7 @@ To utilize the extension:
 ### Via Keyboard Shortcut
 
 1. Select the text in your code to search for
-2. Use the keyboard shortcut `Alt + `\` 
+2. Use the keyboard shortcut ```Alt + ` ``` 
 3. Select the search engine you want to use (add more in the extension settings)
 
 ### Via Command Pallete
@@ -56,6 +57,10 @@ Want to search for the selected code definition on Microsoft Docs?
 
 *Set it to `https://docs.microsoft.com/en-us/search/?terms=%s&category=Reference&scope=.NET`*
 
+Want to run the selected URL on Google's PageSpeed Insights for SEO testing?
+
+*Set it to `https://pagespeed.web.dev/report?url=%s`*
+
 ### `webSearch.enableContextMenu`
 
 Allows the user to enable or disable the right click context menu. Set to `true` to enable, `false` to disable.
@@ -71,13 +76,10 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 ## Future Development Ideas and To-dos
 
 - Enable extension to run on all UI elements (currently only works on Text Editor UI)
-- Show message to user if they added a search engine that doesn't have a query
 - Examine performance analysis of code to find potential optimizations
-- Display search query in QuickPick URL (maybe, might be too long)
 - Add screenshot of new extension settings search engine manager
 - Add setting toggle to use only one search engine, no submenu
 - Allow a preferred default search engine to be set in settings
-- Edit QuickPick detail, or allow user to write their own detail
 - Consolidate commands into one command palette entry
 - Update extension icon and/or add more device sizes
 - Add GIF animation to show how extension works
@@ -85,28 +87,32 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 - Streamline extension by reducing dependancies 
 - Phase out old webSearch.searchEngine setting
 - Translate the extension to other languages
-- If no search engine is selected, do nothing
 - Add more screenshots of extension usage
 - Add screenshots of the new settings
 - Move images to consolidated folder
 - Write more tests
 
-## Completed Tasks
+## Completed To-dos
 
 - ~~Convert search engine settings to an array, allowing multiple search engines to be used~~
 - ~~Add a submenu to the function and allow multiple websites to be searched from~~
+- ~~Show message to user if they added a search engine that doesn't have a query~~
+- ~~Display search query in QuickPick URL (maybe, might be too long)~~
 - ~~Remove duplicated release notes and consolidate in Changelog~~
+- ~~Edit QuickPick detail, or allow user to write their own detail~~
 - ~~Show search engine name in the Command Palette~~
 - ~~Add extension setting to toggle the right click menu~~
 - ~~Add more default search engines for the extension~~
 - ~~Enable extension to run on VS Code for the web~~
 - ~~Add monitors for code dependency changes~~
+- ~~If no search engine is selected, do nothing~~
 - ~~Add keyboard shortcuts to perform search~~
 - ~~Use default query if no query is provided~~
 - ~~Perform more code refactoring~~
 - ~~Add license to the project~~
 
 ## Waiting on API Updates
+
 - Add dynamic sub context menu to right click menu containing all search engines
 
 ## Requirements

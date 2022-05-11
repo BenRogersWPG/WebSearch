@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "icon.png",
 	"description": "Search for selected text on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome)",
-	"version": "2.1.0",
+	"version": "2.2.0",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -31,7 +31,8 @@
 		"Settings",
 		"Research",
 		"Menu",
-		"Search Engine"
+		"Search Engine",
+		"SEO"
 	],
 	"extensionKind": [
 		"workspace",
@@ -90,7 +91,8 @@
 						"Stack Overflow": "https://stackoverflow.com/search?q=%s",
 						"Wikipedia": "https://en.wikipedia.org/wiki/Special:Search?search=%s",
 						"GitHub": "https://github.com/search?q=%s",
-						"Reddit": "https://www.reddit.com/search?q=%s"
+						"Reddit": "https://www.reddit.com/search?q=%s",
+						"PageSpeed Insights": "https://pagespeed.web.dev/report?url=%s"
 					}
 				}
 			}

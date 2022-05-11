@@ -1,15 +1,25 @@
 # Changelog
 
+## [2.2.0] (2022-05-10)
+#### Features
+* Selected text will display in the search engine Quick Pick list, truncated to the first 60 characters
+* Extension will warn you if you ran the extension without first selecting text
+* Added Google PageSpeed Insights URL lookup as a new option in the extension settings for SEO testing
+* Extension will warn you if you enter a search engine without a `%s` placeholder
+
+#### Code Cleanup
+* Performed some more code refactoring
+
 ## [2.1.0] (2022-05-08)
 #### Features
-* Added support for keyboard shortcut `Alt + `\` to run the extension
+* Added support for keyboard shortcut ```Alt + ` ``` to run the extension
 
 #### Documentation
 * Streamlined content of Readme
 
 ## [2.0.0] (2022-05-07)
 #### Features
-* Released support for VSCode for the Web (vscode.dev)
+* Released support for VSCode for the Web [(vscode.dev)](https://vscode.dev/)
 
 ## [1.1.6] (2022-05-07)
 #### House Keeping
