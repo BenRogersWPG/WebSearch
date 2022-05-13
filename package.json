@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "icon.png",
 	"description": "Search for selected text on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome)",
-	"version": "2.2.0",
+	"version": "2.2.1",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -39,20 +39,15 @@
 		"ui"
 	],
 	"activationEvents": [
-		"onCommand:WebSearch.webSearch",
 		"onCommand:WebSearch.webSearchMenu"
 	],
 	"browser": "./dist/web/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "WebSearch.webSearch",
-				"title": "Web Search: look up selected text in your search engine of choice",
-				"when": "editorTextFocus"
-			},
-			{
 				"command": "WebSearch.webSearchMenu",
-				"title": "Web Search selected text"
+				"title": "Web Search selected text",
+				"when": "editorTextFocus"
 			}
 		],
 		"keybindings": [

@@ -1,10 +1,10 @@
-# Web Search
+# Web Search 🔎
 
 This extension allows you to search for the selected text and perform a web search in your favorite search engines / websites (editable in extension settings).
 
 ![Example of Web Search being used on a code snippet, also displaying result of running the extension from Google](web-search.png)
 
-## Features
+## Features ✨
 
 - Add multiple search engines in the extension settings and pick from them when performing a search
 - Extension Settings for your own customizations (choose literally any website with a search feature)
@@ -15,29 +15,29 @@ This extension allows you to search for the selected text and perform a web sear
 - Easy to use and configure
 - Great for testing SEO and web development projects
 
-## How To Use
+## How To Use 👇
 
 To utilize the extension:
 
-### Via Context Menu
+### Via Context Menu 🖱️
 
 1. Select the text in your code to search for
 2. Right click and select "Web Search" from dropdown menu
 3. Select the search engine you want to use (add more in the extension settings)
 
-### Via Keyboard Shortcut
+### Via Keyboard Shortcut ⌨️
 
 1. Select the text in your code to search for
 2. Use the keyboard shortcut ```Alt + ` ``` 
 3. Select the search engine you want to use (add more in the extension settings)
 
-### Via Command Pallete
+### Via Command Pallete ☰
 
 1. Select the text in your code to search for
 2. Open the Command Palette and select the "Web Search" item from the dropdown menu
 3. Select the search engine you want to use (add more in the extension settings)
 
-## Extension Settings
+## Extension Settings ⚙️
 
 ### `webSearch.searchEngines`
 
@@ -73,17 +73,14 @@ Allows the user to enable or disable the right click context menu. Set to `true`
 Replaced by `webSearch.searchEngines`, allowing you to add multiple search engines.
 *Will be removed in future version some time.*
 
-## Future Development Ideas and To-dos
+## Future Development Ideas and To-dos 📝
 
-- Enable extension to run on all UI elements (currently only works on Text Editor UI)
 - Examine performance analysis of code to find potential optimizations
 - Add screenshot of new extension settings search engine manager
 - Add setting toggle to use only one search engine, no submenu
 - Allow a preferred default search engine to be set in settings
-- Consolidate commands into one command palette entry
 - Update extension icon and/or add more device sizes
 - Add GIF animation to show how extension works
-- Decide on updating brace formatting preferences
 - Streamline extension by reducing dependancies 
 - Phase out old webSearch.searchEngine setting
 - Translate the extension to other languages
@@ -92,7 +89,7 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 - Move images to consolidated folder
 - Write more tests
 
-## Completed To-dos
+## Completed To-dos ✔️
 
 - ~~Convert search engine settings to an array, allowing multiple search engines to be used~~
 - ~~Add a submenu to the function and allow multiple websites to be searched from~~
@@ -100,9 +97,11 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 - ~~Display search query in QuickPick URL (maybe, might be too long)~~
 - ~~Remove duplicated release notes and consolidate in Changelog~~
 - ~~Edit QuickPick detail, or allow user to write their own detail~~
+- ~~Consolidate commands into one command palette entry~~
 - ~~Show search engine name in the Command Palette~~
 - ~~Add extension setting to toggle the right click menu~~
 - ~~Add more default search engines for the extension~~
+- ~~Decide on updating brace formatting preferences~~
 - ~~Enable extension to run on VS Code for the web~~
 - ~~Add monitors for code dependency changes~~
 - ~~If no search engine is selected, do nothing~~
@@ -111,18 +110,19 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 - ~~Perform more code refactoring~~
 - ~~Add license to the project~~
 
-## Waiting on API Updates
+## Waiting on API Updates ⌛
 
+- Enable extension to run on all UI elements (currently only works on Text Editor UI)
 - Add dynamic sub context menu to right click menu containing all search engines
 
-## Requirements
+## Requirements 📦
 
 N/A
 
-## Known Issues
+## Known Issues 🐛
 
 N/A
 
-## Release Notes
+## Release Notes 🆕
 
 See [CHANGELOG](https://github.com/BenRogersWPG/WebSearch/blob/master/CHANGELOG.md) file.

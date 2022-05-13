@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.1] (2022-05-12)
+#### Code Cleanup
+* Consolidated the web search commands into a single command palette entry (previously there was one just for context menu and one for command palette)
+
+#### Documentation
+* Added emoji to the Readme to lighten things up and make the sections more readable 📖
+
 ## [2.2.0] (2022-05-10)
 #### Features
 * Selected text will display in the search engine Quick Pick list, truncated to the first 60 characters
