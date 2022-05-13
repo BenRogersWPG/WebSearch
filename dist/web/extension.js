@@ -24,9 +24,6 @@ function activate(context) {
     // Notify the user that the extension has been activated successfully:
     console.log('Thank you for installing Web Search, the extension is now active! To use, right click some highlighted text in your editor or type "web search" in the command pallete.');
     // Provide the implementation of the command with registerCommand using the commandId parameter from the command field in package.json
-    context.subscriptions.push(vscode.commands.registerCommand('WebSearch.webSearch', () => {
-        performWebSearch();
-    }));
     context.subscriptions.push(vscode.commands.registerCommand('WebSearch.webSearchMenu', () => {
         performWebSearch();
     }));
