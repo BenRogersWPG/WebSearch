@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "icon.png",
 	"description": "Search for selected text on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome)",
-	"version": "2.2.3",
+	"version": "2.2.4",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -87,7 +87,8 @@
 						"Wikipedia": "https://en.wikipedia.org/wiki/Special:Search?search=%s",
 						"GitHub": "https://github.com/search?q=%s",
 						"Reddit": "https://www.reddit.com/search?q=%s",
-						"PageSpeed Insights": "https://pagespeed.web.dev/report?url=%s"
+						"PageSpeed Insights": "https://pagespeed.web.dev/report?url=%s",
+						"DuckDuckGo": "https://duckduckgo.com/?q=%s"
 					}
 				}
 			}

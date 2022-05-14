@@ -2,18 +2,19 @@
 
 This extension allows you to search for the selected text and perform a web search in your favorite search engines / websites (editable in extension settings).
 
-![Example of Web Search being used on a code snippet, also displaying result of running the extension from Google](web-search.png)
+![Example of Web Search being used on a code snippet, also displaying result of running the extension from Google](images/web-search.png)
 
 ## Features ✨
 
 - Add multiple search engines in the extension settings and pick from them when performing a search
-- Extension Settings for your own customizations (choose literally any website with a search feature)
 - Available as a right click menu for easy access
 - **NEW** Runs on Visual Studio Code for the Web (vscode.dev)
 - **NEW** Keyboard shortcut to perform a quick search ```Alt + ` ``` 
 - Simple and clean Command Pallete entry
 - Easy to use and configure
 - Great for testing SEO and web development projects
+- Extension Settings for your own customizations (choose literally any website with a search feature)
+![Add any site you wish as a search engine](images%5Cweb-search-add-any-site.gif)
 
 ## How To Use 👇
 
@@ -37,11 +38,15 @@ To utilize the extension:
 2. Open the Command Palette and select the "Web Search" item from the dropdown menu
 3. Select the search engine you want to use (add more in the extension settings)
 
+![Web Search submenu, displaying the various options to search selected text - all of which can be edited or add your own](images/web-search-submenu.png)
+
 ## Extension Settings ⚙️
 
 ### `webSearch.searchEngines`
 
 Search engines to use for the Web Search extension. Replace the query with `%s`, e.g. `https://www.google.com/search?q=%s`, the same way as you would when adding additional search engines to Chrome's settings. Add multiple search engines as key value pairs, e.g. `{ "Google": "https://www.google.com/search?q=%s", "Bing": "https://www.bing.com/search?q=%s" }`, or use the extension settings GUI to manage the search engines easily.
+
+![Search engine settings, modeled after Google Chrome's search engine settings, allowing you to customize your own experience by adding/removing/editing entries](images/web-search-engine-setting.png)
 
 #### Search Engine Examples
 
@@ -65,7 +70,7 @@ Want to run the selected URL on Google's PageSpeed Insights for SEO testing?
 
 Allows the user to enable or disable the right click context menu. Set to `true` to enable, `false` to disable.
 
-![Example of Web Search being used on a code snippet from the right click context menu](web-search-context-menu.png)
+![Example of Web Search being used on a code snippet from the right click context menu](images/web-search-context-menu.png)
 
 ### `webSearch.searchEngine`
 
@@ -76,17 +81,13 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 ## Future Development Ideas and To-dos 📝
 
 - Examine performance analysis of code to find potential optimizations
-- Add screenshot of new extension settings search engine manager
 - Add setting toggle to use only one search engine, no submenu
 - Allow a preferred default search engine to be set in settings
 - Update extension icon and/or add more device sizes
-- Add GIF animation to show how extension works
 - Streamline extension by reducing dependancies 
 - Phase out old webSearch.searchEngine setting
+- Add more GIFs to demo the extension usage
 - Translate the extension to other languages
-- Add more screenshots of extension usage
-- Add screenshots of the new settings
-- Move images to consolidated folder
 - Write more tests
 
 ## Completed To-dos ✔️
@@ -95,6 +96,7 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 - ~~Add a submenu to the function and allow multiple websites to be searched from~~
 - ~~Show message to user if they added a search engine that doesn't have a query~~
 - ~~Display search query in QuickPick URL (maybe, might be too long)~~
+- ~~Add screenshot of new extension settings search engine manager~~
 - ~~Remove duplicated release notes and consolidate in Changelog~~
 - ~~Edit QuickPick detail, or allow user to write their own detail~~
 - ~~Consolidate commands into one command palette entry~~
@@ -102,11 +104,15 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 - ~~Add extension setting to toggle the right click menu~~
 - ~~Add more default search engines for the extension~~
 - ~~Decide on updating brace formatting preferences~~
+- ~~Add GIF animation to show how extension works~~
 - ~~Enable extension to run on VS Code for the web~~
 - ~~Add monitors for code dependency changes~~
 - ~~If no search engine is selected, do nothing~~
 - ~~Add keyboard shortcuts to perform search~~
+- ~~Add more screenshots of extension usage~~
 - ~~Use default query if no query is provided~~
+- ~~Add screenshots of the new settings~~
+- ~~Move images to consolidated folder~~
 - ~~Perform more code refactoring~~
 - ~~Add license to the project~~
 

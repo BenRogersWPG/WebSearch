@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.2.4] (2022-05-14)
+#### Features
+* Added DuckDuckGo as a search engine in the extension settings
+
+#### Documentation
+* Added more screenshots of extension usage and settings
+* Added GIF animation to show how extension / settings works
+
+#### House Keeping
+* Moved all images into `images` folder
+
 ## [2.2.3] (2022-05-13)
 #### House Keeping
 * Fixing a bug with desktop version of the extension, may extend into other versions.
