@@ -1,6 +1,10 @@
 # Changelog
 
-## [2.2.2] (2022-05-12)
+## [2.2.3] (2022-05-13)
+#### House Keeping
+* Fixing a bug with desktop version of the extension, may extend into other versions.
+
+## [2.2.2] (2022-05-13)
 #### House Keeping
 * Updated a few more references to the old command
 

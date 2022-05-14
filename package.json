@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "icon.png",
 	"description": "Search for selected text on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome)",
-	"version": "2.2.2",
+	"version": "2.2.3",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -42,6 +42,7 @@
 		"onCommand:WebSearch.webSearchMenu"
 	],
 	"browser": "./dist/web/extension.js",
+	"main": "./dist/web/extension.js",
 	"contributes": {
 		"commands": [
 			{
@@ -106,7 +107,11 @@
 		"pretest": "npm run compile-web",
 		"vscode:prepublish": "npm run package-web",
 		"compile-web": "webpack",
+		"compile": "tsc -p ./",
 		"watch-web": "webpack --watch",
+		"watch": "tsc -watch -p ./",
+		"test-compile": "tsc -p ./ && npm run webpack",
+		"webpack": "webpack --mode none",
 		"package-web": "webpack --mode production --devtool hidden-source-map",
 		"lint": "eslint src --ext ts",
 		"run-in-browser": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. ."
