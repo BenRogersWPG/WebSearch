@@ -83,7 +83,7 @@ function activate(context) {
                 //Perform a string replacement to replace the %s placeholder of the search engine with the $text search query:
                 searchUrl = searchUrl.replace('%s', text ? text : "");
                 //Display to the user what action is being taken and on what search engine:
-                vscode.window.showInformationMessage(`Searching ${(selectedSearchEngine === null || selectedSearchEngine === void 0 ? void 0 : selectedSearchEngine.label) ? selectedSearchEngine === null || selectedSearchEngine === void 0 ? void 0 : selectedSearchEngine.label : "web"} for, ${text} ...`);
+                vscode.window.showInformationMessage(`Searching ${(selectedSearchEngine === null || selectedSearchEngine === void 0 ? void 0 : selectedSearchEngine.label) ? selectedSearchEngine === null || selectedSearchEngine === void 0 ? void 0 : selectedSearchEngine.label : "web"} for: ${text}`);
                 //Perform the web search in the default browser:
                 vscode.env.openExternal(vscode.Uri.parse(searchUrl));
             }

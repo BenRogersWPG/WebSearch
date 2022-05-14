@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.2.5] (2022-05-14)
+#### House Keeping
+* Cleaned up repository folders, making way for future cleanup
+
+#### Code Cleanup
+* Made the information message more user friendly when performing a search
+
+#### Documentation
+* Added more ideas for future development to the Readme
+
 ## [2.2.4] (2022-05-14)
 #### Features
 * Added DuckDuckGo as a search engine in the extension settings

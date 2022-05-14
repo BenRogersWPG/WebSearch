@@ -14,7 +14,7 @@ This extension allows you to search for the selected text and perform a web sear
 - Easy to use and configure
 - Great for testing SEO and web development projects
 - Extension Settings for your own customizations (choose literally any website with a search feature)
-![Add any site you wish as a search engine](images%5Cweb-search-add-any-site.gif)
+![Add any site you wish as a search engine](images/web-search-add-any-site.gif)
 
 ## How To Use 👇
 
@@ -80,8 +80,11 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 
 ## Future Development Ideas and To-dos 📝
 
+- If no text selected, running the extension will prompt for text to search for with autocomplete
 - Examine performance analysis of code to find potential optimizations
+- Poll site favicons and display them on the search engine submenu
 - Add setting toggle to use only one search engine, no submenu
+- Add setting to disable information messages when searching
 - Allow a preferred default search engine to be set in settings
 - Update extension icon and/or add more device sizes
 - Streamline extension by reducing dependancies 
@@ -100,9 +103,9 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 - ~~Remove duplicated release notes and consolidate in Changelog~~
 - ~~Edit QuickPick detail, or allow user to write their own detail~~
 - ~~Consolidate commands into one command palette entry~~
-- ~~Show search engine name in the Command Palette~~
 - ~~Add extension setting to toggle the right click menu~~
 - ~~Add more default search engines for the extension~~
+- ~~Show search engine name in the Command Palette~~
 - ~~Decide on updating brace formatting preferences~~
 - ~~Add GIF animation to show how extension works~~
 - ~~Enable extension to run on VS Code for the web~~
@@ -111,8 +114,8 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 - ~~Add keyboard shortcuts to perform search~~
 - ~~Add more screenshots of extension usage~~
 - ~~Use default query if no query is provided~~
-- ~~Add screenshots of the new settings~~
 - ~~Move images to consolidated folder~~
+- ~~Add screenshots of the new settings~~
 - ~~Perform more code refactoring~~
 - ~~Add license to the project~~
 

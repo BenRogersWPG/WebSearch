@@ -89,7 +89,7 @@ export function activate(context: vscode.ExtensionContext) {
 			searchUrl = searchUrl.replace('%s', text ? text : "")!;
 
 			//Display to the user what action is being taken and on what search engine:
-			vscode.window.showInformationMessage(`Searching ${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"} for, ${text} ...`);
+			vscode.window.showInformationMessage(`Searching ${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"} for: ${text}`);
 			//Perform the web search in the default browser:
 			vscode.env.openExternal(vscode.Uri.parse(searchUrl!));
 		}
