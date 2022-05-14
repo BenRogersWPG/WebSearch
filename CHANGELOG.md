@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.2.2] (2022-05-12)
+#### House Keeping
+* Updated a few more references to the old command
+
 ## [2.2.1] (2022-05-12)
 #### Code Cleanup
 * Consolidated the web search commands into a single command palette entry (previously there was one just for context menu and one for command palette)
