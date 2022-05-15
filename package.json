@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "icon.png",
 	"description": "Search for selected text on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome)",
-	"version": "2.2.5",
+	"version": "2.2.6",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"

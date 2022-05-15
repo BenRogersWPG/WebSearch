@@ -7,11 +7,10 @@ This extension allows you to search for the selected text and perform a web sear
 ## Features ✨
 
 - Add multiple search engines in the extension settings and pick from them when performing a search
-- Available as a right click menu for easy access
+- Easy to use and configure
 - **NEW** Runs on Visual Studio Code for the Web (vscode.dev)
 - **NEW** Keyboard shortcut to perform a quick search ```Alt + ` ``` 
-- Simple and clean Command Pallete entry
-- Easy to use and configure
+- Simple and clean Command Pallete and context menu entries
 - Great for testing SEO and web development projects
 - Extension Settings for your own customizations (choose literally any website with a search feature)
 ![Add any site you wish as a search engine](images/web-search-add-any-site.gif)
@@ -83,10 +82,10 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 - If no text selected, running the extension will prompt for text to search for with autocomplete
 - Examine performance analysis of code to find potential optimizations
 - Poll site favicons and display them on the search engine submenu
+- Add setting toggle to enable/disable search if submenu dismissed
 - Add setting toggle to use only one search engine, no submenu
 - Add setting to disable information messages when searching
 - Allow a preferred default search engine to be set in settings
-- Update extension icon and/or add more device sizes
 - Streamline extension by reducing dependancies 
 - Phase out old webSearch.searchEngine setting
 - Add more GIFs to demo the extension usage
@@ -103,6 +102,7 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 - ~~Remove duplicated release notes and consolidate in Changelog~~
 - ~~Edit QuickPick detail, or allow user to write their own detail~~
 - ~~Consolidate commands into one command palette entry~~
+- ~~Update extension icon and/or add more device sizes~~
 - ~~Add extension setting to toggle the right click menu~~
 - ~~Add more default search engines for the extension~~
 - ~~Show search engine name in the Command Palette~~

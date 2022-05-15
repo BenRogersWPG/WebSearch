@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.2.6] (2022-05-15)
+#### House Keeping
+* Updated extension icon to fit better in the bounding box
+* Updated contribution instructions to add more information on ways to help this project
+
+#### Documentation
+* Added more ideas for future development to the Readme
+
 ## [2.2.5] (2022-05-14)
 #### House Keeping
 * Cleaned up repository folders, making way for future cleanup
