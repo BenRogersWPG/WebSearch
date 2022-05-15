@@ -18,12 +18,24 @@ export function activate(context: vscode.ExtensionContext) {
 
 		//Gather the user's currently selected text from the active text editor:
 		const editor = vscode.window.activeTextEditor;
-		const text = vscode.window.activeTextEditor?.document.getText(editor!.selection);
+		let text = vscode.window.activeTextEditor?.document.getText(editor!.selection);
+		let manualSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('allowManualSearch')!;
 
 		//Display a message to the user if no text was selected:
-		if (text === undefined || text === "") {
+		if ((text === undefined || text === "") && (!manualSearch)) {
 			vscode.window.showInformationMessage(`No text selected. Please select text in the editor and try again.`);
 			return;
+		}
+		//If manual search setting is enabled, prompt the user for a search term:
+		else if ((text === undefined || text === "") && (manualSearch)) {
+			text = await vscode.window.showInputBox({
+				placeHolder: 'Please enter the text you would like to search for.',
+				prompt: 'Please enter the text you would like to search for.'
+			});
+			if (text === undefined || text === "") {
+				vscode.window.showInformationMessage(`No text entered. Please enter text in the prompt, or select text.`);
+				return;
+			}
 		}
 
 		//Retrieve the extension's search engine configuration from the user settings:
@@ -72,9 +84,11 @@ export function activate(context: vscode.ExtensionContext) {
 		let searchUrl: string = "";
 
 		if (selectedSearchEngine === null || selectedSearchEngine === undefined) {
-			//Set the search engine to the default search engine if one is not selected:
-			searchUrl = searchEngineOld;
-
+			////Set the search engine to the default search engine if one is not selected:
+			//searchUrl = searchEngineOld;
+			//Since no search engine was selected, notify the user and end the function:
+			vscode.window.showInformationMessage(`No search engine selected. Please select one from the list and try again.`);
+			return;
 		}
 		else {
 			//Set the search engine to the selected Quick Pick engine:

@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "icon.png",
 	"description": "Search for selected text on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome)",
-	"version": "2.2.6",
+	"version": "3.0.0",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -54,8 +54,7 @@
 		"keybindings": [
 			{
 				"key": "alt+`",
-				"command": "WebSearch.webSearchMenu",
-				"when": "editorTextFocus"
+				"command": "WebSearch.webSearchMenu"
 			}
 		],
 		"configuration": {
@@ -72,6 +71,12 @@
 					"type": "boolean",
 					"default": "true",
 					"markdownDescription": "Enable the Web Search context menu item (right click menu) in the editor",
+					"scope": "resource"
+				},
+				"webSearch.allowManualSearch": {
+					"type": "boolean",
+					"default": "true",
+					"markdownDescription": "Enable the extension to run when no text is selected, asking the user to enter a search query manually",
 					"scope": "resource"
 				},
 				"webSearch.searchEngines": {

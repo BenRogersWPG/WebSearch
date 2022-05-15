@@ -8,8 +8,9 @@ This extension allows you to search for the selected text and perform a web sear
 
 - Add multiple search engines in the extension settings and pick from them when performing a search
 - Easy to use and configure
-- **NEW** Runs on Visual Studio Code for the Web (vscode.dev)
-- **NEW** Keyboard shortcut to perform a quick search ```Alt + ` ``` 
+- Runs on Visual Studio Code for the Web (vscode.dev)
+- **NEW** Type a search manually (no longer requires you to select the text first)
+- Keyboard shortcut to perform a quick search ```Alt + ` ``` 
 - Simple and clean Command Pallete and context menu entries
 - Great for testing SEO and web development projects
 - Extension Settings for your own customizations (choose literally any website with a search feature)
@@ -23,6 +24,12 @@ To utilize the extension:
 
 1. Select the text in your code to search for
 2. Right click and select "Web Search" from dropdown menu
+3. Select the search engine you want to use (add more in the extension settings)
+
+### Via Manual Entry 🆕
+
+1. Use the keyboard shortcut ```Alt + ` ``` or Command Palette entry of Web Search
+2. Type in the search term you want to search for
 3. Select the search engine you want to use (add more in the extension settings)
 
 ### Via Keyboard Shortcut ⌨️
@@ -71,6 +78,10 @@ Allows the user to enable or disable the right click context menu. Set to `true`
 
 ![Example of Web Search being used on a code snippet from the right click context menu](images/web-search-context-menu.png)
 
+### `webSearch.allowManualSearch`
+
+Enable the extension to run when no text is selected, asking the user to enter a search query manually. Set to `true` to enable, `false` to disable.
+
 ### `webSearch.searchEngine`
 
 **DEPRECIATED** Single search engine to use for the Web Search extension.
@@ -79,17 +90,17 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 
 ## Future Development Ideas and To-dos 📝
 
-- If no text selected, running the extension will prompt for text to search for with autocomplete
 - Examine performance analysis of code to find potential optimizations
 - Poll site favicons and display them on the search engine submenu
-- Add setting toggle to enable/disable search if submenu dismissed
 - Add setting toggle to use only one search engine, no submenu
 - Add setting to disable information messages when searching
 - Allow a preferred default search engine to be set in settings
+- Investigate adding autocomplete engine to manual entry
 - Streamline extension by reducing dependancies 
 - Phase out old webSearch.searchEngine setting
 - Add more GIFs to demo the extension usage
 - Translate the extension to other languages
+- Perform additional code cleanup
 - Write more tests
 
 ## Completed To-dos ✔️
@@ -97,8 +108,10 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 - ~~Convert search engine settings to an array, allowing multiple search engines to be used~~
 - ~~Add a submenu to the function and allow multiple websites to be searched from~~
 - ~~Show message to user if they added a search engine that doesn't have a query~~
+- ~~If no text selected, running the extension will prompt for text to search for~~
 - ~~Display search query in QuickPick URL (maybe, might be too long)~~
 - ~~Add screenshot of new extension settings search engine manager~~
+- ~~Add setting toggle to enable/disable search if submenu dismissed~~
 - ~~Remove duplicated release notes and consolidate in Changelog~~
 - ~~Edit QuickPick detail, or allow user to write their own detail~~
 - ~~Consolidate commands into one command palette entry~~

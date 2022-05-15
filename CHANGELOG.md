@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.0.0] (2022-05-15)
+#### Features
+* New setting to enable manual searching if not text is selected when running the extension
+* Extension will now only open the search results in a browser if a search engine is selected from the submenu
+* Warnings will now be shown if the search engine is not selected or if the search query is empty
+
 ## [2.2.6] (2022-05-15)
 #### House Keeping
 * Updated extension icon to fit better in the bounding box
