@@ -2,8 +2,8 @@
 	"name": "websearchengine",
 	"displayName": "Web Search",
 	"icon": "icon.png",
-	"description": "Search for selected text on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome)",
-	"version": "3.0.0",
+	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome)",
+	"version": "3.0.1",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -76,7 +76,7 @@
 				"webSearch.allowManualSearch": {
 					"type": "boolean",
 					"default": "true",
-					"markdownDescription": "Enable the extension to run when no text is selected, asking the user to enter a search query manually",
+					"markdownDescription": "Enable the extension to run when no text is selected.\n\nIf this setting is enabled, a __search bar__ will prompt for a search query when the extension's search command is run by using keyboard shortcut ```Alt + ` ```.",
 					"scope": "resource"
 				},
 				"webSearch.searchEngines": {

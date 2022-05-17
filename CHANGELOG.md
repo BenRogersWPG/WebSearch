@@ -1,8 +1,14 @@
 # Changelog
 
+## [3.0.1] (2022-05-16)
+#### House Keeping
+* Updated extension description for both the marketplace and GitHub based on new functionality
+* Wrote some updated descriptions of some of the extension's settings
+* Updated a few more dependencies
+
 ## [3.0.0] (2022-05-15)
 #### Features
-* New setting to enable manual searching if not text is selected when running the extension
+* New setting to enable manual searching if no text is selected when running the extension
 * Extension will now only open the search results in a browser if a search engine is selected from the submenu
 * Warnings will now be shown if the search engine is not selected or if the search query is empty
 

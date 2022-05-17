@@ -1,6 +1,6 @@
 # Web Search 🔎
 
-This extension allows you to search for the selected text and perform a web search in your favorite search engines / websites (editable in extension settings).
+This extension allows you to search the web in your favorite search engines / websites (editable in extension settings), getting input either from selected text or direct entry in the extension's search bar.
 
 ![Example of Web Search being used on a code snippet, also displaying result of running the extension from Google](images/web-search.png)
 
@@ -9,7 +9,7 @@ This extension allows you to search for the selected text and perform a web sear
 - Add multiple search engines in the extension settings and pick from them when performing a search
 - Easy to use and configure
 - Runs on Visual Studio Code for the Web (vscode.dev)
-- **NEW** Type a search manually (no longer requires you to select the text first)
+- **NEW** Type a search manually (no longer requires you to select the text first) into the search bar
 - Keyboard shortcut to perform a quick search ```Alt + ` ``` 
 - Simple and clean Command Pallete and context menu entries
 - Great for testing SEO and web development projects
@@ -26,10 +26,10 @@ To utilize the extension:
 2. Right click and select "Web Search" from dropdown menu
 3. Select the search engine you want to use (add more in the extension settings)
 
-### Via Manual Entry 🆕
+### Via Search Bar 🆕
 
 1. Use the keyboard shortcut ```Alt + ` ``` or Command Palette entry of Web Search
-2. Type in the search term you want to search for
+2. Type in the search term you want to search for into the search bar
 3. Select the search engine you want to use (add more in the extension settings)
 
 ### Via Keyboard Shortcut ⌨️
@@ -106,6 +106,7 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 ## Completed To-dos ✔️
 
 - ~~Convert search engine settings to an array, allowing multiple search engines to be used~~
+- ~~Enable extension to run on all UI elements (currently only works on Text Editor UI)~~
 - ~~Add a submenu to the function and allow multiple websites to be searched from~~
 - ~~Show message to user if they added a search engine that doesn't have a query~~
 - ~~If no text selected, running the extension will prompt for text to search for~~
@@ -134,7 +135,6 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 
 ## Waiting on API Updates ⌛
 
-- Enable extension to run on all UI elements (currently only works on Text Editor UI)
 - Add dynamic sub context menu to right click menu containing all search engines
 
 ## Requirements 📦
