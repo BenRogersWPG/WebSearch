@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.0.2] (2022-05-17)
+#### House Keeping
+* Updated a few more dependencies
+
 ## [3.0.1] (2022-05-16)
 #### House Keeping
 * Updated extension description for both the marketplace and GitHub based on new functionality

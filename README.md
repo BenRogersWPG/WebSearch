@@ -68,7 +68,7 @@ Want to search for the selected code definition on Microsoft Docs?
 
 *Set it to `https://docs.microsoft.com/en-us/search/?terms=%s&category=Reference&scope=.NET`*
 
-Want to run the selected URL on Google's PageSpeed Insights for SEO testing?
+Want to run the selected URL on Google's PageSpeed Insights for search engine optimization testing?
 
 *Set it to `https://pagespeed.web.dev/report?url=%s`*
 

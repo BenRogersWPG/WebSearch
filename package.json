@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "icon.png",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome)",
-	"version": "3.0.1",
+	"version": "3.0.2",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -19,7 +19,8 @@
 		"vscode": "^1.67.0"
 	},
 	"categories": [
-		"Other"
+		"Other",
+		"Keymaps"
 	],
 	"keywords": [
 		"Search",
