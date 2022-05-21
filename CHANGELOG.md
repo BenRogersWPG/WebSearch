@@ -1,8 +1,12 @@
 # Changelog
 
-## [3.0.3] (2022-05-20)
-#### Features (WIP)
-* Working on some logic that will not display the search engine Quick Pick if there is only one search engine in the settings
+## [4.0.0] (2022-05-21)
+#### Features
+* Added logic to toggle the display of default search engines in the Quick Pick list
+* Extension will automatically run the search if there is only one search engine in the settings
+* Added a new setting for handling default search engines only
+* Added JSON snippet for easy adding default search engines to your settings.json file (use `searchengine` as the key)
+* Backwards compatibility with previous versions should work, check your settings.json file for the new JSON snippet
 
 #### Documentation
 * Added more ideas for future development to the Readme

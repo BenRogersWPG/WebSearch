@@ -19,7 +19,8 @@ export function activate(context: vscode.ExtensionContext) {
 		//Gather the user's currently selected text from the active text editor:
 		const editor = vscode.window.activeTextEditor;
 		let text = vscode.window.activeTextEditor?.document.getText(editor!.selection);
-		let manualSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('allowManualSearch')!;
+		const manualSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('allowManualSearch')!;
+		const defaultSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('useDefaultSearchEnginesList')!;
 
 		//Display a message to the user if no text was selected:
 		if ((text === undefined || text === "") && (!manualSearch)) {
@@ -39,20 +40,41 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 
 		//Retrieve the extension's search engine configuration from the user settings:
-		let searchEngineOld: string = vscode.workspace.getConfiguration('webSearch').get('searchEngine')!;//Deprecated, will be removed in future versions
-		//var searchEngine: string[] = new Array(vscode.workspace.getConfiguration('webSearch').get('searchEngines'));
+		const searchEngineOld: string = vscode.workspace.getConfiguration('webSearch').get('searchEngine')!;//Deprecated, will be removed in future versions
 
 		//Get the user settings from the extension's settings.json file:
 		const searchEngine: string[] = new Array(vscode.workspace.getConfiguration('webSearch').get('searchEngines'));
+
+		//Define default search engine signature:
+		interface IDefaultObject { sitename: string; url: string; }
+
+		//use this interface to ghet the default search engine list from the settings.json file:
+		const defaultSearchEngines: IDefaultObject[] = new Array(vscode.workspace.getConfiguration('webSearch').get('defaultSearchEngines'));
+
+		//Now that we have an array of search engines, we need to loop through them and display them in a quick pick list
+		let items: vscode.QuickPickItem[] = [];
+
+		//Only populate the default search engine list if the user wishes to use default search engines:
+		if (defaultSearch) {
+			//Loop through the search engines array in the configuration settings and add them to the list:
+			defaultSearchEngines.forEach(site => {
+				Object.entries(site).forEach(([key, value]) => {
+					//console.log(key, value);
+					items.push({
+						label: value.sitename,
+						description: value.url,
+						//Display the selected text in the quick pick list. If the text exceeds 60 characters, it will be truncated with an ellipsis:
+						detail: `Search ${value.sitename} for ${text ? text.length <= 60 ? text.slice(0, 60) : text.slice(0, 60).concat('…') : ""}`,
+					});
+				});
+			});
+		}
 
 		//Convert the JSON object to string and parse the string to an object:
 		var searchEngineList = JSON.parse(JSON.stringify(searchEngine));
 
 		//Map the searchEngineList to a new array:
 		var searchEngineArray = Object.keys(searchEngineList[0]).map((key) => [String(key), searchEngineList[0][key]]);
-
-		//Now that we have an array of search engines, we need to loop through them and display them in a quick pick list
-		let items: vscode.QuickPickItem[] = [];
 
 		//Loop through the search engines array in the configuration settings and add them to the list:
 		for (let i = 0; i < searchEngineArray.length; i++) {
@@ -64,14 +86,19 @@ export function activate(context: vscode.ExtensionContext) {
 			});
 		}
 
-		//Create a quick pick list variable to handle the old search engine (defined as it is used a couple times, saving many lines of code):
-		const searchEngineOldArray: vscode.QuickPickItem = {
-			label: "Old Search Engine",
-			description: searchEngineOld,
-			detail: "Search Engine from old settings",
-		};
 
-		items.push(searchEngineOldArray);
+		//Only populate the old search engine list if the user wishes to use default search engines:
+		if (defaultSearch || items.length === 0) {
+
+			//Create a quick pick list variable to handle the old search engine (defined as it is used a couple times, saving many lines of code):
+			const searchEngineOldArray: vscode.QuickPickItem = {
+				label: "Old Search Engine",
+				description: searchEngineOld,
+				detail: "Search Engine from old settings",
+			};
+
+			items.push(searchEngineOldArray);
+		}
 
 		//remove any duplicate items with the same description:
 		items = items.filter((item, index, self) =>

@@ -12,6 +12,7 @@ This extension allows you to search the web in your favorite search engines / we
 - **NEW** Type a search manually (no longer requires you to select the text first) into the search bar
 - Keyboard shortcut to perform a quick search ```Alt + ` ```
 - Simple and clean Command Pallete and context menu entries
+- JSON snippet to help you customize your default search engines
 - Great for testing SEO and web development projects
 - Extension Settings for your own customizations (choose literally any website with a search feature)
 ![Add any site you wish as a search engine](images/web-search-add-any-site.gif)
@@ -82,6 +83,14 @@ Allows the user to enable or disable the right click context menu. Set to `true`
 
 Enable the extension to run when no text is selected, asking the user to enter a search query manually. Set to `true` to enable, `false` to disable.
 
+### `webSearch.defaultSearchEngines`
+
+Default search engines to use for the Web Search extension. If you want to use your own, disable the new checkbox `webSearch.useDefaultSearchEnginesList`
+
+### `webSearch.useDefaultSearchEnginesList`
+
+Enable the Web Search extension to use default values. Disabling this will favor your own custom search engines list entered in `webSearch.searchEngines`.
+
 ### `webSearch.searchEngine`
 
 **DEPRECIATED** Single search engine to use for the Web Search extension.
@@ -90,13 +99,10 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 
 ## Future Development Ideas and To-dos 📝
 
-- Use only one search engine (no submenu) if only one search engine is in settings
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
 - Examine performance analysis of code to find potential optimizations
 - Poll site favicons and display them on the search engine submenu
-- Rework extension settings to better allow removing/editing entries
 - Add setting to disable information messages when searching
-- Allow a preferred default search engine to be set in settings
 - Investigate adding autocomplete engine to manual entry
 - Streamline extension by reducing dependancies
 - Shorten marketplace description lead paragraph
@@ -110,13 +116,16 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 
 - ~~Convert search engine settings to an array, allowing multiple search engines to be used~~
 - ~~Enable extension to run on all UI elements (currently only works on Text Editor UI)~~
+- ~~Use only one search engine (no submenu) if only one search engine is in settings~~
 - ~~Add a submenu to the function and allow multiple websites to be searched from~~
 - ~~Show message to user if they added a search engine that doesn't have a query~~
 - ~~If no text selected, running the extension will prompt for text to search for~~
 - ~~Display search query in QuickPick URL (maybe, might be too long)~~
 - ~~Add screenshot of new extension settings search engine manager~~
 - ~~Add setting toggle to enable/disable search if submenu dismissed~~
+- ~~Rework extension settings to better allow removing/editing entries~~
 - ~~Remove duplicated release notes and consolidate in Changelog~~
+- ~~Allow a preferred default search engine to be set in settings~~
 - ~~Edit QuickPick detail, or allow user to write their own detail~~
 - ~~Consolidate commands into one command palette entry~~
 - ~~Update extension icon and/or add more device sizes~~
@@ -142,7 +151,7 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 
 ## Requirements 📦
 
-N/A
+- Visual Studio Code or Visual Studio Code for the Web running on any operating system
 
 ## Known Issues 🐛
 

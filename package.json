@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "icon.png",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome)",
-	"version": "3.0.3",
+	"version": "4.0.0",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -19,8 +19,9 @@
 		"vscode": "^1.67.0"
 	},
 	"categories": [
-		"Other",
-		"Keymaps"
+		"Keymaps",
+		"Snippets",
+		"Other"
 	],
 	"keywords": [
 		"Search",
@@ -74,6 +75,12 @@
 					"markdownDescription": "Enable the Web Search context menu item (right click menu) in the editor",
 					"scope": "resource"
 				},
+				"webSearch.useDefaultSearchEnginesList": {
+					"type": "boolean",
+					"default": "true",
+					"markdownDescription": "Enable the Web Search extension to use default values. Disabling this will favor your own custom search engines list entered in `webSearch.searchEngines`.",
+					"scope": "resource"
+				},
 				"webSearch.allowManualSearch": {
 					"type": "boolean",
 					"default": "true",
@@ -88,15 +95,42 @@
 						"description": "Item is the name of the search engine. Value is the search engine URL. The URL must contain the query parameter '%s' which will be replaced with the selected text."
 					},
 					"scope": "resource",
-					"default": {
-						"Google": "https://www.google.com/search?q=%s",
-						"Stack Overflow": "https://stackoverflow.com/search?q=%s",
-						"Wikipedia": "https://en.wikipedia.org/wiki/Special:Search?search=%s",
-						"GitHub": "https://github.com/search?q=%s",
-						"Reddit": "https://www.reddit.com/search?q=%s",
-						"PageSpeed Insights": "https://pagespeed.web.dev/report?url=%s",
-						"DuckDuckGo": "https://duckduckgo.com/?q=%s"
-					}
+					"default": {}
+				},
+				"webSearch.defaultSearchEngines": {
+					"type": "array",
+					"markdownDescription": "Default search engines to use for the Web Search extension. If you want to use your own, disable the new checkbox `webSearch.useDefaultSearchEnginesList`",
+					"scope": "window",
+					"default": [
+						{
+							"sitename": "Google",
+							"url": "https://www.google.com/search?q=%s"
+						},
+						{
+							"sitename": "Stack Overflow",
+							"url": "https://stackoverflow.com/search?q=%s"
+						},
+						{
+							"sitename": "Wikipedia",
+							"url": "https://en.wikipedia.org/wiki/Special:Search?search=%s"
+						},
+						{
+							"sitename": "GitHub",
+							"url": "https://github.com/search?q=%s"
+						},
+						{
+							"sitename": "Reddit",
+							"url": "https://www.reddit.com/search?q=%s"
+						},
+						{
+							"sitename": "PageSpeed Insights",
+							"url": "https://pagespeed.web.dev/report?url=%s"
+						},
+						{
+							"sitename": "DuckDuckGo",
+							"url": "https://duckduckgo.com/?q=%s"
+						}
+					]
 				}
 			}
 		},
@@ -108,7 +142,13 @@
 					"group": "navigation"
 				}
 			]
-		}
+		},
+		"snippets": [
+			{
+				"language": "json",
+				"path": "snippets/json/json.json"
+			}
+		]
 	},
 	"scripts": {
 		"test": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. --extensionTestsPath=dist/web/test/suite/index.js",
