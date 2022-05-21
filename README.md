@@ -10,7 +10,7 @@ This extension allows you to search the web in your favorite search engines / we
 - Easy to use and configure
 - Runs on Visual Studio Code for the Web (vscode.dev)
 - **NEW** Type a search manually (no longer requires you to select the text first) into the search bar
-- Keyboard shortcut to perform a quick search ```Alt + ` ``` 
+- Keyboard shortcut to perform a quick search ```Alt + ` ```
 - Simple and clean Command Pallete and context menu entries
 - Great for testing SEO and web development projects
 - Extension Settings for your own customizations (choose literally any website with a search feature)
@@ -35,7 +35,7 @@ To utilize the extension:
 ### Via Keyboard Shortcut ⌨️
 
 1. Select the text in your code to search for
-2. Use the keyboard shortcut ```Alt + ` ``` 
+2. Use the keyboard shortcut ```Alt + ` ```
 3. Select the search engine you want to use (add more in the extension settings)
 
 ### Via Command Pallete ☰
@@ -90,13 +90,16 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 
 ## Future Development Ideas and To-dos 📝
 
+- Use only one search engine (no submenu) if only one search engine is in settings
+- If selected text is a URL, open it directly or run it through PageSpeed Insights
 - Examine performance analysis of code to find potential optimizations
 - Poll site favicons and display them on the search engine submenu
-- Add setting toggle to use only one search engine, no submenu
+- Rework extension settings to better allow removing/editing entries
 - Add setting to disable information messages when searching
 - Allow a preferred default search engine to be set in settings
 - Investigate adding autocomplete engine to manual entry
-- Streamline extension by reducing dependancies 
+- Streamline extension by reducing dependancies
+- Shorten marketplace description lead paragraph
 - Phase out old webSearch.searchEngine setting
 - Add more GIFs to demo the extension usage
 - Translate the extension to other languages

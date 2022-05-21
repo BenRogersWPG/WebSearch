@@ -40,7 +40,10 @@ export function activate(context: vscode.ExtensionContext) {
 
 		//Retrieve the extension's search engine configuration from the user settings:
 		let searchEngineOld: string = vscode.workspace.getConfiguration('webSearch').get('searchEngine')!;//Deprecated, will be removed in future versions
-		var searchEngine: string[] = new Array(vscode.workspace.getConfiguration('webSearch').get('searchEngines'));
+		//var searchEngine: string[] = new Array(vscode.workspace.getConfiguration('webSearch').get('searchEngines'));
+
+		//Get the user settings from the extension's settings.json file:
+		const searchEngine: string[] = new Array(vscode.workspace.getConfiguration('webSearch').get('searchEngines'));
 
 		//Convert the JSON object to string and parse the string to an object:
 		var searchEngineList = JSON.parse(JSON.stringify(searchEngine));
@@ -77,15 +80,25 @@ export function activate(context: vscode.ExtensionContext) {
 			))
 		);
 
-		//Use await to wait for the user to select an item from the list:
-		let selectedSearchEngine = await vscode.window.showQuickPick(items);
+
+		//Initialize selectedSearchEngine variable as a QuickPickItem:
+		let selectedSearchEngine: vscode.QuickPickItem;
+
+		//If more than one item is in the list, display the list in a quick pick list, otherwise, just run the search in the single search engine:
+		if (items.length > 1) {
+			//Use await to wait for the user to select an item from the list:
+			selectedSearchEngine = await vscode.window.showQuickPick(items) as vscode.QuickPickItem;
+		}
+		else {
+			//If only one item exits in the list, use that item as the search engine and no need to prompt the user:
+			selectedSearchEngine = items[0];
+
+		}
 
 		//Create the final search url:
 		let searchUrl: string = "";
 
 		if (selectedSearchEngine === null || selectedSearchEngine === undefined) {
-			////Set the search engine to the default search engine if one is not selected:
-			//searchUrl = searchEngineOld;
 			//Since no search engine was selected, notify the user and end the function:
 			vscode.window.showInformationMessage(`No search engine selected. Please select one from the list and try again.`);
 			return;

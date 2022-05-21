@@ -1,5 +1,15 @@
 # Changelog
 
+## [3.0.3] (2022-05-20)
+#### Features (WIP)
+* Working on some logic that will not display the search engine Quick Pick if there is only one search engine in the settings
+
+#### Documentation
+* Added more ideas for future development to the Readme
+
+#### House Keeping
+* Updated a few more dependencies
+
 ## [3.0.2] (2022-05-17)
 #### House Keeping
 * Updated a few more dependencies
