@@ -127,7 +127,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 		if (selectedSearchEngine === null || selectedSearchEngine === undefined) {
 			//Since no search engine was selected, notify the user and end the function:
-			vscode.window.showInformationMessage(`No search engine selected. Please select one from the list and try again.`);
+			vscode.window.showWarningMessage(`No search engine selected. Please select one from the list and try again.`);
 			return;
 		}
 		else {
@@ -149,7 +149,13 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 		else {
 			//Display to the user that their search engine setting is not valid:
-			vscode.window.showErrorMessage(`Search engine, ${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"} setting is not valid. Please check your custom settings.`);
+			const errorMessage: string = `Search engine, *${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"}* setting is not valid. Please check your custom settings.`;
+			vscode.window.showErrorMessage(errorMessage);
+			console.log(errorMessage);
+
+			//Log the error to the extension's output channel:
+			let webSearchConsole = vscode.window.createOutputChannel("Web Search", "markdown");
+			webSearchConsole.appendLine(errorMessage + "\nBe sure to include `%s` in the search engine URL.");
 		}
 
 	}

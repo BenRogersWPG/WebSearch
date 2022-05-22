@@ -9,8 +9,8 @@ This extension allows you to search the web in your favorite search engines / we
 - Add multiple search engines in the extension settings and pick from them when performing a search
 - Easy to use and configure
 - Runs on Visual Studio Code for the Web (vscode.dev)
-- **NEW** Type a search manually (no longer requires you to select the text first) into the search bar
 - Keyboard shortcut to perform a quick search ```Alt + ` ```
+- **NEW** Type a search directly using the search bar (if no text is selected, it will ask for input)
 - Simple and clean Command Pallete and context menu entries
 - JSON snippet to help you customize your default search engines
 - Great for testing SEO and web development projects
@@ -51,7 +51,9 @@ To utilize the extension:
 
 ### `webSearch.searchEngines`
 
-Search engines to use for the Web Search extension. Replace the query with `%s`, e.g. `https://www.google.com/search?q=%s`, the same way as you would when adding additional search engines to Chrome's settings. Add multiple search engines as key value pairs, e.g. `{ "Google": "https://www.google.com/search?q=%s", "Bing": "https://www.bing.com/search?q=%s" }`, or use the extension settings GUI to manage the search engines easily.
+Search engines to use for the Web Search extension. Replace the query with `%s`, e.g. `https://www.google.com/search?q=%s`, the same way as you would when adding additional search engines to Chrome's settings.
+
+Add multiple search engines as key value pairs, e.g. `{ "Google": "https://www.google.com/search?q=%s", "Bing": "https://www.bing.com/search?q=%s" }`. Use the extension settings GUI to manage the search engines easily.
 
 ![Search engine settings, modeled after Google Chrome's search engine settings, allowing you to customize your own experience by adding/removing/editing entries](images/web-search-engine-setting.png)
 
@@ -105,7 +107,6 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 - Add setting to disable information messages when searching
 - Investigate adding autocomplete engine to manual entry
 - Streamline extension by reducing dependancies
-- Shorten marketplace description lead paragraph
 - Phase out old webSearch.searchEngine setting
 - Add more GIFs to demo the extension usage
 - Translate the extension to other languages

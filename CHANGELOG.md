@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.1] (2022-05-22)
+#### Features
+* Improved warning and error message system. Errors with search engine URLs are now logged to the console with helpful messages to guide the user to fix the issue
+
+#### Documentation
+* Moved around and rewrote some of the documentation to make it easier to find what you're looking for
+
 ## [4.0.0] (2022-05-21)
 #### Features
 * Added logic to toggle the display of default search engines in the Quick Pick list
