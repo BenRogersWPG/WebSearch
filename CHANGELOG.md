@@ -1,5 +1,9 @@
 # Changelog
 
+## [4.0.2] (2022-05-25)
+#### House Keeping
+* Updated a few more dependencies
+
 ## [4.0.1] (2022-05-22)
 #### Features
 * Improved warning and error message system. Errors with search engine URLs are now logged to the console with helpful messages to guide the user to fix the issue

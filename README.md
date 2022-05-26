@@ -103,7 +103,6 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
 - Examine performance analysis of code to find potential optimizations
-- Poll site favicons and display them on the search engine submenu
 - Add setting to disable information messages when searching
 - Investigate adding autocomplete engine to manual entry
 - Streamline extension by reducing dependancies
@@ -149,6 +148,7 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 ## Waiting on API Updates ⌛
 
 - Add dynamic sub context menu to right click menu containing all search engines
+- Poll site favicons and display them on the search engine submenu
 
 ## Requirements 📦
 
