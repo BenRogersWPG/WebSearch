@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.0.3] (2022-06-06)
+#### Features
+* Improved the search bar prompt functionality. The search bar will now remain open until the <kbd>Enter</kbd> key or <kbd>Esc</kbd> key is pressed, allowing you to copy text from your code even after initiating the extension.
+
+#### Documentation
+* Updated all key commands in the documentation to use proper keyboard markup tags, such as <kbd>Alt</kbd>+<kbd>`</kbd>
+* Added addidional description to one of the recent extension settings, `useDefaultSearchEnginesList`. When enabled, the extension runs like **Demo Mode** and when disabled it will run with your custom search engines in the `searchEngines` setting (item/value pair).
+
+#### House Keeping
+* Updated a few more dependencies
+
 ## [4.0.2] (2022-05-25)
 #### House Keeping
 * Updated a few more dependencies
@@ -97,7 +108,7 @@
 
 ## [2.1.0] (2022-05-08)
 #### Features
-* Added support for keyboard shortcut ```Alt + ` ``` to run the extension
+* Added support for keyboard shortcut <kbd>Alt</kbd>+<kbd>`</kbd> to run the extension
 
 #### Documentation
 * Streamlined content of Readme

@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "icon.png",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome)",
-	"version": "4.0.2",
+	"version": "4.0.3",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -78,7 +78,7 @@
 				"webSearch.useDefaultSearchEnginesList": {
 					"type": "boolean",
 					"default": "true",
-					"markdownDescription": "Enable the Web Search extension to use default values. Disabling this will favor your own custom search engines list entered in `webSearch.searchEngines`.",
+					"markdownDescription": "Enable the Web Search extension to use default values. Essentially, this is the extension's ***Demo Mode***. Disabling this will favor your own custom search engines list entered in `webSearch.searchEngines`.",
 					"scope": "resource"
 				},
 				"webSearch.allowManualSearch": {

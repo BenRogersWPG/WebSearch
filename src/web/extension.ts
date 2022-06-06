@@ -31,7 +31,15 @@ export function activate(context: vscode.ExtensionContext) {
 		else if ((text === undefined || text === "") && (manualSearch)) {
 			text = await vscode.window.showInputBox({
 				placeHolder: 'Please enter the text you would like to search for.',
-				prompt: 'Please enter the text you would like to search for.'
+				prompt: 'Please enter the text you would like to search for.',
+				ignoreFocusOut: true,
+				validateInput: (value: string) => {
+					if (value === '') {
+						return 'Please enter a search term.';
+					}
+					return null;
+				}
+
 			});
 			if (text === undefined || text === "") {
 				vscode.window.showInformationMessage(`No text entered. Please enter text in the prompt, or select text.`);
@@ -106,7 +114,6 @@ export function activate(context: vscode.ExtensionContext) {
 				t.description === item.description
 			))
 		);
-
 
 		//Initialize selectedSearchEngine variable as a QuickPickItem:
 		let selectedSearchEngine: vscode.QuickPickItem;
