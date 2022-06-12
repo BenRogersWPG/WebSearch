@@ -1,5 +1,9 @@
 # Changelog
 
+## [4.1.0] (2022-06-11)
+#### Features
+* Wrote a walkthrough for the extension. When first installing the extension, you will be taken to the walkthrough and it will guide you through using it and adding your own custom search engines. This is a major update to the extension's usability and will be very helpful to new users.
+
 ## [4.0.3] (2022-06-06)
 #### Features
 * Improved the search bar prompt functionality. The search bar will now remain open until the <kbd>Enter</kbd> key or <kbd>Esc</kbd> key is pressed, allowing you to copy text from your code even after initiating the extension.

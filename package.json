@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "icon.png",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome)",
-	"version": "4.0.3",
+	"version": "4.1.0",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -16,7 +16,7 @@
 	},
 	"bugs": "https://github.com/BenRogersWPG/WebSearch/issues",
 	"engines": {
-		"vscode": "^1.67.0"
+		"vscode": "^1.68.0"
 	},
 	"categories": [
 		"Keymaps",
@@ -41,7 +41,11 @@
 		"ui"
 	],
 	"activationEvents": [
-		"onCommand:WebSearch.webSearchMenu"
+		"onCommand:WebSearch.webSearchMenu",
+		"onCommand:WebSearch.changeSetting",
+		"onCommand:WebSearch.openSettings",
+		"onCommand:WebSearch.setContext",
+		"onCommand:WebSearch.setPaletteContext"
 	],
 	"browser": "./dist/web/extension.js",
 	"main": "./dist/web/extension.js",
@@ -57,6 +61,111 @@
 			{
 				"key": "alt+`",
 				"command": "WebSearch.webSearchMenu"
+			}
+		],
+		"walkthroughs": [
+			{
+				"id": "WebSearchWalkthrough",
+				"title": "Web Search Walkthrough",
+				"description": "Some tips for using the Web Search extension.",
+				"steps": [
+					{
+						"id": "selectedtext",
+						"title": "FYI - Search Using Selected Text",
+						"description": "The extension will always prefer to search using the selected text. If you run it without first selecting text (like all of these walkthrough examples), it will prompt you for a search query using the search bar at the top of the screen.",
+						"media": {
+							"image": "images/web-search-submenu.png",
+							"altText": "Running the Web Search extension when text is selected"
+						}
+					},
+					{
+						"id": "runcommand",
+						"title": "Perform a Demo Search 🔎",
+						"description": "This step will run a Web Search with **demo mode** on to show you how it looks with multiple sites\nSimply run the command, type a search query in the search bar above, and see the site list options.\n[Run Command](command:WebSearch.webSearchMenu)",
+						"media": {
+							"image": "images/web-search-submenu-demo-large.png",
+							"altText": "Screenshot of the Web Search submenu with multiple sites"
+						},
+						"completionEvents": [
+							"onCommand:WebSearch.webSearchMenu"
+						]
+					},
+					{
+						"id": "opensettings",
+						"title": "Add Your Own Search Engines ➕",
+						"description": "This step will open the extension settings.\nAdd search engines using Item/Value pairs like the GIF to the right.\nSearch engines are added in the same way you would add one in Google Chrome using `%s` in the URL to replace the search query.\n[Start Adding Custom Search Engines](command:WebSearch.openSettings)",
+						"media": {
+							"image": "images/web-search-add-any-site.gif",
+							"altText": "GIF of adding a new search engine to the Web Search extension"
+						},
+						"completionEvents": [
+							"onCommand:WebSearch.openSettings"
+						]
+					},
+					{
+						"id": "changesetting",
+						"title": "Turn Off Demo Mode ⚙️",
+						"description": "This step will turn off demo mode so you can start entering your own custom search engines.\nYou can always turn demo mode back on in the extension settings.\n[Turn off Demo Mode](command:WebSearch.changeSetting)",
+						"media": {
+							"image": "images/web-search-add-any-site.gif",
+							"altText": "GIF of adding a new search engine to the Web Search extension"
+						},
+						"completionEvents": [
+							"onContext:demoModeOff"
+						]
+					},
+					{
+						"id": "runsecondcommand",
+						"title": "Perform a Search With Your Own Search Engines",
+						"description": "Now that you have added your own search engines and turned off **demo mode**, this step will show you how it looks with your custom-added search engines\nSimply run the command, type a search query, and see the site list options.\n[Run Command](command:WebSearch.setContext)",
+						"media": {
+							"image": "images/web-search-submenu-demo-large.png",
+							"altText": "Screenshot of the Web Search submenu with multiple sites"
+						},
+						"completionEvents": [
+							"onContext:customSearch"
+						]
+					},
+					{
+						"id": "keybindings",
+						"title": "Search Using Keyboard Shortcut ⌨️",
+						"description": "You can use the Web Search extension in multiple ways.\nThis step will show you that you can run the extension using the keyboard shortcut of:\n``Alt + ``` (backtick).",
+						"media": {
+							"image": "images/web-search-keyboard-shortcut.png",
+							"altText": "Keyboard shortcut for the Web Search extension"
+						}
+					},
+					{
+						"id": "contextmenu",
+						"title": "Search From the Context Menu 🖱️",
+						"description": "You can right click on any selected text in your code and search from the context menu.",
+						"media": {
+							"image": "images/web-search-context-menu-large-cropped.png",
+							"altText": "Running the Web Search extension from the context menu"
+						}
+					},
+					{
+						"id": "commandpalette",
+						"title": "Search From the Command Palette ☰",
+						"description": "You can also use the extension at any time via the Command Palette. Simply select ``Web Search`` from the Command Palette and type a search query.\n[Run Command](command:WebSearch.setPaletteContext)",
+						"media": {
+							"image": "images/web-search.png",
+							"altText": "Running the Web Search extension from the Command Palette"
+						},
+						"completionEvents": [
+							"onContext:searchCommandPalette"
+						]
+					},
+					{
+						"id": "onlyonesearchengine",
+						"title": "Last FYI - Only One Search Engine",
+						"description": "If you only have one search engine in your custom settings, then the extension will automatically search from that site.\nIt will not pop up with the submenu of sites to search for. Remember to add more search engines if you want to search from multiple sites.\n[Start Adding Custom Search Engines](command:WebSearch.openSettings)",
+						"media": {
+							"image": "images/web-search-add-any-site.gif",
+							"altText": "GIF of adding a new search engine to the Web Search extension"
+						}
+					}
+				]
 			}
 		],
 		"configuration": {

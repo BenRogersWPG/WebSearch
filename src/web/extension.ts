@@ -6,7 +6,37 @@ import * as vscode from 'vscode';
 export function activate(context: vscode.ExtensionContext) {
 
 	// Notify the user that the extension has been activated successfully:
-	console.log('Thank you for installing Web Search, the extension is now active! To use, right click some highlighted text in your editor or type "web search" in the command pallete.');
+	console.log('Thank you for installing Web Search, the extension is now active! To use, right click some highlighted text in your editor or type "web search" in the command palette.');
+
+	// Register a command to update a setting (toggling demo mode), which is used in the extension's walkthrough:
+	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.changeSetting', async () => {
+		await new Promise(resolve => setTimeout(resolve, 1000));
+		vscode.workspace.getConfiguration('webSearch').update('useDefaultSearchEnginesList', false);
+		vscode.commands.executeCommand('setContext', 'demoModeOff', true);
+		vscode.window.showInformationMessage(`Demo mode off. Remember to add your own search engines in settings.`);
+	}));
+
+	// Register a command that will take the user to the WebSearch extension's settings page:
+	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.openSettings', () => {
+		vscode.commands.executeCommand('workbench.action.openSettings', 'WebSearch.searchEngines');
+		vscode.window.showInformationMessage(`Add your own search engines by clicking the Add Item button.`);
+	}));
+
+	// Register a command that will toggle when the extension is run after entering custom search engines:
+	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.setContext', async () => {
+		await new Promise(resolve => setTimeout(resolve, 1000));
+		vscode.commands.executeCommand('setContext', 'customSearch', true);
+		vscode.window.showInformationMessage(`You should now see your custom search engines in the search bar.`);
+		performWebSearch();
+	}));
+
+	// Register a command that will toggle when the extension is demoing the Command Palette:
+	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.setPaletteContext', async () => {
+		await new Promise(resolve => setTimeout(resolve, 1000));
+		vscode.commands.executeCommand('setContext', 'searchCommandPalette', true);
+		vscode.window.showInformationMessage(`You can run the extension by typing "web search" in the command palette.`);
+		performWebSearch();
+	}));
 
 	// Provide the implementation of the command with registerCommand using the commandId parameter from the command field in package.json
 	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.webSearchMenu', () => {
