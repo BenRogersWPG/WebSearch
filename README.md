@@ -161,6 +161,11 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 
 N/A
 
+## Sponsor This Project ❤️
+
+I spend a lot of time improving and maintaining this extension. If you'd like to sponsor this project, please visit [my GitHub Sponsor page](https://github.com/sponsors/BenRogersWPG/) to learn more.
+*One of the perks of being a sponsor is that you will even show up on this very README page!*
+
 ## Release Notes 🆕
 
 See [CHANGELOG](https://github.com/BenRogersWPG/WebSearch/blob/master/CHANGELOG.md) file.

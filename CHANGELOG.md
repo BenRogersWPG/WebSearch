@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.2] (2022-06-13)
+#### Documentation
+* Added some info badges to the project page. Trying Visual Studio Marketplace download count first to see how it works.
+
+#### House Keeping
+* Updated a few more dependencies
+
 ## [4.1.1] (2022-06-13)
 #### House Keeping
 * Added sponsorship opportunity to the project using Visual Studio Code's latest milestone update (May 2022).
