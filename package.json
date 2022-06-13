@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "icon.png",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome)",
-	"version": "4.1.0",
+	"version": "4.1.1",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -15,6 +15,9 @@
 		"url": "https://github.com/BenRogersWPG/WebSearch"
 	},
 	"bugs": "https://github.com/BenRogersWPG/WebSearch/issues",
+	"sponsor": {
+		"url": "https://github.com/sponsors/BenRogersWPG"
+	},
 	"engines": {
 		"vscode": "^1.68.0"
 	},

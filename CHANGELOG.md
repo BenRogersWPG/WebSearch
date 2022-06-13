@@ -1,5 +1,9 @@
 # Changelog
 
+## [4.1.1] (2022-06-13)
+#### House Keeping
+* Added sponsorship opportunity to the project using Visual Studio Code's latest milestone update (May 2022).
+
 ## [4.1.0] (2022-06-11)
 #### Features
 * Wrote a walkthrough for the extension. When first installing the extension, you will be taken to the walkthrough and it will guide you through using it and adding your own custom search engines. This is a major update to the extension's usability and will be very helpful to new users.
