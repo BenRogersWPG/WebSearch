@@ -2,8 +2,8 @@
 	"name": "websearchengine",
 	"displayName": "Web Search",
 	"icon": "icon.png",
-	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome)",
-	"version": "4.1.2",
+	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
+	"version": "4.1.3",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -91,7 +91,7 @@
 					{
 						"id": "runcommand",
 						"title": "Perform a Demo Search 🔎",
-						"description": "This step will run a Web Search with **demo mode** on to show you how it looks with multiple sites\nSimply run the command, type a search query in the search bar above, and see the site list options.\n[Run Command](command:WebSearch.webSearchMenu)",
+						"description": "This step will run a Web Search with **demo mode** on to show you how it looks with multiple sites\nSimply run the command, type a search query in the search bar above, and see the site list options.\n[Try Out WebSearch!](command:WebSearch.webSearchMenu)",
 						"media": {
 							"image": "images/web-search-submenu-demo-large.png",
 							"altText": "Screenshot of the Web Search submenu with multiple sites"
@@ -103,7 +103,7 @@
 					{
 						"id": "opensettings",
 						"title": "Add Your Own Search Engines ➕",
-						"description": "This step will open the extension settings.\nAdd search engines using Item/Value pairs like the GIF to the right.\nSearch engines are added in the same way you would add one in Google Chrome using `%s` in the URL to replace the search query.\n[Start Adding Custom Search Engines](command:WebSearch.openSettings)",
+						"description": "This step will open the extension settings.\nAdd search engines using Item/Value pairs like the GIF to the right.\nSearch engines are added in the same way you would add one in your web browser, using ``%s`` in the URL to replace the search query.\n[Start Adding Custom Search Engines](command:WebSearch.openSettings)",
 						"media": {
 							"image": "images/web-search-add-any-site.gif",
 							"altText": "GIF of adding a new search engine to the Web Search extension"
@@ -113,21 +113,9 @@
 						]
 					},
 					{
-						"id": "changesetting",
-						"title": "Turn Off Demo Mode ⚙️",
-						"description": "This step will turn off demo mode so you can start entering your own custom search engines.\nYou can always turn demo mode back on in the extension settings.\n[Turn off Demo Mode](command:WebSearch.changeSetting)",
-						"media": {
-							"image": "images/web-search-add-any-site.gif",
-							"altText": "GIF of adding a new search engine to the Web Search extension"
-						},
-						"completionEvents": [
-							"onContext:demoModeOff"
-						]
-					},
-					{
 						"id": "runsecondcommand",
-						"title": "Perform a Search With Your Own Search Engines",
-						"description": "Now that you have added your own search engines and turned off **demo mode**, this step will show you how it looks with your custom-added search engines\nSimply run the command, type a search query, and see the site list options.\n[Run Command](command:WebSearch.setContext)",
+						"title": "Try Your Own Search Engines 🔎",
+						"description": "Now that you have added your own search engines, this step will show you how it looks with your custom-added search engines\nSimply run the command, type a search query, and see the site list options.\n[Try WebSearch With Your Custom Search Engines](command:WebSearch.setContext)",
 						"media": {
 							"image": "images/web-search-submenu-demo-large.png",
 							"altText": "Screenshot of the Web Search submenu with multiple sites"
@@ -135,6 +123,24 @@
 						"completionEvents": [
 							"onContext:customSearch"
 						]
+					},
+					{
+						"id": "changesetting",
+						"title": "Turn Off Demo Mode ⚙️",
+						"description": "This step will turn off demo mode so the extension will only display the search engines you recently added.\nYou can always turn demo mode back on in the extension settings (set ``webSearch.useDefaultSearchEnginesList`` to ``True``).\n[Turn off Demo Mode](command:WebSearch.changeSetting)",
+						"media": {
+							"image": "images/web-search-add-any-site.gif",
+							"altText": "GIF of adding a new search engine to the Web Search extension"
+						}
+					},
+					{
+						"id": "onlyonesearchengine",
+						"title": "FYI - Only One Search Engine 1️⃣",
+						"description": "If you only have one search engine in your custom settings (and **Demo Mode** is off), then the extension will automatically search from that site.\nIt will not pop up with the submenu of sites to select from (**Defaults to Google**).\nRemember to add more search engines if you want to search from multiple sites.\n[Add Additional Custom Search Engines](command:WebSearch.openSettings)",
+						"media": {
+							"image": "images/web-search-add-any-site.gif",
+							"altText": "GIF of adding a new search engine to the Web Search extension"
+						}
 					},
 					{
 						"id": "keybindings",
@@ -157,7 +163,7 @@
 					{
 						"id": "commandpalette",
 						"title": "Search From the Command Palette ☰",
-						"description": "You can also use the extension at any time via the Command Palette. Simply select ``Web Search`` from the Command Palette and type a search query.\n[Run Command](command:WebSearch.setPaletteContext)",
+						"description": "You can also use the extension at any time via the Command Palette. Simply select ``Web Search`` from the Command Palette and type a search query.\n[Run Web Search one last time](command:WebSearch.setPaletteContext)",
 						"media": {
 							"image": "images/web-search.png",
 							"altText": "Running the Web Search extension from the Command Palette"
@@ -165,15 +171,6 @@
 						"completionEvents": [
 							"onContext:searchCommandPalette"
 						]
-					},
-					{
-						"id": "onlyonesearchengine",
-						"title": "Last FYI - Only One Search Engine",
-						"description": "If you only have one search engine in your custom settings, then the extension will automatically search from that site.\nIt will not pop up with the submenu of sites to search for. Remember to add more search engines if you want to search from multiple sites.\n[Start Adding Custom Search Engines](command:WebSearch.openSettings)",
-						"media": {
-							"image": "images/web-search-add-any-site.gif",
-							"altText": "GIF of adding a new search engine to the Web Search extension"
-						}
 					}
 				]
 			}
@@ -208,7 +205,7 @@
 				},
 				"webSearch.searchEngines": {
 					"type": "object",
-					"markdownDescription": "Search engine to use for the Web Search extension. \n***Item*** is the search engine name\n***Value*** is the full url with the search query. Replace the query with ```%s```, e.g. ```https://www.google.com/search?q=%s```, the same way as you would when adding additional search engines to the Chrome browser settings.\nAdd additional search engines using the same format below using the Add Item button. ",
+					"markdownDescription": "Search engine to use for the Web Search extension. \n***Item*** is the search engine name\n***Value*** is the full url with the search query. Replace the query with ```%s```, e.g. ```https://www.google.com/search?q=%s```, the same way as you would when adding additional search engines to Chrome or Edge in the browser settings.\nAdd additional search engines using the same format below using the Add Item button. ",
 					"additionalProperties": {
 						"type": "string",
 						"description": "Item is the name of the search engine. Value is the search engine URL. The URL must contain the query parameter '%s' which will be replaced with the selected text."

@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.3] (2022-06-14)
+#### Documentation
+* Increased project logo size to look better on larger screens (519x519px)
+* Rearranged and improved the flow of the walkthrough
+* Updated some of the wording of the Readme
+* Updated keyboard shortcut image (in walkthrough) to have proper transparency effects
+
 ## [4.1.2] (2022-06-13)
 #### Documentation
 * Added some info badges to the project page. Trying Visual Studio Marketplace download count first to see how it works.
