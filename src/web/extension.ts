@@ -8,6 +8,22 @@ export function activate(context: vscode.ExtensionContext) {
 	// Notify the user that the extension has been activated successfully:
 	console.log('Thank you for installing Web Search, the extension is now active! To use, right click some highlighted text in your editor or type "web search" in the command palette.');
 
+	// Register a command that will toggle when the extension is demoing searching from selected text:
+	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.selectedTextDemo', async () => {
+		await new Promise(resolve => setTimeout(resolve, 1000));
+		vscode.commands.executeCommand('setContext', 'searchSelectedText', true);
+		vscode.window.showInformationMessage(`Select the search engine to use using the list above.`);
+		performWebSearch(true);
+	}));
+
+	// Register a command to run the extension for the first time - used in the extension's walkthrough:
+	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.firstRun', async () => {
+		await new Promise(resolve => setTimeout(resolve, 500));
+		vscode.commands.executeCommand('setContext', 'firstRun', true);
+		vscode.window.showInformationMessage(`Type a query in the search bar at the top of the screen & press Enter.`);
+		performWebSearch();
+	}));
+
 	// Register a command to update a setting (toggling demo mode), which is used in the extension's walkthrough:
 	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.changeSetting', async () => {
 		await new Promise(resolve => setTimeout(resolve, 1000));
@@ -34,7 +50,7 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.setPaletteContext', async () => {
 		await new Promise(resolve => setTimeout(resolve, 1000));
 		vscode.commands.executeCommand('setContext', 'searchCommandPalette', true);
-		vscode.window.showInformationMessage(`You can run the extension by typing "web search" in the command palette.`);
+		vscode.window.showInformationMessage(`Run the extension by typing "web search" in the command palette.`);
 		performWebSearch();
 	}));
 
@@ -43,12 +59,12 @@ export function activate(context: vscode.ExtensionContext) {
 		performWebSearch();
 	}));
 
-	async function performWebSearch() {
+	async function performWebSearch(demo: boolean = false) {
 		//Function to perform the web search
 
 		//Gather the user's currently selected text from the active text editor:
 		const editor = vscode.window.activeTextEditor;
-		let text = vscode.window.activeTextEditor?.document.getText(editor!.selection);
+		let text = demo ? "eslint" : vscode.window.activeTextEditor?.document.getText(editor!.selection); //If demo is true, use the string "eslint" as the search term
 		const manualSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('allowManualSearch')!;
 		const defaultSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('useDefaultSearchEnginesList')!;
 

@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "icon.png",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "4.1.4",
+	"version": "4.1.5",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -52,9 +52,11 @@
 	],
 	"activationEvents": [
 		"onCommand:WebSearch.webSearchMenu",
+		"onCommand:WebSearch.firstRun",
 		"onCommand:WebSearch.changeSetting",
 		"onCommand:WebSearch.openSettings",
 		"onCommand:WebSearch.setContext",
+		"onCommand:WebSearch.selectedTextDemo",
 		"onCommand:WebSearch.setPaletteContext"
 	],
 	"browser": "./dist/web/extension.js",
@@ -77,27 +79,30 @@
 			{
 				"id": "WebSearchWalkthrough",
 				"title": "Web Search Walkthrough",
-				"description": "Some tips for using the Web Search extension.",
+				"description": "Thanks for installing Web Search\nTo get started, here are some quick tips for using the extension, so you can boost your productivity.",
 				"steps": [
 					{
-						"id": "selectedtext",
-						"title": "FYI - Search Using Selected Text",
-						"description": "The extension will always prefer to search using the selected text. If you run it without first selecting text (like all of these walkthrough examples), it will prompt you for a search query using the search bar at the top of the screen.",
+						"id": "selectedtextdemo",
+						"title": "Perform a Demo Search using Selected Text 🔛",
+						"description": "The extension will always prefer to search using the selected text.\nThis step will simulate selecting some example text, ``eslint``, and then run the Web Search extension.\n[Try Searching Using Selected Text, 'eslint'](command:WebSearch.selectedTextDemo)",
 						"media": {
-							"image": "images/web-search-submenu.png",
-							"altText": "Running the Web Search extension when text is selected"
-						}
+							"image": "images/web-search-selected-text-demo.png",
+							"altText": "Screenshot displaying the Web Search extension with selected text of 'eslint'"
+						},
+						"completionEvents": [
+							"onContext:searchSelectedText"
+						]
 					},
 					{
 						"id": "runcommand",
-						"title": "Perform a Demo Search 🔎",
-						"description": "This step will run a Web Search with **demo mode** on to show you how it looks with multiple sites\nSimply run the command, type a search query in the search bar above, and see the site list options.\n[Try Out WebSearch!](command:WebSearch.webSearchMenu)",
+						"title": "Search using the Search Bar 🔎",
+						"description": "This step will run a Web Search with **demo mode** on to show you how it looks with multiple sites\nSimply run the command, type a search query in the search bar above, and see the site list options.\n[Try Out the Search Bar](command:WebSearch.firstRun)",
 						"media": {
 							"image": "images/web-search-submenu-demo-large.png",
 							"altText": "Screenshot of the Web Search submenu with multiple sites"
 						},
 						"completionEvents": [
-							"onCommand:WebSearch.webSearchMenu"
+							"onContext:firstRun"
 						]
 					},
 					{
@@ -156,7 +161,7 @@
 						"title": "Search From the Context Menu 🖱️",
 						"description": "You can right click on any selected text in your code and search from the context menu.",
 						"media": {
-							"image": "images/web-search-context-menu-large-cropped.png",
+							"image": "images/web-search-context-menu-zoom.png",
 							"altText": "Running the Web Search extension from the context menu"
 						}
 					},
@@ -194,8 +199,7 @@
 				"webSearch.useDefaultSearchEnginesList": {
 					"type": "boolean",
 					"default": "true",
-					"markdownDescription": "Enable the Web Search extension to use default values. Essentially, this is the extension's ***Demo Mode***. Disabling this will favor your own custom search engines list entered in `webSearch.searchEngines`.",
-					"scope": "resource"
+					"markdownDescription": "Enable the Web Search extension to use default values. Essentially, this is the extension's ***Demo Mode***. Disabling this will favor your own custom search engines list entered in `webSearch.searchEngines`."
 				},
 				"webSearch.allowManualSearch": {
 					"type": "boolean",
@@ -290,6 +294,7 @@
 		"assert": "^2.0.0",
 		"eslint": "^8.17.0",
 		"mocha": "^10.0.0",
+		"vsce": "^2.9.1",
 		"process": "^0.11.10",
 		"ts-loader": "^9.2.8",
 		"typescript": "^4.7.3",

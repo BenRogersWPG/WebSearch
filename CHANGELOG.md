@@ -1,5 +1,14 @@
 # Changelog
 
+## [4.1.5] (2022-06-18)
+#### Features
+* Added a better way to demo the selected text and context menu in the extension's new walkthrough
+* Improved the flow of the extension's new walkthrough and made it more clear for new users
+
+#### Code Cleanup
+* Fixed walkthrough step **Turn Off Demo Mode** to work properly
+* Added VSCE to dev package requirements, to ensure latest version of VSCE is used
+
 ## [4.1.4] (2022-06-17)
 #### Features
 * Added support for more versions of VS Code (testing older version support)
