@@ -1,5 +1,9 @@
 # Changelog
 
+## [4.1.4] (2022-06-17)
+#### Features
+* Added support for more versions of VS Code (testing older version support)
+
 ## [4.1.3] (2022-06-14)
 #### Documentation
 * Increased project logo size to look better on larger screens (519x519px)
