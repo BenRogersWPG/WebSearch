@@ -1,5 +1,9 @@
 # Changelog
 
+## [4.1.6] (2022-06-19)
+#### House Keeping
+* Updated a few more dependencies
+
 ## [4.1.5] (2022-06-18)
 #### Features
 * Added a better way to demo the selected text and context menu in the extension's new walkthrough
