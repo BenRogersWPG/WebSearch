@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "icon.png",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "4.1.6",
+	"version": "4.1.7",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -187,7 +187,7 @@
 				"webSearch.searchEngine": {
 					"type": "string",
 					"default": "https://www.google.com/search?q=%s",
-					"markdownDescription": "***Depreciated - use `webSearch.searchEngines` instead***\n\nSearch engine to use for the Web Search extension. Replace the query with ```%s```, e.g. ```https://www.google.com/search?q=%s```, the same way as you would when adding additional search engines to the Chrome browser settings.",
+					"markdownDescription": "***Depreciated - use `searchEngines` instead***\n\nSearch engine to use for the Web Search extension. Replace the query with ```%s```, e.g. ```https://www.google.com/search?q=%s```, the same way as you would when adding additional search engines to the Chrome browser settings.",
 					"scope": "resource"
 				},
 				"webSearch.enableContextMenu": {
@@ -199,7 +199,7 @@
 				"webSearch.useDefaultSearchEnginesList": {
 					"type": "boolean",
 					"default": "true",
-					"markdownDescription": "Enable the Web Search extension to use default values. Essentially, this is the extension's ***Demo Mode***. Disabling this will favor your own custom search engines list entered in `webSearch.searchEngines`."
+					"markdownDescription": "Enable the Web Search extension to use default values. Essentially, this is the extension's ***Demo Mode***. Disabling this will favor your own custom search engines list entered in `#webSearch.searchEngines#`."
 				},
 				"webSearch.allowManualSearch": {
 					"type": "boolean",
@@ -219,7 +219,7 @@
 				},
 				"webSearch.defaultSearchEngines": {
 					"type": "array",
-					"markdownDescription": "Default search engines to use for the Web Search extension. If you want to use your own, disable the new checkbox `webSearch.useDefaultSearchEnginesList`",
+					"markdownDescription": "Default search engines to use for the Web Search extension. If you want to use your own, disable the new checkbox `#webSearch.useDefaultSearchEnginesList#`",
 					"scope": "window",
 					"default": [
 						{

@@ -22,7 +22,7 @@ This extension allows you to search the web in your favorite search engines / we
 
 *This extension comes packaged with a walkthrough. Use it to learn how to use the extension.*
 
-To utilize the extension:
+You can utilize the extension in many different ways:
 
 ### Via Context Menu 🖱️
 
@@ -32,7 +32,7 @@ To utilize the extension:
 
 ### Via Search Bar 🔎︎
 
-1. Use the keyboard shortcut <kbd>Alt</kbd>+<kbd>`</kbd> or Command Palette entry of Web Search
+1. Use the keyboard shortcut <kbd>Alt</kbd>+<kbd>`</kbd> or Command Palette entry of *Web Search*
 2. Type in the search term you want to search for into the search bar
 3. Select the search engine you want to use (add more in the extension settings)
 
@@ -105,15 +105,19 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 ## Future Development Ideas and To-dos 📝
 
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
+- Phase out old webSearch.searchEngine setting (use deprecationMessage)
+- Use JSON pattern restriction for search engines setting to validate URLs
 - Examine performance analysis of code to find potential optimizations
 - Add setting to disable information messages when searching
+- Ensure keybinding works properly on all operating systems
 - Investigate adding autocomplete engine to manual entry
 - Streamline extension by reducing dependancies
-- Phase out old webSearch.searchEngine setting
 - Add more GIFs to demo the extension usage
 - Translate the extension to other languages
 - Perform additional code cleanup
 - Write more tests
+
+> ➕ Have a feature you'd like me to implement? [Submit a feature request on the Repo's Issues page](https://github.com/BenRogersWPG/WebSearch/issues)!
 
 ## Completed To-dos ✔️
 
@@ -164,6 +168,7 @@ N/A
 ## Sponsor This Project ❤️
 
 I spend a lot of time improving and maintaining this extension. If you'd like to sponsor this project, please visit [my GitHub Sponsor page](https://github.com/sponsors/BenRogersWPG/) to learn more.
+
 *One of the perks of being a sponsor is that you will even show up on this very README page!*
 
 ## Release Notes 🆕

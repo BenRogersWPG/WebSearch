@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.1.7] (2022-06-22)
+#### Features
+* Made it easier to add new search engines to your settings from the walkthrough
+* Added markdown links between a few settings that mention other settings, making it easier to navigate between them
+
+#### Documentation
+* Improved the formatting of some sections of the Readme
+* Added more ideas for future development to the Readme
+
+#### House Keeping
+* Updated a few more dependencies
+
 ## [4.1.6] (2022-06-19)
 #### House Keeping
 * Updated a few more dependencies
