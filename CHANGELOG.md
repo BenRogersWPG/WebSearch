@@ -1,5 +1,10 @@
 # Changelog
 
+## [4.1.8] (2022-06-25)
+#### Code Cleanup
+* Set up project to start testing with Microsoft Playwright - more coming soon hopefully
+* Moved some non project-specific settings out of the project's settings.json
+
 ## [4.1.7] (2022-06-22)
 #### Features
 * Made it easier to add new search engines to your settings from the walkthrough

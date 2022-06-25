@@ -1,304 +1,305 @@
 {
-	"name": "websearchengine",
-	"displayName": "Web Search",
-	"icon": "icon.png",
-	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "4.1.7",
-	"publisher": "BenRogersWPG",
-	"author": {
-		"name": "Ben Rogers"
-	},
-	"homepage": "https://github.com/BenRogersWPG/WebSearch/blob/master/README.md",
-	"license": "SEE LICENSE IN LICENSE.md",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/BenRogersWPG/WebSearch"
-	},
-	"bugs": "https://github.com/BenRogersWPG/WebSearch/issues",
-	"sponsor": {
-		"url": "https://github.com/sponsors/BenRogersWPG"
-	},
-	"badges": [
-		{
-			"url": "https://vsmarketplacebadge.apphb.com/downloads/BenRogersWPG.websearchengine.svg",
-			"href": "https://marketplace.visualstudio.com/items?itemName=BenRogersWPG.websearchengine",
-			"description": "Marketplace downloads"
-		}
-	],
-	"engines": {
-		"vscode": "^1.58.0"
-	},
-	"categories": [
-		"Keymaps",
-		"Snippets",
-		"Other"
-	],
-	"keywords": [
-		"Search",
-		"Google",
-		"Research",
-		"Browser",
-		"Web",
-		"Customizable",
-		"Settings",
-		"Research",
-		"Menu",
-		"Search Engine",
-		"SEO"
-	],
-	"extensionKind": [
-		"workspace",
-		"ui"
-	],
-	"activationEvents": [
-		"onCommand:WebSearch.webSearchMenu",
-		"onCommand:WebSearch.firstRun",
-		"onCommand:WebSearch.changeSetting",
-		"onCommand:WebSearch.openSettings",
-		"onCommand:WebSearch.setContext",
-		"onCommand:WebSearch.selectedTextDemo",
-		"onCommand:WebSearch.setPaletteContext"
-	],
-	"browser": "./dist/web/extension.js",
-	"main": "./dist/web/extension.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "WebSearch.webSearchMenu",
-				"title": "Web Search selected text",
-				"when": "editorTextFocus"
-			}
-		],
-		"keybindings": [
-			{
-				"key": "alt+`",
-				"command": "WebSearch.webSearchMenu"
-			}
-		],
-		"walkthroughs": [
-			{
-				"id": "WebSearchWalkthrough",
-				"title": "Web Search Walkthrough",
-				"description": "Thanks for installing Web Search\nTo get started, here are some quick tips for using the extension, so you can boost your productivity.",
-				"steps": [
-					{
-						"id": "selectedtextdemo",
-						"title": "Perform a Demo Search using Selected Text 🔛",
-						"description": "The extension will always prefer to search using the selected text.\nThis step will simulate selecting some example text, ``eslint``, and then run the Web Search extension.\n[Try Searching Using Selected Text, 'eslint'](command:WebSearch.selectedTextDemo)",
-						"media": {
-							"image": "images/web-search-selected-text-demo.png",
-							"altText": "Screenshot displaying the Web Search extension with selected text of 'eslint'"
-						},
-						"completionEvents": [
-							"onContext:searchSelectedText"
-						]
-					},
-					{
-						"id": "runcommand",
-						"title": "Search using the Search Bar 🔎",
-						"description": "This step will run a Web Search with **demo mode** on to show you how it looks with multiple sites\nSimply run the command, type a search query in the search bar above, and see the site list options.\n[Try Out the Search Bar](command:WebSearch.firstRun)",
-						"media": {
-							"image": "images/web-search-submenu-demo-large.png",
-							"altText": "Screenshot of the Web Search submenu with multiple sites"
-						},
-						"completionEvents": [
-							"onContext:firstRun"
-						]
-					},
-					{
-						"id": "opensettings",
-						"title": "Add Your Own Search Engines ➕",
-						"description": "This step will open the extension settings.\nAdd search engines using Item/Value pairs like the GIF to the right.\nSearch engines are added in the same way you would add one in your web browser, using ``%s`` in the URL to replace the search query.\n[Start Adding Custom Search Engines](command:WebSearch.openSettings)",
-						"media": {
-							"image": "images/web-search-add-any-site.gif",
-							"altText": "GIF of adding a new search engine to the Web Search extension"
-						},
-						"completionEvents": [
-							"onCommand:WebSearch.openSettings"
-						]
-					},
-					{
-						"id": "runsecondcommand",
-						"title": "Try Your Own Search Engines 🔎",
-						"description": "Now that you have added your own search engines, this step will show you how it looks with your custom-added search engines\nSimply run the command, type a search query, and see the site list options.\n[Try WebSearch With Your Custom Search Engines](command:WebSearch.setContext)",
-						"media": {
-							"image": "images/web-search-submenu-demo-large.png",
-							"altText": "Screenshot of the Web Search submenu with multiple sites"
-						},
-						"completionEvents": [
-							"onContext:customSearch"
-						]
-					},
-					{
-						"id": "changesetting",
-						"title": "Turn Off Demo Mode ⚙️",
-						"description": "This step will turn off demo mode so the extension will only display the search engines you recently added.\nYou can always turn demo mode back on in the extension settings (set ``webSearch.useDefaultSearchEnginesList`` to ``True``).\n[Turn off Demo Mode](command:WebSearch.changeSetting)",
-						"media": {
-							"image": "images/web-search-add-any-site.gif",
-							"altText": "GIF of adding a new search engine to the Web Search extension"
-						}
-					},
-					{
-						"id": "onlyonesearchengine",
-						"title": "FYI - Only One Search Engine 1️⃣",
-						"description": "If you only have one search engine in your custom settings (and **Demo Mode** is off), then the extension will automatically search from that site.\nIt will not pop up with the submenu of sites to select from (**Defaults to Google**).\nRemember to add more search engines if you want to search from multiple sites.\n[Add Additional Custom Search Engines](command:WebSearch.openSettings)",
-						"media": {
-							"image": "images/web-search-add-any-site.gif",
-							"altText": "GIF of adding a new search engine to the Web Search extension"
-						}
-					},
-					{
-						"id": "keybindings",
-						"title": "Search Using Keyboard Shortcut ⌨️",
-						"description": "You can use the Web Search extension in multiple ways.\nThis step will show you that you can run the extension using the keyboard shortcut of:\n``Alt + ``` (backtick).",
-						"media": {
-							"image": "images/web-search-keyboard-shortcut.png",
-							"altText": "Keyboard shortcut for the Web Search extension"
-						}
-					},
-					{
-						"id": "contextmenu",
-						"title": "Search From the Context Menu 🖱️",
-						"description": "You can right click on any selected text in your code and search from the context menu.",
-						"media": {
-							"image": "images/web-search-context-menu-zoom.png",
-							"altText": "Running the Web Search extension from the context menu"
-						}
-					},
-					{
-						"id": "commandpalette",
-						"title": "Search From the Command Palette ☰",
-						"description": "You can also use the extension at any time via the Command Palette. Simply select ``Web Search`` from the Command Palette and type a search query.\n[Run Web Search one last time](command:WebSearch.setPaletteContext)",
-						"media": {
-							"image": "images/web-search.png",
-							"altText": "Running the Web Search extension from the Command Palette"
-						},
-						"completionEvents": [
-							"onContext:searchCommandPalette"
-						]
-					}
-				]
-			}
-		],
-		"configuration": {
-			"type": "string",
-			"title": "Web Search - Search Engine",
-			"properties": {
-				"webSearch.searchEngine": {
-					"type": "string",
-					"default": "https://www.google.com/search?q=%s",
-					"markdownDescription": "***Depreciated - use `searchEngines` instead***\n\nSearch engine to use for the Web Search extension. Replace the query with ```%s```, e.g. ```https://www.google.com/search?q=%s```, the same way as you would when adding additional search engines to the Chrome browser settings.",
-					"scope": "resource"
-				},
-				"webSearch.enableContextMenu": {
-					"type": "boolean",
-					"default": "true",
-					"markdownDescription": "Enable the Web Search context menu item (right click menu) in the editor",
-					"scope": "resource"
-				},
-				"webSearch.useDefaultSearchEnginesList": {
-					"type": "boolean",
-					"default": "true",
-					"markdownDescription": "Enable the Web Search extension to use default values. Essentially, this is the extension's ***Demo Mode***. Disabling this will favor your own custom search engines list entered in `#webSearch.searchEngines#`."
-				},
-				"webSearch.allowManualSearch": {
-					"type": "boolean",
-					"default": "true",
-					"markdownDescription": "Enable the extension to run when no text is selected.\n\nIf this setting is enabled, a __search bar__ will prompt for a search query when the extension's search command is run by using keyboard shortcut ```Alt + ` ```.",
-					"scope": "resource"
-				},
-				"webSearch.searchEngines": {
-					"type": "object",
-					"markdownDescription": "Search engine to use for the Web Search extension. \n***Item*** is the search engine name\n***Value*** is the full url with the search query. Replace the query with ```%s```, e.g. ```https://www.google.com/search?q=%s```, the same way as you would when adding additional search engines to Chrome or Edge in the browser settings.\nAdd additional search engines using the same format below using the Add Item button. ",
-					"additionalProperties": {
-						"type": "string",
-						"description": "Item is the name of the search engine. Value is the search engine URL. The URL must contain the query parameter '%s' which will be replaced with the selected text."
-					},
-					"scope": "resource",
-					"default": {}
-				},
-				"webSearch.defaultSearchEngines": {
-					"type": "array",
-					"markdownDescription": "Default search engines to use for the Web Search extension. If you want to use your own, disable the new checkbox `#webSearch.useDefaultSearchEnginesList#`",
-					"scope": "window",
-					"default": [
-						{
-							"sitename": "Google",
-							"url": "https://www.google.com/search?q=%s"
-						},
-						{
-							"sitename": "Stack Overflow",
-							"url": "https://stackoverflow.com/search?q=%s"
-						},
-						{
-							"sitename": "Wikipedia",
-							"url": "https://en.wikipedia.org/wiki/Special:Search?search=%s"
-						},
-						{
-							"sitename": "GitHub",
-							"url": "https://github.com/search?q=%s"
-						},
-						{
-							"sitename": "Reddit",
-							"url": "https://www.reddit.com/search?q=%s"
-						},
-						{
-							"sitename": "PageSpeed Insights",
-							"url": "https://pagespeed.web.dev/report?url=%s"
-						},
-						{
-							"sitename": "DuckDuckGo",
-							"url": "https://duckduckgo.com/?q=%s"
-						}
-					]
-				}
-			}
-		},
-		"menus": {
-			"editor/context": [
-				{
-					"when": "editorHasSelection && config.webSearch.enableContextMenu",
-					"command": "WebSearch.webSearchMenu",
-					"group": "navigation"
-				}
-			]
-		},
-		"snippets": [
-			{
-				"language": "json",
-				"path": "snippets/json/json.json"
-			}
-		]
-	},
-	"scripts": {
-		"test": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. --extensionTestsPath=dist/web/test/suite/index.js",
-		"pretest": "npm run compile-web",
-		"vscode:prepublish": "npm run package-web",
-		"compile-web": "webpack",
-		"compile": "tsc -p ./",
-		"watch-web": "webpack --watch",
-		"watch": "tsc -watch -p ./",
-		"test-compile": "tsc -p ./ && npm run webpack",
-		"webpack": "webpack --mode none",
-		"package-web": "webpack --mode production --devtool hidden-source-map",
-		"lint": "eslint src --ext ts",
-		"run-in-browser": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. ."
-	},
-	"devDependencies": {
-		"@types/mocha": "^9.1.0",
-		"@types/vscode": "^1.58.0",
-		"@types/webpack-env": "^1.17.0",
-		"@typescript-eslint/eslint-plugin": "^5.29.0",
-		"@typescript-eslint/parser": "^5.29.0",
-		"@vscode/test-web": "^0.0.24",
-		"assert": "^2.0.0",
-		"eslint": "^8.18.0",
-		"mocha": "^10.0.0",
-		"vsce": "^2.9.2",
-		"process": "^0.11.10",
-		"ts-loader": "^9.3.1",
-		"typescript": "^4.7.4",
-		"webpack": "^5.73.0",
-		"webpack-cli": "^4.10.0"
-	}
+  "name": "websearchengine",
+  "displayName": "Web Search",
+  "icon": "icon.png",
+  "description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
+  "version": "4.1.7",
+  "publisher": "BenRogersWPG",
+  "author": {
+    "name": "Ben Rogers"
+  },
+  "homepage": "https://github.com/BenRogersWPG/WebSearch/blob/master/README.md",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BenRogersWPG/WebSearch"
+  },
+  "bugs": "https://github.com/BenRogersWPG/WebSearch/issues",
+  "sponsor": {
+    "url": "https://github.com/sponsors/BenRogersWPG"
+  },
+  "badges": [
+    {
+      "url": "https://vsmarketplacebadge.apphb.com/downloads/BenRogersWPG.websearchengine.svg",
+      "href": "https://marketplace.visualstudio.com/items?itemName=BenRogersWPG.websearchengine",
+      "description": "Marketplace downloads"
+    }
+  ],
+  "engines": {
+    "vscode": "^1.58.0"
+  },
+  "categories": [
+    "Keymaps",
+    "Snippets",
+    "Other"
+  ],
+  "keywords": [
+    "Search",
+    "Google",
+    "Research",
+    "Browser",
+    "Web",
+    "Customizable",
+    "Settings",
+    "Research",
+    "Menu",
+    "Search Engine",
+    "SEO"
+  ],
+  "extensionKind": [
+    "workspace",
+    "ui"
+  ],
+  "activationEvents": [
+    "onCommand:WebSearch.webSearchMenu",
+    "onCommand:WebSearch.firstRun",
+    "onCommand:WebSearch.changeSetting",
+    "onCommand:WebSearch.openSettings",
+    "onCommand:WebSearch.setContext",
+    "onCommand:WebSearch.selectedTextDemo",
+    "onCommand:WebSearch.setPaletteContext"
+  ],
+  "browser": "./dist/web/extension.js",
+  "main": "./dist/web/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "WebSearch.webSearchMenu",
+        "title": "Web Search selected text",
+        "when": "editorTextFocus"
+      }
+    ],
+    "keybindings": [
+      {
+        "key": "alt+`",
+        "command": "WebSearch.webSearchMenu"
+      }
+    ],
+    "walkthroughs": [
+      {
+        "id": "WebSearchWalkthrough",
+        "title": "Web Search Walkthrough",
+        "description": "Thanks for installing Web Search\nTo get started, here are some quick tips for using the extension, so you can boost your productivity.",
+        "steps": [
+          {
+            "id": "selectedtextdemo",
+            "title": "Perform a Demo Search using Selected Text 🔛",
+            "description": "The extension will always prefer to search using the selected text.\nThis step will simulate selecting some example text, ``eslint``, and then run the Web Search extension.\n[Try Searching Using Selected Text, 'eslint'](command:WebSearch.selectedTextDemo)",
+            "media": {
+              "image": "images/web-search-selected-text-demo.png",
+              "altText": "Screenshot displaying the Web Search extension with selected text of 'eslint'"
+            },
+            "completionEvents": [
+              "onContext:searchSelectedText"
+            ]
+          },
+          {
+            "id": "runcommand",
+            "title": "Search using the Search Bar 🔎",
+            "description": "This step will run a Web Search with **demo mode** on to show you how it looks with multiple sites\nSimply run the command, type a search query in the search bar above, and see the site list options.\n[Try Out the Search Bar](command:WebSearch.firstRun)",
+            "media": {
+              "image": "images/web-search-submenu-demo-large.png",
+              "altText": "Screenshot of the Web Search submenu with multiple sites"
+            },
+            "completionEvents": [
+              "onContext:firstRun"
+            ]
+          },
+          {
+            "id": "opensettings",
+            "title": "Add Your Own Search Engines ➕",
+            "description": "This step will open the extension settings.\nAdd search engines using Item/Value pairs like the GIF to the right.\nSearch engines are added in the same way you would add one in your web browser, using ``%s`` in the URL to replace the search query.\n[Start Adding Custom Search Engines](command:WebSearch.openSettings)",
+            "media": {
+              "image": "images/web-search-add-any-site.gif",
+              "altText": "GIF of adding a new search engine to the Web Search extension"
+            },
+            "completionEvents": [
+              "onCommand:WebSearch.openSettings"
+            ]
+          },
+          {
+            "id": "runsecondcommand",
+            "title": "Try Your Own Search Engines 🔎",
+            "description": "Now that you have added your own search engines, this step will show you how it looks with your custom-added search engines\nSimply run the command, type a search query, and see the site list options.\n[Try WebSearch With Your Custom Search Engines](command:WebSearch.setContext)",
+            "media": {
+              "image": "images/web-search-submenu-demo-large.png",
+              "altText": "Screenshot of the Web Search submenu with multiple sites"
+            },
+            "completionEvents": [
+              "onContext:customSearch"
+            ]
+          },
+          {
+            "id": "changesetting",
+            "title": "Turn Off Demo Mode ⚙️",
+            "description": "This step will turn off demo mode so the extension will only display the search engines you recently added.\nYou can always turn demo mode back on in the extension settings (set ``webSearch.useDefaultSearchEnginesList`` to ``True``).\n[Turn off Demo Mode](command:WebSearch.changeSetting)",
+            "media": {
+              "image": "images/web-search-add-any-site.gif",
+              "altText": "GIF of adding a new search engine to the Web Search extension"
+            }
+          },
+          {
+            "id": "onlyonesearchengine",
+            "title": "FYI - Only One Search Engine 1️⃣",
+            "description": "If you only have one search engine in your custom settings (and **Demo Mode** is off), then the extension will automatically search from that site.\nIt will not pop up with the submenu of sites to select from (**Defaults to Google**).\nRemember to add more search engines if you want to search from multiple sites.\n[Add Additional Custom Search Engines](command:WebSearch.openSettings)",
+            "media": {
+              "image": "images/web-search-add-any-site.gif",
+              "altText": "GIF of adding a new search engine to the Web Search extension"
+            }
+          },
+          {
+            "id": "keybindings",
+            "title": "Search Using Keyboard Shortcut ⌨️",
+            "description": "You can use the Web Search extension in multiple ways.\nThis step will show you that you can run the extension using the keyboard shortcut of:\n``Alt + ``` (backtick).",
+            "media": {
+              "image": "images/web-search-keyboard-shortcut.png",
+              "altText": "Keyboard shortcut for the Web Search extension"
+            }
+          },
+          {
+            "id": "contextmenu",
+            "title": "Search From the Context Menu 🖱️",
+            "description": "You can right click on any selected text in your code and search from the context menu.",
+            "media": {
+              "image": "images/web-search-context-menu-zoom.png",
+              "altText": "Running the Web Search extension from the context menu"
+            }
+          },
+          {
+            "id": "commandpalette",
+            "title": "Search From the Command Palette ☰",
+            "description": "You can also use the extension at any time via the Command Palette. Simply select ``Web Search`` from the Command Palette and type a search query.\n[Run Web Search one last time](command:WebSearch.setPaletteContext)",
+            "media": {
+              "image": "images/web-search.png",
+              "altText": "Running the Web Search extension from the Command Palette"
+            },
+            "completionEvents": [
+              "onContext:searchCommandPalette"
+            ]
+          }
+        ]
+      }
+    ],
+    "configuration": {
+      "type": "string",
+      "title": "Web Search - Search Engine",
+      "properties": {
+        "webSearch.searchEngine": {
+          "type": "string",
+          "default": "https://www.google.com/search?q=%s",
+          "markdownDescription": "***Depreciated - use `searchEngines` instead***\n\nSearch engine to use for the Web Search extension. Replace the query with ```%s```, e.g. ```https://www.google.com/search?q=%s```, the same way as you would when adding additional search engines to the Chrome browser settings.",
+          "scope": "resource"
+        },
+        "webSearch.enableContextMenu": {
+          "type": "boolean",
+          "default": "true",
+          "markdownDescription": "Enable the Web Search context menu item (right click menu) in the editor",
+          "scope": "resource"
+        },
+        "webSearch.useDefaultSearchEnginesList": {
+          "type": "boolean",
+          "default": "true",
+          "markdownDescription": "Enable the Web Search extension to use default values. Essentially, this is the extension's ***Demo Mode***. Disabling this will favor your own custom search engines list entered in `#webSearch.searchEngines#`."
+        },
+        "webSearch.allowManualSearch": {
+          "type": "boolean",
+          "default": "true",
+          "markdownDescription": "Enable the extension to run when no text is selected.\n\nIf this setting is enabled, a __search bar__ will prompt for a search query when the extension's search command is run by using keyboard shortcut ```Alt + ` ```.",
+          "scope": "resource"
+        },
+        "webSearch.searchEngines": {
+          "type": "object",
+          "markdownDescription": "Search engine to use for the Web Search extension. \n***Item*** is the search engine name\n***Value*** is the full url with the search query. Replace the query with ```%s```, e.g. ```https://www.google.com/search?q=%s```, the same way as you would when adding additional search engines to Chrome or Edge in the browser settings.\nAdd additional search engines using the same format below using the Add Item button. ",
+          "additionalProperties": {
+            "type": "string",
+            "description": "Item is the name of the search engine. Value is the search engine URL. The URL must contain the query parameter '%s' which will be replaced with the selected text."
+          },
+          "scope": "resource",
+          "default": {}
+        },
+        "webSearch.defaultSearchEngines": {
+          "type": "array",
+          "markdownDescription": "Default search engines to use for the Web Search extension. If you want to use your own, disable the new checkbox `#webSearch.useDefaultSearchEnginesList#`",
+          "scope": "window",
+          "default": [
+            {
+              "sitename": "Google",
+              "url": "https://www.google.com/search?q=%s"
+            },
+            {
+              "sitename": "Stack Overflow",
+              "url": "https://stackoverflow.com/search?q=%s"
+            },
+            {
+              "sitename": "Wikipedia",
+              "url": "https://en.wikipedia.org/wiki/Special:Search?search=%s"
+            },
+            {
+              "sitename": "GitHub",
+              "url": "https://github.com/search?q=%s"
+            },
+            {
+              "sitename": "Reddit",
+              "url": "https://www.reddit.com/search?q=%s"
+            },
+            {
+              "sitename": "PageSpeed Insights",
+              "url": "https://pagespeed.web.dev/report?url=%s"
+            },
+            {
+              "sitename": "DuckDuckGo",
+              "url": "https://duckduckgo.com/?q=%s"
+            }
+          ]
+        }
+      }
+    },
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorHasSelection && config.webSearch.enableContextMenu",
+          "command": "WebSearch.webSearchMenu",
+          "group": "navigation"
+        }
+      ]
+    },
+    "snippets": [
+      {
+        "language": "json",
+        "path": "snippets/json/json.json"
+      }
+    ]
+  },
+  "scripts": {
+    "test": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. --extensionTestsPath=dist/web/test/suite/index.js",
+    "pretest": "npm run compile-web",
+    "vscode:prepublish": "npm run package-web",
+    "compile-web": "webpack",
+    "compile": "tsc -p ./",
+    "watch-web": "webpack --watch",
+    "watch": "tsc -watch -p ./",
+    "test-compile": "tsc -p ./ && npm run webpack",
+    "webpack": "webpack --mode none",
+    "package-web": "webpack --mode production --devtool hidden-source-map",
+    "lint": "eslint src --ext ts",
+    "run-in-browser": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. ."
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.22.2",
+    "@types/mocha": "^9.1.0",
+    "@types/vscode": "^1.58.0",
+    "@types/webpack-env": "^1.17.0",
+    "@typescript-eslint/eslint-plugin": "^5.29.0",
+    "@typescript-eslint/parser": "^5.29.0",
+    "@vscode/test-web": "^0.0.24",
+    "assert": "^2.0.0",
+    "eslint": "^8.18.0",
+    "mocha": "^10.0.0",
+    "process": "^0.11.10",
+    "ts-loader": "^9.3.1",
+    "typescript": "^4.7.4",
+    "vsce": "^2.9.2",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  }
 }
