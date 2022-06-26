@@ -1,5 +1,10 @@
 # Changelog
 
+## [4.1.9] (2022-06-26)
+#### Documentation
+* Updated main graphic of WebSearch in project with better arrow appearance and transparency
+* Added more ideas for future development to the Readme
+
 ## [4.1.8] (2022-06-26)
 #### Code Cleanup
 * Moved some non project-specific settings out of the project's settings.json

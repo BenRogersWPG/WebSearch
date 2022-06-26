@@ -104,6 +104,7 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 
 ## Future Development Ideas and To-dos 📝
 
+- Display information message when searching directly (only 1 search engine), inviting user to add more
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
 - Phase out old webSearch.searchEngine setting (use deprecationMessage)
 - Use JSON pattern restriction for search engines setting to validate URLs
@@ -111,6 +112,7 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 - Add setting to disable information messages when searching
 - Ensure keybinding works properly on all operating systems
 - Investigate adding autocomplete engine to manual entry
+- Remove "selected text" from command palette entry title
 - Streamline extension by reducing dependancies
 - Add more GIFs to demo the extension usage
 - Translate the extension to other languages
