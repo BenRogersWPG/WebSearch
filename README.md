@@ -56,7 +56,7 @@ You can utilize the extension in many different ways:
 
 Search engines to use for the Web Search extension. Replace the query with `%s`, e.g. `https://www.google.com/search?q=%s`, the same way as you would when adding additional search engines to Chrome's settings.
 
-Add multiple search engines as key value pairs, e.g. `{ "Google": "https://www.google.com/search?q=%s", "Bing": "https://www.bing.com/search?q=%s" }`. Use the extension settings GUI to manage the search engines easily.
+Use the extension settings to manage the search engines easily by pressing the **Add Item** button (shown below).
 
 ![Search engine settings, modeled after Google Chrome's search engine settings, allowing you to customize your own experience by adding/removing/editing entries](images/web-search-engine-setting.png)
 
@@ -104,7 +104,6 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 
 ## Future Development Ideas and To-dos 📝
 
-- Display information message when searching directly (only 1 search engine), inviting user to add more
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
 - Phase out old webSearch.searchEngine setting (use deprecationMessage)
 - Use JSON pattern restriction for search engines setting to validate URLs
@@ -123,6 +122,7 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 
 ## Completed To-dos ✔️
 
+- ~~Display information message when searching directly (only 1 search engine), inviting user to add more~~
 - ~~Convert search engine settings to an array, allowing multiple search engines to be used~~
 - ~~Enable extension to run on all UI elements (currently only works on Text Editor UI)~~
 - ~~Use only one search engine (no submenu) if only one search engine is in settings~~

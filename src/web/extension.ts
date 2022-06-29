@@ -146,7 +146,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 			//Create a quick pick list variable to handle the old search engine (defined as it is used a couple times, saving many lines of code):
 			const searchEngineOldArray: vscode.QuickPickItem = {
-				label: "Old Search Engine",
+				label: "Search Engine",
 				description: searchEngineOld,
 				detail: "Search Engine from old settings",
 			};
@@ -164,15 +164,18 @@ export function activate(context: vscode.ExtensionContext) {
 		//Initialize selectedSearchEngine variable as a QuickPickItem:
 		let selectedSearchEngine: vscode.QuickPickItem;
 
+		//Initialize a boolean variable that, when set to true, indicates that there is only 1 search engine defined and the extension will open the URL directly:
+		let directSearch = false;
+
 		//If more than one item is in the list, display the list in a quick pick list, otherwise, just run the search in the single search engine:
 		if (items.length > 1) {
 			//Use await to wait for the user to select an item from the list:
 			selectedSearchEngine = await vscode.window.showQuickPick(items) as vscode.QuickPickItem;
 		}
 		else {
-			//If only one item exits in the list, use that item as the search engine and no need to prompt the user:
+			//If only one item exits in the list, use that item as the search engine (search it directly) - no need to prompt the user:
 			selectedSearchEngine = items[0];
-
+			directSearch = true;
 		}
 
 		//Create the final search url:
@@ -196,7 +199,7 @@ export function activate(context: vscode.ExtensionContext) {
 			searchUrl = searchUrl.replace('%s', text ? text : "")!;
 
 			//Display to the user what action is being taken and on what search engine:
-			vscode.window.showInformationMessage(`Searching ${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"} for: ${text}`);
+			directSearch ? vscode.window.showInformationMessage(`Only one search engine exists, so searching ${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"} directly for: ${text}. \nFeel free to add more search engines in the settings.`) : vscode.window.showInformationMessage(`Searching ${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"} for: ${text}`);
 			//Perform the web search in the default browser:
 			vscode.env.openExternal(vscode.Uri.parse(searchUrl!));
 		}

@@ -1,5 +1,14 @@
 # Changelog
 
+## [4.1.10] (2022-06-28)
+#### Features
+* Extension will display informative message if only one custom search engine has been entered in the settings. This way users will see why searches are performed immediately, and invites them to add more search engines in the settings if desired.
+* Extension is now backwards compatible all the way back to VS Code v1.55.2 (*will continue testing for more opportunities*)
+* Renamed default out-of-the-box search engine (Google) in the code, as I initially had plans to remove it, but it now works great.
+
+#### Documentation
+* Removed some redundant lines from the Readme
+
 ## [4.1.9] (2022-06-26)
 #### Documentation
 * Updated main graphic of WebSearch in project with better arrow appearance and transparency
