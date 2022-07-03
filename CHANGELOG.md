@@ -1,5 +1,9 @@
 # Changelog
 
+## [4.1.12] (2022-07-03)
+#### Features
+* Wrote some regular expressions to enforce proper URL pattern rules when entering in search engines. This will greatly help guide users through entering new search engines and prevent issues.
+
 ## [4.1.11] (2022-07-03)
 #### Features
 * Improved search engine validation system. The extension already error-checks all user-entered search engines. However, this release features some new code that ensures that any search engines that fail validation will alert the user via a notification will pop up with a button that will go right to the settings to resolve the issue. This makes sure all new search engines have the proper ``%s`` wildcard needed to perform the search.
