@@ -1,5 +1,18 @@
 # Changelog
 
+## [4.1.11] (2022-07-03)
+#### Features
+* Improved search engine validation system. The extension already error-checks all user-entered search engines. However, this release features some new code that ensures that any search engines that fail validation will alert the user via a notification will pop up with a button that will go right to the settings to resolve the issue. This makes sure all new search engines have the proper ``%s`` wildcard needed to perform the search.
+
+#### Documentation
+* Added social preview image to repository
+
+#### House Keeping
+* Updated a few more dependencies
+
+#### Bug Fixes
+* Updated code to log and append any potential errors to the same output channel. Before, it would log to new output channels, and wasn't as clean as I would like it.
+
 ## [4.1.10] (2022-06-28)
 #### Features
 * Extension will display informative message if only one custom search engine has been entered in the settings. This way users will see why searches are performed immediately, and invites them to add more search engines in the settings if desired.

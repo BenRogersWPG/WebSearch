@@ -113,6 +113,7 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 - Investigate adding autocomplete engine to manual entry
 - Remove "selected text" from command palette entry title
 - Streamline extension by reducing dependancies
+- Prevent need for CAPTCHA on Stack Overflow
 - Add more GIFs to demo the extension usage
 - Translate the extension to other languages
 - Perform additional code cleanup

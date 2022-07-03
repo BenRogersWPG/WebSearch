@@ -8,6 +8,9 @@ export function activate(context: vscode.ExtensionContext) {
 	// Notify the user that the extension has been activated successfully:
 	console.log('Thank you for installing Web Search, the extension is now active! To use, right click some highlighted text in your editor or type "web search" in the command palette.');
 
+	//Define a channel for the output of any potential errors:
+	const webSearchConsole = vscode.window.createOutputChannel("Web Search", "markdown");
+
 	// Register a command that will toggle when the extension is demoing searching from selected text:
 	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.selectedTextDemo', async () => {
 		await new Promise(resolve => setTimeout(resolve, 1000));
@@ -206,11 +209,16 @@ export function activate(context: vscode.ExtensionContext) {
 		else {
 			//Display to the user that their search engine setting is not valid:
 			const errorMessage: string = `Search engine, *${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"}* setting is not valid. Please check your custom settings.`;
-			vscode.window.showErrorMessage(errorMessage);
+			//Show button to user and offer to bring them to the settings to edit their invalid search engine:
+			const messageResponse = await vscode.window.showErrorMessage(errorMessage, 'Edit Search Engine');
+			if (messageResponse === "Edit Search Engine") {
+				vscode.commands.executeCommand('workbench.action.openSettings', 'WebSearch.searchEngines');
+				vscode.window.showInformationMessage(`Make changes to your invalid search engine, ${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"}. Make sure to add '%s' in the Value field`);
+			}
+
 			console.log(errorMessage);
 
 			//Log the error to the extension's output channel:
-			let webSearchConsole = vscode.window.createOutputChannel("Web Search", "markdown");
 			webSearchConsole.appendLine(errorMessage + "\nBe sure to include `%s` in the search engine URL.");
 		}
 
