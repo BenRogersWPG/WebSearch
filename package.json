@@ -290,7 +290,7 @@
 		"@types/mocha": "^9.1.0",
 		"@types/vscode": "^1.55.2",
 		"@types/webpack-env": "^1.17.0",
-		"@typescript-eslint/eslint-plugin": "^5.30.4",
+		"@typescript-eslint/eslint-plugin": "^5.30.5",
 		"@typescript-eslint/parser": "^5.30.5",
 		"@vscode/test-web": "^0.0.26",
 		"assert": "^2.0.0",
