@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.1.13] (2022-07-10)
+#### Features
+* Updated keybindings for Linux. The keybinding <kbd>Alt</kbd>+<kbd>\`</kbd> was reserved for OS-specific functions on Linux. This version of the extension will now work on Linux as well with a special keybinding of <kbd>Alt</kbd>+<kbd>s</kbd> only for Linux users.
+Mac, Windows, and web users will still have the old keybinding <kbd>Alt</kbd>+<kbd>\`</kbd>.
+
+#### House Keeping
+* Updated a few more dependencies
+
 ## [4.1.12] (2022-07-03)
 #### Features
 * Wrote some regular expressions to enforce proper URL pattern rules when entering in search engines. This will greatly help guide users through entering new search engines and prevent issues.

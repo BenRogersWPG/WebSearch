@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "icon.png",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "4.1.12",
+	"version": "4.1.13",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -72,7 +72,13 @@
 		"keybindings": [
 			{
 				"key": "alt+`",
-				"command": "WebSearch.webSearchMenu"
+				"command": "WebSearch.webSearchMenu",
+				"when": "isWindows || isMac || isWeb"
+			},
+			{
+				"key": "alt+s",
+				"command": "WebSearch.webSearchMenu",
+				"when": "isLinux"
 			}
 		],
 		"walkthroughs": [
@@ -154,7 +160,18 @@
 						"media": {
 							"image": "images/web-search-keyboard-shortcut.png",
 							"altText": "Keyboard shortcut for the Web Search extension"
-						}
+						},
+						"when": "isWindows || isMac || isWeb"
+					},
+					{
+						"id": "keybindingsLinux",
+						"title": "Search Using Keyboard Shortcut ⌨️",
+						"description": "You can use the Web Search extension in multiple ways.\nThis step will show you that you can run the extension using the keyboard shortcut of:\n``Alt + `s`.",
+						"media": {
+							"image": "images/web-search-keyboard-shortcut-linux.png",
+							"altText": "Keyboard shortcut for the Web Search extension"
+						},
+						"when": "isLinux"
 					},
 					{
 						"id": "contextmenu",
@@ -288,7 +305,7 @@
 	},
 	"devDependencies": {
 		"@types/mocha": "^9.1.0",
-		"@types/vscode": "^1.69.0",
+		"@types/vscode": "^1.55.2",
 		"@types/webpack-env": "^1.17.0",
 		"@typescript-eslint/eslint-plugin": "^5.30.5",
 		"@typescript-eslint/parser": "^5.30.5",

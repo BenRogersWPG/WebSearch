@@ -39,7 +39,7 @@ You can utilize the extension in many different ways:
 ### Via Keyboard Shortcut ⌨️
 
 1. Select the text in your code to search for
-2. Use the keyboard shortcut <kbd>Alt</kbd>+<kbd>`</kbd>
+2. Use the keyboard shortcut <kbd>Alt</kbd>+<kbd>\`</kbd> (<kbd>Alt</kbd>+<kbd>s</kbd> on Linux)
 3. Select the search engine you want to use (add more in the extension settings)
 
 ### Via Command Pallete ☰
@@ -106,10 +106,8 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
 - Phase out old webSearch.searchEngine setting (use deprecationMessage)
-- Use JSON pattern restriction for search engines setting to validate URLs
 - Examine performance analysis of code to find potential optimizations
 - Add setting to disable information messages when searching
-- Ensure keybinding works properly on all operating systems
 - Investigate adding autocomplete engine to manual entry
 - Remove "selected text" from command palette entry title
 - Streamline extension by reducing dependancies
@@ -130,12 +128,14 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 - ~~Add a submenu to the function and allow multiple websites to be searched from~~
 - ~~Show message to user if they added a search engine that doesn't have a query~~
 - ~~If no text selected, running the extension will prompt for text to search for~~
+- ~~Use JSON pattern restriction for search engines setting to validate URLs~~
 - ~~Display search query in QuickPick URL (maybe, might be too long)~~
 - ~~Add screenshot of new extension settings search engine manager~~
 - ~~Add setting toggle to enable/disable search if submenu dismissed~~
 - ~~Rework extension settings to better allow removing/editing entries~~
 - ~~Remove duplicated release notes and consolidate in Changelog~~
 - ~~Allow a preferred default search engine to be set in settings~~
+- ~~Ensure keybinding works properly on all operating systems~~
 - ~~Edit QuickPick detail, or allow user to write their own detail~~
 - ~~Consolidate commands into one command palette entry~~
 - ~~Update extension icon and/or add more device sizes~~
