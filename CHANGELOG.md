@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.1.14] (2022-07-12)
+#### Features
+* Refined the way errors are displayed in the extension. Now, the errors are displayed in the console before an error message is displayed. Before, the error message was not displayed until the error message was clicked or dismissed. This change is to make it easier to see the error message and is much better for usability.
+
+#### Documentation
+* Improved the wording of the extension's documentation surrounding the addition of additional search engines. Remember to add your own using `webSearch.searchEngines` in the extension's settings.
+
+#### House Keeping
+* Updated documentation around Stack Overflow web search. Sometimes it requires a CAPTCHA. Either log in or accept cookies to prevent this - *nothing to do with the extension*.
+* Tested extension on VS Code's new Do Not Disturb feature. Works great! *Use this if you wish to supress warnings and information messages as I get around to coding a proposed setting to supress messages*.
+* Updated a few more dependencies
+
 ## [4.1.13] (2022-07-10)
 #### Features
 * Updated keybindings for Linux. The keybinding <kbd>Alt</kbd>+<kbd>\`</kbd> was reserved for OS-specific functions on Linux. This version of the extension will now work on Linux as well with a special keybinding of <kbd>Alt</kbd>+<kbd>s</kbd> only for Linux users.

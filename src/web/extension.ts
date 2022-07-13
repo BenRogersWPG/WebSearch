@@ -68,6 +68,7 @@ export function activate(context: vscode.ExtensionContext) {
 		//Gather the user's currently selected text from the active text editor:
 		const editor = vscode.window.activeTextEditor;
 		let text = demo ? "eslint" : vscode.window.activeTextEditor?.document.getText(editor!.selection); //If demo is true, use the string "eslint" as the search term
+
 		const manualSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('allowManualSearch')!;
 		const defaultSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('useDefaultSearchEnginesList')!;
 
@@ -209,6 +210,11 @@ export function activate(context: vscode.ExtensionContext) {
 		else {
 			//Display to the user that their search engine setting is not valid:
 			const errorMessage: string = `Search engine, *${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"}* setting is not valid. Please check your custom settings.`;
+
+			//Log the error to the extension's output channel and the console:
+			webSearchConsole.appendLine(errorMessage + "\nBe sure to include `%s` in the search engine URL.");
+			console.log(errorMessage);
+
 			//Show button to user and offer to bring them to the settings to edit their invalid search engine:
 			const messageResponse = await vscode.window.showErrorMessage(errorMessage, 'Edit Search Engine');
 			if (messageResponse === "Edit Search Engine") {
@@ -216,10 +222,6 @@ export function activate(context: vscode.ExtensionContext) {
 				vscode.window.showInformationMessage(`Make changes to your invalid search engine, ${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"}. Make sure to add '%s' in the Value field`);
 			}
 
-			console.log(errorMessage);
-
-			//Log the error to the extension's output channel:
-			webSearchConsole.appendLine(errorMessage + "\nBe sure to include `%s` in the search engine URL.");
 		}
 
 	}
