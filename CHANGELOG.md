@@ -1,5 +1,9 @@
 # Changelog
 
+## [4.2.1] (2022-07-14)
+#### Code Cleanup
+* Depreciated the old `searchEngine` setting. Please use `searchEngines` to add all search engines you want to use.
+
 ## [4.1.14] (2022-07-12)
 #### Features
 * Refined the way errors are displayed in the extension. Now, the errors are displayed in the console before an error message is displayed. Before, the error message was not displayed until the error message was clicked or dismissed. This change is to make it easier to see the error message and is much better for usability.

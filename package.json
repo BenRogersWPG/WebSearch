@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "icon.png",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "4.1.14",
+	"version": "4.2.1",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -207,7 +207,9 @@
 					"markdownDescription": "***Depreciated - use `searchEngines` instead***\n\nSearch engine to use for the Web Search extension. Replace the query with ```%s```, e.g. ```https://www.google.com/search?q=%s```, the same way as you would when adding additional search engines to the Chrome browser settings.",
 					"scope": "resource",
 					"pattern": "^(http|https)+:\/\/([a-zA-Z]*([a-zA-Z]*)*).*%s.*$",
-					"patternErrorMessage": "Value must be valid URL, starting with http/https and containing '%s' query wildcard"
+					"patternErrorMessage": "Value must be valid URL, starting with http/https and containing '%s' query wildcard",
+					"deprecationMessage": "Deprecated: Please use webSearch.searchEngines instead.",
+					"markdownDeprecationMessage": "***Depreciated**: Please use `#webSearch.searchEngines#` instead"
 				},
 				"webSearch.enableContextMenu": {
 					"type": "boolean",

@@ -105,7 +105,6 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 ## Future Development Ideas and To-dos 📝
 
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
-- Phase out old webSearch.searchEngine setting (use deprecationMessage)
 - Examine performance analysis of code to find potential optimizations
 - Add setting to disable information messages when searching
 - Investigate adding autocomplete engine to manual entry
@@ -126,6 +125,7 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 - ~~Use only one search engine (no submenu) if only one search engine is in settings~~
 - ~~Add a submenu to the function and allow multiple websites to be searched from~~
 - ~~Show message to user if they added a search engine that doesn't have a query~~
+- ~~Phase out old webSearch.searchEngine setting (use deprecationMessage)~~
 - ~~If no text selected, running the extension will prompt for text to search for~~
 - ~~Use JSON pattern restriction for search engines setting to validate URLs~~
 - ~~Display search query in QuickPick URL (maybe, might be too long)~~
