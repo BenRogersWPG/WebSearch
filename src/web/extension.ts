@@ -79,6 +79,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 		//If manual search setting is enabled, prompt the user for a search term:
 		else if ((text === undefined || text === "") && (manualSearch)) {
+			//text = await vscode.window.showQuickPick(["Code", "Autocomplete", "Here", "Sometime", "Soon"]);
 			text = await vscode.window.showInputBox({
 				placeHolder: 'Please enter the text you would like to search for.',
 				prompt: 'Please enter the text you would like to search for.',

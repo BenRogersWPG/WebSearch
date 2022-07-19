@@ -108,9 +108,9 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 - Examine performance analysis of code to find potential optimizations
 - Add setting to disable information messages when searching
 - Investigate adding autocomplete engine to manual entry
-- Remove "selected text" from command palette entry title
 - Streamline extension by reducing dependancies
 - Add more GIFs to demo the extension usage
+- Enforce that search engines begin with http*
 - Translate the extension to other languages
 - Perform additional code cleanup
 - Write more tests
@@ -158,6 +158,8 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 
 - Add dynamic sub context menu to right click menu containing all search engines
 - Poll site favicons and display them on the search engine submenu
+- Remove "selected text" from command palette entry title
+
 
 ## Requirements 📦
 

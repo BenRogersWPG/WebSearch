@@ -1,8 +1,14 @@
 # Changelog
 
+## [4.2.2] (2022-07-18)
+#### Code Cleanup
+* Started working on the autocomplete code to show search term suggestions.
+* Fixed a bug where the extension would show two entries for the keyboard shortcut in the Getting Started walkthrough when viewed on Linux web.
+
 ## [4.2.1] (2022-07-14)
 #### Code Cleanup
 * Depreciated the old `searchEngine` setting. Please use `searchEngines` to add all search engines you want to use.
+* Skipped over 4.2.0
 
 ## [4.1.14] (2022-07-12)
 #### Features
