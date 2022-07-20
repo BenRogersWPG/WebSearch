@@ -197,8 +197,8 @@ export function activate(context: vscode.ExtensionContext) {
 
 		}
 
-		//Determine if the searchURL contains '%s', and if it does not, then display a message to the user that thir setting entry is not valid:
-		if (searchUrl.includes("%s")) {
+		//Determine if the searchURL begins with http/https as well as contains '%s', and if it does not, then display a message to the user that thir setting entry is not valid:
+		if ((searchUrl.startsWith("http://") || searchUrl.startsWith("https://")) && (searchUrl.includes("%s"))) {
 
 			//Perform a string replacement to replace the %s placeholder of the search engine with the $text search query:
 			searchUrl = searchUrl.replace('%s', text ? text : "")!;
@@ -213,7 +213,7 @@ export function activate(context: vscode.ExtensionContext) {
 			const errorMessage: string = `Search engine, *${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"}* setting is not valid. Please check your custom settings.`;
 
 			//Log the error to the extension's output channel and the console:
-			webSearchConsole.appendLine(errorMessage + "\nBe sure to include `%s` in the search engine URL.");
+			webSearchConsole.appendLine(errorMessage + "\nBe sure to include `%s` in the search engine URL and that it begins with `http://` or `https://`.");
 			console.log(errorMessage);
 
 			//Show button to user and offer to bring them to the settings to edit their invalid search engine:

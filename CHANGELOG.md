@@ -1,18 +1,36 @@
 # Changelog
 
+## [4.2.3] (2022-07-19)
+#### Features
+* Enforced all search engines to be valid URLs (now must begin with **http** or **https**). This will make it easier for users to add new search engines that can be used right away
+
+#### Bug Fixes
+* Worked on fix for Linux web users (Linux users using VS Code for Web) to use the specific Linux keyboard shortcut, as it works for desktop Linux, but the web version was still showing the normal extension keybinding instead of the special one reserved just for Linux, introduced in release `4.1.13`. *I am still testing this, but I believe this version will fix it.*
+
+#### Documentation
+* Added in the extension's settings that website search engines must begin with http or https
+* Elaborated on some documentation to make it easier for new users
+* Improved formatting of some areas of the documentation
+
+#### House Keeping
+* Updated a few more dependencies
+
 ## [4.2.2] (2022-07-18)
 #### Code Cleanup
-* Started working on the autocomplete code to show search term suggestions.
-* Fixed a bug where the extension would show two entries for the keyboard shortcut in the Getting Started walkthrough when viewed on Linux web.
+* Started working on the autocomplete code to show search term suggestions
+* Fixed a bug where the extension would show two entries for the keyboard shortcut in the Getting Started walkthrough when viewed on Linux web
+
+#### House Keeping
+* Updated a few more dependencies
 
 ## [4.2.1] (2022-07-14)
 #### Code Cleanup
-* Depreciated the old `searchEngine` setting. Please use `searchEngines` to add all search engines you want to use.
+* Depreciated the old `searchEngine` setting. Please use `searchEngines` to add all search engines you want to use
 * Skipped over 4.2.0
 
 ## [4.1.14] (2022-07-12)
 #### Features
-* Refined the way errors are displayed in the extension. Now, the errors are displayed in the console before an error message is displayed. Before, the error message was not displayed until the error message was clicked or dismissed. This change is to make it easier to see the error message and is much better for usability.
+* Refined the way errors are displayed in the extension. Now, the errors are displayed in the console before an error message is displayed. Before, the error message was not displayed until the error message was clicked or dismissed. This change is to make it easier to see the error message and is much better for usability
 
 #### Documentation
 * Improved the wording of the extension's documentation surrounding the addition of additional search engines. Remember to add your own using `webSearch.searchEngines` in the extension's settings.

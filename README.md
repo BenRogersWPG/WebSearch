@@ -39,7 +39,7 @@ You can utilize the extension in many different ways:
 ### Via Keyboard Shortcut ⌨️
 
 1. Select the text in your code to search for
-2. Use the keyboard shortcut <kbd>Alt</kbd>+<kbd>\`</kbd> (<kbd>Alt</kbd>+<kbd>s</kbd> on Linux)
+2. Use the keyboard shortcut <kbd>Alt</kbd>+<kbd>\`</kbd> (<kbd>Alt</kbd>+<kbd>s</kbd> *on Linux*)
 3. Select the search engine you want to use (add more in the extension settings)
 
 ### Via Command Pallete ☰
@@ -90,7 +90,7 @@ Enable the extension to run when no text is selected, asking the user to enter a
 
 ### `webSearch.defaultSearchEngines`
 
-Default search engines to use for the Web Search extension. If you want to use your own, disable the new checkbox `webSearch.useDefaultSearchEnginesList`
+Default search engines to use for the Web Search extension - essentially Demo Mode (*the extension's walkthrough will help you through this*). If you want to use your own, disable the new checkbox `webSearch.useDefaultSearchEnginesList`
 
 ### `webSearch.useDefaultSearchEnginesList`
 
@@ -110,7 +110,6 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 - Investigate adding autocomplete engine to manual entry
 - Streamline extension by reducing dependancies
 - Add more GIFs to demo the extension usage
-- Enforce that search engines begin with http*
 - Translate the extension to other languages
 - Perform additional code cleanup
 - Write more tests
@@ -145,6 +144,7 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 - ~~Add GIF animation to show how extension works~~
 - ~~Enable extension to run on VS Code for the web~~
 - ~~Add monitors for code dependency changes~~
+- ~~Enforce that search engines begin with http*~~
 - ~~If no search engine is selected, do nothing~~
 - ~~Add keyboard shortcuts to perform search~~
 - ~~Add more screenshots of extension usage~~
@@ -156,9 +156,9 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 
 ## Waiting on API Updates ⌛
 
+- Remove "selected text" from command palette entry title without adding a new command
 - Add dynamic sub context menu to right click menu containing all search engines
 - Poll site favicons and display them on the search engine submenu
-- Remove "selected text" from command palette entry title
 
 
 ## Requirements 📦
