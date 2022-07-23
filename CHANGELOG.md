@@ -1,11 +1,22 @@
 # Changelog
 
+## [4.2.4] (2022-07-23)
+#### Documentation
+* Updated Linux keybinding graphic to have proper transparency - now it will look great on any background
+* Re-ordered some items in the Readme
+
+#### Bug Fixes
+* **[In Progress]** Worked on fix for Linux web users (Linux users using VS Code for Web) to use the specific Linux keyboard shortcut, as it works for desktop Linux, but the web version was still showing the normal extension keybinding instead of the special one reserved just for Linux, introduced in release `4.1.13`. *I am still testing this, but I believe this version will fix it.*
+
+#### House Keeping
+* Updated a few more dependencies
+
 ## [4.2.3] (2022-07-19)
 #### Features
 * Enforced all search engines to be valid URLs (now must begin with **http** or **https**). This will make it easier for users to add new search engines that can be used right away
 
 #### Bug Fixes
-* Worked on fix for Linux web users (Linux users using VS Code for Web) to use the specific Linux keyboard shortcut, as it works for desktop Linux, but the web version was still showing the normal extension keybinding instead of the special one reserved just for Linux, introduced in release `4.1.13`. *I am still testing this, but I believe this version will fix it.*
+* **[In Progress]**  Worked on fix for Linux web users (Linux users using VS Code for Web) to use the specific Linux keyboard shortcut, as it works for desktop Linux, but the web version was still showing the normal extension keybinding instead of the special one reserved just for Linux, introduced in release `4.1.13`.
 
 #### Documentation
 * Added in the extension's settings that website search engines must begin with http or https

@@ -124,13 +124,13 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 - ~~Use only one search engine (no submenu) if only one search engine is in settings~~
 - ~~Add a submenu to the function and allow multiple websites to be searched from~~
 - ~~Show message to user if they added a search engine that doesn't have a query~~
-- ~~Phase out old webSearch.searchEngine setting (use deprecationMessage)~~
 - ~~If no text selected, running the extension will prompt for text to search for~~
+- ~~Phase out old webSearch.searchEngine setting (use deprecationMessage)~~
 - ~~Use JSON pattern restriction for search engines setting to validate URLs~~
-- ~~Display search query in QuickPick URL (maybe, might be too long)~~
-- ~~Add screenshot of new extension settings search engine manager~~
-- ~~Add setting toggle to enable/disable search if submenu dismissed~~
 - ~~Rework extension settings to better allow removing/editing entries~~
+- ~~Add setting toggle to enable/disable search if submenu dismissed~~
+- ~~Add screenshot of new extension settings search engine manager~~
+- ~~Display search query in QuickPick URL (maybe, might be too long)~~
 - ~~Remove duplicated release notes and consolidate in Changelog~~
 - ~~Allow a preferred default search engine to be set in settings~~
 - ~~Ensure keybinding works properly on all operating systems~~
@@ -138,19 +138,19 @@ Replaced by `webSearch.searchEngines`, allowing you to add multiple search engin
 - ~~Consolidate commands into one command palette entry~~
 - ~~Update extension icon and/or add more device sizes~~
 - ~~Add extension setting to toggle the right click menu~~
-- ~~Add more default search engines for the extension~~
 - ~~Show search engine name in the Command Palette~~
+- ~~Add more default search engines for the extension~~
 - ~~Decide on updating brace formatting preferences~~
 - ~~Add GIF animation to show how extension works~~
 - ~~Enable extension to run on VS Code for the web~~
-- ~~Add monitors for code dependency changes~~
 - ~~Enforce that search engines begin with http*~~
+- ~~Add monitors for code dependency changes~~
 - ~~If no search engine is selected, do nothing~~
 - ~~Add keyboard shortcuts to perform search~~
 - ~~Add more screenshots of extension usage~~
 - ~~Use default query if no query is provided~~
-- ~~Move images to consolidated folder~~
 - ~~Add screenshots of the new settings~~
+- ~~Move images to consolidated folder~~
 - ~~Perform more code refactoring~~
 - ~~Add license to the project~~
 

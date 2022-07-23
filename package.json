@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "icon.png",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "4.2.3",
+	"version": "4.2.4",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -73,7 +73,7 @@
 			{
 				"key": "alt+s",
 				"command": "WebSearch.webSearchMenu",
-				"when": "isLinux && isWeb"
+				"when": "isLinux && isWeb || isLinux"
 			},
 			{
 				"key": "alt+`",
@@ -161,7 +161,7 @@
 							"image": "images/web-search-keyboard-shortcut.png",
 							"altText": "Keyboard shortcut for the Web Search extension"
 						},
-						"when": "isWindows || isMac || isWeb"
+						"when": "isWindows || isMac || isWeb && !isLinux"
 					},
 					{
 						"id": "keybindingsLinux",
@@ -171,7 +171,7 @@
 							"image": "images/web-search-keyboard-shortcut-linux.png",
 							"altText": "Keyboard shortcut for the Web Search extension"
 						},
-						"when": "isLinux && !isWeb"
+						"when": "isLinux && isWeb || isLinux"
 					},
 					{
 						"id": "contextmenu",
