@@ -11,16 +11,16 @@ This extension allows you to search the web in your favorite search engines / we
 - Runs on Visual Studio Code for the Web (vscode.dev)
 - Keyboard shortcut to perform a quick search <kbd>Alt</kbd>+<kbd>`</kbd>
 - Type a search directly using the search bar (if no text is selected, it will ask for input)
-- Simple and clean Command Pallete and context menu entries
-- JSON snippet to help you customize your default search engines
 - Great for testing SEO and web development projects
-- **NEW** Walkthrough to help you get started using the extension
+- Simple and clean Command Pallete and context menu entries
+- Walkthrough to help you get started using the extension
+- JSON snippet to help you customize your default search engines
 - Extension Settings for your own customizations (choose literally any website with a search feature)
 ![Add any site you wish as a search engine](images/web-search-add-any-site.gif)
 
 ## How To Use 👇
 
-*This extension comes packaged with a walkthrough. Use it to learn how to use the extension.*
+*This extension comes packaged with a walkthrough. Use it to learn how to use the extension. (run `Get Started` from Command Palette)*
 
 You can utilize the extension in many different ways:
 

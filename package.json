@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "icon.png",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "4.2.4",
+	"version": "4.2.5",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -154,16 +154,6 @@
 						}
 					},
 					{
-						"id": "keybindings",
-						"title": "Search Using Keyboard Shortcut ⌨️",
-						"description": "You can use the Web Search extension in multiple ways.\nThis step will show you that you can run the extension using the keyboard shortcut of:\n``Alt + ``` (backtick).",
-						"media": {
-							"image": "images/web-search-keyboard-shortcut.png",
-							"altText": "Keyboard shortcut for the Web Search extension"
-						},
-						"when": "isWindows || isMac || isWeb && !isLinux"
-					},
-					{
 						"id": "keybindingsLinux",
 						"title": "Search Using Keyboard Shortcut ⌨️",
 						"description": "You can use the Web Search extension in multiple ways.\nThis step will show you that you can run the extension using the keyboard shortcut of:\n``Alt + `s`.",
@@ -172,6 +162,16 @@
 							"altText": "Keyboard shortcut for the Web Search extension"
 						},
 						"when": "isLinux && isWeb || isLinux"
+					},
+					{
+						"id": "keybindings",
+						"title": "Search Using Keyboard Shortcut ⌨️",
+						"description": "You can use the Web Search extension in multiple ways.\nThis step will show you that you can run the extension using the keyboard shortcut of:\n``Alt + ``` (backtick).",
+						"media": {
+							"image": "images/web-search-keyboard-shortcut.png",
+							"altText": "Keyboard shortcut for the Web Search extension"
+						},
+						"when": "isWindows || isMac || isWeb && !isLinux"
 					},
 					{
 						"id": "contextmenu",

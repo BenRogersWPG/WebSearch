@@ -1,12 +1,20 @@
 # Changelog
 
+## [4.2.5] (2022-07-24)
+#### Bug Fixes
+* Completed fix for Linux web users (Linux users using VS Code for Web) to use the specific Linux keyboard shortcut, as it works for desktop Linux, but the web version was still showing the normal extension keybinding instead of the special one reserved just for Linux, introduced in release `4.1.13`. *I am still testing this, but I believe this version will fix it.* Now works properly when using Android phones or tablets.
+
+#### House Keeping
+* Added some information to the Readme about how to access the relatively new extension walkthrough (Getting Started)
+* Re-ordered the extension's features on the main Readme page
+
 ## [4.2.4] (2022-07-23)
 #### Documentation
 * Updated Linux keybinding graphic to have proper transparency - now it will look great on any background
 * Re-ordered some items in the Readme
 
 #### Bug Fixes
-* **[In Progress]** Worked on fix for Linux web users (Linux users using VS Code for Web) to use the specific Linux keyboard shortcut, as it works for desktop Linux, but the web version was still showing the normal extension keybinding instead of the special one reserved just for Linux, introduced in release `4.1.13`. *I am still testing this, but I believe this version will fix it.*
+* **[In Progress]** Worked on fix for Linux web users (Linux users using VS Code for Web) to use the specific Linux keyboard shortcut, as it works for desktop Linux, but the web version was still showing the normal extension keybinding instead of the special one reserved just for Linux, introduced in release `4.1.13`.
 
 #### House Keeping
 * Updated a few more dependencies
