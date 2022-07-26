@@ -310,7 +310,7 @@
 		"@types/vscode": "^1.55.2",
 		"@types/webpack-env": "^1.17.0",
 		"@typescript-eslint/eslint-plugin": "^5.30.7",
-		"@typescript-eslint/parser": "^5.30.7",
+		"@typescript-eslint/parser": "^5.31.0",
 		"@vscode/test-web": "^0.0.29",
 		"assert": "^2.0.0",
 		"eslint": "^8.20.0",
