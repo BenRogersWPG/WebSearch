@@ -85,6 +85,7 @@ export function activate(context: vscode.ExtensionContext) {
 				prompt: 'Please enter the text you would like to search for.',
 				ignoreFocusOut: true,
 				validateInput: (value: string) => {
+					//vscode.window.showInformationMessage(`Retrieving autocomplete suggestions for: ${value}`);
 					if (value === '') {
 						return 'Please enter a search term.';
 					}

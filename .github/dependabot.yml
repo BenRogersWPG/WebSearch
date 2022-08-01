@@ -9,3 +9,13 @@ updates:
     open-pull-requests-limit: 10
     assignees:
       - "BenRogersWPG"
+
+  - package-ecosystem: github-actions
+    directory: '/'
+    schedule:
+      interval: daily
+      time: '16:00'
+      timezone: "America/Vancouver"
+    open-pull-requests-limit: 10
+    assignees:
+      - "BenRogersWPG"

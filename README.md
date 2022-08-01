@@ -96,12 +96,6 @@ Default search engines to use for the Web Search extension - essentially Demo Mo
 
 Enable the Web Search extension to use default values. Disabling this will favor your own custom search engines list entered in `webSearch.searchEngines`.
 
-### `webSearch.searchEngine`
-
-**DEPRECIATED** Single search engine to use for the Web Search extension.
-Replaced by `webSearch.searchEngines`, allowing you to add multiple search engines.
-*Will be removed in future version some time.*
-
 ## Future Development Ideas and To-dos 📝
 
 - If selected text is a URL, open it directly or run it through PageSpeed Insights

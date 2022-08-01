@@ -1,5 +1,18 @@
 # Changelog
 
+## [4.2.6] (2022-08-01)
+#### Behind The Scenes
+* Continued working on the autocomplete code to show search term suggestions
+
+#### Documentation
+* Removed deprecated setting description from main Readme
+* Replaced emoji used in the demo walkthrough for selected text. Looked a little busy on smaller screens.
+
+#### House Keeping
+* Removed some unused files from the repository
+* Added dependabot checks on GitHub Actions as well (already checking npm)
+* Updated a few more dependencies
+
 ## [4.2.5] (2022-07-24)
 #### Bug Fixes
 * Completed fix for Linux web users (Linux users using VS Code for Web) to use the specific Linux keyboard shortcut, as it works for desktop Linux, but the web version was still showing the normal extension keybinding instead of the special one reserved just for Linux, introduced in release `4.1.13`. *I am still testing this, but I believe this version will fix it.* Now works properly when using Android phones or tablets.
