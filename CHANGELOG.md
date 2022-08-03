@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.2.7] (2022-08-02)
+#### Features
+* Improved logic of walkthrough coding. If you run the walkthrough's demo mode with only one search engine, it will not display a message to select a search engine (*as there is only one*)
+* Updated last item of the walkthrough, *Command Palette*, to be simply an informational message and not a command
+
+#### Documentation
+* Removed hard-coded keyboard shortcut in the manual search setting description as the keyboard shortcut is dynamic based on the OS
+
+#### House Keeping
+* Updated a few more dependencies
+
 ## [4.2.6] (2022-08-01)
 #### Behind The Scenes
 * Continued working on the autocomplete code to show search term suggestions

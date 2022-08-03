@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "icon.png",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "4.2.6",
+	"version": "4.2.7",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -185,14 +185,11 @@
 					{
 						"id": "commandpalette",
 						"title": "Search From the Command Palette ☰",
-						"description": "You can also use the extension at any time via the Command Palette. Simply select ``Web Search`` from the Command Palette and type a search query.\n[Run Web Search one last time](command:WebSearch.setPaletteContext)",
+						"description": "You can also use the extension at any time via the Command Palette. Simply select ``Web Search`` from the Command Palette and type a search query.",
 						"media": {
 							"image": "images/web-search.png",
 							"altText": "Running the Web Search extension from the Command Palette"
-						},
-						"completionEvents": [
-							"onContext:searchCommandPalette"
-						]
+						}
 					}
 				]
 			}
@@ -225,7 +222,7 @@
 				"webSearch.allowManualSearch": {
 					"type": "boolean",
 					"default": "true",
-					"markdownDescription": "Enable the extension to run when no text is selected.\n\nIf this setting is enabled, a __search bar__ will prompt for a search query when the extension's search command is run by using keyboard shortcut ```Alt + ` ```.",
+					"markdownDescription": "Enable the extension to run when no text is selected.\n\nIf this setting is enabled, a __search bar__ will prompt for a search query when the extension's search command is run by using the extension's keyboard shortcut.",
 					"scope": "resource"
 				},
 				"webSearch.searchEngines": {

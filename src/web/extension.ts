@@ -15,7 +15,6 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.selectedTextDemo', async () => {
 		await new Promise(resolve => setTimeout(resolve, 1000));
 		vscode.commands.executeCommand('setContext', 'searchSelectedText', true);
-		vscode.window.showInformationMessage(`Select the search engine to use using the list above.`);
 		performWebSearch(true);
 	}));
 
@@ -49,11 +48,11 @@ export function activate(context: vscode.ExtensionContext) {
 		performWebSearch();
 	}));
 
-	// Register a command that will toggle when the extension is demoing the Command Palette:
+	// Register a command that will toggle when the extension is demoing the Command Palette (deprecated):
 	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.setPaletteContext', async () => {
 		await new Promise(resolve => setTimeout(resolve, 1000));
 		vscode.commands.executeCommand('setContext', 'searchCommandPalette', true);
-		vscode.window.showInformationMessage(`Run the extension by typing "web search" in the command palette.`);
+		vscode.window.showInformationMessage(`Run the extension any time by typing "web search" in the command palette.`);
 		performWebSearch();
 	}));
 
@@ -175,6 +174,9 @@ export function activate(context: vscode.ExtensionContext) {
 
 		//If more than one item is in the list, display the list in a quick pick list, otherwise, just run the search in the single search engine:
 		if (items.length > 1) {
+			//If demo mode is enabled, display a message to the user:
+			if (demo) { vscode.window.showInformationMessage(`Select the search engine to use using the list above.`); }
+
 			//Use await to wait for the user to select an item from the list:
 			selectedSearchEngine = await vscode.window.showQuickPick(items) as vscode.QuickPickItem;
 		}
