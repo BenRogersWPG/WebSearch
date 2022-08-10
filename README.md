@@ -99,9 +99,10 @@ Enable the Web Search extension to use default values. Disabling this will favor
 ## Future Development Ideas and To-dos 📝
 
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
+- **[IN PROGRESS]** Investigate adding autocomplete engine to manual entry
 - Examine performance analysis of code to find potential optimizations
+- Use native browser opening to prevent external URL prompts
 - Add setting to disable information messages when searching
-- Investigate adding autocomplete engine to manual entry
 - Streamline extension by reducing dependancies
 - Add more GIFs to demo the extension usage
 - Translate the extension to other languages

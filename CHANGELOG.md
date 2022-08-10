@@ -1,5 +1,18 @@
 # Changelog
 
+## [4.2.8] (2022-08-09)
+#### Features
+* Completely rewrote the search bar system. This is to prepare for the upcoming suggest autocomplete / autofill API system I am testing *privately*
+* Reformatted the code to work with the upcoming search bar system
+* Included help text for the search bar to guide users through typing in the search bar
+
+#### Documentation
+* Updated development roadmap
+* Added more ideas for future development to the Readme
+
+#### House Keeping
+* Updated a few more dependencies
+
 ## [4.2.7] (2022-08-02)
 #### Features
 * Improved logic of walkthrough coding. If you run the walkthrough's demo mode with only one search engine, it will not display a message to select a search engine (*as there is only one*)

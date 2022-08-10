@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "icon.png",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "4.2.7",
+	"version": "4.2.8",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -304,7 +304,7 @@
 	},
 	"devDependencies": {
 		"@types/mocha": "^9.1.0",
-		"@types/vscode": "^1.70.0",
+		"@types/vscode": "^1.55.2",
 		"@types/webpack-env": "^1.17.0",
 		"@typescript-eslint/eslint-plugin": "^5.33.0",
 		"@typescript-eslint/parser": "^5.33.0",
