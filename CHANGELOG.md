@@ -1,5 +1,9 @@
 # Changelog
 
+## [4.2.9] (2022-08-20)
+#### House Keeping
+* Updated a few more dependencies
+
 ## [4.2.8] (2022-08-09)
 #### Features
 * Completely rewrote the search bar system. This is to prepare for the upcoming suggest autocomplete / autofill API system I am testing *privately*
