@@ -305,7 +305,7 @@
 	"devDependencies": {
 		"@types/mocha": "^9.1.0",
 		"@types/vscode": "^1.55.2",
-		"@types/webpack-env": "^1.17.0",
+		"@types/webpack-env": "^1.18.0",
 		"@typescript-eslint/eslint-plugin": "^5.33.1",
 		"@typescript-eslint/parser": "^5.33.1",
 		"@vscode/test-web": "^0.0.29",
