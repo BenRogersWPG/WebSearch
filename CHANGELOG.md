@@ -1,5 +1,9 @@
 # Changelog
 
+## [4.2.10] (2022-08-27)
+#### House Keeping
+* Updated a few more dependencies
+
 ## [4.2.9] (2022-08-20)
 #### House Keeping
 * Updated a few more dependencies
