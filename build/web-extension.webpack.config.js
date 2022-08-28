@@ -20,14 +20,17 @@ module.exports = /** @type WebpackConfig */ {
 		'extension': './src/extension.ts'
 	},
 	resolve: {
-		mainFields: ['module', 'main'],
+		mainFields: ['browser', 'module', 'main'],
 		extensions: ['.ts', '.js'], // support ts-files and js-files
 		alias: {
 		},
 		fallback: {
 			'assert': require.resolve('assert'),
 			'path': require.resolve('path-browserify'),
-			'util': require.resolve('util/')
+			'util': require.resolve('util/'),
+			"fs": false,
+			'os': false,
+			'child_process': false
 		}
 	},
 	module: {

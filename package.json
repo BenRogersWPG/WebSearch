@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "icon.png",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "5.0.0",
+	"version": "5.0.1",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -319,6 +319,9 @@
 		"webpack-cli": "^4.10.0"
 	},
 	"dependencies": {
-		"open": "^8.4.0"
+		"browserify": "^17.0.0",
+		"child_process": "^1.0.2",
+		"open": "^8.4.0",
+		"os-browserify": "^0.3.0"
 	}
 }

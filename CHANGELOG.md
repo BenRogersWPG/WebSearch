@@ -1,5 +1,9 @@
 # Changelog
 
+## [5.0.1] (2022-08-28)
+#### Bug Fixes
+* Working on VS Code for the Web fix to address browser opening of URLs *I am still testing this, but I believe this version will fix it.*
+
 ## [5.0.0] (2022-08-28)
 #### Features
 * Extension will open URLs properly in native browser and not pester users with a pop up for external websites anymore
