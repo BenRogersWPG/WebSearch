@@ -33,18 +33,16 @@ function sanitizeDeviceOptions(device, options) {
 }
 
 function toSignalMap(action) {
-  let waitForNavigation;
   let assertNavigation;
   let popup;
   let download;
   let dialog;
 
   for (const signal of action.signals) {
-    if (signal.name === 'navigation' && signal.isAsync) waitForNavigation = signal;else if (signal.name === 'navigation' && !signal.isAsync) assertNavigation = signal;else if (signal.name === 'popup') popup = signal;else if (signal.name === 'download') download = signal;else if (signal.name === 'dialog') dialog = signal;
+    if (signal.name === 'navigation') assertNavigation = signal;else if (signal.name === 'popup') popup = signal;else if (signal.name === 'download') download = signal;else if (signal.name === 'dialog') dialog = signal;
   }
 
   return {
-    waitForNavigation,
     assertNavigation,
     popup,
     download,

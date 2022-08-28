@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "icon.png",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "4.2.10",
+	"version": "5.0.0",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -59,8 +59,8 @@
 		"onCommand:WebSearch.selectedTextDemo",
 		"onCommand:WebSearch.setPaletteContext"
 	],
-	"browser": "./dist/web/extension.js",
-	"main": "./dist/web/extension.js",
+	"browser": "./out/web/extension.js",
+	"main": "./out/extension",
 	"contributes": {
 		"commands": [
 			{
@@ -203,7 +203,7 @@
 					"default": "https://www.google.com/search?q=%s",
 					"markdownDescription": "***Depreciated - use `searchEngines` instead***\n\nSearch engine to use for the Web Search extension. Replace the query with ```%s```, e.g. ```https://www.google.com/search?q=%s```, the same way as you would when adding additional search engines to the Chrome browser settings.",
 					"scope": "resource",
-					"pattern": "^(http|https)+:\/\/([a-zA-Z]*([a-zA-Z]*)*).*%s.*$",
+					"pattern": "^(http|https)+://([a-zA-Z]*([a-zA-Z]*)*).*%s.*$",
 					"patternErrorMessage": "Value must be valid URL, starting with http/https and containing '%s' query wildcard",
 					"deprecationMessage": "Deprecated: Please use webSearch.searchEngines instead.",
 					"markdownDeprecationMessage": "***Depreciated**: Please use `#webSearch.searchEngines#` instead"
@@ -289,21 +289,17 @@
 		]
 	},
 	"scripts": {
-		"test": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. --extensionTestsPath=dist/web/test/suite/index.js",
-		"pretest": "npm run compile-web",
-		"vscode:prepublish": "npm run package-web",
-		"compile-web": "webpack",
+		"vscode:prepublish": "npm run compile && npm run package-web",
 		"compile": "tsc -p ./",
-		"watch-web": "webpack --watch",
 		"watch": "tsc -watch -p ./",
-		"test-compile": "tsc -p ./ && npm run webpack",
-		"webpack": "webpack --mode none",
-		"package-web": "webpack --mode production --devtool hidden-source-map",
-		"lint": "eslint src --ext ts",
-		"run-in-browser": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. ."
+		"lint": "tslint -c tslint.json 'src/**/*.ts'",
+		"compile-web": "webpack --config ./build/web-extension.webpack.config.js",
+		"watch-web": "webpack --watch --config ./build/web-extension.webpack.config.js",
+		"package-web": "webpack --mode production --devtool hidden-source-map --config ./build/web-extension.webpack.config.js"
 	},
 	"devDependencies": {
 		"@types/mocha": "^9.1.0",
+		"@types/node": "^17.0.23",
 		"@types/vscode": "^1.55.2",
 		"@types/webpack-env": "^1.18.0",
 		"@typescript-eslint/eslint-plugin": "^5.35.1",
@@ -312,11 +308,17 @@
 		"assert": "^2.0.0",
 		"eslint": "^8.23.0",
 		"mocha": "^10.0.0",
-		"vsce": "^2.10.2",
+		"path-browserify": "^1.0.1",
 		"process": "^0.11.10",
 		"ts-loader": "^9.3.1",
+		"tslint": "^6.1.3",
 		"typescript": "^4.8.2",
+		"util": "^0.12.4",
+		"vsce": "^2.10.2",
 		"webpack": "^5.74.0",
 		"webpack-cli": "^4.10.0"
+	},
+	"dependencies": {
+		"open": "^8.4.0"
 	}
 }
