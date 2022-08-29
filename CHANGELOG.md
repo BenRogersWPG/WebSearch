@@ -1,8 +1,16 @@
 # Changelog
 
+## [5.1.0] (2022-08-28)
+#### Bug Fixes
+* Completed fix for VS Code for the Web to address browser opening of URLs
+
+## [5.0.2] (2022-08-28)
+#### Bug Fixes
+* Working on VS Code for the Web fix to address browser opening of URLs *I am still testing this*
+
 ## [5.0.1] (2022-08-28)
 #### Bug Fixes
-* Working on VS Code for the Web fix to address browser opening of URLs *I am still testing this, but I believe this version will fix it.*
+* Working on VS Code for the Web fix to address browser opening of URLs *I am still testing this*
 
 ## [5.0.0] (2022-08-28)
 #### Features

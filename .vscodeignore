@@ -3,7 +3,6 @@
 out/test/**
 test/**
 src/**
-images/**
 .gitignore
 tsconfig.json
 npm-debug.log

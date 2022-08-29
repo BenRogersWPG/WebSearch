@@ -3,7 +3,6 @@
 import * as vscode from 'vscode';
 const open = require('open');
 
-
 //Define a channel for the output of any potential errors:
 const webSearchConsole = vscode.window.createOutputChannel("Web Search", "markdown");
 
@@ -155,6 +154,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 
 async function searchText(query: string, demo: boolean, defaultSearch: boolean) {
+	//console.log(isWeb);
 	//Retrieve the extension's search engine configuration from the user settings:
 	const searchEngineOld: string = vscode.workspace.getConfiguration('webSearch').get('searchEngine')!;//Deprecated, will be removed in future versions
 
@@ -266,10 +266,14 @@ async function searchText(query: string, demo: boolean, defaultSearch: boolean) 
 		//Display to the user what action is being taken and on what search engine:
 		directSearch ? vscode.window.showInformationMessage(`Only one search engine exists, so searching ${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"} directly for: ${query}. \nFeel free to add more search engines in the settings.`) : vscode.window.showInformationMessage(`Searching ${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"} for: ${query}`);
 		//Perform the web search in the default browser:
-		//vscode.env.openExternal(vscode.Uri.parse(searchUrl!));
-		await open(searchUrl!);
 
-
+		//Use built in browser if on web, otherwise use native OS browser:
+		if (vscode.env.uiKind === vscode.UIKind.Web) {
+			vscode.env.openExternal(vscode.Uri.parse(searchUrl!));
+		}
+		else {
+			await open(searchUrl!);
+		}
 	}
 	else {
 		//Display to the user that their search engine setting is not valid:
