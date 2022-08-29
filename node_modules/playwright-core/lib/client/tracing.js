@@ -31,7 +31,6 @@ class Tracing extends _channelOwner.ChannelOwner {
 
   constructor(parent, type, guid, initializer) {
     super(parent, type, guid, initializer);
-    this._localUtils = void 0;
   }
 
   async start(options = {}) {
@@ -85,7 +84,10 @@ class Tracing extends _channelOwner.ChannelOwner {
     await artifact.saveAs(filePath);
     await artifact.delete(); // Add local sources to the remote trace if necessary.
 
-    if ((_result$sourceEntries = result.sourceEntries) !== null && _result$sourceEntries !== void 0 && _result$sourceEntries.length) await this._localUtils.zip(filePath, result.sourceEntries);
+    if ((_result$sourceEntries = result.sourceEntries) !== null && _result$sourceEntries !== void 0 && _result$sourceEntries.length) await this._connection.localUtils()._channel.zip({
+      zipFile: filePath,
+      entries: result.sourceEntries
+    });
   }
 
 }

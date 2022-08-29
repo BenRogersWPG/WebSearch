@@ -1,5 +1,29 @@
 # Changelog
 
+## [5.1.0] (2022-08-28)
+#### Bug Fixes
+* Completed fix for VS Code for the Web to address browser opening of URLs
+
+## [5.0.2] (2022-08-28)
+#### Bug Fixes
+* Working on VS Code for the Web fix to address browser opening of URLs *I am still testing this*
+
+## [5.0.1] (2022-08-28)
+#### Bug Fixes
+* Working on VS Code for the Web fix to address browser opening of URLs *I am still testing this*
+
+## [5.0.0] (2022-08-28)
+#### Features
+* Extension will open URLs properly in native browser and not pester users with a pop up for external websites anymore
+* Completely rewrote the webpack and VS Code for the Web sections. This is to prepare for the upcoming suggest autocomplete / autofill API system I am testing *privately*
+
+#### Behind The Scenes
+* Updated how webpack is included and used. *Still testing how this will work on VS Code for the Web*
+* Continued working on the autocomplete code to show search term suggestions
+
+#### Code Cleanup
+* Added gitignore to the project to compact the package size
+
 ## [4.2.10] (2022-08-27)
 #### House Keeping
 * Updated a few more dependencies

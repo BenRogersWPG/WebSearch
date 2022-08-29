@@ -7,8 +7,6 @@ exports.ElectronApplication = exports.Electron = void 0;
 
 var _timeoutSettings = require("../common/timeoutSettings");
 
-var _utils = require("../utils");
-
 var _browserContext = require("./browserContext");
 
 var _channelOwner = require("./channelOwner");
@@ -46,8 +44,7 @@ class Electron extends _channelOwner.ChannelOwner {
   }
 
   async launch(options = {}) {
-    const params = { ...options,
-      extraHTTPHeaders: options.extraHTTPHeaders && (0, _utils.headersObjectToArray)(options.extraHTTPHeaders),
+    const params = { ...(await (0, _browserContext.prepareBrowserContextParams)(options)),
       env: (0, _clientHelper.envObjectToArray)(options.env ? options.env : process.env)
     };
     const app = ElectronApplication.from((await this._channel.launch(params)).electronApplication);

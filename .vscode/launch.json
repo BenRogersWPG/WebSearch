@@ -6,33 +6,35 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "Run Web Extension ",
-			"type": "pwa-extensionHost",
-			"debugWebWorkerHost": true,
+			"name": "Extension",
+			"type": "extensionHost",
 			"request": "launch",
+			"runtimeExecutable": "${execPath}",
 			"args": [
-				"--extensionDevelopmentPath=${workspaceFolder}",
-				"--extensionDevelopmentKind=web"
+				"--extensionDevelopmentPath=${workspaceRoot}"
 			],
+			"stopOnEntry": false,
+			"sourceMaps": true,
 			"outFiles": [
-				"${workspaceFolder}/dist/web/**/*.js"
+				"${workspaceRoot}/out/**/*.js"
 			],
-			"preLaunchTask": "npm: watch-web"
+			"preLaunchTask": "npm: watch"
 		},
 		{
 			"name": "Extension Tests",
 			"type": "extensionHost",
-			"debugWebWorkerHost": true,
 			"request": "launch",
+			"runtimeExecutable": "${execPath}",
 			"args": [
-				"--extensionDevelopmentPath=${workspaceFolder}",
-				"--extensionDevelopmentKind=web",
-				"--extensionTestsPath=${workspaceFolder}/dist/web/test/suite/index"
+				"--extensionDevelopmentPath=${workspaceRoot}",
+				"--extensionTestsPath=${workspaceRoot}/out/test"
 			],
+			"stopOnEntry": false,
+			"sourceMaps": true,
 			"outFiles": [
-				"${workspaceFolder}/dist/web/**/*.js"
+				"${workspaceRoot}/out/test/**/*.js"
 			],
-			"preLaunchTask": "npm: watch-web"
+			"preLaunchTask": "npm: watch"
 		}
 	]
 }

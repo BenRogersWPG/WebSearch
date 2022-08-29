@@ -104,7 +104,7 @@ class CRPDF {
     this._client = client;
   }
 
-  async generate(options = {}) {
+  async generate(options) {
     const {
       scale = 1,
       displayHeaderFooter = false,

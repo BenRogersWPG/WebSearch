@@ -70,7 +70,7 @@ class JSCoverage {
     this._resetOnNavigation = false;
   }
 
-  async start(options = {}) {
+  async start(options) {
     (0, _utils.assert)(!this._enabled, 'JSCoverage is already enabled');
     const {
       resetOnNavigation = true,
@@ -124,7 +124,9 @@ class JSCoverage {
 
     _eventsHelper.eventsHelper.removeEventListeners(this._eventListeners);
 
-    const coverage = [];
+    const coverage = {
+      entries: []
+    };
 
     for (const entry of profileResponse.result) {
       if (!this._scriptIds.has(entry.scriptId)) continue;
@@ -132,9 +134,9 @@ class JSCoverage {
 
       const source = this._scriptSources.get(entry.scriptId);
 
-      if (source) coverage.push({ ...entry,
+      if (source) coverage.entries.push({ ...entry,
         source
-      });else coverage.push(entry);
+      });else coverage.entries.push(entry);
     }
 
     return coverage;
@@ -158,7 +160,7 @@ class CSSCoverage {
     this._resetOnNavigation = false;
   }
 
-  async start(options = {}) {
+  async start(options) {
     (0, _utils.assert)(!this._enabled, 'CSSCoverage is already enabled');
     const {
       resetOnNavigation = true
@@ -224,7 +226,9 @@ class CSSCoverage {
       });
     }
 
-    const coverage = [];
+    const coverage = {
+      entries: []
+    };
 
     for (const styleSheetId of this._stylesheetURLs.keys()) {
       const url = this._stylesheetURLs.get(styleSheetId);
@@ -232,7 +236,7 @@ class CSSCoverage {
       const text = this._stylesheetSources.get(styleSheetId);
 
       const ranges = convertToDisjointRanges(styleSheetIdToCoverage.get(styleSheetId) || []);
-      coverage.push({
+      coverage.entries.push({
         url,
         ranges,
         text

@@ -28,7 +28,7 @@ var _events2 = require("./events");
 
 var _types = require("./types");
 
-var _clientHelper = require("./clientHelper");
+var _netUtils = require("../common/netUtils");
 
 var _debugLogger = require("../common/debugLogger");
 
@@ -91,6 +91,8 @@ class Frame extends _channelOwner.ChannelOwner {
       }
 
       if (event.remove) this._loadStates.delete(event.remove);
+      if (!this._parentFrame && event.add === 'load' && this._page) this._page.emit(_events2.Events.Page.Load, this._page);
+      if (!this._parentFrame && event.add === 'domcontentloaded' && this._page) this._page.emit(_events2.Events.Page.DOMContentLoaded, this._page);
     });
 
     this._channel.on('navigated', event => {
@@ -143,7 +145,7 @@ class Frame extends _channelOwner.ChannelOwner {
         // Any failed navigation results in a rejection.
         if (event.error) return true;
         waiter.log(`  navigated to "${event.url}"`);
-        return (0, _clientHelper.urlMatches)((_this$_page = this._page) === null || _this$_page === void 0 ? void 0 : _this$_page.context()._options.baseURL, event.url, options.url);
+        return (0, _netUtils.urlMatches)((_this$_page = this._page) === null || _this$_page === void 0 ? void 0 : _this$_page.context()._options.baseURL, event.url, options.url);
       });
 
       if (navigatedEvent.error) {
@@ -183,7 +185,7 @@ class Frame extends _channelOwner.ChannelOwner {
   async waitForURL(url, options = {}) {
     var _this$_page2;
 
-    if ((0, _clientHelper.urlMatches)((_this$_page2 = this._page) === null || _this$_page2 === void 0 ? void 0 : _this$_page2.context()._options.baseURL, this.url(), url)) return await this.waitForLoadState(options.waitUntil, options);
+    if ((0, _netUtils.urlMatches)((_this$_page2 = this._page) === null || _this$_page2 === void 0 ? void 0 : _this$_page2.context()._options.baseURL, this.url(), url)) return await this.waitForLoadState(options.waitUntil, options);
     await this.waitForNavigation({
       url,
       ...options

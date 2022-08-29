@@ -23,19 +23,8 @@ var _channelOwner = require("./channelOwner");
  * limitations under the License.
  */
 class LocalUtils extends _channelOwner.ChannelOwner {
-  static from(channel) {
-    return channel._object;
-  }
-
   constructor(parent, type, guid, initializer) {
     super(parent, type, guid, initializer);
-  }
-
-  async zip(zipFile, entries) {
-    await this._channel.zip({
-      zipFile,
-      entries
-    });
   }
 
 }

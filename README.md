@@ -101,7 +101,6 @@ Enable the Web Search extension to use default values. Disabling this will favor
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
 - **[IN PROGRESS]** Investigate adding autocomplete engine to manual entry
 - Examine performance analysis of code to find potential optimizations
-- Use native browser opening to prevent external URL prompts
 - Add setting to disable information messages when searching
 - Streamline extension by reducing dependancies
 - Add more GIFs to demo the extension usage
@@ -127,6 +126,7 @@ Enable the Web Search extension to use default values. Disabling this will favor
 - ~~Add screenshot of new extension settings search engine manager~~
 - ~~Display search query in QuickPick URL (maybe, might be too long)~~
 - ~~Remove duplicated release notes and consolidate in Changelog~~
+- ~~Use native browser opening to prevent external URL prompts~~
 - ~~Allow a preferred default search engine to be set in settings~~
 - ~~Ensure keybinding works properly on all operating systems~~
 - ~~Edit QuickPick detail, or allow user to write their own detail~~
