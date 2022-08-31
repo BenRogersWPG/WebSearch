@@ -72,9 +72,6 @@ export function activate(context: vscode.ExtensionContext) {
 		const manualSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('allowManualSearch')!;
 		const defaultSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('useDefaultSearchEnginesList')!;
 
-
-		console.log(text);
-
 		//Display a message to the user if no text was selected:
 		if ((text === undefined || text === "") && (!manualSearch)) {
 			vscode.window.showInformationMessage(`No text selected. Please select text in the editor and try again.`);
@@ -108,7 +105,14 @@ export function activate(context: vscode.ExtensionContext) {
 
 			input.onDidAccept(async () => {
 				//Set text to the quickpick's currently selected item:
-				text = input.selectedItems[0].label;
+				try {
+					text = input.selectedItems[0].label;
+				}
+				catch (e) {
+					//If we can't grab the label, we can use the entire value.
+					text = input.value;
+
+				}
 
 				if (text === undefined || text === "") {
 					vscode.window.showInformationMessage(`No text entered. Please enter text in the prompt, or select text.`);
@@ -121,18 +125,19 @@ export function activate(context: vscode.ExtensionContext) {
 
 
 			});
+
 			input.onDidChangeValue(async value => {
 
-				let quickpickItems3: vscode.QuickPickItem[] = [];
-
+				quickpickItems = [];
 				//Make the first item in the list the currently entered text:
-				quickpickItems3.push({ label: input.value, description: "Search for: " + input.value });
+				quickpickItems.push({ label: value, description: "Search for: " + value });
 				//Will be adding additional items from Google Suggest / DuckDuckGo Suggest here soon...
 
-				input.items = quickpickItems3;
+				input.items = quickpickItems;
 
 			}
 			);
+
 
 			input.title = `Search for:`;
 			//input.title = `Search DuckDuckGo for:`;
@@ -154,7 +159,6 @@ export function activate(context: vscode.ExtensionContext) {
 
 
 async function searchText(query: string, demo: boolean, defaultSearch: boolean) {
-	//console.log(isWeb);
 	//Retrieve the extension's search engine configuration from the user settings:
 	const searchEngineOld: string = vscode.workspace.getConfiguration('webSearch').get('searchEngine')!;//Deprecated, will be removed in future versions
 

@@ -153,6 +153,7 @@ Enable the Web Search extension to use default values. Disabling this will favor
 
 - Remove "selected text" from command palette entry title without adding a new command
 - Add dynamic sub context menu to right click menu containing all search engines
+- Use variables in setting descriptions, so that the keybindings are dynamic
 - Poll site favicons and display them on the search engine submenu
 
 
