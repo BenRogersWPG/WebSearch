@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "icon.png",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "5.1.1",
+	"version": "5.1.2",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"

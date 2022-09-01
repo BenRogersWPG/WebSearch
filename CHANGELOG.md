@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.1.2] (2022-09-01)
+#### Code Cleanup
+* Greatly reduced extension package size by compressing the GIF animation which shows how extension / settings works
+
+#### House Keeping
+* Updated a few more dependencies
+
 ## [5.1.1] (2022-08-30)
 #### Features
 * Improved speed of picking up search terms. Now if you type a search into the search bar and quickly press <kbd>Enter</kbd>, it will run the search faster
