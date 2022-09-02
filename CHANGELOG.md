@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.1.3] (2022-09-01)
+#### Code Cleanup
+* Streamlined extension by reducing dependancies
+
+#### Documentation
+* Added more ideas for future development to the Readme
+
 ## [5.1.2] (2022-09-01)
 #### Code Cleanup
 * Greatly reduced extension package size by compressing the GIF animation which shows how extension / settings works

@@ -102,9 +102,9 @@ Enable the Web Search extension to use default values. Disabling this will favor
 - **[IN PROGRESS]** Investigate adding autocomplete engine to manual entry
 - Examine performance analysis of code to find potential optimizations
 - Add setting to disable information messages when searching
-- Streamline extension by reducing dependancies
 - Add more GIFs to demo the extension usage
 - Translate the extension to other languages
+- Open search results in sidebar (webview)
 - Perform additional code cleanup
 - Write more tests
 
@@ -138,6 +138,7 @@ Enable the Web Search extension to use default values. Disabling this will favor
 - ~~Decide on updating brace formatting preferences~~
 - ~~Add GIF animation to show how extension works~~
 - ~~Enable extension to run on VS Code for the web~~
+- ~~Streamline extension by reducing dependancies~~
 - ~~Enforce that search engines begin with http*~~
 - ~~Add monitors for code dependency changes~~
 - ~~If no search engine is selected, do nothing~~
