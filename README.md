@@ -15,6 +15,7 @@ This extension allows you to search the web in your favorite search engines / we
 - Simple and clean Command Pallete and context menu entries
 - Walkthrough to help you get started using the extension
 - JSON snippet to help you customize your default search engines
+- **NEW** Full control over the extension's warning and information notification messages
 - Extension Settings for your own customizations (choose literally any website with a search feature)
 ![Add any site you wish as a search engine](images/web-search-add-any-site.gif)
 
@@ -60,23 +61,29 @@ Use the extension settings to manage the search engines easily by pressing the *
 
 ![Search engine settings, modeled after Google Chrome's search engine settings, allowing you to customize your own experience by adding/removing/editing entries](images/web-search-engine-setting.png)
 
+#### How to get Your Own Search Engine URLs:
+
+1. Visit the site you wish to use and locate the site's search bar
+2. Search for something unique like `potato` so you can get the URL later. Press *Enter*
+3. Go into the address bar and replace the word `potato` with `%s`, then copy the full URL and paste it into the setting **Value** field
+
 #### Search Engine Examples
 
 Want to search for the selected code on Stack Overflow?
 
-*Set it to `https://stackoverflow.com/search?q=%s`*
+* *Set it to `https://stackoverflow.com/search?q=%s`*
 
 Want to search for the selected code on GitHub?
 
-*Set it to `https://github.com/search?q=%s`*
+* *Set it to `https://github.com/search?q=%s`*
 
 Want to search for the selected code definition on Microsoft Docs?
 
-*Set it to `https://docs.microsoft.com/en-us/search/?terms=%s&category=Reference&scope=.NET`*
+* *Set it to `https://docs.microsoft.com/en-us/search/?terms=%s&category=Reference&scope=.NET`*
 
 Want to run the selected URL on Google's PageSpeed Insights for search engine optimization testing?
 
-*Set it to `https://pagespeed.web.dev/report?url=%s`*
+* *Set it to `https://pagespeed.web.dev/report?url=%s`*
 
 ### `webSearch.enableContextMenu`
 
@@ -96,18 +103,20 @@ Default search engines to use for the Web Search extension - essentially Demo Mo
 
 Enable the Web Search extension to use default values. Disabling this will favor your own custom search engines list entered in `webSearch.searchEngines`.
 
+### `webSearch.messageLevels`
+
+Allows the user to control the levels of message output from the extension.
+
 ## Future Development Ideas and To-dos 📝
 
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
 - **[IN PROGRESS]** Investigate adding autocomplete engine to manual entry
 - Examine performance analysis of code to find potential optimizations
 - Write a step-by-step guide for how to get search engine URLs
-- Add setting to disable information messages when searching
 - Add more GIFs to demo the extension usage
 - Update search bar walkthrough screenshots
 - Translate the extension to other languages
 - Open search results in sidebar (webview)
-- Improve validation of search URL checks
 - Write more tests
 
 > ➕ Have a feature you'd like me to implement? [Submit a feature request on the Repo's Issues page](https://github.com/BenRogersWPG/WebSearch/issues)!
@@ -124,15 +133,17 @@ Enable the Web Search extension to use default values. Disabling this will favor
 - ~~Phase out old webSearch.searchEngine setting (use deprecationMessage)~~
 - ~~Use JSON pattern restriction for search engines setting to validate URLs~~
 - ~~Rework extension settings to better allow removing/editing entries~~
-- ~~Display search query in QuickPick URL (maybe, might be too long)~~
 - ~~Add setting toggle to enable/disable search if submenu dismissed~~
+- ~~Display search query in QuickPick URL (maybe, might be too long)~~
 - ~~Add screenshot of new extension settings search engine manager~~
 - ~~Remove duplicated release notes and consolidate in Changelog~~
 - ~~Use native browser opening to prevent external URL prompts~~
+- ~~Add setting to disable information messages when searching~~
 - ~~Allow a preferred default search engine to be set in settings~~
 - ~~Ensure keybinding works properly on all operating systems~~
 - ~~Edit QuickPick detail, or allow user to write their own detail~~
 - ~~Consolidate commands into one command palette entry~~
+- ~~Add `webSearch.messageLevels` step to the walkthrough~~
 - ~~Update extension icon and/or add more device sizes~~
 - ~~Add extension setting to toggle the right click menu~~
 - ~~Show search engine name in the Command Palette~~
@@ -147,8 +158,9 @@ Enable the Web Search extension to use default values. Disabling this will favor
 - ~~Add keyboard shortcuts to perform search~~
 - ~~Add more screenshots of extension usage~~
 - ~~Use default query if no query is provided~~
-- ~~Move images to consolidated folder~~
+- ~~Improve validation of search URL checks~~
 - ~~Add screenshots of the new settings~~
+- ~~Move images to consolidated folder~~
 - ~~Perform additional code cleanup~~
 - ~~Perform more code refactoring~~
 - ~~Add license to the project~~

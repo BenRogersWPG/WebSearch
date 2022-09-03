@@ -1,5 +1,21 @@
 # Changelog
 
+## [5.2.0] (2022-09-03)
+#### Features
+* You can now suppress information messages and/or warning messages from appearing. Check out the new setting `webSearch.messageLevels` to limit the messages! *This was my first experience using Typescript Enums, so it was a good learning experience.*
+* The search engine selection screen (quick pick menu) now displays a title with the search query, making the search experience more unified
+* Improved search engine URL error checking validation
+* Updated error message to be more helpful when a search engine is entered with the search query wildcard being "%S" instead of "%s"
+
+#### Documentation
+* Wrote a step-by-step how-to for how to add custom search engines in the settings and also in the project Readme
+* Added notification message suppression to the extension's walkthrough
+* Re-ordered some items in the Readme
+* Improved the formatting of some sections of the Readme
+
+#### Code Cleanup
+* Refactored the code that truncates long search queries so it can be used in multiple locations
+
 ## [5.1.4] (2022-09-03)
 #### Documentation
 * Improved the wording on some of the extension's walkthrough guides

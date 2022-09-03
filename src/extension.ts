@@ -35,6 +35,13 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.window.showInformationMessage(`Demo mode off. Remember to add your own search engines in settings.`);
 	}));
 
+	// Register a command to update a setting (notification levels), which is used in the extension's walkthrough:
+	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.changeNotifications', async () => {
+		await new Promise(resolve => setTimeout(resolve, 1000));
+		vscode.commands.executeCommand('workbench.action.openSettings', 'WebSearch.messageLevels');
+		vscode.window.showInformationMessage(`Adjust the level of notifications you wish to see, or remove them entirely.`);
+	}));
+
 	// Register a command that will take the user to the WebSearch extension's settings page:
 	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.openSettings', () => {
 		vscode.commands.executeCommand('workbench.action.openSettings', 'WebSearch.searchEngines');
@@ -72,15 +79,28 @@ export function activate(context: vscode.ExtensionContext) {
 		const manualSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('allowManualSearch')!;
 		const defaultSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('useDefaultSearchEnginesList')!;
 
+		enum messageEnum {
+			"Show All" = 0,
+			"Show Information Messages Only" = 1,
+			"Show Warning Messages Only" = 2,
+			"Hide All" = 3
+		}
+
+		const messageLevelsInt: Number = messageEnum[vscode.workspace.getConfiguration('webSearch').get('messageLevels') as messageEnum] === undefined ? 0 : messageEnum[vscode.workspace.getConfiguration('webSearch').get('messageLevels') as messageEnum] as unknown as Number;
+
+		console.log(messageLevelsInt);
+
 		//Display a message to the user if no text was selected:
 		if ((text === undefined || text === "") && (!manualSearch)) {
-			vscode.window.showInformationMessage(`No text selected. Please select text in the editor and try again.`);
+			if (messageLevelsInt < 2) {
+				vscode.window.showInformationMessage(`No text selected. Please select text in the editor and try again.`);
+			}
 			return;
 		}
 
 		//If the user has already selected text, run it through the final search function:
 		else if (text !== undefined && text !== "") {
-			searchText(text, demo, defaultSearch);
+			searchText(text, demo, defaultSearch, messageLevelsInt);
 		}
 
 		//If manual search setting is enabled, prompt the user for a search term:
@@ -115,11 +135,13 @@ export function activate(context: vscode.ExtensionContext) {
 				}
 
 				if (text === undefined || text === "") {
-					vscode.window.showInformationMessage(`No text entered. Please enter text in the prompt, or select text.`);
+					if (messageLevelsInt < 2) {
+						vscode.window.showInformationMessage(`No text entered. Please enter text in the prompt, or select text.`);
+					}
 					return;
 				}
 				else {
-					searchText(text, demo, defaultSearch);
+					searchText(text, demo, defaultSearch, messageLevelsInt);
 
 				}
 
@@ -147,7 +169,9 @@ export function activate(context: vscode.ExtensionContext) {
 
 			//await new Promise(resolve => setTimeout(resolve, 1000));
 			//if (text === undefined || text === "") {
+			//if (messageLevelsInt < 2) {
 			//	vscode.window.showInformationMessage(`Please enter text in the prompt, or select text.`);
+			//}
 			//	return;
 			//}
 
@@ -158,7 +182,7 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 
-async function searchText(query: string, demo: boolean, defaultSearch: boolean) {
+async function searchText(query: string, demo: boolean, defaultSearch: boolean, messageLevelsInt: Number) {
 	//Retrieve the extension's search engine configuration from the user settings:
 	const searchEngineOld: string = vscode.workspace.getConfiguration('webSearch').get('searchEngine')!;//Deprecated, will be removed in future versions
 
@@ -196,13 +220,16 @@ async function searchText(query: string, demo: boolean, defaultSearch: boolean) 
 	//Map the searchEngineList to a new array:
 	var searchEngineArray = Object.keys(searchEngineList[0]).map((key) => [String(key), searchEngineList[0][key]]);
 
+	//Define a truncated query in case the search term is long:
+	let truncatedQuery: string = `${query ? query.length <= 60 ? query.slice(0, 60) : query.slice(0, 60).concat('…') : ""}`;
+
 	//Loop through the search engines array in the configuration settings and add them to the list:
 	for (let i = 0; i < searchEngineArray.length; i++) {
 		items.push({
 			label: searchEngineArray[i][0],
 			description: searchEngineArray[i][1],
 			//Display the selected text in the quick pick list. If the text exceeds 60 characters, it will be truncated with an ellipsis:
-			detail: `Search ${searchEngineArray[i][0]} for ${query ? query.length <= 60 ? query.slice(0, 60) : query.slice(0, 60).concat('…') : ""}`,
+			detail: `Search ${searchEngineArray[i][0]} for ` + truncatedQuery,
 		});
 	}
 
@@ -239,7 +266,9 @@ async function searchText(query: string, demo: boolean, defaultSearch: boolean) 
 		if (demo) { vscode.window.showInformationMessage(`Select the search engine to use from the list above.`); }
 
 		//Use await to wait for the user to select an item from the list:
-		selectedSearchEngine = await vscode.window.showQuickPick(items) as vscode.QuickPickItem;
+		selectedSearchEngine = await vscode.window.showQuickPick(items, {
+			title: `Search for "` + truncatedQuery + `" on…`
+		}) as vscode.QuickPickItem;
 	}
 	else {
 		//If only one item exits in the list, use that item as the search engine (search it directly) - no need to prompt the user:
@@ -252,7 +281,11 @@ async function searchText(query: string, demo: boolean, defaultSearch: boolean) 
 
 	if (selectedSearchEngine === null || selectedSearchEngine === undefined) {
 		//Since no search engine was selected, notify the user and end the function:
-		vscode.window.showWarningMessage(`No search engine selected. Please select one from the list and try again.`);
+		//=0 or =2 show warnings
+
+		if (messageLevelsInt == 0 || messageLevelsInt == 2) {
+			vscode.window.showWarningMessage(`No search engine selected. Please select one from the list and try again.`);
+		}
 		return;
 	}
 	else {
@@ -262,14 +295,15 @@ async function searchText(query: string, demo: boolean, defaultSearch: boolean) 
 	}
 
 	//Determine if the searchURL begins with http/https as well as contains '%s', and if it does not, then display a message to the user that thir setting entry is not valid:
-	if ((searchUrl.startsWith("http://") || searchUrl.startsWith("https://")) && (searchUrl.includes("%s"))) {
+	if ((searchUrl.toLowerCase().startsWith("http://") || searchUrl.toLowerCase().startsWith("https://")) && (searchUrl.includes("%s"))) {
 
 		//Perform a string replacement to replace the %s placeholder of the search engine with the $text search query:
 		searchUrl = searchUrl.replace('%s', query ? query : "")!;
 
 		//Display to the user what action is being taken and on what search engine:
-		directSearch ? vscode.window.showInformationMessage(`Only one search engine exists, so searching ${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"} directly for: ${query}. \nFeel free to add more search engines in the settings.`) : vscode.window.showInformationMessage(`Searching ${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"} for: ${query}`);
-		//Perform the web search in the default browser:
+		if (messageLevelsInt < 2) {
+			directSearch ? vscode.window.showInformationMessage(`Only one search engine exists, so searching ${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"} directly for: ${query}. \nFeel free to add more search engines in the settings.`) : vscode.window.showInformationMessage(`Searching ${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"} for: ${query}`);
+		}
 
 		//Use built in browser if on web, otherwise use native OS browser:
 		if (vscode.env.uiKind === vscode.UIKind.Web) {
@@ -284,7 +318,7 @@ async function searchText(query: string, demo: boolean, defaultSearch: boolean) 
 		const errorMessage: string = `Search engine, *${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"}* setting is not valid. Please check your custom settings.`;
 
 		//Log the error to the extension's output channel and the console:
-		webSearchConsole.appendLine(errorMessage + "\nBe sure to include `%s` in the search engine URL and that it begins with `http://` or `https://`.");
+		webSearchConsole.appendLine(errorMessage + "\nBe sure to include `%s` (*lower case 's'*) in the search engine URL and that it begins with `http://` or `https://`.");
 		console.log(errorMessage);
 
 		//Show button to user and offer to bring them to the settings to edit their invalid search engine:
