@@ -236,7 +236,7 @@ async function searchText(query: string, demo: boolean, defaultSearch: boolean) 
 	//If more than one item is in the list, display the list in a quick pick list, otherwise, just run the search in the single search engine:
 	if (items.length > 1) {
 		//If demo mode is enabled, display a message to the user:
-		if (demo) { vscode.window.showInformationMessage(`Select the search engine to use using the list above.`); }
+		if (demo) { vscode.window.showInformationMessage(`Select the search engine to use from the list above.`); }
 
 		//Use await to wait for the user to select an item from the list:
 		selectedSearchEngine = await vscode.window.showQuickPick(items) as vscode.QuickPickItem;

@@ -101,11 +101,13 @@ Enable the Web Search extension to use default values. Disabling this will favor
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
 - **[IN PROGRESS]** Investigate adding autocomplete engine to manual entry
 - Examine performance analysis of code to find potential optimizations
+- Write a step-by-step guide for how to get search engine URLs
 - Add setting to disable information messages when searching
 - Add more GIFs to demo the extension usage
+- Update search bar walkthrough screenshots
 - Translate the extension to other languages
 - Open search results in sidebar (webview)
-- Perform additional code cleanup
+- Improve validation of search URL checks
 - Write more tests
 
 > ➕ Have a feature you'd like me to implement? [Submit a feature request on the Repo's Issues page](https://github.com/BenRogersWPG/WebSearch/issues)!
@@ -122,9 +124,9 @@ Enable the Web Search extension to use default values. Disabling this will favor
 - ~~Phase out old webSearch.searchEngine setting (use deprecationMessage)~~
 - ~~Use JSON pattern restriction for search engines setting to validate URLs~~
 - ~~Rework extension settings to better allow removing/editing entries~~
+- ~~Display search query in QuickPick URL (maybe, might be too long)~~
 - ~~Add setting toggle to enable/disable search if submenu dismissed~~
 - ~~Add screenshot of new extension settings search engine manager~~
-- ~~Display search query in QuickPick URL (maybe, might be too long)~~
 - ~~Remove duplicated release notes and consolidate in Changelog~~
 - ~~Use native browser opening to prevent external URL prompts~~
 - ~~Allow a preferred default search engine to be set in settings~~
@@ -138,15 +140,16 @@ Enable the Web Search extension to use default values. Disabling this will favor
 - ~~Decide on updating brace formatting preferences~~
 - ~~Add GIF animation to show how extension works~~
 - ~~Enable extension to run on VS Code for the web~~
-- ~~Streamline extension by reducing dependancies~~
-- ~~Enforce that search engines begin with http*~~
+- ~~Streamline extension by reducing dependencies~~
 - ~~Add monitors for code dependency changes~~
+- ~~Enforce that search engines begin with http*~~
 - ~~If no search engine is selected, do nothing~~
 - ~~Add keyboard shortcuts to perform search~~
 - ~~Add more screenshots of extension usage~~
 - ~~Use default query if no query is provided~~
-- ~~Add screenshots of the new settings~~
 - ~~Move images to consolidated folder~~
+- ~~Add screenshots of the new settings~~
+- ~~Perform additional code cleanup~~
 - ~~Perform more code refactoring~~
 - ~~Add license to the project~~
 
@@ -164,7 +167,7 @@ Enable the Web Search extension to use default values. Disabling this will favor
 
 ## Known Issues 🐛
 
-- Searching Stack Overflow sometimes requires a CAPTCHA. Either log in or accept cookies to prevent this.
+- Searching on Stack Overflow sometimes requires a CAPTCHA. Either log in or accept cookies to prevent this.
 
 ## Sponsor This Project ❤️
 

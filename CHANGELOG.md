@@ -1,8 +1,17 @@
 # Changelog
 
+## [5.1.4] (2022-09-03)
+#### Documentation
+* Improved the wording on some of the extension's walkthrough guides
+* Added more ideas for future development to the Readme
+
+#### Code Cleanup
+* Compressed all images, reducing size of extension package
+* Removed all unused images from the repository
+
 ## [5.1.3] (2022-09-01)
 #### Code Cleanup
-* Streamlined extension by reducing dependancies
+* Streamlined extension by reducing dependencies
 
 #### Documentation
 * Added more ideas for future development to the Readme
