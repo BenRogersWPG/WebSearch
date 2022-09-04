@@ -1,5 +1,16 @@
 # Changelog
 
+## [5.2.1] (2022-09-04)
+#### Documentation
+* Improved formatting of extension's code, Readme, and Changelog
+* Re-ordered some items in the Readme
+* Replaced image in the walkthrough for the search bar as it was recently redesigned
+
+#### Code Cleanup
+* Added some comments to some newer sections of the code
+* Code comment cleanup
+* Compressed all images using a newer algorithm, reducing size of extension package further
+
 ## [5.2.0] (2022-09-03)
 #### Features
 * You can now suppress information messages and/or warning messages from appearing. Check out the new setting `webSearch.messageLevels` to limit the messages! *This was my first experience using Typescript Enums, so it was a good learning experience.*
@@ -167,7 +178,7 @@
 
 #### House Keeping
 * Updated documentation around Stack Overflow web search. Sometimes it requires a CAPTCHA. Either log in or accept cookies to prevent this - *nothing to do with the extension*.
-* Tested extension on VS Code's new Do Not Disturb feature. Works great! *Use this if you wish to supress warnings and information messages as I get around to coding a proposed setting to supress messages*.
+* Tested extension on VS Code's new Do Not Disturb feature. Works great! *Use this if you wish to suppress warnings and information messages as I get around to coding a proposed setting to suppress messages*.
 * Updated a few more dependencies
 
 ## [4.1.13] (2022-07-10)
@@ -271,7 +282,7 @@ Mac, Windows, and web users will still have the old keybinding <kbd>Alt</kbd>+<k
 
 #### Documentation
 * Updated all key commands in the documentation to use proper keyboard markup tags, such as <kbd>Alt</kbd>+<kbd>`</kbd>
-* Added addidional description to one of the recent extension settings, `useDefaultSearchEnginesList`. When enabled, the extension runs like **Demo Mode** and when disabled it will run with your custom search engines in the `searchEngines` setting (item/value pair).
+* Added additional description to one of the recent extension settings, `useDefaultSearchEnginesList`. When enabled, the extension runs like **Demo Mode** and when disabled it will run with your custom search engines in the `searchEngines` setting (item/value pair).
 
 #### House Keeping
 * Updated a few more dependencies
@@ -425,7 +436,7 @@ Mac, Windows, and web users will still have the old keybinding <kbd>Alt</kbd>+<k
 ## [1.1.0] (2022-04-30)
 #### Features
 * Added user setting to enable multiple search engines to be added
-* Added submenu to the Command Pallete to allow the user to select the search engine to use
+* Added submenu to the Command Palette to allow the user to select the search engine to use
 * Maintained backwards compatibility with the old `webSearch.searchEngine` setting
 
 #### Documentation

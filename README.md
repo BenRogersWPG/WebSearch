@@ -12,10 +12,10 @@ This extension allows you to search the web in your favorite search engines / we
 - Keyboard shortcut to perform a quick search <kbd>Alt</kbd>+<kbd>`</kbd>
 - Type a search directly using the search bar (if no text is selected, it will ask for input)
 - Great for testing SEO and web development projects
-- Simple and clean Command Pallete and context menu entries
+- Simple and clean Command Palette and context menu entries
 - Walkthrough to help you get started using the extension
 - JSON snippet to help you customize your default search engines
-- **NEW** Full control over the extension's warning and information notification messages
+- **NEW** Full control over the extension's information and warning notification messages
 - Extension Settings for your own customizations (choose literally any website with a search feature)
 ![Add any site you wish as a search engine](images/web-search-add-any-site.gif)
 
@@ -43,7 +43,7 @@ You can utilize the extension in many different ways:
 2. Use the keyboard shortcut <kbd>Alt</kbd>+<kbd>\`</kbd> (<kbd>Alt</kbd>+<kbd>s</kbd> *on Linux*)
 3. Select the search engine you want to use (add more in the extension settings)
 
-### Via Command Pallete ☰
+### Via Command Palette ☰
 
 1. Select the text in your code to search for
 2. Open the Command Palette and select the "Web Search" item from the dropdown menu
@@ -112,9 +112,7 @@ Allows the user to control the levels of message output from the extension.
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
 - **[IN PROGRESS]** Investigate adding autocomplete engine to manual entry
 - Examine performance analysis of code to find potential optimizations
-- Write a step-by-step guide for how to get search engine URLs
 - Add more GIFs to demo the extension usage
-- Update search bar walkthrough screenshots
 - Translate the extension to other languages
 - Open search results in sidebar (webview)
 - Write more tests
@@ -137,6 +135,7 @@ Allows the user to control the levels of message output from the extension.
 - ~~Display search query in QuickPick URL (maybe, might be too long)~~
 - ~~Add screenshot of new extension settings search engine manager~~
 - ~~Remove duplicated release notes and consolidate in Changelog~~
+- ~~Write a step-by-step guide for how to get search engine URLs~~
 - ~~Use native browser opening to prevent external URL prompts~~
 - ~~Add setting to disable information messages when searching~~
 - ~~Allow a preferred default search engine to be set in settings~~
@@ -154,6 +153,7 @@ Allows the user to control the levels of message output from the extension.
 - ~~Streamline extension by reducing dependencies~~
 - ~~Add monitors for code dependency changes~~
 - ~~Enforce that search engines begin with http*~~
+- ~~Update search bar walkthrough screenshots~~
 - ~~If no search engine is selected, do nothing~~
 - ~~Add keyboard shortcuts to perform search~~
 - ~~Add more screenshots of extension usage~~
@@ -171,7 +171,6 @@ Allows the user to control the levels of message output from the extension.
 - Add dynamic sub context menu to right click menu containing all search engines
 - Use variables in setting descriptions, so that the keybindings are dynamic
 - Poll site favicons and display them on the search engine submenu
-
 
 ## Requirements 📦
 

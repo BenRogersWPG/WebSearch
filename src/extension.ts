@@ -39,7 +39,7 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.changeNotifications', async () => {
 		await new Promise(resolve => setTimeout(resolve, 1000));
 		vscode.commands.executeCommand('workbench.action.openSettings', 'WebSearch.messageLevels');
-		vscode.window.showInformationMessage(`Adjust the level of notifications you wish to see, or remove them entirely.`);
+		vscode.window.showInformationMessage(`Adjust the notification level you wish to see, or remove them entirely.`);
 	}));
 
 	// Register a command that will take the user to the WebSearch extension's settings page:
@@ -105,15 +105,15 @@ export function activate(context: vscode.ExtensionContext) {
 
 		//If manual search setting is enabled, prompt the user for a search term:
 		else if ((text === undefined || text === "") && (manualSearch)) {
-			//assign text to the user's selected quickpick item by creating a quickpick and using the quickpick's selected item:
+			//assign text to the user's selected Quick Pick item by creating a Quick Pick and using the Quick Pick's selected item:
 			let input = vscode.window.createQuickPick();
 
-			//Create a list of quickpick items:
+			//Create a list of Quick Pick items:
 			let quickpickItems: vscode.QuickPickItem[] = [];
 			//Start the user off with a default search term to prompt them to enter a custom search term:
 			quickpickItems.push({ label: " ", description: "Enter your search term here" });
 
-			//Add the quickpick items to the quickpick:
+			//Add the Quick Pick items to the Quick Pick:
 			input.items = quickpickItems;
 
 			const editor = vscode.window.activeTextEditor;
@@ -123,8 +123,9 @@ export function activate(context: vscode.ExtensionContext) {
 				}
 			}
 
+			//User clicked on Quick Pick entry or pressed Enter
 			input.onDidAccept(async () => {
-				//Set text to the quickpick's currently selected item:
+				//Set text to the Quick Pick's currently selected item:
 				try {
 					text = input.selectedItems[0].label;
 				}
@@ -148,6 +149,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 			});
 
+			//Quick Pick list has changed (typing into search bar)
 			input.onDidChangeValue(async value => {
 
 				quickpickItems = [];
@@ -192,7 +194,7 @@ async function searchText(query: string, demo: boolean, defaultSearch: boolean, 
 	//Define default search engine signature:
 	interface IDefaultObject { sitename: string; url: string; }
 
-	//use this interface to ghet the default search engine list from the settings.json file:
+	//use this interface to get the default search engine list from the settings.json file:
 	const defaultSearchEngines: IDefaultObject[] = new Array(vscode.workspace.getConfiguration('webSearch').get('defaultSearchEngines'));
 
 	//Now that we have an array of search engines, we need to loop through them and display them in a quick pick list
@@ -232,7 +234,6 @@ async function searchText(query: string, demo: boolean, defaultSearch: boolean, 
 			detail: `Search ${searchEngineArray[i][0]} for ` + truncatedQuery,
 		});
 	}
-
 
 	//Only populate the old search engine list if the user wishes to use default search engines:
 	if (defaultSearch || items.length === 0) {
@@ -294,7 +295,7 @@ async function searchText(query: string, demo: boolean, defaultSearch: boolean, 
 
 	}
 
-	//Determine if the searchURL begins with http/https as well as contains '%s', and if it does not, then display a message to the user that thir setting entry is not valid:
+	//Determine if the searchURL begins with http/https as well as contains '%s', and if it does not, then display a message to the user that their setting entry is not valid:
 	if ((searchUrl.toLowerCase().startsWith("http://") || searchUrl.toLowerCase().startsWith("https://")) && (searchUrl.includes("%s"))) {
 
 		//Perform a string replacement to replace the %s placeholder of the search engine with the $text search query:
