@@ -3,6 +3,7 @@
 out/test/**
 test/**
 src/**
+docs/**
 .gitignore
 tsconfig.json
 npm-debug.log
@@ -10,5 +11,10 @@ npm-debug.log
 vsc-extension-quickstart.md
 **/tsconfig.json
 **/.eslintrc.json
+.eslintrc
 **/*.map
 **/*.ts
+images/web-search-social-preview.png
+images/web-search-submenu.png
+images/web-search-engine-setting.png
+images/web-search-context-menu.png
