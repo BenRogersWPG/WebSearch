@@ -1,5 +1,14 @@
 # Changelog
 
+## [5.2.2] (2022-09-05)
+#### Code Cleanup
+* Migrated from TSLint to ESLint
+* Streamlined extension by reducing dependencies
+* Removed GitHub-only images from being included in VS Code package
+
+#### Documentation
+* Updated screenshot for notifications to make it easier to read on light themes
+
 ## [5.2.1] (2022-09-04)
 #### Documentation
 * Improved formatting of extension's code, Readme, and Changelog
