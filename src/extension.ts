@@ -111,7 +111,7 @@ export function activate(context: vscode.ExtensionContext) {
 			//Create a list of Quick Pick items:
 			let quickpickItems: vscode.QuickPickItem[] = [];
 			//Start the user off with a default search term to prompt them to enter a custom search term:
-			quickpickItems.push({ label: " ", description: "Enter your search term here" });
+			quickpickItems.push({ label: "", description: "Enter your search term here" });
 
 			//Add the Quick Pick items to the Quick Pick:
 			input.items = quickpickItems;
