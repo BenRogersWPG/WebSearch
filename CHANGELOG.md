@@ -1,5 +1,19 @@
 # Changelog
 
+## [5.2.3] (2022-09-06)
+#### Bug Fixes
+* The search bar will no longer accept empty text immediately when running the extension. User input must be entered first.
+
+#### Documentation
+* Updated details on how to access the extension's walkthrough
+* Removed secondary setting from showing up when adding search engines from the walkthrough to make it less daunting for new users
+
+#### Code Cleanup
+* Testing WebP image formats for the project images
+* Testing AVIF image formats for the project animation
+* Removed unnecessary user settings from project
+* Clean up of files from ESLint conversion
+
 ## [5.2.2] (2022-09-05)
 #### Code Cleanup
 * Migrated from TSLint to ESLint

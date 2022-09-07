@@ -17,11 +17,11 @@ This extension allows you to search the web in your favorite search engines / we
 - JSON snippet to help you customize your default search engines
 - **NEW** Full control over the extension's information and warning notification messages
 - Extension Settings for your own customizations (choose literally any website with a search feature)
-![Add any site you wish as a search engine](images/web-search-add-any-site.gif)
+![Add any site you wish as a search engine](images/web-search-add-any-site.avifs)
 
 ## How To Use 👇
 
-*This extension comes packaged with a walkthrough. Use it to learn how to use the extension. (run `Get Started` from Command Palette)*
+*This extension comes packaged with a walkthrough. Use it to learn how to use the extension. (run `Get Started: Open Walkthrough` from the Command Palette)*
 
 You can utilize the extension in many different ways:
 
