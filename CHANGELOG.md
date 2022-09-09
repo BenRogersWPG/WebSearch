@@ -1,5 +1,9 @@
 # Changelog
 
+## [5.2.5] (2022-09-08)
+#### Bug Fixes
+* Restored the first screenshot in the walkthrough. I removed it for testing and it was not appearing.
+
 ## [5.2.4] (2022-09-08)
 #### House Keeping
 * Updated a few more dependencies
