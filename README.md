@@ -2,7 +2,7 @@
 
 This extension allows you to search the web in your favorite search engines / websites (editable in extension settings), getting input either from selected text or direct entry in the extension's search bar.
 
-![Example of Web Search being used on a code snippet, also displaying result of running the extension from Google](images/web-search.png)
+![Screenshot example of Web Search being used on a code snippet for the selected text of 'axios', also displaying the search results page of running the extension from Google](images/web-search.webp)
 
 ## Features ✨
 
@@ -15,9 +15,9 @@ This extension allows you to search the web in your favorite search engines / we
 - Simple and clean Command Palette and context menu entries
 - Walkthrough to help you get started using the extension
 - JSON snippet to help you customize your default search engines
-- **NEW** Full control over the extension's information and warning notification messages
-- Extension Settings for your own customizations (choose literally any website with a search feature)
-![Add any site you wish as a search engine](images/web-search-add-any-site.avifs)
+- Full control over the extension's information and warning notification messages
+- Lots of extension Settings for your own customizations (choose literally any website with a search feature)
+![Animation of adding a new search engine to the Web Search extension using the extension settings, then performing a search using the new search engine](images/web-search-add-any-site.avifs)
 
 ## How To Use 👇
 
@@ -49,7 +49,7 @@ You can utilize the extension in many different ways:
 2. Open the Command Palette and select the "Web Search" item from the dropdown menu
 3. Select the search engine you want to use (add more in the extension settings)
 
-![Web Search submenu, displaying the various options to search selected text - all of which can be edited or add your own](images/web-search-submenu.png)
+![A screenshot of the web Search submenu, displaying the various options to search selected text - all of which can be edited or add your own](images/web-search-submenu.webp)
 
 ## Extension Settings ⚙️
 
@@ -59,7 +59,7 @@ Search engines to use for the Web Search extension. Replace the query with `%s`,
 
 Use the extension settings to manage the search engines easily by pressing the **Add Item** button (shown below).
 
-![Search engine settings, modeled after Google Chrome's search engine settings, allowing you to customize your own experience by adding/removing/editing entries](images/web-search-engine-setting.png)
+![A screenshot of the extension's custom search engine settings, modeled after Google Chrome's search engine settings, allowing you to customize your own experience by adding/removing/editing entries. The screenshot displays many search engines entered into the list and also features a large blue button at the bottom labelled 'Add Item'](images/web-search-engine-setting.webp)
 
 #### How to get Your Own Search Engine URLs:
 
@@ -89,7 +89,7 @@ Want to run the selected URL on Google's PageSpeed Insights for search engine op
 
 Allows the user to enable or disable the right click context menu. Set to `true` to enable, `false` to disable.
 
-![Example of Web Search being used on a code snippet from the right click context menu](images/web-search-context-menu.png)
+![A screenshot showing a bunch of code in the text editor of VS Code with the text 'node' selected and a context menu beside it with the text 'web search selected text' highlighted](images/web-search-context-menu.webp)
 
 ### `webSearch.allowManualSearch`
 

@@ -1,5 +1,17 @@
 # Changelog
 
+## [5.2.4] (2022-09-08)
+#### House Keeping
+* Updated a few more dependencies
+
+#### Documentation
+* Completely rewrote the alt tags for the images included in the project. This is to assist accessibility and contextually describe the images better as many of them have been updated since initially included in the project
+* Improved the wording of some sections of the Readme
+
+#### Code Cleanup
+* Completed conversion of all project images to new WebP image formats
+* Consolidated image file location in project
+
 ## [5.2.3] (2022-09-06)
 #### Bug Fixes
 * The search bar will no longer accept empty text immediately when running the extension. User input must be entered first.

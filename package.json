@@ -1,9 +1,9 @@
 {
 	"name": "websearchengine",
 	"displayName": "Web Search",
-	"icon": "icon.png",
+	"icon": "images/icon.webp",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "5.2.3",
+	"version": "5.2.4",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -94,7 +94,7 @@
 						"description": "The extension will always prefer to search using the selected text.\nThis step will simulate selecting some example text, ``eslint``, and then run the Web Search extension.\n[Try Searching Using Selected Text, 'eslint'](command:WebSearch.selectedTextDemo)",
 						"media": {
 							"image": "images/web-search-selected-text-demo.webp",
-							"altText": "Screenshot displaying the Web Search extension with selected text of 'eslint'"
+							"altText": "Screenshot displaying VS Code with a code editor window open and the selected text of 'eslint' highlighted"
 						},
 						"completionEvents": [
 							"onContext:searchSelectedText"
@@ -105,8 +105,8 @@
 						"title": "Search using the Search Bar 🔎",
 						"description": "This step will run a Web Search with **demo mode** on to show you how it looks with multiple sites\nSimply run the command, type a search query in the search bar above, and see the site list options.\n[Try Out the Search Bar](command:WebSearch.firstRun)",
 						"media": {
-							"image": "images/web-search-bar.png",
-							"altText": "Screenshot of the Web Search search bar, with someone typing for any text you wish"
+							"image": "images/web-search-bar.webp",
+							"altText": "Screenshot of the Web Search search bar, with someone typing for 'any text you wish'"
 						},
 						"completionEvents": [
 							"onContext:firstRun"
@@ -118,7 +118,7 @@
 						"description": "This step will open the extension settings.\nAdd search engines using Item/Value pairs like the GIF to the right.\nSearch engines are added in the same way you would add one in your web browser, using ``%s`` in the URL to replace the search query.\n[Start Adding Custom Search Engines](command:WebSearch.openSettings)",
 						"media": {
 							"image": "images/web-search-add-any-site.avifs",
-							"altText": "GIF of adding a new search engine to the Web Search extension"
+							"altText": "Animation of adding a new search engine to the Web Search extension using the extension settings, then performing a search using the new search engine"
 						},
 						"completionEvents": [
 							"onCommand:WebSearch.openSettings"
@@ -129,8 +129,8 @@
 						"title": "Try Your Own Search Engines 🔎",
 						"description": "Now that you have added your own search engines, this step will show you how it looks with your custom-added search engines\nSimply run the command, type a search query, and see the site list options.\n[Try WebSearch With Your Custom Search Engines](command:WebSearch.setContext)",
 						"media": {
-							"image": "images/web-search-submenu-demo-large.png",
-							"altText": "Screenshot of the Web Search submenu with multiple sites"
+							"image": "images/web-search-submenu-demo-large.webp",
+							"altText": "Screenshot of the Web Search submenu with multiple sites listed, and the website of GitHub highlighted"
 						},
 						"completionEvents": [
 							"onContext:customSearch"
@@ -142,7 +142,7 @@
 						"description": "This step will turn off demo mode so the extension will only display the search engines you recently added.\nYou can always turn demo mode back on in the extension settings (set ``webSearch.useDefaultSearchEnginesList`` to ``True``).\n[Turn off Demo Mode](command:WebSearch.changeSetting)",
 						"media": {
 							"image": "images/web-search-add-any-site.avifs",
-							"altText": "GIF of adding a new search engine to the Web Search extension"
+							"altText": "Animation of adding a new search engine to the Web Search extension using the extension settings, then performing a search using the new search engine"
 						}
 					},
 					{
@@ -150,8 +150,8 @@
 						"title": "Adjust Notification Levels 🔔",
 						"description": "This extension allows you to control the level at which notifications are displayed. If you are finding it too verbose while using, you can adjust the notifications or remove them entirely using this setting. \n[Adjust Notifications](command:WebSearch.changeNotifications)",
 						"media": {
-							"image": "images/web-search-notifications.png",
-							"altText": "Screenshot showing an example of an information message when searching for 'eslint'"
+							"image": "images/web-search-notifications.webp",
+							"altText": "Screenshot showing an example of an information message when searching for 'eslint', which reads 'Searching Stack Overflow for: eslint'"
 						}
 					},
 					{
@@ -160,7 +160,7 @@
 						"description": "If you only have one search engine in your custom settings (and **Demo Mode** is off), then the extension will automatically search from that site.\nIt will not pop up with the submenu of sites to select from (**Defaults to Google**).\nRemember to add more search engines if you want to search from multiple sites.\n[Add Additional Custom Search Engines](command:WebSearch.openSettings)",
 						"media": {
 							"image": "images/web-search-add-any-site.avifs",
-							"altText": "GIF of adding a new search engine to the Web Search extension"
+							"altText": "Animation of adding a new search engine to the Web Search extension using the extension settings, then performing a search using the new search engine"
 						}
 					},
 					{
@@ -168,8 +168,8 @@
 						"title": "Search Using Keyboard Shortcut ⌨️",
 						"description": "You can use the Web Search extension in multiple ways.\nThis step will show you that you can run the extension using the keyboard shortcut of:\n``Alt + `s`.",
 						"media": {
-							"image": "images/web-search-keyboard-shortcut-linux.png",
-							"altText": "Keyboard shortcut for the Web Search extension"
+							"image": "images/web-search-keyboard-shortcut-linux.webp",
+							"altText": "Keyboard shortcut for the Web Search extension when using Linux which is Alt+s"
 						},
 						"when": "isLinux && isWeb || isLinux"
 					},
@@ -178,8 +178,8 @@
 						"title": "Search Using Keyboard Shortcut ⌨️",
 						"description": "You can use the Web Search extension in multiple ways.\nThis step will show you that you can run the extension using the keyboard shortcut of:\n``Alt + ``` (backtick).",
 						"media": {
-							"image": "images/web-search-keyboard-shortcut.png",
-							"altText": "Keyboard shortcut for the Web Search extension"
+							"image": "images/web-search-keyboard-shortcut.webp",
+							"altText": "Keyboard shortcut for the Web Search extension which is Alt+` (backtick)"
 						},
 						"when": "isWindows || isMac || isWeb && !isLinux"
 					},
@@ -188,8 +188,8 @@
 						"title": "Search From the Context Menu 🖱️",
 						"description": "You can right click on any selected text in your code and search from the context menu.",
 						"media": {
-							"image": "images/web-search-context-menu-zoom.png",
-							"altText": "Running the Web Search extension from the context menu"
+							"image": "images/web-search-context-menu-zoom.webp",
+							"altText": "A screenshot showing a bunch of text in the text editor of VS Code with the text 'eslint' selected and a context menu beside it with the text 'web search selected text' highlighted"
 						}
 					},
 					{
@@ -197,8 +197,8 @@
 						"title": "Search From the Command Palette ☰",
 						"description": "You can also use the extension at any time via the Command Palette. Simply select ``Web Search`` from the Command Palette and type a search query.",
 						"media": {
-							"image": "images/web-search.png",
-							"altText": "Running the Web Search extension from the Command Palette"
+							"image": "images/web-search.webp",
+							"altText": "A screenshot of code in the VS Code editor with a popup at the top coming from VS Code's Command Palette. The Command Palette text entry has someone who has typed 'web search' to get the extension to suggest itself as a recommended action"
 						}
 					}
 				]
