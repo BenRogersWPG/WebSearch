@@ -12,8 +12,6 @@ export function activate(context: vscode.ExtensionContext) {
 	// Notify the user that the extension has been activated successfully:
 	console.log('Thank you for installing Web Search, the extension is now active! To use, right click some highlighted text in your editor or type "web search" in the command palette.');
 
-	const defaultSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('useDefaultSearchEnginesList')!;
-
 	// Register a command that will toggle when the extension is demoing searching from selected text:
 	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.selectedTextDemo', async () => {
 		await new Promise(resolve => setTimeout(resolve, 1000));
@@ -32,7 +30,7 @@ export function activate(context: vscode.ExtensionContext) {
 	// Register a command to update a setting (toggling demo mode), which is used in the extension's walkthrough:
 	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.changeSetting', async () => {
 		await new Promise(resolve => setTimeout(resolve, 1000));
-		vscode.workspace.getConfiguration('webSearch').update('useDefaultSearchEnginesList', false);
+		vscode.workspace.getConfiguration('webSearch').update('useDefaultSearchEnginesList', false, true);
 		vscode.commands.executeCommand('setContext', 'demoModeOff', true);
 		vscode.window.showInformationMessage(`Demo mode off. Remember to add your own search engines in settings.`);
 	}));
@@ -53,7 +51,8 @@ export function activate(context: vscode.ExtensionContext) {
 	// Register a command that will take the user to the WebSearch extension's settings page to acknowledge the one search engine rule:
 	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.oneSearchEngine', () => {
 		vscode.commands.executeCommand('workbench.action.openSettings', 'WebSearch.searchEngines');
-		if (defaultSearch) {
+		const demoMode: boolean = vscode.workspace.getConfiguration('webSearch').get('useDefaultSearchEnginesList')!;
+		if (demoMode) {
 			vscode.window.showInformationMessage(`Remember, if you turn off demo mode and only have one custom search engine it will not prompt you to select from the list and will just execute the search immediately.`);
 		}
 		else {
@@ -88,7 +87,7 @@ export function activate(context: vscode.ExtensionContext) {
 		//Gather the user's currently selected text from the active text editor:
 		const editor = vscode.window.activeTextEditor;
 		let text = demo ? "eslint" : vscode.window.activeTextEditor?.document.getText(editor!.selection); //If demo is true, use the string "eslint" as the search term
-
+		const defaultSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('useDefaultSearchEnginesList')!;
 		const manualSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('allowManualSearch')!;
 
 		enum MessageEnum {

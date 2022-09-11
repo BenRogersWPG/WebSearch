@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.2.7] (2022-09-11)
+#### Bug Fixes
+* Improved demo mode on the walkthrough, as it was not properly toggling user settings
+
+#### Code Cleanup
+* Performed minor routine code cleanup
+
 ## [5.2.6] (2022-09-11)
 #### Features
 * Improved the logic of the extension's walkthrough to contextually know if *demo mode* has been turned off. Depending on the value of demo mode, it will assist the user with different helpful comments
