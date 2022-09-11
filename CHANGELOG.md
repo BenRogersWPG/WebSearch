@@ -1,5 +1,21 @@
 # Changelog
 
+## [5.2.6] (2022-09-11)
+#### Features
+* Improved the logic of the extension's walkthrough to contextually know if *demo mode* has been turned off. Depending on the value of demo mode, it will assist the user with different helpful comments
+
+#### Code Cleanup
+* Updated project use of new ESLint
+* Improved naming conventions and coding practices to abide by new ESLint rules
+* Removed gif of the extension as the project now uses AVIF. *The animation may not work on older browsers*
+* Completed testing of new project icon, so removed PNG in favor of new WEBP image format
+
+#### Documentation
+* Rewrote the description of the walkthrough
+* Improved the wording of some sections of the walkthrough
+* Ordered some items in the walkthrough to flow more logically
+* Added more ideas for future development to the Readme
+
 ## [5.2.5] (2022-09-08)
 #### Bug Fixes
 * Restored the first screenshot in the walkthrough. I removed it for testing and it was not appearing.

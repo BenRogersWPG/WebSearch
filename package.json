@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "images/icon.webp",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "5.2.5",
+	"version": "5.2.6",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -56,6 +56,7 @@
 		"onCommand:WebSearch.changeSetting",
 		"onCommand:WebSearch.changeNotifications",
 		"onCommand:WebSearch.openSettings",
+		"onCommand:WebSearch.oneSearchEngine",
 		"onCommand:WebSearch.setContext",
 		"onCommand:WebSearch.selectedTextDemo",
 		"onCommand:WebSearch.setPaletteContext"
@@ -86,7 +87,7 @@
 			{
 				"id": "WebSearchWalkthrough",
 				"title": "Web Search Walkthrough",
-				"description": "Thanks for installing Web Search\nTo get started, here are some quick tips for using the extension, so you can boost your productivity.",
+				"description": "Quick tips to get started using the extension so you can boost your productivity. Thanks for installing Web Search!",
 				"steps": [
 					{
 						"id": "selectedtextdemo",
@@ -146,21 +147,24 @@
 						}
 					},
 					{
+						"id": "onlyonesearchengine",
+						"title": "FYI - Only One Search Engine 1️⃣",
+						"description": "If you only have one search engine in your custom settings (and **Demo Mode** is off), then the extension will automatically search from that site.\nIt will not pop up with the submenu of sites to select from (**Defaults to Google**).\nRemember to add more search engines if you want to search from multiple sites.\n[Add Additional Custom Search Engines](command:WebSearch.oneSearchEngine)",
+						"media": {
+							"image": "images/web-search-add-any-site.avifs",
+							"altText": "Animation of adding a new search engine to the Web Search extension using the extension settings, then performing a search using the new search engine"
+						},
+						"completionEvents": [
+							"onCommand:WebSearch.oneSearchEngine"
+						]
+					},
+					{
 						"id": "messagelevels",
 						"title": "Adjust Notification Levels 🔔",
 						"description": "This extension allows you to control the level at which notifications are displayed. If you are finding it too verbose while using, you can adjust the notifications or remove them entirely using this setting. \n[Adjust Notifications](command:WebSearch.changeNotifications)",
 						"media": {
 							"image": "images/web-search-notifications.webp",
 							"altText": "Screenshot showing an example of an information message when searching for 'eslint', which reads 'Searching Stack Overflow for: eslint'"
-						}
-					},
-					{
-						"id": "onlyonesearchengine",
-						"title": "FYI - Only One Search Engine 1️⃣",
-						"description": "If you only have one search engine in your custom settings (and **Demo Mode** is off), then the extension will automatically search from that site.\nIt will not pop up with the submenu of sites to select from (**Defaults to Google**).\nRemember to add more search engines if you want to search from multiple sites.\n[Add Additional Custom Search Engines](command:WebSearch.openSettings)",
-						"media": {
-							"image": "images/web-search-add-any-site.avifs",
-							"altText": "Animation of adding a new search engine to the Web Search extension using the extension settings, then performing a search using the new search engine"
 						}
 					},
 					{
@@ -314,7 +318,7 @@
 		"vscode:prepublish": "npm run compile && npm run package-web",
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
-		"lint": "eslint -c eslint.json 'src/**/*.ts'",
+		"lint": "eslint -c .eslintrc.js --ext .ts ./src",
 		"compile-web": "webpack --config ./build/web-extension.webpack.config.js",
 		"watch-web": "webpack --watch --config ./build/web-extension.webpack.config.js",
 		"package-web": "webpack --mode production --devtool hidden-source-map --config ./build/web-extension.webpack.config.js"
@@ -322,6 +326,8 @@
 	"devDependencies": {
 		"@types/node": "^18.7.16",
 		"@types/vscode": "^1.55.2",
+		"@typescript-eslint/eslint-plugin": "^5.36.2",
+		"@typescript-eslint/parser": "^5.36.2",
 		"eslint": "^8.23.0",
 		"path-browserify": "^1.0.1",
 		"process": "^0.11.10",

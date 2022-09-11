@@ -12,6 +12,8 @@ export function activate(context: vscode.ExtensionContext) {
 	// Notify the user that the extension has been activated successfully:
 	console.log('Thank you for installing Web Search, the extension is now active! To use, right click some highlighted text in your editor or type "web search" in the command palette.');
 
+	const defaultSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('useDefaultSearchEnginesList')!;
+
 	// Register a command that will toggle when the extension is demoing searching from selected text:
 	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.selectedTextDemo', async () => {
 		await new Promise(resolve => setTimeout(resolve, 1000));
@@ -48,6 +50,17 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.window.showInformationMessage(`Add your own search engines by clicking the Add Item button.`);
 	}));
 
+	// Register a command that will take the user to the WebSearch extension's settings page to acknowledge the one search engine rule:
+	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.oneSearchEngine', () => {
+		vscode.commands.executeCommand('workbench.action.openSettings', 'WebSearch.searchEngines');
+		if (defaultSearch) {
+			vscode.window.showInformationMessage(`Remember, if you turn off demo mode and only have one custom search engine it will not prompt you to select from the list and will just execute the search immediately.`);
+		}
+		else {
+			vscode.window.showInformationMessage(`Remember, if you only have one custom search engine it will not prompt you to select from the list and will just execute the search immediately.`);
+		}
+	}));
+
 	// Register a command that will toggle when the extension is run after entering custom search engines:
 	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.setContext', async () => {
 		await new Promise(resolve => setTimeout(resolve, 1000));
@@ -77,16 +90,15 @@ export function activate(context: vscode.ExtensionContext) {
 		let text = demo ? "eslint" : vscode.window.activeTextEditor?.document.getText(editor!.selection); //If demo is true, use the string "eslint" as the search term
 
 		const manualSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('allowManualSearch')!;
-		const defaultSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('useDefaultSearchEnginesList')!;
 
-		enum messageEnum {
+		enum MessageEnum {
 			"Show All" = 0,
 			"Show Information Messages Only" = 1,
 			"Show Warning Messages Only" = 2,
 			"Hide All" = 3
 		}
 
-		const messageLevelsInt: Number = messageEnum[vscode.workspace.getConfiguration('webSearch').get('messageLevels') as messageEnum] === undefined ? 0 : messageEnum[vscode.workspace.getConfiguration('webSearch').get('messageLevels') as messageEnum] as unknown as Number;
+		const messageLevelsInt: Number = MessageEnum[vscode.workspace.getConfiguration('webSearch').get('messageLevels') as MessageEnum] === undefined ? 0 : MessageEnum[vscode.workspace.getConfiguration('webSearch').get('messageLevels') as MessageEnum] as unknown as Number;
 
 		console.log(messageLevelsInt);
 
@@ -192,7 +204,7 @@ async function searchText(query: string, demo: boolean, defaultSearch: boolean, 
 	const searchEngine: string[] = new Array(vscode.workspace.getConfiguration('webSearch').get('searchEngines'));
 
 	//Define default search engine signature:
-	interface IDefaultObject { sitename: string; url: string; }
+	interface IDefaultObject { sitename: string; url: string }
 
 	//use this interface to get the default search engine list from the settings.json file:
 	const defaultSearchEngines: IDefaultObject[] = new Array(vscode.workspace.getConfiguration('webSearch').get('defaultSearchEngines'));
@@ -284,7 +296,7 @@ async function searchText(query: string, demo: boolean, defaultSearch: boolean, 
 		//Since no search engine was selected, notify the user and end the function:
 		//=0 or =2 show warnings
 
-		if (messageLevelsInt == 0 || messageLevelsInt == 2) {
+		if (messageLevelsInt === 0 || messageLevelsInt === 2) {
 			vscode.window.showWarningMessage(`No search engine selected. Please select one from the list and try again.`);
 		}
 		return;

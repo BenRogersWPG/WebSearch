@@ -111,7 +111,9 @@ Allows the user to control the levels of message output from the extension.
 
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
 - **[IN PROGRESS]** Investigate adding autocomplete engine to manual entry
+- Add option to add manual text to selected text when performing a search
 - Examine performance analysis of code to find potential optimizations
+- Add ability to run extension from selected text in the terminal
 - Add more GIFs to demo the extension usage
 - Translate the extension to other languages
 - Open search results in sidebar (webview)
