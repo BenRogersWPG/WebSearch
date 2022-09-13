@@ -327,7 +327,7 @@
 		"@types/node": "^18.7.17",
 		"@types/vscode": "^1.55.2",
 		"@typescript-eslint/eslint-plugin": "^5.37.0",
-		"@typescript-eslint/parser": "^5.36.2",
+		"@typescript-eslint/parser": "^5.37.0",
 		"eslint": "^8.23.1",
 		"path-browserify": "^1.0.1",
 		"process": "^0.11.10",
