@@ -28,7 +28,7 @@ module.exports = /** @type WebpackConfig */ {
 			'assert': require.resolve('assert'),
 			'path': require.resolve('path-browserify'),
 			'util': require.resolve('util/'),
-			"fs": false,
+			'fs': false,
 			'os': false,
 			'child_process': false
 		}

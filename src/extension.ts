@@ -90,16 +90,14 @@ export function activate(context: vscode.ExtensionContext) {
 		const defaultSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('useDefaultSearchEnginesList')!;
 		const manualSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('allowManualSearch')!;
 
+		//Prepare enum and gather setting for the user's desired notification display level:
 		enum MessageEnum {
 			"Show All" = 0,
 			"Show Information Messages Only" = 1,
 			"Show Warning Messages Only" = 2,
 			"Hide All" = 3
 		}
-
 		const messageLevelsInt: Number = MessageEnum[vscode.workspace.getConfiguration('webSearch').get('messageLevels') as MessageEnum] === undefined ? 0 : MessageEnum[vscode.workspace.getConfiguration('webSearch').get('messageLevels') as MessageEnum] as unknown as Number;
-
-		console.log(messageLevelsInt);
 
 		//Display a message to the user if no text was selected:
 		if ((text === undefined || text === "") && (!manualSearch)) {

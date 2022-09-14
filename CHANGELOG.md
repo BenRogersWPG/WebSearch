@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.2.8] (2022-09-13)
+#### House Keeping
+* Updated a few more dependencies
+
+#### Code Cleanup
+* Performed minor routine code cleanup
+
 ## [5.2.7] (2022-09-11)
 #### Bug Fixes
 * Improved demo mode on the walkthrough, as it was not properly toggling user settings
