@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "images/icon.webp",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "5.2.8",
+	"version": "5.2.9",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -319,9 +319,9 @@
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
 		"lint": "eslint -c .eslintrc.js --ext .ts ./src",
-		"compile-web": "webpack --config ./build/web-extension.webpack.config.js",
-		"watch-web": "webpack --watch --config ./build/web-extension.webpack.config.js",
-		"package-web": "webpack --mode production --devtool hidden-source-map --config ./build/web-extension.webpack.config.js"
+		"compile-web": "webpack --config ./src/web-extension.webpack.config.js",
+		"watch-web": "webpack --watch --config ./src/web-extension.webpack.config.js",
+		"package-web": "webpack --mode production --devtool hidden-source-map --config ./src/web-extension.webpack.config.js"
 	},
 	"devDependencies": {
 		"@types/node": "^18.7.18",

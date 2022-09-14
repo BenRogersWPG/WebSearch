@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.2.9] (2022-09-13)
+#### Code Cleanup
+* Consolidated source file location in project
+
+#### Behind The Scenes
+* Updated webpack to TypeScript so project is entirely TypeScript
+
 ## [5.2.8] (2022-09-13)
 #### House Keeping
 * Updated a few more dependencies
