@@ -1,11 +1,18 @@
 # Changelog
 
+## [5.2.10] (2022-09-15)
+#### Code Cleanup
+* Removed leftover files from ESLint conversion
+
+#### Behind The Scenes
+* Updated ESLint configuration to JSON from JavaScript so project is entirely TypeScript
+
 ## [5.2.9] (2022-09-13)
 #### Code Cleanup
 * Consolidated source file location in project
 
 #### Behind The Scenes
-* Updated webpack to TypeScript so project is entirely TypeScript
+* Updated webpack to TypeScript
 
 ## [5.2.8] (2022-09-13)
 #### House Keeping
