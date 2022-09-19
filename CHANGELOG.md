@@ -1,5 +1,9 @@
 # Changelog
 
+## [5.2.11] (2022-09-19)
+#### House Keeping
+* Updated a few more dependencies
+
 ## [5.2.10] (2022-09-15)
 #### Code Cleanup
 * Removed leftover files from ESLint conversion
