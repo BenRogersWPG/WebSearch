@@ -1,5 +1,9 @@
 # Changelog
 
+## [5.2.12] (2022-09-24)
+#### House Keeping
+* Updated a few more dependencies
+
 ## [5.2.11] (2022-09-19)
 #### House Keeping
 * Updated a few more dependencies
