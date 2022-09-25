@@ -95,9 +95,16 @@ export function activate(context: vscode.ExtensionContext) {
 			"Show All" = 0,
 			"Show Information Messages Only" = 1,
 			"Show Warning Messages Only" = 2,
-			"Hide All" = 3
+			"Hide All" = 3,
+			"showAll" = 0,
+			"showInformationMessagesOnly" = 1,
+			"showWarningMessagesOnly" = 2,
+			"hideAll" = 3
 		}
 		const messageLevelsInt: Number = MessageEnum[vscode.workspace.getConfiguration('webSearch').get('messageLevels') as MessageEnum] === undefined ? 0 : MessageEnum[vscode.workspace.getConfiguration('webSearch').get('messageLevels') as MessageEnum] as unknown as Number;
+
+		//Temporarily update old messageLevels setting to new enum, ensuring backwards compatibility:
+		//vscode.workspace.getConfiguration('webSearch').update('messageLevels', vscode.workspace.getConfiguration('webSearch').get('messageLevels').replace(/\s/g, "").charAt(0).toLowerCase() + vscode.workspace.getConfiguration('webSearch').get('messageLevels').replace(/\s/g, "").slice(1), true);
 
 		//Display a message to the user if no text was selected:
 		if ((text === undefined || text === "") && (!manualSearch)) {

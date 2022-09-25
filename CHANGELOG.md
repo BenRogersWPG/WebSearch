@@ -1,5 +1,13 @@
 # Changelog
 
+## [5.2.13] (2022-09-25)
+#### Documentation
+* Improved notification setting enum with labels and descriptions so they are easier to understand
+
+#### Code Cleanup
+* Started development of converting the old setting enum to the new one, but instead just enabled backwards compatibility of the setting for existing users. Will evaluate if necessary to convert the setting over time.
+* Cleaned up project code settings
+
 ## [5.2.12] (2022-09-24)
 #### House Keeping
 * Updated a few more dependencies
