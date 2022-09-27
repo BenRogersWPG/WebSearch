@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.2.14] (2022-09-27)
+#### House Keeping
+* Updated a few more dependencies
+
+#### Bug Fixes
+* Improved notification setting enum as it was displaying the default selection twice
+
 ## [5.2.13] (2022-09-25)
 #### Documentation
 * Improved notification setting enum with labels and descriptions so they are easier to understand
