@@ -1,5 +1,13 @@
 # Changelog
 
+## [5.2.15] (2022-10-08)
+#### Documentation
+* Added a dev reference to my other VS Code extension
+
+#### House Keeping
+* Tested on VS Code 1.72
+* Updated a few more dependencies
+
 ## [5.2.14] (2022-09-27)
 #### House Keeping
 * Updated a few more dependencies
