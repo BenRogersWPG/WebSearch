@@ -338,7 +338,7 @@
 	"devDependencies": {
 		"@types/node": "^18.8.3",
 		"@types/vscode": "^1.55.2",
-		"@typescript-eslint/eslint-plugin": "^5.39.0",
+		"@typescript-eslint/eslint-plugin": "^5.40.0",
 		"@typescript-eslint/parser": "^5.39.0",
 		"eslint": "^8.25.0",
 		"path-browserify": "^1.0.1",
