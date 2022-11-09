@@ -1,5 +1,13 @@
 # Changelog
 
+## \[5.2.17] (2022-11-08)
+#### Documentation
+* Improved extension settings properly formatted enum descriptions
+
+#### House Keeping
+* Tested on VS Code 1.73
+* Updated a few more dependencies
+
 ## \[5.2.16] (2022-10-16)
 #### Documentation
 * Updated Changelog to properly escape title headings in the markdown
