@@ -6,4 +6,4 @@ The latest version of the extension will always be supported. Ensure your extens
 
 ## Reporting a Vulnerability
 
-To report a vulnerability, please [submit an issue](https://github.com/BenRogersWPG/WebSearch/issues/new/choose) and indicate in the description that it is a security vulnerability.
+To report a vulnerability, please [submit an issue](https://github.com/BenRogersWPG/WebSearch/issues/new/choose) and and choose the *Report a security vulnerability option*.

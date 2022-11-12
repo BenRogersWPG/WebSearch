@@ -1,8 +1,12 @@
 # Changelog
 
+## \[5.2.18] (2022-11-12)
+### Documentation
+* Improved security policy for the project
+
 ## \[5.2.17] (2022-11-08)
 #### Documentation
-* Improved extension settings properly formatted enum descriptions
+* Improved extension settings by properly formatting enum descriptions
 
 #### House Keeping
 * Tested on VS Code 1.73
