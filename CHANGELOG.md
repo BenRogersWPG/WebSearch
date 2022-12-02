@@ -1,5 +1,9 @@
 # Changelog
 
+## \[5.2.20] (2022-12-01)
+### House Keeping
+* Updated a few dependencies
+
 ## \[5.2.19] (2022-11-17)
 ### Documentation
 * Improved changelog heading formatting to be more consistent
