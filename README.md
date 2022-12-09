@@ -115,6 +115,7 @@ Allows the user to control the levels of message output from the extension.
 - Examine performance analysis of code to find potential optimizations
 - Add ability to run extension from selected text in the terminal
 - Add links from extension settings mentioning other settings
+- Ensure the extension uses the new LogOutputChannel API
 - Add more GIFs to demo the extension usage
 - Translate the extension to other languages
 - Open search results in sidebar (webview)

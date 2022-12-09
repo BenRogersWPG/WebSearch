@@ -1,5 +1,13 @@
 # Changelog
 
+## \[5.2.21] (2022-12-08)
+### House Keeping
+* Tested on VS Code 1.74
+* Updated a few more dependencies
+
+### Documentation
+* Added a todo task for ensuring the extension uses the new LogOutputChannel API
+
 ## \[5.2.20] (2022-12-01)
 ### House Keeping
 * Updated a few dependencies
