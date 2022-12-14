@@ -1,5 +1,12 @@
 # Changelog
 
+## \[5.2.22] (2022-12-13)
+### House Keeping
+* Updated a few more dependencies
+
+### Code Cleanup
+* Ported to new vsce library
+
 ## \[5.2.21] (2022-12-08)
 ### House Keeping
 * Tested on VS Code 1.74
