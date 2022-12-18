@@ -4,7 +4,7 @@ import * as vscode from 'vscode';
 const open = require('open');
 
 //Define a channel for the output of any potential errors:
-const webSearchConsole = vscode.window.createOutputChannel("Web Search", "markdown"); //TODO Ensure this uses the new LogOutputChannel API
+const webSearchConsole = vscode.window.createOutputChannel("Web Search", { log: true });
 
 // this method is called when the extension is activated:
 export function activate(context: vscode.ExtensionContext) {

@@ -1,5 +1,15 @@
 # Changelog
 
+## \[5.3.0] (2022-12-18)
+### Features
+* Improved error reporting backend on project. Errors will now be presented to the user from Visual Studio Code's new LogOutputChannel API which was just finalized in VS Code release 1.74.
+
+### Documentation
+* Replaced extension badges for the Microsoft Visual Studio Marketplace
+
+### House Keeping
+* Updated a few dependencies
+
 ## \[5.2.22] (2022-12-13)
 ### House Keeping
 * Updated a few more dependencies
