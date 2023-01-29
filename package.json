@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "images/icon.webp",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "5.3.0",
+	"version": "6.0.0",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -44,7 +44,9 @@
 		"Research",
 		"Menu",
 		"Search Engine",
-		"SEO"
+		"SEO",
+		"Autocomplete",
+		"Suggest"
 	],
 	"extensionKind": [
 		"workspace",
@@ -208,108 +210,145 @@
 				]
 			}
 		],
-		"configuration": {
-			"type": "string",
-			"title": "Web Search - Search Engine",
-			"properties": {
-				"webSearch.searchEngine": {
-					"type": "string",
-					"default": "https://www.google.com/search?q=%s",
-					"markdownDescription": "***Depreciated - use `searchEngines` instead***\n\nSearch engine to use for the Web Search extension. Replace the query with ```%s```, e.g. ```https://www.google.com/search?q=%s```, the same way as you would when adding additional search engines to the Chrome browser settings.",
-					"scope": "resource",
-					"pattern": "^(http|https)+://([a-zA-Z]*([a-zA-Z]*)*).*%s.*$",
-					"patternErrorMessage": "Value must be valid URL, starting with http/https and containing '%s' query wildcard",
-					"deprecationMessage": "Deprecated: Please use webSearch.searchEngines instead.",
-					"markdownDeprecationMessage": "***Depreciated**: Please use `#webSearch.searchEngines#` instead"
-				},
-				"webSearch.enableContextMenu": {
-					"type": "boolean",
-					"default": "true",
-					"markdownDescription": "Enable the Web Search context menu item (right click menu) in the editor",
-					"scope": "resource"
-				},
-				"webSearch.useDefaultSearchEnginesList": {
-					"type": "boolean",
-					"default": "true",
-					"markdownDescription": "Enable the Web Search extension to use default values. Essentially, this is the extension's ***Demo Mode***. Disabling this will favor your own custom search engines list entered in `searchEngines`."
-				},
-				"webSearch.allowManualSearch": {
-					"type": "boolean",
-					"default": "true",
-					"markdownDescription": "Enable the extension to run when no text is selected.\n\nIf this setting is enabled, a __search bar__ will prompt for a search query when the extension's search command is run by using the extension's keyboard shortcut.",
-					"scope": "resource"
-				},
-				"webSearch.searchEngines": {
-					"type": "object",
-					"markdownDescription": "Search engines to use for the Web Search extension. \n\nAdd search engines using the **Add Item** button below.\n* ***Item*** is the search engine name\n* ***Value*** is the full URL with the search query. \n\nReplace the query with ```%s```, e.g. ```https://www.google.com/search?q=%s```, the same way as you would when adding additional search engines to Chrome or Edge in the browser settings.\n\n**How to get the Value URL:**\n1. Visit the site you wish to use and locate the site's search bar\n2. Search for something unique like `potato` so you can get the URL later. Press *Enter*\n3. Go into the address bar and replace the word `potato` with `%s`, then copy the full URL and paste it into this setting field, **Value** below",
-					"additionalProperties": {
+		"configuration": [
+			{
+				"type": "object",
+				"title": "Search Engine",
+				"order": 1,
+				"properties": {
+					"webSearch.searchEngine": {
 						"type": "string",
-						"description": "Item is the name of the search engine. Value is the search engine URL. The URL must start with http:// or https:// and contain the query parameter '%s' which will be replaced with the selected text."
+						"default": "https://www.google.com/search?q=%s",
+						"markdownDescription": "***Depreciated - use `searchEngines` instead***\n\nSearch engine to use for the Web Search extension. Replace the query with ```%s```, e.g. ```https://www.google.com/search?q=%s```, the same way as you would when adding additional search engines to the Chrome browser settings.",
+						"scope": "resource",
+						"pattern": "^(http|https)+://([a-zA-Z]*([a-zA-Z]*)*).*%s.*$",
+						"patternErrorMessage": "Value must be valid URL, starting with http/https and containing '%s' query wildcard",
+						"deprecationMessage": "Deprecated: Please use webSearch.searchEngines instead.",
+						"markdownDeprecationMessage": "***Depreciated**: Please use `#webSearch.searchEngines#` instead"
 					},
-					"scope": "resource",
-					"default": {}
-				},
-				"webSearch.defaultSearchEngines": {
-					"type": "array",
-					"markdownDescription": "Default search engines to use for the Web Search extension. If you want to use your own, disable the new checkbox `#webSearch.useDefaultSearchEnginesList#`",
-					"scope": "window",
-					"default": [
-						{
-							"sitename": "Google",
-							"url": "https://www.google.com/search?q=%s"
+					"webSearch.searchEngines": {
+						"type": "object",
+						"markdownDescription": "Search engines to use for the Web Search extension. \n\nAdd search engines using the **Add Item** button below.\n* ***Item*** is the search engine name\n* ***Value*** is the full URL with the search query. \n\nReplace the query with ```%s```, e.g. ```https://www.google.com/search?q=%s```, the same way as you would when adding additional search engines to Chrome or Edge in the browser settings.\n\n**How to get the Value URL:**\n1. Visit the site you wish to use and locate the site's search bar\n2. Search for something unique like `potato` so you can get the URL later. Press *Enter*\n3. Go into the address bar and replace the word `potato` with `%s`, then copy the full URL and paste it into this setting field, **Value** below",
+						"additionalProperties": {
+							"type": "string",
+							"description": "Item is the name of the search engine. Value is the search engine URL. The URL must start with http:// or https:// and contain the query parameter '%s' which will be replaced with the selected text."
 						},
-						{
-							"sitename": "Stack Overflow",
-							"url": "https://stackoverflow.com/search?q=%s"
-						},
-						{
-							"sitename": "Wikipedia",
-							"url": "https://en.wikipedia.org/wiki/Special:Search?search=%s"
-						},
-						{
-							"sitename": "GitHub",
-							"url": "https://github.com/search?q=%s"
-						},
-						{
-							"sitename": "Reddit",
-							"url": "https://www.reddit.com/search?q=%s"
-						},
-						{
-							"sitename": "PageSpeed Insights",
-							"url": "https://pagespeed.web.dev/report?url=%s"
-						},
-						{
-							"sitename": "DuckDuckGo",
-							"url": "https://duckduckgo.com/?q=%s"
-						}
-					]
-				},
-				"webSearch.messageLevels": {
-					"type": "string",
-					"markdownDescription": "Controls the levels of notification messages generated by the extension. This setting will allow you to hide warning messages, hide information messages, or hide both. \n\n*You will not be able to hide error messages **or messages generated from the extension's walkthroughs** at this time as they are key to the operation of the extension.*",
-					"scope": "resource",
-					"enum": [
-						"showAll",
-						"showInformationMessagesOnly",
-						"showWarningMessagesOnly",
-						"hideAll"
-					],
-					"enumItemLabels": [
-						"Show All",
-						"Show Information Messages Only",
-						"Show Warning Messages Only",
-						"Hide All"
-					],
-					"markdownEnumDescriptions": [
-						"Will display information messages and warning messages generated by the Web Search extension",
-						"Will no longer display warning messages. \n\n*Errors and information messages will still display*",
-						"Will no longer display information messages. \n\n*Errors will still display*",
-						"Will no longer display information messages or warning messages. \n\n*Errors will still display, as well as messages from the walkthroughs*"
-					],
-					"default": "showAll"
+						"scope": "resource",
+						"default": {}
+					}
+				}
+			},
+			{
+				"title": "User Interface",
+				"order": 4,
+				"type": "object",
+				"properties": {
+					"webSearch.enableContextMenu": {
+						"type": "boolean",
+						"default": "true",
+						"markdownDescription": "Enable the Web Search context menu item (right click menu) in the editor",
+						"scope": "resource"
+					},
+					"webSearch.allowManualSearch": {
+						"type": "boolean",
+						"default": "true",
+						"markdownDescription": "Enable the extension to run when no text is selected.\n\nIf this setting is enabled, a __search bar__ will prompt for a search query when the extension's search command is run by using the extension's keyboard shortcut.",
+						"scope": "resource"
+					},
+					"webSearch.defaultSearchEngines": {
+						"type": "array",
+						"markdownDescription": "Default search engines to use for the Web Search extension. If you want to use your own, disable the new checkbox `#webSearch.useDefaultSearchEnginesList#`",
+						"scope": "window",
+						"default": [
+							{
+								"sitename": "Google",
+								"url": "https://www.google.com/search?q=%s"
+							},
+							{
+								"sitename": "Stack Overflow",
+								"url": "https://stackoverflow.com/search?q=%s"
+							},
+							{
+								"sitename": "Wikipedia",
+								"url": "https://en.wikipedia.org/wiki/Special:Search?search=%s"
+							},
+							{
+								"sitename": "GitHub",
+								"url": "https://github.com/search?q=%s"
+							},
+							{
+								"sitename": "Reddit",
+								"url": "https://www.reddit.com/search?q=%s"
+							},
+							{
+								"sitename": "PageSpeed Insights",
+								"url": "https://pagespeed.web.dev/report?url=%s"
+							},
+							{
+								"sitename": "DuckDuckGo",
+								"url": "https://duckduckgo.com/?q=%s"
+							}
+						]
+					}
+				}
+			},
+			{
+				"title": "Notifications",
+				"order": 3,
+				"type": "object",
+				"properties": {
+					"webSearch.messageLevels": {
+						"type": "string",
+						"markdownDescription": "Controls the levels of notification messages generated by the extension. This setting will allow you to hide warning messages, hide information messages, or hide both. \n\n*You will not be able to hide error messages **or messages generated from the extension's walkthroughs** at this time as they are key to the operation of the extension.*",
+						"scope": "resource",
+						"enum": [
+							"showAll",
+							"showInformationMessagesOnly",
+							"showWarningMessagesOnly",
+							"hideAll"
+						],
+						"enumItemLabels": [
+							"Show All",
+							"Show Information Messages Only",
+							"Show Warning Messages Only",
+							"Hide All"
+						],
+						"markdownEnumDescriptions": [
+							"Will display information messages and warning messages generated by the Web Search extension",
+							"Will no longer display warning messages. \n\n*Errors and information messages will still display*",
+							"Will no longer display information messages. \n\n*Errors will still display*",
+							"Will no longer display information messages or warning messages. \n\n*Errors will still display, as well as messages from the walkthroughs*"
+						],
+						"default": "showAll"
+					}
+				}
+			},
+			{
+				"title": "Suggestions",
+				"order": 2,
+				"type": "object",
+				"properties": {
+					"webSearch.allowSuggestions": {
+						"type": "boolean",
+						"default": "true",
+						"markdownDescription": "**IN BETA**\n\nEnable the extension to suggest autocomplete Google keywords based on your search query as you type.",
+						"scope": "resource"
+					}
+				}
+			},
+			{
+				"title": "Demo Mode",
+				"order": 5,
+				"type": "object",
+				"properties": {
+					"webSearch.useDefaultSearchEnginesList": {
+						"type": "boolean",
+						"default": "true",
+						"markdownDescription": "Enable the Web Search extension to use default values. Essentially, this is the extension's ***Demo Mode***. Disabling this will favor your own custom search engines list entered in `searchEngines`."
+					}
 				}
 			}
-		},
+		],
 		"menus": {
 			"editor/context": [
 				{
@@ -338,19 +377,20 @@
 	"devDependencies": {
 		"@types/node": "^18.11.18",
 		"@types/vscode": "^1.55.2",
-		"@typescript-eslint/eslint-plugin": "^5.49.0",
-		"@typescript-eslint/parser": "^5.49.0",
-		"eslint": "^8.32.0",
+		"@typescript-eslint/eslint-plugin": "^5.48.0",
+		"@typescript-eslint/parser": "^5.48.0",
+		"@vscode/vsce": "^2.16.0",
+		"eslint": "^8.31.0",
 		"path-browserify": "^1.0.1",
 		"process": "^0.11.10",
 		"ts-loader": "^9.4.2",
 		"typescript": "^4.9.4",
 		"util": "^0.12.5",
-		"@vscode/vsce": "^2.17.0",
 		"webpack": "^5.75.0",
 		"webpack-cli": "^5.0.1"
 	},
 	"dependencies": {
+		"get-google-suggestions": "^1.0.2",
 		"open": "^8.4.0"
 	}
 }

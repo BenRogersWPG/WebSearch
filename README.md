@@ -7,6 +7,7 @@ This extension allows you to search the web in your favorite search engines / we
 ## Features ✨
 
 - Add multiple search engines in the extension settings and pick from them when performing a search
+- **NEW** Suggests query autocomplete suggestions as you type, using Google (*IN BETA*)
 - Easy to use and configure
 - Runs on Visual Studio Code for the Web (vscode.dev)
 - Keyboard shortcut to perform a quick search <kbd>Alt</kbd>+<kbd>`</kbd>
@@ -107,18 +108,29 @@ Enable the Web Search extension to use default values. Disabling this will favor
 
 Allows the user to control the levels of message output from the extension.
 
+### `webSearch.allowSuggestions`
+
+Adds beta support for Google suggestions / autocomplete for the extension. Start typing your search query and it will suggest queries.
+
+Since this is in beta, you can turn off the feature by setting this new setting to false
+
+If you come across any bugs or have any suggestions with this beta, feel free to report it [(as an issue)](https://github.com/BenRogersWPG/WebSearch/issues/new/choose)
+
 ## Future Development Ideas and To-dos 📝
 
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
-- **[IN PROGRESS]** Investigate adding autocomplete engine to manual entry
 - Add option to add manual text to selected text when performing a search
+- Replace screenshots of search bar with new Google suggestion offerings
 - Examine performance analysis of code to find potential optimizations
+- **[IN BETA]** Investigate adding autocomplete engine to manual entry
 - Add ability to run extension from selected text in the terminal
-- Add links from extension settings mentioning other settings
 - Ensure the extension uses the new LogOutputChannel API
+- Add links from extension settings mentioning other settings
+- Add support for more autocomplete search engine sources
 - Add more GIFs to demo the extension usage
 - Translate the extension to other languages
 - Open search results in sidebar (webview)
+- Add autocomplete to walkthrough
 - Write more tests
 
 > ➕ Have a feature you'd like me to implement? [Submit a feature request on the Repo's Issues page](https://github.com/BenRogersWPG/WebSearch/issues)!
