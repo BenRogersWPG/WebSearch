@@ -2,6 +2,7 @@
 // Import the module and reference it with the alias vscode:
 import * as vscode from 'vscode';
 const open = require('open');
+const getGoogleSuggestions = require('get-google-suggestions');
 
 //Define a channel for the output of any potential errors:
 const webSearchConsole = vscode.window.createOutputChannel("Web Search", { log: true });
@@ -89,6 +90,7 @@ export function activate(context: vscode.ExtensionContext) {
 		let text = demo ? "eslint" : vscode.window.activeTextEditor?.document.getText(editor!.selection); //If demo is true, use the string "eslint" as the search term
 		const defaultSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('useDefaultSearchEnginesList')!;
 		const manualSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('allowManualSearch')!;
+		const allowSuggestions: boolean = vscode.workspace.getConfiguration('webSearch').get('allowSuggestions')!;
 
 		//Prepare enum and gather setting for the user's desired notification display level:
 		enum MessageEnum {
@@ -159,10 +161,7 @@ export function activate(context: vscode.ExtensionContext) {
 				}
 				else {
 					searchText(text, demo, defaultSearch, messageLevelsInt);
-
 				}
-
-
 			});
 
 			//Quick Pick list has changed (typing into search bar)
@@ -171,31 +170,25 @@ export function activate(context: vscode.ExtensionContext) {
 				quickpickItems = [];
 				//Make the first item in the list the currently entered text:
 				quickpickItems.push({ label: value, description: "Search for: " + value });
-				//Will be adding additional items from Google Suggest / DuckDuckGo Suggest here soon...
+				//TODO: Add additional items from other search engines, such as DuckDuckGo here
+
+				if (allowSuggestions) {
+					const suggestions = await getGoogleSuggestions(value);
+					suggestions.forEach((array: any) => {
+						quickpickItems.push({ label: array, description: "Search for: " + array });
+						quickpickItems = quickpickItems.filter(item => item.label.indexOf(value) !== -1);;
+					});
+				}
 
 				input.items = quickpickItems;
+			});
 
-			}
-			);
-
-
-			input.title = `Search for:`;
-			//input.title = `Search DuckDuckGo for:`;
-			input.placeholder = 'Start typing to search';
+			input.title = `Search for:`; //TODO: If only one search engine, name it directly in this title
+			input.placeholder = allowSuggestions ? 'Start typing for autocomplete' : 'Start typing to search';
 			input.onDidHide(() => input.dispose());
 			input.show();
 
-			//await new Promise(resolve => setTimeout(resolve, 1000));
-			//if (text === undefined || text === "") {
-			//if (messageLevelsInt < 2) {
-			//	vscode.window.showInformationMessage(`Please enter text in the prompt, or select text.`);
-			//}
-			//	return;
-			//}
-
 		}
-
-
 	}
 }
 

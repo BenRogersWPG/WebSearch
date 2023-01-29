@@ -1,5 +1,23 @@
 # Changelog
 
+## \[6.0.0] (2023-01-29)
+### Features
+* Added beta support for Google suggestions / autocomplete for the extension.
+* Start typing your search query and it will suggest queries
+* Since this is in beta, you can turn off the feature by setting the new `webSearch.allowSuggestions` setting to false
+* If you come across any bugs or have any suggestions with this beta, feel free to report it [(as an issue)](https://github.com/BenRogersWPG/WebSearch/issues/new/choose)
+* If `webSearch.allowSuggestions` setting is enabled, the search bar will guide you as you begin your search
+* Organized all extension settings into subcategories for easier organization
+
+### House Keeping
+* Updated a few dependencies
+
+### Code Cleanup
+* Added a few to-dos to the source code for future development
+
+### Documentation
+* Added more ideas for future development to the Readme
+
 ## \[5.3.0] (2022-12-18)
 ### Features
 * Improved error reporting backend on project. Errors will now be presented to the user from Visual Studio Code's new LogOutputChannel API which was just finalized in VS Code release 1.74.
