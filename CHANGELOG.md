@@ -1,5 +1,9 @@
 # Changelog
 
+## \[6.0.1] (2023-01-31)
+### Bug Fixes
+* Addition of the new autocomplete search suggestions broke the web version of the extension. This version attempts to fix the version.
+
 ## \[6.0.0] (2023-01-29)
 ### Features
 * Added beta support for Google suggestions / autocomplete for the extension.

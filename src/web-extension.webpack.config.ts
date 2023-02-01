@@ -30,7 +30,9 @@ module.exports = /** @type WebpackConfig */ {
 			'util': require.resolve('util/'),
 			'fs': false,
 			'os': false,
-			'child_process': false
+			'child_process': false,
+			'get-google-suggestions': false,
+			'axios': false
 		}
 	},
 	module: {

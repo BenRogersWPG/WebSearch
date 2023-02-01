@@ -2,7 +2,6 @@
 // Import the module and reference it with the alias vscode:
 import * as vscode from 'vscode';
 const open = require('open');
-const getGoogleSuggestions = require('get-google-suggestions');
 
 //Define a channel for the output of any potential errors:
 const webSearchConsole = vscode.window.createOutputChannel("Web Search", { log: true });
@@ -172,12 +171,17 @@ export function activate(context: vscode.ExtensionContext) {
 				quickpickItems.push({ label: value, description: "Search for: " + value });
 				//TODO: Add additional items from other search engines, such as DuckDuckGo here
 
-				if (allowSuggestions) {
-					const suggestions = await getGoogleSuggestions(value);
-					suggestions.forEach((array: any) => {
-						quickpickItems.push({ label: array, description: "Search for: " + array });
-						quickpickItems = quickpickItems.filter(item => item.label.indexOf(value) !== -1);;
-					});
+				//Only allow suggestions if on desktop version:
+				if (vscode.env.uiKind === vscode.UIKind.Desktop) {
+
+					const getGoogleSuggestions = require('get-google-suggestions');
+					if (allowSuggestions) {
+						const suggestions = await getGoogleSuggestions(value);
+						suggestions.forEach((array: any) => {
+							quickpickItems.push({ label: array, description: "Search for: " + array });
+							quickpickItems = quickpickItems.filter(item => item.label.indexOf(value) !== -1);;
+						});
+					}
 				}
 
 				input.items = quickpickItems;
