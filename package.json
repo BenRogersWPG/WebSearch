@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "images/icon.webp",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "6.0.1",
+	"version": "6.1.0",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -106,7 +106,7 @@
 					{
 						"id": "runcommand",
 						"title": "Search using the Search Bar 🔎",
-						"description": "This step will run a Web Search with **demo mode** on to show you how it looks with multiple sites\nSimply run the command, type a search query in the search bar above, and see the site list options.\n[Try Out the Search Bar](command:WebSearch.firstRun)",
+						"description": "This step will run a Web Search with **demo mode** on to show you how it looks with multiple sites\nSimply run the command, type a search query in the search bar above (__which uses autocomplete__), and see the site list options.\n[Try Out the Search Bar](command:WebSearch.firstRun)",
 						"media": {
 							"image": "images/web-search-bar.webp",
 							"altText": "Screenshot of the Web Search search bar, with someone typing for 'any text you wish'"
@@ -331,7 +331,7 @@
 					"webSearch.allowSuggestions": {
 						"type": "boolean",
 						"default": "true",
-						"markdownDescription": "**IN BETA**\n\nEnable the extension to suggest autocomplete Google keywords based on your search query as you type.",
+						"markdownDescription": "Enable the extension to suggest autocomplete Google keywords based on your search query as you type.",
 						"scope": "resource"
 					}
 				}
@@ -376,7 +376,7 @@
 	},
 	"devDependencies": {
 		"@types/node": "^18.11.18",
-		"@types/vscode": "^1.74.1",
+		"@types/vscode": "^1.55.2",
 		"@typescript-eslint/eslint-plugin": "^5.48.0",
 		"@typescript-eslint/parser": "^5.48.0",
 		"@vscode/vsce": "^2.16.0",

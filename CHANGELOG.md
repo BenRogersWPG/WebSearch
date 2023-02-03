@@ -1,8 +1,26 @@
 # Changelog
+## \[6.1.0] (2023-02-02)
+### Features
+* Took autocomplete out of beta (*added in version `6.0.0`*)
+* Added mention of the new search bar autocomplete to the extension's walkthrough
+
+### House Keeping
+* Tested on VS Code 1.75
+* Updated a few dependencies
+
+### Code Cleanup
+* Elaborated on a few to-dos in the source code for future development
+
+### Documentation
+* Updated Changelog to properly escape title headings in the markdown for past "*in progress*" entries
+* Added more ideas for future development to the Readme
 
 ## \[6.0.1] (2023-01-31)
 ### Bug Fixes
 * Addition of the new autocomplete search suggestions broke the web version of the extension. This version attempts to fix the version.
+
+### House Keeping
+* Updated a few dependencies
 
 ## \[6.0.0] (2023-01-29)
 ### Features
@@ -328,7 +346,7 @@
 * Re-ordered some items in the Readme
 
 ### Bug Fixes
-* **[In Progress]** Worked on fix for Linux web users (Linux users using VS Code for Web) to use the specific Linux keyboard shortcut, as it works for desktop Linux, but the web version was still showing the normal extension keybinding instead of the special one reserved just for Linux, introduced in release `4.1.13`.
+* **\[In Progress]** Worked on fix for Linux web users (Linux users using VS Code for Web) to use the specific Linux keyboard shortcut, as it works for desktop Linux, but the web version was still showing the normal extension keybinding instead of the special one reserved just for Linux, introduced in release `4.1.13`.
 
 ### House Keeping
 * Updated a few more dependencies
@@ -338,7 +356,7 @@
 * Enforced all search engines to be valid URLs (now must begin with **http** or **https**). This will make it easier for users to add new search engines that can be used right away
 
 ### Bug Fixes
-* **[In Progress]**  Worked on fix for Linux web users (Linux users using VS Code for Web) to use the specific Linux keyboard shortcut, as it works for desktop Linux, but the web version was still showing the normal extension keybinding instead of the special one reserved just for Linux, introduced in release `4.1.13`.
+* **\[In Progress]**  Worked on fix for Linux web users (Linux users using VS Code for Web) to use the specific Linux keyboard shortcut, as it works for desktop Linux, but the web version was still showing the normal extension keybinding instead of the special one reserved just for Linux, introduced in release `4.1.13`.
 
 ### Documentation
 * Added in the extension's settings that website search engines must begin with http or https

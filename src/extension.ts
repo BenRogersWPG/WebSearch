@@ -169,7 +169,7 @@ export function activate(context: vscode.ExtensionContext) {
 				quickpickItems = [];
 				//Make the first item in the list the currently entered text:
 				quickpickItems.push({ label: value, description: "Search for: " + value });
-				//TODO: Add additional items from other search engines, such as DuckDuckGo here
+				//TODO: Add additional items from other search engines, such as DuckDuckGo (use user setting to select preferred engine)
 
 				//Only allow suggestions if on desktop version:
 				if (vscode.env.uiKind === vscode.UIKind.Desktop) {
@@ -187,7 +187,7 @@ export function activate(context: vscode.ExtensionContext) {
 				input.items = quickpickItems;
 			});
 
-			input.title = `Search for:`; //TODO: If only one search engine, name it directly in this title
+			input.title = `Search for:`; //TODO: If only one search engine, name it directly in this title (requires refactoring)
 			input.placeholder = allowSuggestions ? 'Start typing for autocomplete' : 'Start typing to search';
 			input.onDidHide(() => input.dispose());
 			input.show();

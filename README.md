@@ -7,7 +7,7 @@ This extension allows you to search the web in your favorite search engines / we
 ## Features ✨
 
 - Add multiple search engines in the extension settings and pick from them when performing a search
-- **NEW** Suggests query autocomplete suggestions as you type, using Google (*IN BETA*)
+- **NEW** Suggests query suggestions as you type, using Google Suggest
 - Easy to use and configure
 - Runs on Visual Studio Code for the Web (vscode.dev)
 - Keyboard shortcut to perform a quick search <kbd>Alt</kbd>+<kbd>`</kbd>
@@ -110,19 +110,15 @@ Allows the user to control the levels of message output from the extension.
 
 ### `webSearch.allowSuggestions`
 
-Adds beta support for Google suggestions / autocomplete for the extension. Start typing your search query and it will suggest queries.
-
-Since this is in beta, you can turn off the feature by setting this new setting to false
-
-If you come across any bugs or have any suggestions with this beta, feel free to report it [(as an issue)](https://github.com/BenRogersWPG/WebSearch/issues/new/choose)
+Adds support for Google suggestions / autocomplete for the extension. Start typing your search query and it will suggest queries.
 
 ## Future Development Ideas and To-dos 📝
 
+- Add second command to the extension of just "Web Search" as not all searches are of selected text
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
 - Add option to add manual text to selected text when performing a search
 - Replace screenshots of search bar with new Google suggestion offerings
 - Examine performance analysis of code to find potential optimizations
-- **[IN BETA]** Investigate adding autocomplete engine to manual entry
 - Add ability to run extension from selected text in the terminal
 - Ensure the extension uses the new LogOutputChannel API
 - Add links from extension settings mentioning other settings
@@ -130,7 +126,6 @@ If you come across any bugs or have any suggestions with this beta, feel free to
 - Add more GIFs to demo the extension usage
 - Translate the extension to other languages
 - Open search results in sidebar (webview)
-- Add autocomplete to walkthrough
 - Write more tests
 
 > ➕ Have a feature you'd like me to implement? [Submit a feature request on the Repo's Issues page](https://github.com/BenRogersWPG/WebSearch/issues)!
@@ -157,6 +152,7 @@ If you come across any bugs or have any suggestions with this beta, feel free to
 - ~~Allow a preferred default search engine to be set in settings~~
 - ~~Ensure keybinding works properly on all operating systems~~
 - ~~Edit QuickPick detail, or allow user to write their own detail~~
+- ~~Investigate adding autocomplete engine to manual entry~~
 - ~~Consolidate commands into one command palette entry~~
 - ~~Add `webSearch.messageLevels` step to the walkthrough~~
 - ~~Update extension icon and/or add more device sizes~~
@@ -177,8 +173,10 @@ If you come across any bugs or have any suggestions with this beta, feel free to
 - ~~Improve validation of search URL checks~~
 - ~~Add screenshots of the new settings~~
 - ~~Move images to consolidated folder~~
+- ~~Add autocomplete to walkthrough~~
 - ~~Perform additional code cleanup~~
 - ~~Perform more code refactoring~~
+- ~~Take autocomplete out of beta~~
 - ~~Add license to the project~~
 
 ## Waiting on API Updates ⌛
