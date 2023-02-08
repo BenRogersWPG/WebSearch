@@ -1,4 +1,14 @@
 # Changelog
+## \[6.2.0] (2023-02-07)
+### Features
+* Search bar will display your default search engine if only one search engine is entered in the settings
+
+### Code Cleanup
+* Required a lot of code refactoring to accomplish this
+
+### House Keeping
+* Updated a few dependencies
+
 ## \[6.1.0] (2023-02-02)
 ### Features
 * Took autocomplete out of beta (*added in version `6.0.0`*)

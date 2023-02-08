@@ -120,7 +120,6 @@ Adds support for Google suggestions / autocomplete for the extension. Start typi
 - Replace screenshots of search bar with new Google suggestion offerings
 - Examine performance analysis of code to find potential optimizations
 - Add ability to run extension from selected text in the terminal
-- Ensure the extension uses the new LogOutputChannel API
 - Add links from extension settings mentioning other settings
 - Add support for more autocomplete search engine sources
 - Add more GIFs to demo the extension usage
@@ -153,6 +152,7 @@ Adds support for Google suggestions / autocomplete for the extension. Start typi
 - ~~Ensure keybinding works properly on all operating systems~~
 - ~~Edit QuickPick detail, or allow user to write their own detail~~
 - ~~Investigate adding autocomplete engine to manual entry~~
+- ~~Ensure the extension uses the new LogOutputChannel API~~
 - ~~Consolidate commands into one command palette entry~~
 - ~~Add `webSearch.messageLevels` step to the walkthrough~~
 - ~~Update extension icon and/or add more device sizes~~

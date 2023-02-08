@@ -91,6 +91,15 @@ export function activate(context: vscode.ExtensionContext) {
 		const manualSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('allowManualSearch')!;
 		const allowSuggestions: boolean = vscode.workspace.getConfiguration('webSearch').get('allowSuggestions')!;
 
+		//Retrieve the extension's search engine configuration from the user settings:
+		const searchEngineOld: string = vscode.workspace.getConfiguration('webSearch').get('searchEngine')!;//Deprecated, will be removed in future versions
+		//Get the user settings from the extension's settings.json file:
+		const searchEngine: string[] = new Array(vscode.workspace.getConfiguration('webSearch').get('searchEngines'));
+		//Define default search engine signature:
+		interface IDefaultObject { sitename: string; url: string }
+		//use this interface to get the default search engine list from the settings.json file:
+		const defaultSearchEngines: IDefaultObject[] = new Array(vscode.workspace.getConfiguration('webSearch').get('defaultSearchEngines'));
+
 		//Prepare enum and gather setting for the user's desired notification display level:
 		enum MessageEnum {
 			"Show All" = 0,
@@ -107,6 +116,65 @@ export function activate(context: vscode.ExtensionContext) {
 		//Temporarily update old messageLevels setting to new enum, ensuring backwards compatibility:
 		//vscode.workspace.getConfiguration('webSearch').update('messageLevels', vscode.workspace.getConfiguration('webSearch').get('messageLevels').replace(/\s/g, "").charAt(0).toLowerCase() + vscode.workspace.getConfiguration('webSearch').get('messageLevels').replace(/\s/g, "").slice(1), true);
 
+		//Now that we have an array of search engines, we need to loop through them and display them in a quick pick list
+		let items: vscode.QuickPickItem[] = [];
+
+		//Only populate the default search engine list if the user wishes to use default search engines:
+		if (defaultSearch) {
+			//Loop through the search engines array in the configuration settings and add them to the list:
+			defaultSearchEngines.forEach(site => {
+				Object.entries(site).forEach(([key, value]) => {
+					//console.log(key, value);
+					items.push({
+						label: value.sitename,
+						description: value.url,
+						//Display the selected text in the quick pick list. If the text exceeds 60 characters, it will be truncated with an ellipsis:
+						detail: `Search ${value.sitename} for ${text ? text.length <= 60 ? text.slice(0, 60) : text.slice(0, 60).concat('…') : ""}`,
+					});
+				});
+			});
+		}
+
+		//Convert the JSON object to string and parse the string to an object:
+		var searchEngineList = JSON.parse(JSON.stringify(searchEngine));
+
+		//Map the searchEngineList to a new array:
+		var searchEngineArray = Object.keys(searchEngineList[0]).map((key) => [String(key), searchEngineList[0][key]]);
+
+		//Define a truncated query in case the search term is long:
+		let truncatedQuery: string = `${text ? text.length <= 60 ? text.slice(0, 60) : text.slice(0, 60).concat('…') : ""}`;
+
+		//Loop through the search engines array in the configuration settings and add them to the list:
+		for (let i = 0; i < searchEngineArray.length; i++) {
+			items.push({
+				label: searchEngineArray[i][0],
+				description: searchEngineArray[i][1],
+				//Display the selected text in the quick pick list. If the text exceeds 60 characters, it will be truncated with an ellipsis:
+				detail: `Search ${searchEngineArray[i][0]} for ` + truncatedQuery,
+			});
+		}
+
+		//Only populate the old search engine list if the user wishes to use default search engines:
+		if (defaultSearch || items.length === 0) {
+
+			//Create a quick pick list variable to handle the old search engine (defined as it is used a couple times, saving many lines of code):
+			const searchEngineOldArray: vscode.QuickPickItem = {
+				label: "Search Engine",
+				description: searchEngineOld,
+				detail: "Search Engine from old settings",
+			};
+
+			items.push(searchEngineOldArray);
+		}
+
+		//remove any duplicate items with the same description:
+		items = items.filter((item, index, self) =>
+			index === self.findIndex((t) => (
+				t.description === item.description
+			))
+		);
+
+
 		//Display a message to the user if no text was selected:
 		if ((text === undefined || text === "") && (!manualSearch)) {
 			if (messageLevelsInt < 2) {
@@ -117,7 +185,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 		//If the user has already selected text, run it through the final search function:
 		else if (text !== undefined && text !== "") {
-			searchText(text, demo, defaultSearch, messageLevelsInt);
+			searchText(text, demo, defaultSearch, messageLevelsInt, items, truncatedQuery);
 		}
 
 		//If manual search setting is enabled, prompt the user for a search term:
@@ -159,7 +227,7 @@ export function activate(context: vscode.ExtensionContext) {
 					return;
 				}
 				else {
-					searchText(text, demo, defaultSearch, messageLevelsInt);
+					searchText(text, demo, defaultSearch, messageLevelsInt, items, truncatedQuery);
 				}
 			});
 
@@ -187,87 +255,22 @@ export function activate(context: vscode.ExtensionContext) {
 				input.items = quickpickItems;
 			});
 
-			input.title = `Search for:`; //TODO: If only one search engine, name it directly in this title (requires refactoring)
+			//If only one search engine, name it directly in this title
+			if (items.length === 1) {
+				input.title = `Search ` + items[0].label + ` for:`;
+			}
+			else {
+				input.title = `Search for:`;
+			}
 			input.placeholder = allowSuggestions ? 'Start typing for autocomplete' : 'Start typing to search';
 			input.onDidHide(() => input.dispose());
 			input.show();
-
 		}
 	}
 }
 
 
-async function searchText(query: string, demo: boolean, defaultSearch: boolean, messageLevelsInt: Number) {
-	//Retrieve the extension's search engine configuration from the user settings:
-	const searchEngineOld: string = vscode.workspace.getConfiguration('webSearch').get('searchEngine')!;//Deprecated, will be removed in future versions
-
-	//Get the user settings from the extension's settings.json file:
-	const searchEngine: string[] = new Array(vscode.workspace.getConfiguration('webSearch').get('searchEngines'));
-
-	//Define default search engine signature:
-	interface IDefaultObject { sitename: string; url: string }
-
-	//use this interface to get the default search engine list from the settings.json file:
-	const defaultSearchEngines: IDefaultObject[] = new Array(vscode.workspace.getConfiguration('webSearch').get('defaultSearchEngines'));
-
-	//Now that we have an array of search engines, we need to loop through them and display them in a quick pick list
-	let items: vscode.QuickPickItem[] = [];
-
-	//Only populate the default search engine list if the user wishes to use default search engines:
-	if (defaultSearch) {
-		//Loop through the search engines array in the configuration settings and add them to the list:
-		defaultSearchEngines.forEach(site => {
-			Object.entries(site).forEach(([key, value]) => {
-				//console.log(key, value);
-				items.push({
-					label: value.sitename,
-					description: value.url,
-					//Display the selected text in the quick pick list. If the text exceeds 60 characters, it will be truncated with an ellipsis:
-					detail: `Search ${value.sitename} for ${query ? query.length <= 60 ? query.slice(0, 60) : query.slice(0, 60).concat('…') : ""}`,
-				});
-			});
-		});
-	}
-
-	//Convert the JSON object to string and parse the string to an object:
-	var searchEngineList = JSON.parse(JSON.stringify(searchEngine));
-
-	//Map the searchEngineList to a new array:
-	var searchEngineArray = Object.keys(searchEngineList[0]).map((key) => [String(key), searchEngineList[0][key]]);
-
-	//Define a truncated query in case the search term is long:
-	let truncatedQuery: string = `${query ? query.length <= 60 ? query.slice(0, 60) : query.slice(0, 60).concat('…') : ""}`;
-
-	//Loop through the search engines array in the configuration settings and add them to the list:
-	for (let i = 0; i < searchEngineArray.length; i++) {
-		items.push({
-			label: searchEngineArray[i][0],
-			description: searchEngineArray[i][1],
-			//Display the selected text in the quick pick list. If the text exceeds 60 characters, it will be truncated with an ellipsis:
-			detail: `Search ${searchEngineArray[i][0]} for ` + truncatedQuery,
-		});
-	}
-
-	//Only populate the old search engine list if the user wishes to use default search engines:
-	if (defaultSearch || items.length === 0) {
-
-		//Create a quick pick list variable to handle the old search engine (defined as it is used a couple times, saving many lines of code):
-		const searchEngineOldArray: vscode.QuickPickItem = {
-			label: "Search Engine",
-			description: searchEngineOld,
-			detail: "Search Engine from old settings",
-		};
-
-		items.push(searchEngineOldArray);
-	}
-
-	//remove any duplicate items with the same description:
-	items = items.filter((item, index, self) =>
-		index === self.findIndex((t) => (
-			t.description === item.description
-		))
-	);
-
+async function searchText(query: string, demo: boolean, defaultSearch: boolean, messageLevelsInt: Number, items: vscode.QuickPickItem[], truncatedQuery: string) {
 	//Initialize selectedSearchEngine variable as a QuickPickItem:
 	let selectedSearchEngine: vscode.QuickPickItem;
 
@@ -341,7 +344,6 @@ async function searchText(query: string, demo: boolean, defaultSearch: boolean, 
 			vscode.commands.executeCommand('workbench.action.openSettings', 'WebSearch.searchEngines');
 			vscode.window.showInformationMessage(`Make changes to your invalid search engine, ${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"}. Make sure to add '%s' in the Value field`);
 		}
-
 	}
 }
 
