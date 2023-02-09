@@ -375,7 +375,7 @@
 		"package-web": "webpack --mode production --devtool hidden-source-map --config ./src/web-extension.webpack.config.js"
 	},
 	"devDependencies": {
-		"@types/node": "^18.11.19",
+		"@types/node": "^18.13.0",
 		"@types/vscode": "^1.75.0",
 		"@typescript-eslint/eslint-plugin": "^5.51.0",
 		"@typescript-eslint/parser": "^5.51.0",
