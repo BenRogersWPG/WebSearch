@@ -1,4 +1,14 @@
 # Changelog
+## \[6.1.1] (2023-02-09)
+### Documentation
+* Added extension badge for rating (⭐⭐⭐⭐⭐) as the extension received its first review on Microsoft Visual Studio Marketplace. 😊*Huge thanks!*😊
+
+### House Keeping
+* Updated a few dependencies
+
+### Code Cleanup
+* Rearranged some of the `devDependencies`
+
 ## \[6.1.0] (2023-02-02)
 ### Features
 * Took autocomplete out of beta (*added in version `6.0.0`*)

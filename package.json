@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "images/icon.webp",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "6.1.0",
+	"version": "6.1.1",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -23,6 +23,11 @@
 			"url": "https://img.shields.io/visual-studio-marketplace/d/BenRogersWPG.websearchengine",
 			"href": "https://marketplace.visualstudio.com/items?itemName=BenRogersWPG.websearchengine",
 			"description": "Marketplace downloads"
+		},
+		{
+			"url": "https://img.shields.io/visual-studio-marketplace/stars/BenRogersWPG.websearchengine",
+			"href": "https://marketplace.visualstudio.com/items?itemName=BenRogersWPG.websearchengine",
+			"description": "Marketplace rating"
 		}
 	],
 	"engines": {
@@ -375,8 +380,8 @@
 		"package-web": "webpack --mode production --devtool hidden-source-map --config ./src/web-extension.webpack.config.js"
 	},
 	"devDependencies": {
+		"@types/vscode": "^1.55.2",
 		"@types/node": "^18.13.0",
-		"@types/vscode": "^1.75.0",
 		"@typescript-eslint/eslint-plugin": "^5.51.0",
 		"@typescript-eslint/parser": "^5.51.0",
 		"@vscode/vsce": "^2.16.0",
