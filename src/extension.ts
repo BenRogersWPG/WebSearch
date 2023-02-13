@@ -76,8 +76,13 @@ export function activate(context: vscode.ExtensionContext) {
 		performWebSearch();
 	}));
 
-	// Provide the implementation of the command with registerCommand using the commandId parameter from the command field in package.json
+	// Provide the implementation of the context command with registerCommand using the commandId parameter from the command field in package.json
 	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.webSearchMenu', () => {
+		performWebSearch();
+	}));
+
+	// Provide the implementation of the default command with registerCommand using the commandId parameter from the command field in package.json
+	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.webSearch', () => {
 		performWebSearch();
 	}));
 

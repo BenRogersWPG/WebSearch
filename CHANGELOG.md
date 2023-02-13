@@ -1,4 +1,12 @@
 # Changelog
+## \[6.2.0] (2023-02-12)
+### Features
+* Added new secondary command **Web Search** as the other existing command (*Web Search selected text*) was intended for the context menu specifically.
+* This is to improve discoverability of the extension, as not all uses of the extension require selected text (you can just use the search bar)
+
+### House Keeping
+* Updated a few dependencies
+
 ## \[6.1.1] (2023-02-09)
 ### Documentation
 * Added extension badge for rating (⭐⭐⭐⭐⭐) as the extension received its first review on Microsoft Visual Studio Marketplace. 😊*Huge thanks!*😊

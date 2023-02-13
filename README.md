@@ -114,7 +114,6 @@ Adds support for Google suggestions / autocomplete for the extension. Start typi
 
 ## Future Development Ideas and To-dos 📝
 
-- Add second command to the extension of just "Web Search" as not all searches are of selected text
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
 - Add option to add manual text to selected text when performing a search
 - Replace screenshots of search bar with new Google suggestion offerings
@@ -133,6 +132,7 @@ Adds support for Google suggestions / autocomplete for the extension. Start typi
 ## Completed To-dos ✔️
 
 - ~~Display information message when searching directly (only 1 search engine), inviting user to add more~~
+- ~~Add second command to the extension of just "Web Search" as not all searches are of selected text~~
 - ~~Convert search engine settings to an array, allowing multiple search engines to be used~~
 - ~~Enable extension to run on all UI elements (currently only works on Text Editor UI)~~
 - ~~Use only one search engine (no submenu) if only one search engine is in settings~~
