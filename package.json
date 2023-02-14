@@ -388,7 +388,7 @@
 		"@types/vscode": "^1.55.2",
 		"@types/node": "^18.13.0",
 		"@typescript-eslint/eslint-plugin": "^5.52.0",
-		"@typescript-eslint/parser": "^5.51.0",
+		"@typescript-eslint/parser": "^5.52.0",
 		"@vscode/vsce": "^2.16.0",
 		"eslint": "^8.34.0",
 		"path-browserify": "^1.0.1",
