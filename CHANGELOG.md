@@ -1,4 +1,14 @@
 # Changelog
+## \[6.2.1] (2023-02-14)
+### Code Cleanup
+* Removed unnecessary command activation event declarations from package.json, now that vsce handles them automatically
+
+### Documentation
+* Improved one of the extension's setting descriptions
+
+### House Keeping
+* Updated a few dependencies
+
 ## \[6.2.0] (2023-02-12)
 ### Features
 * Added new secondary command **Web Search** as the other existing command (*Web Search selected text*) was intended for the context menu specifically.

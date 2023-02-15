@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "images/icon.webp",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "6.2.0",
+	"version": "6.2.1",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -267,7 +267,7 @@
 					},
 					"webSearch.defaultSearchEngines": {
 						"type": "array",
-						"markdownDescription": "Default search engines to use for the Web Search extension. If you want to use your own, disable the new checkbox `#webSearch.useDefaultSearchEnginesList#`",
+						"markdownDescription": "Default search engines to use for the Web Search extension. If you want to use your own, disable the checkbox `#webSearch.useDefaultSearchEnginesList#`",
 						"scope": "window",
 						"default": [
 							{
