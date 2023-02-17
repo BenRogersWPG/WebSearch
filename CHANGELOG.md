@@ -1,4 +1,13 @@
 # Changelog
+## \[6.2.2] (2023-02-16)
+### Code Cleanup
+* Created new animations for project
+* Added GIF back to Readme as not all browsers support .avif
+
+### House Keeping
+* Updated a few dependencies
+* Ensured the extension uses the new LogOutputChannel API
+
 ## \[6.2.1] (2023-02-14)
 ### Code Cleanup
 * Removed unnecessary command activation event declarations from package.json, now that vsce handles them automatically

@@ -4,6 +4,10 @@ This extension allows you to search the web in your favorite search engines / we
 
 ![Screenshot example of Web Search being used on a code snippet for the selected text of 'axios', also displaying the search results page of running the extension from Google](images/web-search.webp)
 
+---
+
+![Animation demonstrating the extension's autocomplete search bar, showing suggestions as a search query is typed, "typescript en" completes to "typescript enum to array"](images/web-search-suggest-autocomplete.avif)
+
 ## Features ✨
 
 - Add multiple search engines in the extension settings and pick from them when performing a search
@@ -18,7 +22,7 @@ This extension allows you to search the web in your favorite search engines / we
 - JSON snippet to help you customize your default search engines
 - Full control over the extension's information and warning notification messages
 - Lots of extension Settings for your own customizations (choose literally any website with a search feature)
-![Animation of adding a new search engine to the Web Search extension using the extension settings, then performing a search using the new search engine](images/web-search-add-any-site.avifs)
+![Animation of adding a new search engine to the Web Search extension using the extension settings, then performing a search using the new search engine](images/web-search-add-any-site.gif)
 
 ## How To Use 👇
 
@@ -116,13 +120,10 @@ Adds support for Google suggestions / autocomplete for the extension. Start typi
 
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
 - Add option to add manual text to selected text when performing a search
-- Replace screenshots of search bar with new Google suggestion offerings
 - Examine performance analysis of code to find potential optimizations
 - Add ability to run extension from selected text in the terminal
-- Ensure the extension uses the new LogOutputChannel API
 - Add links from extension settings mentioning other settings
 - Add support for more autocomplete search engine sources
-- Add more GIFs to demo the extension usage
 - Translate the extension to other languages
 - Open search results in sidebar (webview)
 - Write more tests
@@ -140,6 +141,7 @@ Adds support for Google suggestions / autocomplete for the extension. Start typi
 - ~~Show message to user if they added a search engine that doesn't have a query~~
 - ~~If no text selected, running the extension will prompt for text to search for~~
 - ~~Phase out old webSearch.searchEngine setting (use deprecationMessage)~~
+- ~~Replace screenshots of search bar with new Google suggestion offerings~~
 - ~~Use JSON pattern restriction for search engines setting to validate URLs~~
 - ~~Rework extension settings to better allow removing/editing entries~~
 - ~~Add setting toggle to enable/disable search if submenu dismissed~~
@@ -152,6 +154,7 @@ Adds support for Google suggestions / autocomplete for the extension. Start typi
 - ~~Allow a preferred default search engine to be set in settings~~
 - ~~Ensure keybinding works properly on all operating systems~~
 - ~~Edit QuickPick detail, or allow user to write their own detail~~
+- ~~Ensure the extension uses the new LogOutputChannel API~~
 - ~~Investigate adding autocomplete engine to manual entry~~
 - ~~Consolidate commands into one command palette entry~~
 - ~~Add `webSearch.messageLevels` step to the walkthrough~~
@@ -167,6 +170,7 @@ Adds support for Google suggestions / autocomplete for the extension. Start typi
 - ~~Enforce that search engines begin with http*~~
 - ~~Update search bar walkthrough screenshots~~
 - ~~If no search engine is selected, do nothing~~
+- ~~Add more GIFs to demo the extension usage~~
 - ~~Add keyboard shortcuts to perform search~~
 - ~~Add more screenshots of extension usage~~
 - ~~Use default query if no query is provided~~

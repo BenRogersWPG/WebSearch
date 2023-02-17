@@ -3,3 +3,4 @@ node_modules
 *.vsix
 src/web-extension.webpack.config.js
 src/web-extension.webpack.config.js.map
+images/web-search-add-any-site.avifs

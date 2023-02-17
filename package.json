@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "images/icon.webp",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "6.2.1",
+	"version": "6.2.2",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -130,7 +130,7 @@
 						"title": "Add Your Own Search Engines ➕",
 						"description": "This step will open the extension settings.\nAdd search engines using Item/Value pairs like the GIF to the right.\nSearch engines are added in the same way you would add one in your web browser, using ``%s`` in the URL to replace the search query.\n[Start Adding Custom Search Engines](command:WebSearch.openSettings)",
 						"media": {
-							"image": "images/web-search-add-any-site.avifs",
+							"image": "images/web-search-add-any-site.avif",
 							"altText": "Animation of adding a new search engine to the Web Search extension using the extension settings, then performing a search using the new search engine"
 						},
 						"completionEvents": [
@@ -154,7 +154,7 @@
 						"title": "Turn Off Demo Mode ⚙️",
 						"description": "This step will turn off demo mode so the extension will only display the search engines you recently added.\nYou can always turn demo mode back on in the extension settings (set ``webSearch.useDefaultSearchEnginesList`` to ``True``).\n[Turn off Demo Mode](command:WebSearch.changeSetting)",
 						"media": {
-							"image": "images/web-search-add-any-site.avifs",
+							"image": "images/web-search-add-any-site.avif",
 							"altText": "Animation of adding a new search engine to the Web Search extension using the extension settings, then performing a search using the new search engine"
 						}
 					},
@@ -163,7 +163,7 @@
 						"title": "FYI - Only One Search Engine 1️⃣",
 						"description": "If you only have one search engine in your custom settings (and **Demo Mode** is off), then the extension will automatically search from that site.\nIt will not pop up with the submenu of sites to select from (**Defaults to Google**).\nRemember to add more search engines if you want to search from multiple sites.\n[Add Additional Custom Search Engines](command:WebSearch.oneSearchEngine)",
 						"media": {
-							"image": "images/web-search-add-any-site.avifs",
+							"image": "images/web-search-add-any-site.avif",
 							"altText": "Animation of adding a new search engine to the Web Search extension using the extension settings, then performing a search using the new search engine"
 						},
 						"completionEvents": [
