@@ -1,4 +1,17 @@
 # Changelog
+## \[6.2.3] (2023-02-18)
+### Features
+* Improved site action readability. The action label for PageSpeed Insights is now **"Run PageSpeed Insights on {selectedText}"**. This differs from before which was **"Search PageSpeed Insights for {selectedText}"**. The new label is much more applicable to the verbiage on the site.
+* I plan to do this to more sites, or better yet, have a list in settings for alternative verbs.
+
+### Documentation
+* Added some to-dos to the source code to refactor
+
+<!-- TODO: Make issues for the above items before checking in, and attribute the check-in to them -->
+
+### House Keeping
+* Updated a few dependencies
+
 ## \[6.2.2] (2023-02-16)
 ### Code Cleanup
 * Created new animations for project

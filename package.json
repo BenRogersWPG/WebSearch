@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "images/icon.webp",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "6.2.2",
+	"version": "6.2.3",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -58,8 +58,6 @@
 		"ui"
 	],
 	"activationEvents": [
-		"onCommand:WebSearch.webSearchMenu",
-		"onCommand:WebSearch.webSearch",
 		"onCommand:WebSearch.firstRun",
 		"onCommand:WebSearch.changeSetting",
 		"onCommand:WebSearch.changeNotifications",
@@ -385,8 +383,8 @@
 		"package-web": "webpack --mode production --devtool hidden-source-map --config ./src/web-extension.webpack.config.js"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.75.1",
-		"@types/node": "^18.14.0",
+		"@types/vscode": "^1.55.2",
+		"@types/node": "^18.13.0",
 		"@typescript-eslint/eslint-plugin": "^5.52.0",
 		"@typescript-eslint/parser": "^5.52.0",
 		"@vscode/vsce": "^2.16.0",

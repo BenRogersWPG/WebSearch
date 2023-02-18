@@ -166,11 +166,11 @@ Adds support for Google suggestions / autocomplete for the extension. Start typi
 - ~~Add GIF animation to show how extension works~~
 - ~~Enable extension to run on VS Code for the web~~
 - ~~Streamline extension by reducing dependencies~~
+- ~~Add more GIFs to demo the extension usage~~
 - ~~Add monitors for code dependency changes~~
 - ~~Enforce that search engines begin with http*~~
 - ~~Update search bar walkthrough screenshots~~
 - ~~If no search engine is selected, do nothing~~
-- ~~Add more GIFs to demo the extension usage~~
 - ~~Add keyboard shortcuts to perform search~~
 - ~~Add more screenshots of extension usage~~
 - ~~Use default query if no query is provided~~

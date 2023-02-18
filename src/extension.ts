@@ -32,7 +32,7 @@ export function activate(context: vscode.ExtensionContext) {
 		await new Promise(resolve => setTimeout(resolve, 1000));
 		vscode.workspace.getConfiguration('webSearch').update('useDefaultSearchEnginesList', false, true);
 		vscode.commands.executeCommand('setContext', 'demoModeOff', true);
-		vscode.window.showInformationMessage(`Demo mode off. Remember to add your own search engines in settings.`);
+		vscode.window.showInformationMessage(`Demo mode off. Remember to add your own search engines in settings.`); //TODO: Only display the reminder part of this message if user did not yet add custom search engines.
 	}));
 
 	// Register a command to update a setting (notification levels), which is used in the extension's walkthrough:
@@ -52,7 +52,7 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.oneSearchEngine', () => {
 		vscode.commands.executeCommand('workbench.action.openSettings', 'WebSearch.searchEngines');
 		const demoMode: boolean = vscode.workspace.getConfiguration('webSearch').get('useDefaultSearchEnginesList')!;
-		if (demoMode) {
+		if (demoMode) { //TODO: Convert this into an ternary operator:
 			vscode.window.showInformationMessage(`Remember, if you turn off demo mode and only have one custom search engine it will not prompt you to select from the list and will just execute the search immediately.`);
 		}
 		else {
@@ -68,7 +68,7 @@ export function activate(context: vscode.ExtensionContext) {
 		performWebSearch();
 	}));
 
-	// Register a command that will toggle when the extension is demoing the Command Palette (deprecated):
+	// Register a command that will toggle when the extension is demoing the Command Palette (deprecated): //TODO: Remove this code stub, as it has been deprecated:
 	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.setPaletteContext', async () => {
 		await new Promise(resolve => setTimeout(resolve, 1000));
 		vscode.commands.executeCommand('setContext', 'searchCommandPalette', true);
@@ -223,12 +223,11 @@ async function searchText(query: string, demo: boolean, defaultSearch: boolean, 
 		//Loop through the search engines array in the configuration settings and add them to the list:
 		defaultSearchEngines.forEach(site => {
 			Object.entries(site).forEach(([key, value]) => {
-				//console.log(key, value);
 				items.push({
 					label: value.sitename,
 					description: value.url,
-					//Display the selected text in the quick pick list. If the text exceeds 60 characters, it will be truncated with an ellipsis:
-					detail: `Search ${value.sitename} for ${query ? query.length <= 60 ? query.slice(0, 60) : query.slice(0, 60).concat('…') : ""}`,
+					//Display the selected text in the quick pick list. If the text exceeds 60 characters, it will be truncated with an ellipsis. If the site is PageSpeed Insights, then change the detail to match:
+					detail: `${(value.sitename === `PageSpeed Insights`) ? `Run` : 'Search'} ${value.sitename} ${(value.sitename === `PageSpeed Insights`) ? `on` : 'for'} ${query ? query.length <= 60 ? query.slice(0, 60) : query.slice(0, 60).concat('…') : ""}`,
 				});
 			});
 		});
