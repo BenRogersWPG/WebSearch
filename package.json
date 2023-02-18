@@ -203,7 +203,7 @@
 						"description": "You can right click on any selected text in your code and search from the context menu.",
 						"media": {
 							"image": "images/web-search-context-menu-zoom.webp",
-							"altText": "A screenshot showing a bunch of text in the text editor of VS Code with the text 'eslint' selected and a context menu beside it with the text 'web search selected text' highlighted"
+							"altText": "A screenshot showing a bunch of text in the text editor of VS Code with the text 'eslint' selected and a context menu beside it with the text 'Web Search selected text' highlighted"
 						}
 					},
 					{

@@ -207,7 +207,7 @@ async function searchText(query: string, demo: boolean, defaultSearch: boolean, 
 	const searchEngineOld: string = vscode.workspace.getConfiguration('webSearch').get('searchEngine')!;//Deprecated, will be removed in future versions
 
 	//Get the user settings from the extension's settings.json file:
-	const searchEngine: string[] = new Array(vscode.workspace.getConfiguration('webSearch').get('searchEngines'));
+	const searchEngine: string[] = new Array(vscode.workspace.getConfiguration('webSearch').get('searchEngines')); //TODO: Write function to perform all getConfiguration calls by just passing the sections to it
 
 	//Define default search engine signature:
 	interface IDefaultObject { sitename: string; url: string }
@@ -227,7 +227,7 @@ async function searchText(query: string, demo: boolean, defaultSearch: boolean, 
 					label: value.sitename,
 					description: value.url,
 					//Display the selected text in the quick pick list. If the text exceeds 60 characters, it will be truncated with an ellipsis. If the site is PageSpeed Insights, then change the detail to match:
-					detail: `${(value.sitename === `PageSpeed Insights`) ? `Run` : 'Search'} ${value.sitename} ${(value.sitename === `PageSpeed Insights`) ? `on` : 'for'} ${query ? query.length <= 60 ? query.slice(0, 60) : query.slice(0, 60).concat('…') : ""}`,
+					detail: `${(value.sitename === `PageSpeed Insights`) ? `Run` : 'Search'} ${value.sitename} ${(value.sitename === `PageSpeed Insights`) ? `on` : 'for'} ${query ? query.length <= 60 ? query.slice(0, 60) : query.slice(0, 60).concat('…') : ""}`, //TODO: Use a setting to do this to more, using verbs that user defines
 				});
 			});
 		});

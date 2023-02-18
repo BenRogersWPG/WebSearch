@@ -6,8 +6,8 @@
 
 ### Documentation
 * Added some to-dos to the source code to refactor
-
-<!-- TODO: Make issues for the above items before checking in, and attribute the check-in to them -->
+* Tweaked a few of the setting and command descriptions
+* Added more ideas for future development to the Readme
 
 ### House Keeping
 * Updated a few dependencies

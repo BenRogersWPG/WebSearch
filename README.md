@@ -33,7 +33,7 @@ You can utilize the extension in many different ways:
 ### Via Context Menu 🖱️
 
 1. Select the text in your code to search for
-2. Right click and select "Web Search" from dropdown menu
+2. Right click and select "Web Search selected text" from dropdown menu
 3. Select the search engine you want to use (add more in the extension settings)
 
 ### Via Search Bar 🔎︎
@@ -124,6 +124,7 @@ Adds support for Google suggestions / autocomplete for the extension. Start typi
 - Add ability to run extension from selected text in the terminal
 - Add links from extension settings mentioning other settings
 - Add support for more autocomplete search engine sources
+- Code a new setting to control user-defined search verbs
 - Translate the extension to other languages
 - Open search results in sidebar (webview)
 - Write more tests
