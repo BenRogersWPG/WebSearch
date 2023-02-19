@@ -1,5 +1,4 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode:
+// The module 'vscode' contains the VS Code extensibility API. Import the module and reference it with the alias vscode:
 import * as vscode from 'vscode';
 const open = require('open');
 
@@ -32,7 +31,15 @@ export function activate(context: vscode.ExtensionContext) {
 		await new Promise(resolve => setTimeout(resolve, 1000));
 		vscode.workspace.getConfiguration('webSearch').update('useDefaultSearchEnginesList', false, true);
 		vscode.commands.executeCommand('setContext', 'demoModeOff', true);
-		vscode.window.showInformationMessage(`Demo mode off. Remember to add your own search engines in settings.`); //TODO: Only display the reminder part of this message if user did not yet add custom search engines.
+		//Check if user has entered custom search engines yet and only display the reminder part of this message if not:
+		if (await checkCustomSearchEngines()) {
+			vscode.window.showInformationMessage(`Demo mode off.`);
+		}
+		else {
+			const demoResponse = await vscode.window.showInformationMessage(`Demo mode off. Remember to add your own search engines in settings.`, 'Add Some Now');
+			(demoResponse === "Add Some Now") ? vscode.window.showInformationMessage(`Add your own search engines by clicking the Add Item button.`) : "";
+			(demoResponse === "Add Some Now") ? vscode.commands.executeCommand('workbench.action.openSettings', 'WebSearch.searchEngines') : "";
+		}
 	}));
 
 	// Register a command to update a setting (notification levels), which is used in the extension's walkthrough:
@@ -52,28 +59,22 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.oneSearchEngine', () => {
 		vscode.commands.executeCommand('workbench.action.openSettings', 'WebSearch.searchEngines');
 		const demoMode: boolean = vscode.workspace.getConfiguration('webSearch').get('useDefaultSearchEnginesList')!;
-		if (demoMode) { //TODO: Convert this into an ternary operator:
-			vscode.window.showInformationMessage(`Remember, if you turn off demo mode and only have one custom search engine it will not prompt you to select from the list and will just execute the search immediately.`);
-		}
-		else {
-			vscode.window.showInformationMessage(`Remember, if you only have one custom search engine it will not prompt you to select from the list and will just execute the search immediately.`);
-		}
+		demoMode ? vscode.window.showInformationMessage(`Remember, if you turn off demo mode and only have one custom search engine it will not prompt you to select from the list and will just execute the search immediately.`) : vscode.window.showInformationMessage(`Remember, if you only have one custom search engine it will not prompt you to select from the list and will just execute the search immediately.`); //TODO: Use new checkCustomSearchEngines() function to check if only one search engine exists
 	}));
 
-	// Register a command that will toggle when the extension is run after entering custom search engines:
+	// Register a command that will toggle when the extension is run after entering custom search engines. If no custom search engines have been entered, invite user to add them:
 	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.setContext', async () => {
 		await new Promise(resolve => setTimeout(resolve, 1000));
 		vscode.commands.executeCommand('setContext', 'customSearch', true);
-		vscode.window.showInformationMessage(`You should now see your custom search engines in the search bar.`);
 		performWebSearch();
-	}));
-
-	// Register a command that will toggle when the extension is demoing the Command Palette (deprecated): //TODO: Remove this code stub, as it has been deprecated:
-	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.setPaletteContext', async () => {
-		await new Promise(resolve => setTimeout(resolve, 1000));
-		vscode.commands.executeCommand('setContext', 'searchCommandPalette', true);
-		vscode.window.showInformationMessage(`Run the extension any time by typing "web search" in the command palette.`);
-		performWebSearch();
+		if (await checkCustomSearchEngines()) {
+			vscode.window.showInformationMessage(`You should now see your custom search engines in the search bar.`);
+		}
+		else {
+			const customResponse = await vscode.window.showInformationMessage(`Running default search engines. Remember to add your own search engines in settings.`, 'Add Some Now');
+			(customResponse === "Add Some Now") ? vscode.window.showInformationMessage(`Add your own search engines by clicking the Add Item button.`) : ""; //TODO: This line and the line below exist twice in the source code (also in the code about turning off demo mode). Refactor into a function.
+			(customResponse === "Add Some Now") ? vscode.commands.executeCommand('workbench.action.openSettings', 'WebSearch.searchEngines') : "";
+		}
 	}));
 
 	// Provide the implementation of the context command with registerCommand using the commandId parameter from the command field in package.json
@@ -86,6 +87,7 @@ export function activate(context: vscode.ExtensionContext) {
 		performWebSearch();
 	}));
 
+	//TODO: Add function docstring
 	async function performWebSearch(demo: boolean = false) {
 		//Function to perform the web search
 
@@ -141,7 +143,7 @@ export function activate(context: vscode.ExtensionContext) {
 			const editor = vscode.window.activeTextEditor;
 			if (editor !== undefined) {
 				input.value = editor.document.getText(editor.selection);
-				if (input.value.length > 0) {
+				if (input.value.length > 0) { //TODO: Redundant line?
 				}
 			}
 
@@ -188,7 +190,6 @@ export function activate(context: vscode.ExtensionContext) {
 						});
 					}
 				}
-
 				input.items = quickpickItems;
 			});
 
@@ -196,12 +197,11 @@ export function activate(context: vscode.ExtensionContext) {
 			input.placeholder = allowSuggestions ? 'Start typing for autocomplete' : 'Start typing to search';
 			input.onDidHide(() => input.dispose());
 			input.show();
-
 		}
 	}
 }
 
-
+//TODO: Add function docstring
 async function searchText(query: string, demo: boolean, defaultSearch: boolean, messageLevelsInt: Number) {
 	//Retrieve the extension's search engine configuration from the user settings:
 	const searchEngineOld: string = vscode.workspace.getConfiguration('webSearch').get('searchEngine')!;//Deprecated, will be removed in future versions
@@ -227,14 +227,14 @@ async function searchText(query: string, demo: boolean, defaultSearch: boolean, 
 					label: value.sitename,
 					description: value.url,
 					//Display the selected text in the quick pick list. If the text exceeds 60 characters, it will be truncated with an ellipsis. If the site is PageSpeed Insights, then change the detail to match:
-					detail: `${(value.sitename === `PageSpeed Insights`) ? `Run` : 'Search'} ${value.sitename} ${(value.sitename === `PageSpeed Insights`) ? `on` : 'for'} ${query ? query.length <= 60 ? query.slice(0, 60) : query.slice(0, 60).concat('…') : ""}`, //TODO: Use a setting to do this to more, using verbs that user defines
+					detail: `${(value.sitename === `PageSpeed Insights`) ? `Run` : 'Search'} ${value.sitename} ${(value.sitename === `PageSpeed Insights`) ? `on` : 'for'} ${query ? query.length <= 60 ? query.slice(0, 60) : query.slice(0, 60).concat('…') : ""}`, //TODO: Use a setting to do this to more, using verbs that user defines?
 				});
 			});
 		});
 	}
 
 	//Convert the JSON object to string and parse the string to an object:
-	var searchEngineList = JSON.parse(JSON.stringify(searchEngine));
+	var searchEngineList = JSON.parse(JSON.stringify(searchEngine)); //TODO: Code this line and the line below onto one line like in the checkCustomSearchEngines() function
 
 	//Map the searchEngineList to a new array:
 	var searchEngineArray = Object.keys(searchEngineList[0]).map((key) => [String(key), searchEngineList[0][key]]);
@@ -320,11 +320,11 @@ async function searchText(query: string, demo: boolean, defaultSearch: boolean, 
 
 		//Display to the user what action is being taken and on what search engine:
 		if (messageLevelsInt < 2) {
-			directSearch ? vscode.window.showInformationMessage(`Only one search engine exists, so searching ${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"} directly for: ${query}. \nFeel free to add more search engines in the settings.`) : vscode.window.showInformationMessage(`Searching ${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"} for: ${query}`);
+			directSearch ? vscode.window.showInformationMessage(`Only one search engine exists, so searching ${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"} directly for: ${query}. \nFeel free to add more search engines in the settings.`) : vscode.window.showInformationMessage(`Searching ${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"} for: ${query}`); //TODO: Add button to this information message to add more?
 		}
 
 		//Use built in browser if on web, otherwise use native OS browser:
-		if (vscode.env.uiKind === vscode.UIKind.Web) {
+		if (vscode.env.uiKind === vscode.UIKind.Web) { //TODO: Convert these lines into one ternary operator
 			vscode.env.openExternal(vscode.Uri.parse(searchUrl!));
 		}
 		else {
@@ -340,12 +340,23 @@ async function searchText(query: string, demo: boolean, defaultSearch: boolean, 
 		console.log(errorMessage);
 
 		//Show button to user and offer to bring them to the settings to edit their invalid search engine:
-		const messageResponse = await vscode.window.showErrorMessage(errorMessage, 'Edit Search Engine');
-		if (messageResponse === "Edit Search Engine") {
+		const messageResponse = await vscode.window.showErrorMessage(errorMessage, 'Fix Search Engine');
+		if (messageResponse === "Fix Search Engine") {
 			vscode.commands.executeCommand('workbench.action.openSettings', 'WebSearch.searchEngines');
 			vscode.window.showInformationMessage(`Make changes to your invalid search engine, ${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"}. Make sure to add '%s' in the Value field`);
 		}
 
+	}
+}
+/**Function that checks if any custom search engines have been entered by the user yet - for better, more helpful messages:
+ * @returns {boolean} if more than 0 search engines have been added
+*/
+async function checkCustomSearchEngines(): Promise<boolean> {
+	if ((vscode.workspace.getConfiguration('webSearch').get('searchEngines') ? Object.keys(vscode.workspace.getConfiguration('webSearch').get('searchEngines') as {}).length : 0) > 0) {
+		return true;
+	}
+	else {
+		return false;
 	}
 }
 

@@ -1,4 +1,23 @@
 # Changelog
+## \[6.3.0] (2023-02-19)
+### Features
+* Enhanced message logic that assists user to add custom search engines
+* Greatly improved the helpfulness of user notifications in the walkthroughs. Information messages are now based on settings and familiarity with extension to better help usability
+
+### Code Cleanup
+* Replaced new suggest animation on the Readme with a GIF as not all browsers support .avif
+* Removed some depreciated code
+* Performed some refactoring to the source code
+* Improved verbiage on the error button when a search engine is entered incorrectly
+* Added a few to-dos to the source code for future development
+* Added more ideas for future development to the Readme
+
+### Documentation
+* Started process of writing function docstring entries
+
+### House Keeping
+* Started project to track work on future features. Feel free to follow along on [GitHub Projects](https://github.com/users/BenRogersWPG/projects/2/views/1)
+
 ## \[6.2.3] (2023-02-18)
 ### Features
 * Improved site action readability. The action label for PageSpeed Insights is now **"Run PageSpeed Insights on {selectedText}"**. This differs from before which was **"Search PageSpeed Insights for {selectedText}"**. The new label is much more applicable to the verbiage on the site.

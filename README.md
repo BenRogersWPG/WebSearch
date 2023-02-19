@@ -6,7 +6,7 @@ This extension allows you to search the web in your favorite search engines / we
 
 ---
 
-![Animation demonstrating the extension's autocomplete search bar, showing suggestions as a search query is typed, "typescript en" completes to "typescript enum to array"](images/web-search-suggest-autocomplete.avif)
+![Animation demonstrating the extension's autocomplete search bar, showing suggestions as a search query is typed, "typescript en" completes to "typescript enum to array"](images/web-search-suggest-autocomplete.gif)
 
 ## Features ✨
 
@@ -119,6 +119,7 @@ Adds support for Google suggestions / autocomplete for the extension. Start typi
 ## Future Development Ideas and To-dos 📝
 
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
+- Replace the image the search bar step on the walkthrough to show autocomplete
 - Add option to add manual text to selected text when performing a search
 - Examine performance analysis of code to find potential optimizations
 - Add ability to run extension from selected text in the terminal
