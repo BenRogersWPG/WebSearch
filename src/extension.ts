@@ -194,7 +194,7 @@ export function activate(context: vscode.ExtensionContext) {
 			});
 
 			input.title = `Search for:`; //TODO: If only one search engine, name it directly in this title (requires refactoring)
-			input.placeholder = allowSuggestions ? 'Start typing for autocomplete' : 'Start typing to search';
+			input.placeholder = allowSuggestions ? 'Start typing for autocomplete' : 'Start typing to search'; //TODO: Prevent 'Start typing for autocomplete' from displaying if on VSCode for the Web
 			input.onDidHide(() => input.dispose());
 			input.show();
 		}

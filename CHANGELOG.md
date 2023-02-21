@@ -1,4 +1,14 @@
 # Changelog
+## \[6.3.1] (2023-02-20)
+### Bug Fixes
+* The removal of unnecessary command activation event declarations from package.json in version `6.2.1` broke the extension for older versions of VS Code. This version fixes the issue by adding them back.
+
+### Code Cleanup
+* Added a few to-dos to the source code for future development
+
+### House Keeping
+* Updated a few dependencies
+
 ## \[6.3.0] (2023-02-19)
 ### Features
 * Enhanced message logic that assists user to add custom search engines

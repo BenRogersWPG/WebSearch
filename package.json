@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "images/icon.webp",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "6.3.0",
+	"version": "6.3.1",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -58,6 +58,8 @@
 		"ui"
 	],
 	"activationEvents": [
+		"onCommand:WebSearch.webSearchMenu",
+		"onCommand:WebSearch.webSearch",
 		"onCommand:WebSearch.firstRun",
 		"onCommand:WebSearch.changeSetting",
 		"onCommand:WebSearch.changeNotifications",
