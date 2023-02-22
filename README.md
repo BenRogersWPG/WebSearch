@@ -11,7 +11,7 @@ This extension allows you to search the web in your favorite search engines / we
 ## Features ✨
 
 - Add multiple search engines in the extension settings and pick from them when performing a search
-- **NEW** Suggests query suggestions as you type, using Google Suggest
+- **NEW** Suggests search queries as you type, using Google Autocomplete
 - Easy to use and configure
 - Runs on Visual Studio Code for the Web (vscode.dev)
 - Keyboard shortcut to perform a quick search <kbd>Alt</kbd>+<kbd>`</kbd>
@@ -199,6 +199,10 @@ Adds support for Google suggestions / autocomplete for the extension. Start typi
 ## Known Issues 🐛
 
 - Searching on Stack Overflow sometimes requires a CAPTCHA. Either log in or accept cookies to prevent this.
+- If using VS Code for Web, you may receive popups asking "Do you want Code to open the external website?". To have URLs open immediately, follow these quick and easy steps:
+    1. On the popup that appears, click the *Configure Trusted Domains Button*
+    2. Select the level of trust you wish to give to the website.
+    3. The next time you perform searches on that search engine's website, it will just open without prompting you.
 
 ## Sponsor This Project ❤️
 

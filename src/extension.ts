@@ -56,10 +56,22 @@ export function activate(context: vscode.ExtensionContext) {
 	}));
 
 	// Register a command that will take the user to the WebSearch extension's settings page to acknowledge the one search engine rule:
-	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.oneSearchEngine', () => {
+	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.oneSearchEngine', async () => {
 		vscode.commands.executeCommand('workbench.action.openSettings', 'WebSearch.searchEngines');
 		const demoMode: boolean = vscode.workspace.getConfiguration('webSearch').get('useDefaultSearchEnginesList')!;
-		demoMode ? vscode.window.showInformationMessage(`Remember, if you turn off demo mode and only have one custom search engine it will not prompt you to select from the list and will just execute the search immediately.`) : vscode.window.showInformationMessage(`Remember, if you only have one custom search engine it will not prompt you to select from the list and will just execute the search immediately.`); //TODO: Use new checkCustomSearchEngines() function to check if only one search engine exists
+		if (await checkCustomSearchEngines(true)) {
+			demoMode ? vscode.window.showInformationMessage(`Add more search engines anytime through this setting system.`) : vscode.window.showInformationMessage(`Reminder: If you reduce your custom search engine list down to one item, it will not prompt you to select from the list and will just execute the search immediately.`);
+		}
+		else {
+			if (await checkCustomSearchEngines()) {
+				demoMode ? vscode.window.showInformationMessage(`Remember, you have only one custom search engine defined. If you turn off demo mode, it will not prompt you to select from the list and will just execute the search immediately.`) : vscode.window.showInformationMessage(`Remember, you have only one custom search engine defined. You will not be prompted to select from the list and instead it will just execute the search immediately.`);
+			}
+			else {
+				const demoResponse = demoMode ? await vscode.window.showInformationMessage(`Remember, you have no custom search engines defined. If you turn off demo mode, it will not prompt you to select from the list and will just execute the search immediately.`, 'Add Some Now') : await vscode.window.showInformationMessage(`Remember, you have no custom search engines defined. You will not be prompted to select from the list and instead it will just execute the search immediately.`, 'Add Some Now');
+				(demoResponse === "Add Some Now") ? vscode.window.showInformationMessage(`Add your own search engines by clicking the Add Item button.`) : "";
+				(demoResponse === "Add Some Now") ? vscode.commands.executeCommand('workbench.action.openSettings', 'WebSearch.searchEngines') : "";
+			}
+		}
 	}));
 
 	// Register a command that will toggle when the extension is run after entering custom search engines. If no custom search engines have been entered, invite user to add them:
@@ -72,7 +84,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 		else {
 			const customResponse = await vscode.window.showInformationMessage(`Running default search engines. Remember to add your own search engines in settings.`, 'Add Some Now');
-			(customResponse === "Add Some Now") ? vscode.window.showInformationMessage(`Add your own search engines by clicking the Add Item button.`) : ""; //TODO: This line and the line below exist twice in the source code (also in the code about turning off demo mode). Refactor into a function.
+			(customResponse === "Add Some Now") ? vscode.window.showInformationMessage(`Add your own search engines by clicking the Add Item button.`) : ""; //TODO: This line and the line below exist 3x in the source code. Refactor into a function.
 			(customResponse === "Add Some Now") ? vscode.commands.executeCommand('workbench.action.openSettings', 'WebSearch.searchEngines') : "";
 		}
 	}));
@@ -87,10 +99,9 @@ export function activate(context: vscode.ExtensionContext) {
 		performWebSearch();
 	}));
 
-	//TODO: Add function docstring
+	/**Function that executes the web search quickpick
+	 * @param {boolean} [demo=false] - If this search is running with demo mode on or not (default value is false)	*/
 	async function performWebSearch(demo: boolean = false) {
-		//Function to perform the web search
-
 		//Gather the user's currently selected text from the active text editor:
 		const editor = vscode.window.activeTextEditor;
 		let text = demo ? "eslint" : vscode.window.activeTextEditor?.document.getText(editor!.selection); //If demo is true, use the string "eslint" as the search term
@@ -111,7 +122,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 		const messageLevelsInt: Number = MessageEnum[vscode.workspace.getConfiguration('webSearch').get('messageLevels') as MessageEnum] === undefined ? 0 : MessageEnum[vscode.workspace.getConfiguration('webSearch').get('messageLevels') as MessageEnum] as unknown as Number;
 
-		//Temporarily update old messageLevels setting to new enum, ensuring backwards compatibility:
+		//FUTURE: Temporarily update old messageLevels setting to new enum, ensuring backwards compatibility:
 		//vscode.workspace.getConfiguration('webSearch').update('messageLevels', vscode.workspace.getConfiguration('webSearch').get('messageLevels').replace(/\s/g, "").charAt(0).toLowerCase() + vscode.workspace.getConfiguration('webSearch').get('messageLevels').replace(/\s/g, "").slice(1), true);
 
 		//Display a message to the user if no text was selected:
@@ -143,8 +154,6 @@ export function activate(context: vscode.ExtensionContext) {
 			const editor = vscode.window.activeTextEditor;
 			if (editor !== undefined) {
 				input.value = editor.document.getText(editor.selection);
-				if (input.value.length > 0) { //TODO: Redundant line?
-				}
 			}
 
 			//User clicked on Quick Pick entry or pressed Enter
@@ -193,15 +202,19 @@ export function activate(context: vscode.ExtensionContext) {
 				input.items = quickpickItems;
 			});
 
-			input.title = `Search for:`; //TODO: If only one search engine, name it directly in this title (requires refactoring)
-			input.placeholder = allowSuggestions ? 'Start typing for autocomplete' : 'Start typing to search'; //TODO: Prevent 'Start typing for autocomplete' from displaying if on VSCode for the Web
+			input.title = `Search for:`; //FUTURE: If only one search engine, name it directly in this title (requires refactoring)
+			input.placeholder = vscode.env.uiKind === vscode.UIKind.Desktop && allowSuggestions ? 'Start typing for autocomplete' : 'Start typing to search'; //Only display 'Start typing for autocomplete' if on VSCode desktop AND the user wants suggestions
 			input.onDidHide(() => input.dispose());
 			input.show();
 		}
 	}
 }
 
-//TODO: Add function docstring
+/**Function that executes the web search
+ * @param {string} query - The search query
+ * @param {boolean} demo - If this search is running with demo mode on or not
+ * @param {boolean} defaultSearch - If the user wishes to use the default list of search engines
+ * @param {Number} messageLevelsInt - The enum value of the user's preferred notification level*/
 async function searchText(query: string, demo: boolean, defaultSearch: boolean, messageLevelsInt: Number) {
 	//Retrieve the extension's search engine configuration from the user settings:
 	const searchEngineOld: string = vscode.workspace.getConfiguration('webSearch').get('searchEngine')!;//Deprecated, will be removed in future versions
@@ -318,17 +331,12 @@ async function searchText(query: string, demo: boolean, defaultSearch: boolean, 
 		//Perform a string replacement to replace the %s placeholder of the search engine with the $text search query:
 		searchUrl = searchUrl.replace('%s', query ? query : "")!;
 
+		//Use built in browser if on web, otherwise use native OS browser:
+		vscode.env.uiKind === vscode.UIKind.Web ? vscode.env.openExternal(vscode.Uri.parse(searchUrl!)) : await open(searchUrl!);
+
 		//Display to the user what action is being taken and on what search engine:
 		if (messageLevelsInt < 2) {
-			directSearch ? vscode.window.showInformationMessage(`Only one search engine exists, so searching ${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"} directly for: ${query}. \nFeel free to add more search engines in the settings.`) : vscode.window.showInformationMessage(`Searching ${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"} for: ${query}`); //TODO: Add button to this information message to add more?
-		}
-
-		//Use built in browser if on web, otherwise use native OS browser:
-		if (vscode.env.uiKind === vscode.UIKind.Web) { //TODO: Convert these lines into one ternary operator
-			vscode.env.openExternal(vscode.Uri.parse(searchUrl!));
-		}
-		else {
-			await open(searchUrl!);
+			directSearch ? vscode.window.showInformationMessage(`Only one search engine exists, so searching ${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"} directly for: ${query}. \nFeel free to add more search engines in the settings.`) : vscode.window.showInformationMessage(`Searching ${selectedSearchEngine?.label ? selectedSearchEngine?.label : "web"} for: ${query}`); //FUTURE: Add button to this information message to add more?
 		}
 	}
 	else {
@@ -349,10 +357,10 @@ async function searchText(query: string, demo: boolean, defaultSearch: boolean, 
 	}
 }
 /**Function that checks if any custom search engines have been entered by the user yet - for better, more helpful messages:
- * @returns {boolean} if more than 0 search engines have been added
-*/
-async function checkCustomSearchEngines(): Promise<boolean> {
-	if ((vscode.workspace.getConfiguration('webSearch').get('searchEngines') ? Object.keys(vscode.workspace.getConfiguration('webSearch').get('searchEngines') as {}).length : 0) > 0) {
+ * @param {boolean} [one=false] - If we want more than 1 (true) or more than 0 (default / false).
+ * @returns {boolean} if more than 0 search engines have been added*/
+async function checkCustomSearchEngines(one: boolean = false): Promise<boolean> {
+	if ((vscode.workspace.getConfiguration('webSearch').get('searchEngines') ? Object.keys(vscode.workspace.getConfiguration('webSearch').get('searchEngines') as {}).length : 0) > (one ? 1 : 0)) {
 		return true;
 	}
 	else {

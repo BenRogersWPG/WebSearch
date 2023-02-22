@@ -1,4 +1,24 @@
 # Changelog
+## \[6.3.2] (2023-02-21)
+### Features
+* Migrated Linux keybinding to additional secondary command introduced in version `6.2.0` to make it easier for users to edit keyboard shortcuts
+* Improved logic of walkthrough steps to better assist new users add custom search engines
+
+### Bug Fixes
+* Updated title of the search bar to not mention *autocomplete* if user is on VS Code for the Web, as autocomplete only works on the desktop
+
+### Documentation
+* Completed process of writing function docstring entries
+* Improved the wording of some sections of the Readme
+* Added instructions to the Readme for how to configure trusted domains if using this extension on VS Code for the Web
+
+### Code Cleanup
+* Performed minor routine code cleanup 🧹
+* Continued refactoring source code
+
+### House Keeping
+* Updated a few dependencies
+
 ## \[6.3.1] (2023-02-20)
 ### Bug Fixes
 * The removal of unnecessary command activation event declarations from package.json in version `6.2.1` broke the extension for older versions of VS Code. This version fixes the issue by adding them back.
