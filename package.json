@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "images/icon.webp",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "6.3.2",
+	"version": "6.4.0",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -254,13 +254,13 @@
 				"properties": {
 					"webSearch.enableContextMenu": {
 						"type": "boolean",
-						"default": "true",
+						"default": true,
 						"markdownDescription": "Enable the Web Search context menu item (right click menu) in the editor",
 						"scope": "resource"
 					},
 					"webSearch.allowManualSearch": {
 						"type": "boolean",
-						"default": "true",
+						"default": true,
 						"markdownDescription": "Enable the extension to run when no text is selected.\n\nIf this setting is enabled, a __search bar__ will prompt for a search query when the extension's search command is run by using the extension's keyboard shortcut.",
 						"scope": "resource"
 					},
@@ -298,6 +298,12 @@
 								"url": "https://duckduckgo.com/?q=%s"
 							}
 						]
+					},
+					"webSearch.addToSelectedText": {
+						"type": "boolean",
+						"default": true,
+						"markdownDescription": "**IN BETA**\n\nWhen using the extension with selected text, this setting will allow you to elaborate on the selected text before performing the search.\n\nIf this setting is enabled, the __search bar__ will prompt for additional content to append to the end of the query, and will guide you with autocomplete suggestions as well.",
+						"scope": "resource"
 					}
 				}
 			},
@@ -339,7 +345,7 @@
 				"properties": {
 					"webSearch.allowSuggestions": {
 						"type": "boolean",
-						"default": "true",
+						"default": true,
 						"markdownDescription": "Enable the extension to suggest autocomplete Google keywords based on your search query as you type.",
 						"scope": "resource"
 					}
@@ -352,7 +358,7 @@
 				"properties": {
 					"webSearch.useDefaultSearchEnginesList": {
 						"type": "boolean",
-						"default": "true",
+						"default": true,
 						"markdownDescription": "Enable the Web Search extension to use default values. Essentially, this is the extension's ***Demo Mode***. Disabling this will favor your own custom search engines list entered in `searchEngines`."
 					}
 				}

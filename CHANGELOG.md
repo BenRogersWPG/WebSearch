@@ -1,4 +1,21 @@
 # Changelog
+## \[6.4.0] (2023-02-23)
+### Features
+* Added new setting to allow users to append to the end of selected text searches
+* This new functionality allows you to elaborate on partial searches to narrow down better search results.
+* Enabling the new setting also allows you to gain suggestions from your selected text through the relatively new autocorrect suggestion functionality.
+* Since this is in beta, you can turn off the feature by setting the new `webSearch.addToSelectedText` setting to false
+* If you come across any bugs or have any suggestions with this beta, feel free to report it [(as an issue)](https://github.com/BenRogersWPG/WebSearch/issues/new/choose)
+
+### Bug Fixes
+* Fixed some boolean values in the package.json that were defaulted to strings
+
+### Documentation
+* Added documentation for the new beta setting
+
+### House Keeping
+* Updated a few dependencies
+
 ## \[6.3.2] (2023-02-21)
 ### Features
 * Migrated Linux keybinding to additional secondary command introduced in version `6.2.0` to make it easier for users to edit keyboard shortcuts

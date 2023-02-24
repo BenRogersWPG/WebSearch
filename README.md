@@ -11,7 +11,7 @@ This extension allows you to search the web in your favorite search engines / we
 ## Features ✨
 
 - Add multiple search engines in the extension settings and pick from them when performing a search
-- **NEW** Suggests search queries as you type, using Google Autocomplete
+- Suggests search queries as you type, using Google Autocomplete
 - Easy to use and configure
 - Runs on Visual Studio Code for the Web (vscode.dev)
 - Keyboard shortcut to perform a quick search <kbd>Alt</kbd>+<kbd>`</kbd>
@@ -21,6 +21,7 @@ This extension allows you to search the web in your favorite search engines / we
 - Walkthrough to help you get started using the extension
 - JSON snippet to help you customize your default search engines
 - Full control over the extension's information and warning notification messages
+- **NEW** Option to allow appending your own query when performing a search using selected text
 - Lots of extension Settings for your own customizations (choose literally any website with a search feature)
 ![Animation of adding a new search engine to the Web Search extension using the extension settings, then performing a search using the new search engine](images/web-search-add-any-site.gif)
 
@@ -116,12 +117,17 @@ Allows the user to control the levels of message output from the extension.
 
 Adds support for Google suggestions / autocomplete for the extension. Start typing your search query and it will suggest queries.
 
+### `webSearch.addToSelectedText`
+
+When using the extension with selected text, this setting will allow you to elaborate on the selected text before performing the search. If this setting is enabled, the search bar will prompt for additional content to append to the end of the query.
+
 ## Future Development Ideas and To-dos 📝
 
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
 - Replace the image the search bar step on the walkthrough to show autocomplete
-- Add option to add manual text to selected text when performing a search
 - Examine performance analysis of code to find potential optimizations
+- Take new setting to allow elaborating on selected text out of beta
+- Add `webSearch.addToSelectedText` to the extension's walkthrough?
 - Add ability to run extension from selected text in the terminal
 - Add links from extension settings mentioning other settings
 - Add support for more autocomplete search engine sources
@@ -142,6 +148,7 @@ Adds support for Google suggestions / autocomplete for the extension. Start typi
 - ~~Add a submenu to the function and allow multiple websites to be searched from~~
 - ~~Show message to user if they added a search engine that doesn't have a query~~
 - ~~If no text selected, running the extension will prompt for text to search for~~
+- ~~Add option to add manual text to selected text when performing a search~~
 - ~~Phase out old webSearch.searchEngine setting (use deprecationMessage)~~
 - ~~Replace screenshots of search bar with new Google suggestion offerings~~
 - ~~Use JSON pattern restriction for search engines setting to validate URLs~~

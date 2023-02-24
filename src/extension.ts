@@ -108,6 +108,7 @@ export function activate(context: vscode.ExtensionContext) {
 		const defaultSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('useDefaultSearchEnginesList')!;
 		const manualSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('allowManualSearch')!;
 		const allowSuggestions: boolean = vscode.workspace.getConfiguration('webSearch').get('allowSuggestions')!;
+		const addToSelectedText: boolean = vscode.workspace.getConfiguration('webSearch').get('addToSelectedText')!; //TODO: Inform user if addToSelected is true, but allowManualSearch is false, as you can't elaborate on a search using the search bar if you have the search bar disabled
 
 		//Prepare enum and gather setting for the user's desired notification display level:
 		enum MessageEnum {
@@ -135,11 +136,13 @@ export function activate(context: vscode.ExtensionContext) {
 
 		//If the user has already selected text, run it through the final search function:
 		else if (text !== undefined && text !== "") {
-			searchText(text, demo, defaultSearch, messageLevelsInt);
+			if (!addToSelectedText) {
+				searchText(text, demo, defaultSearch, messageLevelsInt);
+			}
 		}
 
-		//If manual search setting is enabled, prompt the user for a search term:
-		else if ((text === undefined || text === "") && (manualSearch)) {
+		//If manual search setting is enabled, prompt the user for a search term. If the user had selected text, but wishes to elaborate on the query, also prompt them to add to the search term:
+		if ((text === undefined || text === "") || addToSelectedText && (manualSearch)) { //TODO: If addToSelectedText is true, move cursor to the end of the search bar instead of selecting the text, as when a user starts typing, it will erase the selected text they wish to append to.
 			//assign text to the user's selected Quick Pick item by creating a Quick Pick and using the Quick Pick's selected item:
 			let input = vscode.window.createQuickPick();
 
@@ -206,6 +209,9 @@ export function activate(context: vscode.ExtensionContext) {
 			input.placeholder = vscode.env.uiKind === vscode.UIKind.Desktop && allowSuggestions ? 'Start typing for autocomplete' : 'Start typing to search'; //Only display 'Start typing for autocomplete' if on VSCode desktop AND the user wants suggestions
 			input.onDidHide(() => input.dispose());
 			input.show();
+		}
+		else {
+			searchText(text, demo, defaultSearch, messageLevelsInt);
 		}
 	}
 }
