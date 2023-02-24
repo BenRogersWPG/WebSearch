@@ -1,4 +1,12 @@
 # Changelog
+## \[6.4.1] (2023-02-23)
+### Bug Fixes
+* Fixed the walkthrough demo for selected text, as it broke during the new functionality 🐛
+* Will keep testing the new beta feature `webSearch.addToSelectedText`, just added earlier today in version `6.4.0`
+
+### Code Cleanup
+* Added a few to-dos to the source code for future development
+
 ## \[6.4.0] (2023-02-23)
 ### Features
 * Added new setting to allow users to append to the end of selected text searches

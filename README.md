@@ -126,8 +126,8 @@ When using the extension with selected text, this setting will allow you to elab
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
 - Replace the image the search bar step on the walkthrough to show autocomplete
 - Examine performance analysis of code to find potential optimizations
-- Take new setting to allow elaborating on selected text out of beta
 - Add `webSearch.addToSelectedText` to the extension's walkthrough?
+- Take new setting to allow elaborating on selected text out of beta
 - Add ability to run extension from selected text in the terminal
 - Add links from extension settings mentioning other settings
 - Add support for more autocomplete search engine sources

@@ -22,7 +22,7 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.firstRun', async () => {
 		await new Promise(resolve => setTimeout(resolve, 500));
 		vscode.commands.executeCommand('setContext', 'firstRun', true);
-		vscode.window.showInformationMessage(`Type a query in the search bar at the top of the screen & press Enter.`);
+		vscode.window.showInformationMessage(`Type a query in the search bar at the top of the screen & press Enter.`); //TODO: Warn if allowManualSearch is false
 		performWebSearch();
 	}));
 
@@ -75,7 +75,7 @@ export function activate(context: vscode.ExtensionContext) {
 	}));
 
 	// Register a command that will toggle when the extension is run after entering custom search engines. If no custom search engines have been entered, invite user to add them:
-	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.setContext', async () => {
+	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.setContext', async () => { //TODO: Warn if allowManualSearch is false
 		await new Promise(resolve => setTimeout(resolve, 1000));
 		vscode.commands.executeCommand('setContext', 'customSearch', true);
 		performWebSearch();
@@ -134,15 +134,20 @@ export function activate(context: vscode.ExtensionContext) {
 			return;
 		}
 
+		//If the user is running the demo from the walkthrough:
+		else if (text === 'eslint') { //TODO: Use variables over hard-coded like this way to determine if running a search from the walkthrough demo.
+			searchText(text, true, defaultSearch, messageLevelsInt); //TODO: When this demo is run, should it allow custom appending at the end?
+		}
+
 		//If the user has already selected text, run it through the final search function:
-		else if (text !== undefined && text !== "") {
+		else if (text !== undefined && text !== "" && !addToSelectedText) {
 			if (!addToSelectedText) {
 				searchText(text, demo, defaultSearch, messageLevelsInt);
 			}
 		}
 
 		//If manual search setting is enabled, prompt the user for a search term. If the user had selected text, but wishes to elaborate on the query, also prompt them to add to the search term:
-		if ((text === undefined || text === "") || addToSelectedText && (manualSearch)) { //TODO: If addToSelectedText is true, move cursor to the end of the search bar instead of selecting the text, as when a user starts typing, it will erase the selected text they wish to append to.
+		else if ((text === undefined || text === "") || addToSelectedText && (manualSearch)) { //TODO: If addToSelectedText is true, move cursor to the end of the search bar instead of selecting the text, as when a user starts typing, it will erase the selected text they wish to append to.
 			//assign text to the user's selected Quick Pick item by creating a Quick Pick and using the Quick Pick's selected item:
 			let input = vscode.window.createQuickPick();
 
