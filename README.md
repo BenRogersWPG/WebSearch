@@ -123,8 +123,10 @@ When using the extension with selected text, this setting will allow you to elab
 
 ## Future Development Ideas and To-dos 📝
 
+- Try making the new `WebSearch.webSearch` command the default key command on Linux
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
 - Replace the image the search bar step on the walkthrough to show autocomplete
+- Add new setting that will keep the search bar open after it loses focus
 - Examine performance analysis of code to find potential optimizations
 - Add `webSearch.addToSelectedText` to the extension's walkthrough?
 - Take new setting to allow elaborating on selected text out of beta
@@ -197,6 +199,7 @@ When using the extension with selected text, this setting will allow you to elab
 - Remove "selected text" from command palette entry title without adding a new command
 - Add dynamic sub context menu to right click menu containing all search engines
 - Use variables in setting descriptions, so that the keybindings are dynamic
+- Move cursor to the end of the search bar when using selected text
 - Poll site favicons and display them on the search engine submenu
 
 ## Requirements 📦

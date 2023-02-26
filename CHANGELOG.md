@@ -1,4 +1,16 @@
 # Changelog
+## \[6.4.2] (2023-02-26)
+### Features
+* Assist users with new feature added in version `6.4.0`.
+* If the new setting (allow users to append to the end of selected text searches) is enabled, but the search bar is disabled, it will invite the user to enable the search bar.
+
+### Code Cleanup
+* Added more ideas for future development to the Readme
+* Added a few to-dos to the source code for future development
+
+### House Keeping
+* Updated a few dependencies
+
 ## \[6.4.1] (2023-02-23)
 ### Bug Fixes
 * Fixed the walkthrough demo for selected text, as it broke during the new functionality 🐛

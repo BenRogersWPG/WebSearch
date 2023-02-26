@@ -108,7 +108,7 @@ export function activate(context: vscode.ExtensionContext) {
 		const defaultSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('useDefaultSearchEnginesList')!;
 		const manualSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('allowManualSearch')!;
 		const allowSuggestions: boolean = vscode.workspace.getConfiguration('webSearch').get('allowSuggestions')!;
-		const addToSelectedText: boolean = vscode.workspace.getConfiguration('webSearch').get('addToSelectedText')!; //TODO: Inform user if addToSelected is true, but allowManualSearch is false, as you can't elaborate on a search using the search bar if you have the search bar disabled
+		const addToSelectedText: boolean = vscode.workspace.getConfiguration('webSearch').get('addToSelectedText')!;
 
 		//Prepare enum and gather setting for the user's desired notification display level:
 		enum MessageEnum {
@@ -147,7 +147,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 
 		//If manual search setting is enabled, prompt the user for a search term. If the user had selected text, but wishes to elaborate on the query, also prompt them to add to the search term:
-		else if ((text === undefined || text === "") || addToSelectedText && (manualSearch)) { //TODO: If addToSelectedText is true, move cursor to the end of the search bar instead of selecting the text, as when a user starts typing, it will erase the selected text they wish to append to.
+		else if ((text === undefined || text === "") || addToSelectedText && (manualSearch)) { //FUTURE: (Waiting on VS Code API Update) If addToSelectedText is true, move cursor to the end of the search bar instead of selecting the text, as when a user starts typing, it will erase the selected text they wish to append to.
 			//assign text to the user's selected Quick Pick item by creating a Quick Pick and using the Quick Pick's selected item:
 			let input = vscode.window.createQuickPick();
 
@@ -162,6 +162,7 @@ export function activate(context: vscode.ExtensionContext) {
 			const editor = vscode.window.activeTextEditor;
 			if (editor !== undefined) {
 				input.value = editor.document.getText(editor.selection);
+				//input.ignoreFocusOut = true; //TODO: Create new setting that will set this to true, making the search bar stay open if focus is lost
 			}
 
 			//User clicked on Quick Pick entry or pressed Enter
@@ -217,6 +218,14 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 		else {
 			searchText(text, demo, defaultSearch, messageLevelsInt);
+		}
+
+		//Inform user if addToSelected is true, but allowManualSearch is false, as you can't elaborate on a search using the search bar if you have the search bar disabled
+		if (addToSelectedText && !manualSearch && text !== "eslint" && text !== undefined && text !== "") {
+			searchText(text, demo, defaultSearch, messageLevelsInt);
+			const manualSearchAnswer = await vscode.window.showInformationMessage(`You have indicated you wish to add to selected text, but that requires the search bar to be activated.`, "Enable The Search Bar");
+			(manualSearchAnswer === "Enable The Search Bar") ? vscode.window.showInformationMessage(`Enable the search bar so you can start modifying your searches.`) : "";
+			(manualSearchAnswer === "Enable The Search Bar") ? vscode.commands.executeCommand('workbench.action.openSettings', 'webSearch.allowManualSearch') : "";
 		}
 	}
 }
