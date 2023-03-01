@@ -1,4 +1,15 @@
 # Changelog
+## \[6.4.3] (2023-02-28)
+### Features
+* Took new functionality to elaborate on partial searches from selected text out of beta (*added in version `6.4.0`*)
+* Migrated Linux context menu to use additional secondary command introduced in version `6.2.0` to make it easier for users to see this extension's keyboard shortcut
+
+### House Keeping
+* Updated a few dependencies
+
+### Documentation
+* Added a third extension badge for Microsoft Visual Studio Marketplace
+
 ## \[6.4.2] (2023-02-26)
 ### Features
 * Assist users with new feature added in version `6.4.0`.

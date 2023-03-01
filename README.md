@@ -123,13 +123,11 @@ When using the extension with selected text, this setting will allow you to elab
 
 ## Future Development Ideas and To-dos 📝
 
-- Try making the new `WebSearch.webSearch` command the default key command on Linux
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
 - Replace the image the search bar step on the walkthrough to show autocomplete
 - Add new setting that will keep the search bar open after it loses focus
 - Examine performance analysis of code to find potential optimizations
 - Add `webSearch.addToSelectedText` to the extension's walkthrough?
-- Take new setting to allow elaborating on selected text out of beta
 - Add ability to run extension from selected text in the terminal
 - Add links from extension settings mentioning other settings
 - Add support for more autocomplete search engine sources
@@ -146,6 +144,7 @@ When using the extension with selected text, this setting will allow you to elab
 - ~~Add second command to the extension of just "Web Search" as not all searches are of selected text~~
 - ~~Convert search engine settings to an array, allowing multiple search engines to be used~~
 - ~~Enable extension to run on all UI elements (currently only works on Text Editor UI)~~
+- ~~Try making the new `WebSearch.webSearch` command the default key command on Linux~~
 - ~~Use only one search engine (no submenu) if only one search engine is in settings~~
 - ~~Add a submenu to the function and allow multiple websites to be searched from~~
 - ~~Show message to user if they added a search engine that doesn't have a query~~
@@ -154,6 +153,7 @@ When using the extension with selected text, this setting will allow you to elab
 - ~~Phase out old webSearch.searchEngine setting (use deprecationMessage)~~
 - ~~Replace screenshots of search bar with new Google suggestion offerings~~
 - ~~Use JSON pattern restriction for search engines setting to validate URLs~~
+- ~~Take new setting to allow elaborating on selected text out of beta~~
 - ~~Rework extension settings to better allow removing/editing entries~~
 - ~~Add setting toggle to enable/disable search if submenu dismissed~~
 - ~~Display search query in QuickPick URL (maybe, might be too long)~~
