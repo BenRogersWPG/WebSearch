@@ -266,11 +266,8 @@ async function searchText(query: string, demo: boolean, defaultSearch: boolean, 
 		});
 	}
 
-	//Convert the JSON object to string and parse the string to an object:
-	var searchEngineList = JSON.parse(JSON.stringify(searchEngine)); //TODO: Code this line and the line below onto one line like in the checkCustomSearchEngines() function
-
-	//Map the searchEngineList to a new array:
-	var searchEngineArray = Object.keys(searchEngineList[0]).map((key) => [String(key), searchEngineList[0][key]]);
+	//Convert the JSON object to string and parse the string to an object and map the searchEngineList to a new array:
+	var searchEngineArray = Object.keys(JSON.parse(JSON.stringify(searchEngine))[0]).map((key) => [String(key), JSON.parse(JSON.stringify(searchEngine))[0][key]]);
 
 	//Define a truncated query in case the search term is long:
 	let truncatedQuery: string = `${query ? query.length <= 60 ? query.slice(0, 60) : query.slice(0, 60).concat('…') : ""}`;

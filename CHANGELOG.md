@@ -1,4 +1,14 @@
 # Changelog
+## \[6.4.4] (2023-03-02)
+### House Keeping
+* Tested on VS Code 1.76 🧪
+* Updated a few dependencies
+* Updated oldest VS Code support to 1.67.2 and above
+
+### Code Cleanup
+* Performed minor routine code cleanup
+* Continued refactoring source code
+
 ## \[6.4.3] (2023-02-28)
 ### Features
 * Took new functionality to elaborate on partial searches from selected text out of beta (*added in version `6.4.0`*)
