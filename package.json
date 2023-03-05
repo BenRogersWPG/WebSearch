@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "images/icon.webp",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "6.4.4",
+	"version": "6.5.0",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -307,7 +307,13 @@
 					"webSearch.addToSelectedText": {
 						"type": "boolean",
 						"default": true,
-						"markdownDescription": "When using the extension with selected text, this setting will allow you to elaborate on the selected text before performing the search.\n\nIf this setting is enabled, the __search bar__ will prompt for additional content to append to the end of the query, and will guide you with autocomplete suggestions as well.",
+						"markdownDescription": "When using the extension with selected text, this setting will allow you to __elaborate on the selected text__ before performing the search.\n\nIf this setting is enabled, the search bar will prompt for additional content to append to the end of the query, and will guide you with autocomplete suggestions as well.",
+						"scope": "resource"
+					},
+					"webSearch.keepSearchBarOpen": {
+						"type": "boolean",
+						"default": false,
+						"markdownDescription": "**IN BETA**\n\nWhen using the extension, this setting will keep the extension active (persistent), even if focus is lost from the search bar or search engine selection dropdown.\n\nThis can be useful if you wish to copy multiple parts of code to perform a search, or are referencing different sections.\n\n*Dismiss the search bar by pressing __Esc__*",
 						"scope": "resource"
 					}
 				}

@@ -1,5 +1,5 @@
 // The module 'vscode' contains the VS Code extensibility API. Import the module and reference it with the alias vscode:
-import * as vscode from 'vscode';
+import * as vscode from 'vscode'; //TODO: Review * activation event usage, as notes in 1.76
 const open = require('open');
 
 //Define a channel for the output of any potential errors:
@@ -109,6 +109,7 @@ export function activate(context: vscode.ExtensionContext) {
 		const manualSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('allowManualSearch')!;
 		const allowSuggestions: boolean = vscode.workspace.getConfiguration('webSearch').get('allowSuggestions')!;
 		const addToSelectedText: boolean = vscode.workspace.getConfiguration('webSearch').get('addToSelectedText')!;
+		const keepSearchBarOpen: boolean = vscode.workspace.getConfiguration('webSearch').get('keepSearchBarOpen')!;
 
 		//Prepare enum and gather setting for the user's desired notification display level:
 		enum MessageEnum {
@@ -151,10 +152,13 @@ export function activate(context: vscode.ExtensionContext) {
 			//assign text to the user's selected Quick Pick item by creating a Quick Pick and using the Quick Pick's selected item:
 			let input = vscode.window.createQuickPick();
 
+			//Will keep the search bar open (persistent) if the user has this setting enabled (added in v6.5.0)
+			input.ignoreFocusOut = keepSearchBarOpen;
+
 			//Create a list of Quick Pick items:
 			let quickpickItems: vscode.QuickPickItem[] = [];
 			//Start the user off with a default search term to prompt them to enter a custom search term:
-			quickpickItems.push({ label: "", description: "Enter your search term here" });
+			quickpickItems.push({ label: "", description: "Enter your search term here" }); //TODO: Try adding some tooltips (noted in VS Code v1.76)
 
 			//Add the Quick Pick items to the Quick Pick:
 			input.items = quickpickItems;
@@ -162,7 +166,6 @@ export function activate(context: vscode.ExtensionContext) {
 			const editor = vscode.window.activeTextEditor;
 			if (editor !== undefined) {
 				input.value = editor.document.getText(editor.selection);
-				//input.ignoreFocusOut = true; //TODO: Create new setting that will set this to true, making the search bar stay open if focus is lost
 			}
 
 			//User clicked on Quick Pick entry or pressed Enter
@@ -315,7 +318,8 @@ async function searchText(query: string, demo: boolean, defaultSearch: boolean, 
 
 		//Use await to wait for the user to select an item from the list:
 		selectedSearchEngine = await vscode.window.showQuickPick(items, {
-			title: `Search for "` + truncatedQuery + `" on…`
+			title: `Search for "` + truncatedQuery + `" on…`,
+			//TODO: Also allow the search engine selection window to be persistent? ignoreFocusOut: true
 		}) as vscode.QuickPickItem;
 	}
 	else {

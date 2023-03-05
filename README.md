@@ -21,7 +21,8 @@ This extension allows you to search the web in your favorite search engines / we
 - Walkthrough to help you get started using the extension
 - JSON snippet to help you customize your default search engines
 - Full control over the extension's information and warning notification messages
-- **NEW** Option to allow appending your own query when performing a search using selected text
+- Option to allow appending your own query when performing a search using selected text
+- **NEW** Option to keep the search bar open, even if it loses focus *(in beta)*
 - Lots of extension Settings for your own customizations (choose literally any website with a search feature)
 ![Animation of adding a new search engine to the Web Search extension using the extension settings, then performing a search using the new search engine](images/web-search-add-any-site.gif)
 
@@ -121,19 +122,30 @@ Adds support for Google suggestions / autocomplete for the extension. Start typi
 
 When using the extension with selected text, this setting will allow you to elaborate on the selected text before performing the search. If this setting is enabled, the search bar will prompt for additional content to append to the end of the query.
 
+### `webSearch.keepSearchBarOpen`
+
+**IN BETA** When using the extension, this setting will keep the extension active (persistent), even if focus is lost from the search bar or search engine selection dropdown. This can be useful if you wish to copy multiple parts of code to perform a search, or are referencing different sections.
+
 ## Future Development Ideas and To-dos 📝
 
+- Re-organize UI setting subcategory with new subcategory for something specifically for search functions
+- Take new setting that keeps the search bar to persist even when losing focus out of beta
+- Review when clauses in package.json as upcoming changes were noted in VS Code v1.76
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
 - Replace the image the search bar step on the walkthrough to show autocomplete
-- Add new setting that will keep the search bar open after it loses focus
 - Examine performance analysis of code to find potential optimizations
+- Try adding some tooltips to QuickPickItems (noted in VS Code v1.76)
+- Add setting to allow the search results screen to be persistent too
+- Incorporate some of the API for OpenAI ChatGPT into the extension
 - Add `webSearch.addToSelectedText` to the extension's walkthrough?
+- Add `webSearch.keepSearchBarOpen` to the extension's walkthrough?
 - Add ability to run extension from selected text in the terminal
 - Add links from extension settings mentioning other settings
 - Add support for more autocomplete search engine sources
 - Code a new setting to control user-defined search verbs
 - Translate the extension to other languages
 - Open search results in sidebar (webview)
+- Fix unit test system
 - Write more tests
 
 > ➕ Have a feature you'd like me to implement? [Submit a feature request on the Repo's Issues page](https://github.com/BenRogersWPG/WebSearch/issues)!
@@ -153,6 +165,7 @@ When using the extension with selected text, this setting will allow you to elab
 - ~~Phase out old webSearch.searchEngine setting (use deprecationMessage)~~
 - ~~Replace screenshots of search bar with new Google suggestion offerings~~
 - ~~Use JSON pattern restriction for search engines setting to validate URLs~~
+- ~~Add new setting that will keep the search bar open after it loses focus~~
 - ~~Take new setting to allow elaborating on selected text out of beta~~
 - ~~Rework extension settings to better allow removing/editing entries~~
 - ~~Add setting toggle to enable/disable search if submenu dismissed~~

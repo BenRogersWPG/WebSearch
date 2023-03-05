@@ -1,4 +1,21 @@
 # Changelog
+## \[6.5.0] (2023-03-05)
+### Features
+* Added new setting to allow users to keep the search bar open if focus is lost.
+* Since this is in beta, I have set the default value of this feature to *false*. To give it a try, set the new `webSearch.keepSearchBarOpen` setting to true
+* This new functionality allows you to reference your code or click out of the search bar, so you can return to it later.
+* If you come across any bugs or have any suggestions with this beta, feel free to report it [(as an issue)](https://github.com/BenRogersWPG/WebSearch/issues/new/choose)
+
+### Code Cleanup
+* Added more ideas for future development to the Readme 💡
+* Added a few to-dos to the source code for future development
+
+### Documentation
+* Improved the wording of an extension's setting.
+
+### House Keeping
+* Updated a few more dependencies
+
 ## \[6.4.4] (2023-03-02)
 ### House Keeping
 * Tested on VS Code 1.76 🧪
