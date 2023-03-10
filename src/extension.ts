@@ -1,5 +1,5 @@
 // The module 'vscode' contains the VS Code extensibility API. Import the module and reference it with the alias vscode:
-import * as vscode from 'vscode'; //TODO: Review * activation event usage, as notes in 1.76
+import * as vscode from 'vscode';
 const open = require('open');
 
 //Define a channel for the output of any potential errors:
@@ -158,7 +158,7 @@ export function activate(context: vscode.ExtensionContext) {
 			//Create a list of Quick Pick items:
 			let quickpickItems: vscode.QuickPickItem[] = [];
 			//Start the user off with a default search term to prompt them to enter a custom search term:
-			quickpickItems.push({ label: "", description: "Enter your search term here" }); //TODO: Try adding some tooltips (noted in VS Code v1.76)
+			quickpickItems.push({ label: "", description: "Enter your search term here" });
 
 			//Add the Quick Pick items to the Quick Pick:
 			input.items = quickpickItems;
@@ -321,6 +321,24 @@ async function searchText(query: string, demo: boolean, defaultSearch: boolean, 
 			title: `Search for "` + truncatedQuery + `" on…`,
 			//TODO: Also allow the search engine selection window to be persistent? ignoreFocusOut: true
 		}) as vscode.QuickPickItem;
+
+		//TODO: Try adding some tooltips (noted in VS Code v1.76):
+		//selectedSearchEngine = await vscode.window.showQuickPick([
+		//	{
+		//		label: 'label',
+		//		tooltip: 'tooltip',
+		//		title: `Search for "` + truncatedQuery + `" on…`,
+		//	},
+		//	{
+		//		label: 'label2',
+		//		tooltip: new vscode.MarkdownString('tooltip2 [link](https://github.com)')
+		//	}
+		//],
+		//	{
+		//		placeHolder: 'placeholder'
+		//	}
+		//) as vscode.QuickPickItem;
+
 	}
 	else {
 		//If only one item exits in the list, use that item as the search engine (search it directly) - no need to prompt the user:

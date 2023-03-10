@@ -1,4 +1,21 @@
 # Changelog
+## \[6.5.1] (2023-03-09)
+### Features
+* Took new functionality to allow users to keep the search bar open if focus is lost out of beta (*added in version `6.5.0`*)
+
+### Code Cleanup
+* Played around with quickpick tooltips, (as noted in VS Code v1.76).
+* The tooltips are not yet ready (only proposed in API), but I have kept the code in the source for future availability.
+* Ensured extension does not use * activation event.
+
+### Documentation
+* Built new animation for the search bar walkthrough to demonstrate the relatively new autocomplete/suggest feature
+* Redesigned the demo animation for the extension on the main Readme document
+* Rearranged major animations of the Readme
+
+### House Keeping
+* Updated a few more dependencies
+
 ## \[6.5.0] (2023-03-05)
 ### Features
 * Added new setting to allow users to keep the search bar open if focus is lost.
