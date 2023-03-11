@@ -138,7 +138,6 @@ When using the extension, this setting will keep the extension active (persisten
 - Code a new setting to control user-defined search verbs
 - Translate the extension to other languages
 - Open search results in sidebar (webview)
-- Fix unit test system
 - Write more tests
 
 > ➕ Have a feature you'd like me to implement? [Submit a feature request on the Repo's Issues page](https://github.com/BenRogersWPG/WebSearch/issues)!
@@ -201,6 +200,7 @@ When using the extension, this setting will keep the extension active (persisten
 - ~~Perform more code refactoring~~
 - ~~Take autocomplete out of beta~~
 - ~~Add license to the project~~
+- ~~Fix unit test system~~
 
 ![Screenshot example of Web Search being used on a code snippet for the selected text of 'axios', also displaying the search results page of running the extension from Google](images/web-search.webp)
 

@@ -16,7 +16,6 @@
 		"noUnusedLocals": true /* Report errors on unused locals. */
 	},
 	"exclude": [
-		"src/test*",
 		"node_modules",
 		".vscode-test"
 	]

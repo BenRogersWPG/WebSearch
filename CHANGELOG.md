@@ -1,4 +1,12 @@
 # Changelog
+## \[6.5.2] (2023-03-11)
+### Features
+* Fixed unit test system. Can now start writing unit tests for the extension
+* I hope to code more tests in the near future
+
+### House Keeping
+* Updated a few dependencies
+
 ## \[6.5.1] (2023-03-09)
 ### Features
 * Took new functionality to allow users to keep the search bar open if focus is lost out of beta (*added in version `6.5.0`*)
