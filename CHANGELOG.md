@@ -1,5 +1,5 @@
 # Changelog
-## \[6.5.2] (2023-03-11)
+## \[6.6.0] (2023-03-11)
 ### Features
 * Fixed unit test system. Can now start writing unit tests for the extension
 * I hope to code more tests in the near future
