@@ -1,4 +1,11 @@
 # Changelog
+## \[6.6.1] (2023-03-14)
+### Features
+* Wrote many unit tests to validate the extension 🧪
+
+### House Keeping
+* Completed review and audit of when clauses in package.json as upcoming changes were noted in VS Code v1.76
+
 ## \[6.6.0] (2023-03-11)
 ### Features
 * Fixed unit test system. Can now start writing unit tests for the extension

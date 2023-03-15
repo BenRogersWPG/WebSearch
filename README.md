@@ -125,7 +125,6 @@ When using the extension, this setting will keep the extension active (persisten
 ## Future Development Ideas and To-dos 📝
 
 - Re-organize UI setting subcategory with new subcategory for something specifically for search functions
-- Review when clauses in package.json as upcoming changes were noted in VS Code v1.76
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
 - Examine performance analysis of code to find potential optimizations
 - Add setting to allow the search results screen to be persistent too
@@ -138,7 +137,6 @@ When using the extension, this setting will keep the extension active (persisten
 - Code a new setting to control user-defined search verbs
 - Translate the extension to other languages
 - Open search results in sidebar (webview)
-- Write more tests
 
 > ➕ Have a feature you'd like me to implement? [Submit a feature request on the Repo's Issues page](https://github.com/BenRogersWPG/WebSearch/issues)!
 
@@ -149,6 +147,7 @@ When using the extension, this setting will keep the extension active (persisten
 - ~~Take new setting that keeps the search bar to persist even when losing focus out of beta~~
 - ~~Convert search engine settings to an array, allowing multiple search engines to be used~~
 - ~~Enable extension to run on all UI elements (currently only works on Text Editor UI)~~
+- ~~Review when clauses in package.json as upcoming changes were noted in VS Code v1.76~~
 - ~~Try making the new `WebSearch.webSearch` command the default key command on Linux~~
 - ~~Use only one search engine (no submenu) if only one search engine is in settings~~
 - ~~Add a submenu to the function and allow multiple websites to be searched from~~
@@ -201,6 +200,7 @@ When using the extension, this setting will keep the extension active (persisten
 - ~~Take autocomplete out of beta~~
 - ~~Add license to the project~~
 - ~~Fix unit test system~~
+- ~~Write more tests~~
 
 ![Screenshot example of Web Search being used on a code snippet for the selected text of 'axios', also displaying the search results page of running the extension from Google](images/web-search.webp)
 
