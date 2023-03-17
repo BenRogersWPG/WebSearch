@@ -98,138 +98,138 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand('WebSearch.webSearch', () => {
 		performWebSearch();
 	}));
+}
 
-	/**Function that executes the web search quickpick
+/**Function that executes the web search quickpick
 	 * @param {boolean} [demo=false] - If this search is running with demo mode on or not (default value is false)	*/
-	async function performWebSearch(demo: boolean = false) {
-		//Gather the user's currently selected text from the active text editor:
+export async function performWebSearch(demo: boolean = false) {
+	//Gather the user's currently selected text from the active text editor:
+	const editor = vscode.window.activeTextEditor;
+	let text = demo ? "eslint" : vscode.window.activeTextEditor?.document.getText(editor!.selection); //If demo is true, use the string "eslint" as the search term
+	const defaultSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('useDefaultSearchEnginesList')!;
+	const manualSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('allowManualSearch')!;
+	const allowSuggestions: boolean = vscode.workspace.getConfiguration('webSearch').get('allowSuggestions')!;
+	const addToSelectedText: boolean = vscode.workspace.getConfiguration('webSearch').get('addToSelectedText')!;
+	const keepSearchBarOpen: boolean = vscode.workspace.getConfiguration('webSearch').get('keepSearchBarOpen')!;
+
+	//Prepare enum and gather setting for the user's desired notification display level:
+	enum MessageEnum {
+		"Show All" = 0,
+		"Show Information Messages Only" = 1,
+		"Show Warning Messages Only" = 2,
+		"Hide All" = 3,
+		"showAll" = 0,
+		"showInformationMessagesOnly" = 1,
+		"showWarningMessagesOnly" = 2,
+		"hideAll" = 3
+	}
+	const messageLevelsInt: Number = MessageEnum[vscode.workspace.getConfiguration('webSearch').get('messageLevels') as MessageEnum] === undefined ? 0 : MessageEnum[vscode.workspace.getConfiguration('webSearch').get('messageLevels') as MessageEnum] as unknown as Number;
+
+	//FUTURE: Temporarily update old messageLevels setting to new enum, ensuring backwards compatibility:
+	//vscode.workspace.getConfiguration('webSearch').update('messageLevels', vscode.workspace.getConfiguration('webSearch').get('messageLevels').replace(/\s/g, "").charAt(0).toLowerCase() + vscode.workspace.getConfiguration('webSearch').get('messageLevels').replace(/\s/g, "").slice(1), true);
+
+	//Display a message to the user if no text was selected:
+	if ((text === undefined || text === "") && (!manualSearch)) {
+		if (messageLevelsInt < 2) {
+			vscode.window.showInformationMessage(`No text selected. Please select text in the editor and try again.`);
+		}
+		return;
+	}
+
+	//If the user is running the demo from the walkthrough:
+	else if (text === 'eslint') { //TODO: Use variables over hard-coded like this way to determine if running a search from the walkthrough demo.
+		searchText(text, true, defaultSearch, messageLevelsInt); //TODO: When this demo is run, should it allow custom appending at the end?
+	}
+
+	//If the user has already selected text, run it through the final search function:
+	else if (text !== undefined && text !== "" && !addToSelectedText) {
+		if (!addToSelectedText) {
+			searchText(text, demo, defaultSearch, messageLevelsInt);
+		}
+	}
+
+	//If manual search setting is enabled, prompt the user for a search term. If the user had selected text, but wishes to elaborate on the query, also prompt them to add to the search term:
+	else if ((text === undefined || text === "") || addToSelectedText && (manualSearch)) { //FUTURE: (Waiting on VS Code API Update) If addToSelectedText is true, move cursor to the end of the search bar instead of selecting the text, as when a user starts typing, it will erase the selected text they wish to append to.
+		//assign text to the user's selected Quick Pick item by creating a Quick Pick and using the Quick Pick's selected item:
+		let input = vscode.window.createQuickPick();
+
+		//Will keep the search bar open (persistent) if the user has this setting enabled (added in v6.5.0)
+		input.ignoreFocusOut = keepSearchBarOpen;
+
+		//Create a list of Quick Pick items:
+		let quickpickItems: vscode.QuickPickItem[] = [];
+		//Start the user off with a default search term to prompt them to enter a custom search term:
+		quickpickItems.push({ label: "", description: "Enter your search term here" });
+
+		//Add the Quick Pick items to the Quick Pick:
+		input.items = quickpickItems;
+
 		const editor = vscode.window.activeTextEditor;
-		let text = demo ? "eslint" : vscode.window.activeTextEditor?.document.getText(editor!.selection); //If demo is true, use the string "eslint" as the search term
-		const defaultSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('useDefaultSearchEnginesList')!;
-		const manualSearch: boolean = vscode.workspace.getConfiguration('webSearch').get('allowManualSearch')!;
-		const allowSuggestions: boolean = vscode.workspace.getConfiguration('webSearch').get('allowSuggestions')!;
-		const addToSelectedText: boolean = vscode.workspace.getConfiguration('webSearch').get('addToSelectedText')!;
-		const keepSearchBarOpen: boolean = vscode.workspace.getConfiguration('webSearch').get('keepSearchBarOpen')!;
-
-		//Prepare enum and gather setting for the user's desired notification display level:
-		enum MessageEnum {
-			"Show All" = 0,
-			"Show Information Messages Only" = 1,
-			"Show Warning Messages Only" = 2,
-			"Hide All" = 3,
-			"showAll" = 0,
-			"showInformationMessagesOnly" = 1,
-			"showWarningMessagesOnly" = 2,
-			"hideAll" = 3
+		if (editor !== undefined) {
+			input.value = editor.document.getText(editor.selection);
 		}
-		const messageLevelsInt: Number = MessageEnum[vscode.workspace.getConfiguration('webSearch').get('messageLevels') as MessageEnum] === undefined ? 0 : MessageEnum[vscode.workspace.getConfiguration('webSearch').get('messageLevels') as MessageEnum] as unknown as Number;
 
-		//FUTURE: Temporarily update old messageLevels setting to new enum, ensuring backwards compatibility:
-		//vscode.workspace.getConfiguration('webSearch').update('messageLevels', vscode.workspace.getConfiguration('webSearch').get('messageLevels').replace(/\s/g, "").charAt(0).toLowerCase() + vscode.workspace.getConfiguration('webSearch').get('messageLevels').replace(/\s/g, "").slice(1), true);
-
-		//Display a message to the user if no text was selected:
-		if ((text === undefined || text === "") && (!manualSearch)) {
-			if (messageLevelsInt < 2) {
-				vscode.window.showInformationMessage(`No text selected. Please select text in the editor and try again.`);
+		//User clicked on Quick Pick entry or pressed Enter
+		input.onDidAccept(async () => {
+			//Set text to the Quick Pick's currently selected item:
+			try {
+				text = input.selectedItems[0].label;
 			}
-			return;
-		}
+			catch (e) {
+				//If we can't grab the label, we can use the entire value.
+				text = input.value;
 
-		//If the user is running the demo from the walkthrough:
-		else if (text === 'eslint') { //TODO: Use variables over hard-coded like this way to determine if running a search from the walkthrough demo.
-			searchText(text, true, defaultSearch, messageLevelsInt); //TODO: When this demo is run, should it allow custom appending at the end?
-		}
+			}
 
-		//If the user has already selected text, run it through the final search function:
-		else if (text !== undefined && text !== "" && !addToSelectedText) {
-			if (!addToSelectedText) {
+			if (text === undefined || text === "") {
+				if (messageLevelsInt < 2) {
+					vscode.window.showInformationMessage(`No text entered. Please enter text in the prompt, or select text.`);
+				}
+				return;
+			}
+			else {
 				searchText(text, demo, defaultSearch, messageLevelsInt);
 			}
-		}
+		});
 
-		//If manual search setting is enabled, prompt the user for a search term. If the user had selected text, but wishes to elaborate on the query, also prompt them to add to the search term:
-		else if ((text === undefined || text === "") || addToSelectedText && (manualSearch)) { //FUTURE: (Waiting on VS Code API Update) If addToSelectedText is true, move cursor to the end of the search bar instead of selecting the text, as when a user starts typing, it will erase the selected text they wish to append to.
-			//assign text to the user's selected Quick Pick item by creating a Quick Pick and using the Quick Pick's selected item:
-			let input = vscode.window.createQuickPick();
+		//Quick Pick list has changed (typing into search bar)
+		input.onDidChangeValue(async value => {
 
-			//Will keep the search bar open (persistent) if the user has this setting enabled (added in v6.5.0)
-			input.ignoreFocusOut = keepSearchBarOpen;
+			quickpickItems = [];
+			//Make the first item in the list the currently entered text:
+			quickpickItems.push({ label: value, description: "Search for: " + value });
+			//TODO: Add additional items from other search engines, such as DuckDuckGo (use user setting to select preferred engine)
 
-			//Create a list of Quick Pick items:
-			let quickpickItems: vscode.QuickPickItem[] = [];
-			//Start the user off with a default search term to prompt them to enter a custom search term:
-			quickpickItems.push({ label: "", description: "Enter your search term here" });
+			//Only allow suggestions if on desktop version:
+			if (vscode.env.uiKind === vscode.UIKind.Desktop) {
 
-			//Add the Quick Pick items to the Quick Pick:
-			input.items = quickpickItems;
-
-			const editor = vscode.window.activeTextEditor;
-			if (editor !== undefined) {
-				input.value = editor.document.getText(editor.selection);
+				const getGoogleSuggestions = require('get-google-suggestions');
+				if (allowSuggestions) {
+					const suggestions = await getGoogleSuggestions(value);
+					suggestions.forEach((array: any) => {
+						quickpickItems.push({ label: array, description: "Search for: " + array });
+						quickpickItems = quickpickItems.filter(item => item.label.indexOf(value) !== -1);;
+					});
+				}
 			}
+			input.items = quickpickItems;
+		});
 
-			//User clicked on Quick Pick entry or pressed Enter
-			input.onDidAccept(async () => {
-				//Set text to the Quick Pick's currently selected item:
-				try {
-					text = input.selectedItems[0].label;
-				}
-				catch (e) {
-					//If we can't grab the label, we can use the entire value.
-					text = input.value;
+		input.title = `Search for:`; //FUTURE: If only one search engine, name it directly in this title (requires refactoring)
+		input.placeholder = vscode.env.uiKind === vscode.UIKind.Desktop && allowSuggestions ? 'Start typing for autocomplete' : 'Start typing to search'; //Only display 'Start typing for autocomplete' if on VSCode desktop AND the user wants suggestions
+		input.onDidHide(() => input.dispose());
+		input.show();
+	}
+	else {
+		searchText(text, demo, defaultSearch, messageLevelsInt);
+	}
 
-				}
-
-				if (text === undefined || text === "") {
-					if (messageLevelsInt < 2) {
-						vscode.window.showInformationMessage(`No text entered. Please enter text in the prompt, or select text.`);
-					}
-					return;
-				}
-				else {
-					searchText(text, demo, defaultSearch, messageLevelsInt);
-				}
-			});
-
-			//Quick Pick list has changed (typing into search bar)
-			input.onDidChangeValue(async value => {
-
-				quickpickItems = [];
-				//Make the first item in the list the currently entered text:
-				quickpickItems.push({ label: value, description: "Search for: " + value });
-				//TODO: Add additional items from other search engines, such as DuckDuckGo (use user setting to select preferred engine)
-
-				//Only allow suggestions if on desktop version:
-				if (vscode.env.uiKind === vscode.UIKind.Desktop) {
-
-					const getGoogleSuggestions = require('get-google-suggestions');
-					if (allowSuggestions) {
-						const suggestions = await getGoogleSuggestions(value);
-						suggestions.forEach((array: any) => {
-							quickpickItems.push({ label: array, description: "Search for: " + array });
-							quickpickItems = quickpickItems.filter(item => item.label.indexOf(value) !== -1);;
-						});
-					}
-				}
-				input.items = quickpickItems;
-			});
-
-			input.title = `Search for:`; //FUTURE: If only one search engine, name it directly in this title (requires refactoring)
-			input.placeholder = vscode.env.uiKind === vscode.UIKind.Desktop && allowSuggestions ? 'Start typing for autocomplete' : 'Start typing to search'; //Only display 'Start typing for autocomplete' if on VSCode desktop AND the user wants suggestions
-			input.onDidHide(() => input.dispose());
-			input.show();
-		}
-		else {
-			searchText(text, demo, defaultSearch, messageLevelsInt);
-		}
-
-		//Inform user if addToSelected is true, but allowManualSearch is false, as you can't elaborate on a search using the search bar if you have the search bar disabled
-		if (addToSelectedText && !manualSearch && text !== "eslint" && text !== undefined && text !== "") {
-			searchText(text, demo, defaultSearch, messageLevelsInt);
-			const manualSearchAnswer = await vscode.window.showInformationMessage(`You have indicated you wish to add to selected text, but that requires the search bar to be activated.`, "Enable The Search Bar");
-			(manualSearchAnswer === "Enable The Search Bar") ? vscode.window.showInformationMessage(`Enable the search bar so you can start modifying your searches.`) : "";
-			(manualSearchAnswer === "Enable The Search Bar") ? vscode.commands.executeCommand('workbench.action.openSettings', 'webSearch.allowManualSearch') : "";
-		}
+	//Inform user if addToSelected is true, but allowManualSearch is false, as you can't elaborate on a search using the search bar if you have the search bar disabled
+	if (addToSelectedText && !manualSearch && text !== "eslint" && text !== undefined && text !== "") {
+		searchText(text, demo, defaultSearch, messageLevelsInt);
+		const manualSearchAnswer = await vscode.window.showInformationMessage(`You have indicated you wish to add to selected text, but that requires the search bar to be activated.`, "Enable The Search Bar");
+		(manualSearchAnswer === "Enable The Search Bar") ? vscode.window.showInformationMessage(`Enable the search bar so you can start modifying your searches.`) : "";
+		(manualSearchAnswer === "Enable The Search Bar") ? vscode.commands.executeCommand('workbench.action.openSettings', 'webSearch.allowManualSearch') : "";
 	}
 }
 
@@ -238,7 +238,7 @@ export function activate(context: vscode.ExtensionContext) {
  * @param {boolean} demo - If this search is running with demo mode on or not
  * @param {boolean} defaultSearch - If the user wishes to use the default list of search engines
  * @param {Number} messageLevelsInt - The enum value of the user's preferred notification level*/
-async function searchText(query: string, demo: boolean, defaultSearch: boolean, messageLevelsInt: Number) {
+export async function searchText(query: string, demo: boolean, defaultSearch: boolean, messageLevelsInt: Number) {
 	//Retrieve the extension's search engine configuration from the user settings:
 	const searchEngineOld: string = vscode.workspace.getConfiguration('webSearch').get('searchEngine')!;//Deprecated, will be removed in future versions
 
@@ -398,7 +398,7 @@ async function searchText(query: string, demo: boolean, defaultSearch: boolean, 
 /**Function that checks if any custom search engines have been entered by the user yet - for better, more helpful messages:
  * @param {boolean} [one=false] - If we want more than 1 (true) or more than 0 (default / false).
  * @returns {boolean} if more than 0 search engines have been added*/
-async function checkCustomSearchEngines(one: boolean = false): Promise<boolean> {
+export async function checkCustomSearchEngines(one: boolean = false): Promise<boolean> {
 	if ((vscode.workspace.getConfiguration('webSearch').get('searchEngines') ? Object.keys(vscode.workspace.getConfiguration('webSearch').get('searchEngines') as {}).length : 0) > (one ? 1 : 0)) {
 		return true;
 	}

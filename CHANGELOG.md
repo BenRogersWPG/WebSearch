@@ -1,4 +1,11 @@
 # Changelog
+## \[6.6.2] (2023-03-16)
+### Features
+* Wrote more unit tests to validate the extension
+
+### House Keeping
+* Updated a few dependencies
+
 ## \[6.6.1] (2023-03-14)
 ### Features
 * Wrote many unit tests to validate the extension 🧪

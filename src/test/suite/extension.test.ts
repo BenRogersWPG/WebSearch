@@ -1,17 +1,64 @@
 import * as assert from 'assert';
+import * as sinon from 'sinon';
 
 // You can import and use all API from the 'vscode' module
 // as well as import your extension to test it
 import * as vscode from 'vscode';
-// import * as myExtension from '../../extension'; //TODO: Try importing the extension this way too
+import * as webSearch from "../../extension";
 
 suite('Extension Test Suite', () => {
 	vscode.window.showInformationMessage('Start all tests.');
+
+	let sandbox: sinon.SinonSandbox;
+	let showInformationMessageStub: sinon.SinonStub;
+
+	setup(() => {
+		sandbox = sinon.createSandbox();
+		showInformationMessageStub = sandbox.stub(vscode.window, 'showInformationMessage');
+	});
+
+	teardown(() => {
+		sandbox.restore();
+	});
 
 	test('Sample Test', () => {
 		assert.strictEqual([1, 2, 3].indexOf(5), -1);
 		assert.strictEqual([1, 2, 3].indexOf(0), -1);
 		assert.equal("hello!", "hello!");
+	});
+
+	test('Message Test - Demo', async () => {
+		//Will test the demo message
+		webSearch.performWebSearch(true);
+		const message = `Select the search engine to use from the list above.`;
+		sinon.assert.calledOnce(showInformationMessageStub);
+		sinon.assert.calledWithExactly(showInformationMessageStub, message);
+	});
+
+	test('Custom Search Engine Count > 0', async () => {
+		const customSearchEngineCount = await webSearch.checkCustomSearchEngines();
+		console.log(`\tcustomSearchEngineCount: ${customSearchEngineCount}`);
+		assert.ok(customSearchEngineCount);
+	});
+
+	test('Custom Search Engine Count > 1', async () => {
+		const customSearchEngineCount = await webSearch.checkCustomSearchEngines(true);
+		console.log(`\tcustomSearchEngineCount: ${customSearchEngineCount}`);
+		assert.ok(customSearchEngineCount);
+	});
+
+	test('Message Test - Search', async () => {
+		//Will test the text message
+		webSearch.searchText("test", false, false, 4);
+		sinon.assert.notCalled(showInformationMessageStub);
+	});
+
+	test('Message Test - Search - eslint', async () => {
+		//Will test the demo
+		webSearch.searchText("eslint", true, true, 1);
+		const message = `Select the search engine to use from the list above.`;
+		sinon.assert.calledOnce(showInformationMessageStub);
+		sinon.assert.calledWithExactly(showInformationMessageStub, message);
 	});
 
 	test('Context Menu', () => {
@@ -72,4 +119,5 @@ suite('Extension Test Suite', () => {
 		console.log(`\tuseDefaultSearchEnginesList: ${useDefaultSearchEnginesList}`);
 		assert.strictEqual(useDefaultSearchEnginesList, false);
 	});
+
 });
