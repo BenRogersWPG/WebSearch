@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "images/icon.webp",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "6.6.2",
+	"version": "6.7.0",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -263,53 +263,6 @@
 						"markdownDescription": "Enable the Web Search context menu item (right click menu) in the editor",
 						"scope": "resource"
 					},
-					"webSearch.allowManualSearch": {
-						"type": "boolean",
-						"default": true,
-						"markdownDescription": "Enable the extension to run when no text is selected.\n\nIf this setting is enabled, a __search bar__ will prompt for a search query when the extension's search command is run by using the extension's keyboard shortcut.",
-						"scope": "resource"
-					},
-					"webSearch.defaultSearchEngines": {
-						"type": "array",
-						"markdownDescription": "Default search engines to use for the Web Search extension. If you want to use your own, disable the checkbox `#webSearch.useDefaultSearchEnginesList#`",
-						"scope": "window",
-						"default": [
-							{
-								"sitename": "Google",
-								"url": "https://www.google.com/search?q=%s"
-							},
-							{
-								"sitename": "Stack Overflow",
-								"url": "https://stackoverflow.com/search?q=%s"
-							},
-							{
-								"sitename": "Wikipedia",
-								"url": "https://en.wikipedia.org/wiki/Special:Search?search=%s"
-							},
-							{
-								"sitename": "GitHub",
-								"url": "https://github.com/search?q=%s"
-							},
-							{
-								"sitename": "Reddit",
-								"url": "https://www.reddit.com/search?q=%s"
-							},
-							{
-								"sitename": "PageSpeed Insights",
-								"url": "https://pagespeed.web.dev/report?url=%s"
-							},
-							{
-								"sitename": "DuckDuckGo",
-								"url": "https://duckduckgo.com/?q=%s"
-							}
-						]
-					},
-					"webSearch.addToSelectedText": {
-						"type": "boolean",
-						"default": true,
-						"markdownDescription": "When using the extension with selected text, this setting will allow you to __elaborate on the selected text__ before performing the search.\n\nIf this setting is enabled, the search bar will prompt for additional content to append to the end of the query, and will guide you with autocomplete suggestions as well.",
-						"scope": "resource"
-					},
 					"webSearch.keepSearchBarOpen": {
 						"type": "boolean",
 						"default": false,
@@ -363,14 +316,68 @@
 				}
 			},
 			{
-				"title": "Demo Mode",
+				"title": "Search Bar",
 				"order": 5,
+				"type": "object",
+				"properties": {
+					"webSearch.allowManualSearch": {
+						"type": "boolean",
+						"default": true,
+						"markdownDescription": "Enable the extension to run when no text is selected.\n\nIf this setting is enabled, a __search bar__ will prompt for a search query when the extension's search command is run by using the extension's keyboard shortcut.",
+						"scope": "resource"
+					},
+					"webSearch.addToSelectedText": {
+						"type": "boolean",
+						"default": true,
+						"markdownDescription": "When using the extension with selected text, this setting will allow you to __elaborate on the selected text__ before performing the search.\n\nIf this setting is enabled, the search bar will prompt for additional content to append to the end of the query, and will guide you with autocomplete suggestions as well.",
+						"scope": "resource"
+					}
+				}
+			},
+			{
+				"title": "Demo Mode",
+				"order": 6,
 				"type": "object",
 				"properties": {
 					"webSearch.useDefaultSearchEnginesList": {
 						"type": "boolean",
 						"default": true,
 						"markdownDescription": "Enable the Web Search extension to use default values. Essentially, this is the extension's ***Demo Mode***. Disabling this will favor your own custom search engines list entered in `searchEngines`."
+					},
+					"webSearch.defaultSearchEngines": {
+						"type": "array",
+						"markdownDescription": "Default search engines to use for the Web Search extension. If you want to use your own, disable the checkbox `#webSearch.useDefaultSearchEnginesList#`",
+						"scope": "window",
+						"default": [
+							{
+								"sitename": "Google",
+								"url": "https://www.google.com/search?q=%s"
+							},
+							{
+								"sitename": "Stack Overflow",
+								"url": "https://stackoverflow.com/search?q=%s"
+							},
+							{
+								"sitename": "Wikipedia",
+								"url": "https://en.wikipedia.org/wiki/Special:Search?search=%s"
+							},
+							{
+								"sitename": "GitHub",
+								"url": "https://github.com/search?q=%s"
+							},
+							{
+								"sitename": "Reddit",
+								"url": "https://www.reddit.com/search?q=%s"
+							},
+							{
+								"sitename": "PageSpeed Insights",
+								"url": "https://pagespeed.web.dev/report?url=%s"
+							},
+							{
+								"sitename": "DuckDuckGo",
+								"url": "https://duckduckgo.com/?q=%s"
+							}
+						]
 					}
 				}
 			}

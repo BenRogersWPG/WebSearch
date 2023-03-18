@@ -1,4 +1,11 @@
 # Changelog
+## \[6.7.0] (2023-03-18)
+### Features
+* Reorganized extension settings subcategories to make the groupings more logical
+
+### House Keeping
+* Updated a few dependencies
+
 ## \[6.6.2] (2023-03-16)
 ### Features
 * Wrote more unit tests to validate the extension

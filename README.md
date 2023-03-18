@@ -124,7 +124,6 @@ When using the extension, this setting will keep the extension active (persisten
 
 ## Future Development Ideas and To-dos 📝
 
-- Re-organize UI setting subcategory with new subcategory for something specifically for search functions
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
 - Examine performance analysis of code to find potential optimizations
 - Add setting to allow the search results screen to be persistent too
@@ -132,7 +131,6 @@ When using the extension, this setting will keep the extension active (persisten
 - Add `webSearch.addToSelectedText` to the extension's walkthrough?
 - Add `webSearch.keepSearchBarOpen` to the extension's walkthrough?
 - Add ability to run extension from selected text in the terminal
-- Add links from extension settings mentioning other settings
 - Add support for more autocomplete search engine sources
 - Code a new setting to control user-defined search verbs
 - Translate the extension to other languages
@@ -142,6 +140,7 @@ When using the extension, this setting will keep the extension active (persisten
 
 ## Completed To-dos ✔️
 
+- ~~Re-organize UI setting subcategory with new subcategory for something specifically for search functions~~
 - ~~Display information message when searching directly (only 1 search engine), inviting user to add more~~
 - ~~Add second command to the extension of just "Web Search" as not all searches are of selected text~~
 - ~~Take new setting that keeps the search bar to persist even when losing focus out of beta~~
@@ -206,6 +205,7 @@ When using the extension, this setting will keep the extension active (persisten
 
 ## Waiting on API Updates ⌛
 
+- Add links from extension settings mentioning other settings without affecting walkthrough button links
 - Remove "selected text" from command palette entry title without adding a new command
 - Add dynamic sub context menu to right click menu containing all search engines
 - Use variables in setting descriptions, so that the keybindings are dynamic
