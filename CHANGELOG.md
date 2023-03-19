@@ -1,4 +1,12 @@
 # Changelog
+## \[6.7.1] (2023-03-19)
+### Features
+* Improved walkthrough steps that deal with the search bar to prompt user if the search bar setting is disabled
+
+### Code Cleanup
+* Added some comments to some newer sections of the code
+* Cleaned and formatted code comments
+
 ## \[6.7.0] (2023-03-18)
 ### Features
 * Reorganized extension settings subcategories to make the groupings more logical
