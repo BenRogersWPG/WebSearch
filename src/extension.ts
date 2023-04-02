@@ -139,7 +139,7 @@ export async function performWebSearch(demo: boolean = false) {
 		"showWarningMessagesOnly" = 2,
 		"hideAll" = 3
 	}
-	const messageLevelsInt: Number = MessageEnum[vscode.workspace.getConfiguration('webSearch').get('messageLevels') as MessageEnum] === undefined ? 0 : MessageEnum[vscode.workspace.getConfiguration('webSearch').get('messageLevels') as MessageEnum] as unknown as Number;
+	const messageLevelsInt: number = MessageEnum[vscode.workspace.getConfiguration('webSearch').get('messageLevels') as MessageEnum] === undefined ? 0 : MessageEnum[vscode.workspace.getConfiguration('webSearch').get('messageLevels') as MessageEnum] as unknown as number;
 
 	// FUTURE: Temporarily update old messageLevels setting to new enum, ensuring backwards compatibility:
 	//vscode.workspace.getConfiguration('webSearch').update('messageLevels', vscode.workspace.getConfiguration('webSearch').get('messageLevels').replace(/\s/g, "").charAt(0).toLowerCase() + vscode.workspace.getConfiguration('webSearch').get('messageLevels').replace(/\s/g, "").slice(1), true);
@@ -254,7 +254,7 @@ export async function performWebSearch(demo: boolean = false) {
  * @param {boolean} demo - If this search is running with demo mode on or not
  * @param {boolean} defaultSearch - If the user wishes to use the default list of search engines
  * @param {Number} messageLevelsInt - The enum value of the user's preferred notification level*/
-export async function searchText(query: string, demo: boolean, defaultSearch: boolean, messageLevelsInt: Number) {
+export async function searchText(query: string, demo: boolean, defaultSearch: boolean, messageLevelsInt: number) {
 	// Retrieve the extension's search engine configuration from the user settings:
 	const searchEngineOld: string = vscode.workspace.getConfiguration('webSearch').get('searchEngine')!; // Deprecated, will be removed in future versions
 

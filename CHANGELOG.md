@@ -1,4 +1,15 @@
 # Changelog
+## \[6.7.2] (2023-04-02)
+### House Keeping
+* Tested on VS Code 1.77 🧪
+
+### Code Cleanup
+* Some minor code cleanup required from recent eslint rules
+* Testing webpack
+
+### House Keeping
+* Updated a few dependencies
+
 ## \[6.7.1] (2023-03-19)
 ### Features
 * Improved walkthrough steps that deal with the search bar to prompt user if the search bar setting is disabled
