@@ -127,6 +127,9 @@ export async function performWebSearch(demo: boolean = false) {
 	const allowSuggestions: boolean = vscode.workspace.getConfiguration('webSearch').get('allowSuggestions')!;
 	const addToSelectedText: boolean = vscode.workspace.getConfiguration('webSearch').get('addToSelectedText')!;
 	const keepSearchBarOpen: boolean = vscode.workspace.getConfiguration('webSearch').get('keepSearchBarOpen')!;
+	const openURLsDirectly: boolean = vscode.workspace.getConfiguration('webSearch').get('openURLsDirectly')!;
+	// Regular expression pattern to match URLs
+	const urlRegex: RegExp = /(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/gi;
 
 	// Prepare enum and gather setting for the user's desired notification display level:
 	enum MessageEnum {
@@ -168,6 +171,19 @@ export async function performWebSearch(demo: boolean = false) {
 	else if ((text === undefined || text === "") || addToSelectedText && (manualSearch)) { // FUTURE: (Waiting on VS Code API Update) If addToSelectedText is true, move cursor to the end of the search bar instead of selecting the text, as when a user starts typing, it will erase the selected text they wish to append to.
 		// Assign text to the user's selected Quick Pick item by creating a Quick Pick and using the Quick Pick's selected item:
 		let input = vscode.window.createQuickPick();
+
+		//TESTING BEGIN:
+		vscode.window.showInformationMessage(`RUNNING SELECTED TEXT`);
+
+		if (openURLsDirectly) {
+			if (text && urlRegex.test(text)) {
+				// If the text is a URL, open it in the default system browser
+				vscode.window.showInformationMessage(`IT IS A URL`);
+				//vscode.env.openExternal(vscode.Uri.parse(text));
+				vscode.env.uiKind === vscode.UIKind.Web ? vscode.env.openExternal(vscode.Uri.parse(text!)) : await open(text!);
+
+			}//TESTING END
+		}//TESTING END
 
 		// Will keep the search bar open (persistent) if the user has this setting enabled (added in v6.5.0)
 		input.ignoreFocusOut = keepSearchBarOpen;

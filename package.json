@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "images/icon.webp",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "6.7.1",
+	"version": "6.7.2",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -267,6 +267,12 @@
 						"type": "boolean",
 						"default": false,
 						"markdownDescription": "When using the extension, this setting will keep the extension active (persistent), even if focus is lost from the search bar or search engine selection dropdown.\n\nThis can be useful if you wish to copy multiple parts of code to perform a search, or are referencing different sections.\n\n*Dismiss the search bar by pressing __Esc__*",
+						"scope": "resource"
+					},
+					"webSearch.openURLsDirectly": {
+						"type": "boolean",
+						"default": false,
+						"markdownDescription": "**IN BETA**\n\nWhen running the extension with a URL selected in the text editor, this setting will open the URL directly if set to `true`",
 						"scope": "resource"
 					}
 				}
