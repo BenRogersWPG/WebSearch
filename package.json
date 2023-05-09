@@ -432,7 +432,7 @@
 		"typescript": "^5.0.4",
 		"util": "^0.12.5",
 		"webpack": "^5.76.2",
-		"webpack-cli": "^5.0.1"
+		"webpack-cli": "^5.1.0"
 	},
 	"dependencies": {
 		"get-google-suggestions": "^1.0.2",
