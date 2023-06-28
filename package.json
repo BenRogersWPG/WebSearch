@@ -429,7 +429,7 @@
 		"path-browserify": "^1.0.1",
 		"process": "^0.11.10",
 		"ts-loader": "^9.4.3",
-		"typescript": "^5.1.3",
+		"typescript": "^5.1.5",
 		"util": "^0.12.5",
 		"webpack": "^5.82.1",
 		"webpack-cli": "^5.1.4"
