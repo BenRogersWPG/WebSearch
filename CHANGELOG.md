@@ -1,4 +1,11 @@
 # Changelog
+## \[6.7.8] (2023-07-22)
+### Documentation
+* Updated href on rating extension badge to go to the ratings tab on the  Microsoft Visual Studio Marketplace (Issue #396)
+
+### House Keeping
+* Updated a few dependencies
+
 ## \[6.7.7] (2023-07-09)
 ### House Keeping
 * Tested on VS Code 1.80 🧪
