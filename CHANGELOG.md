@@ -1,4 +1,12 @@
 # Changelog
+## \[6.8.0] (2023-08-23)
+### Features
+* Updated how search query URLs are built
+* Now, any occurrence of the search term placeholder, `%s` will be replaced with the search term instead of only the first (Issue #428)
+
+### House Keeping
+* Updated a few dependencies
+
 ## \[6.7.9] (2023-08-05)
 ### House Keeping
 * Tested on VS Code 1.81 🧪
