@@ -421,7 +421,7 @@
 		"@types/sinon": "^10.0.13",
 		"@types/vscode": "^1.67.2",
 		"@typescript-eslint/eslint-plugin": "^6.6.0",
-		"@typescript-eslint/parser": "^6.5.0",
+		"@typescript-eslint/parser": "^6.6.0",
 		"@vscode/test-electron": "^2.3.4",
 		"@vscode/vsce": "^2.18.0",
 		"eslint": "^8.45.0",
