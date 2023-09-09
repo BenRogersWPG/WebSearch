@@ -1,4 +1,9 @@
 # Changelog
+## \[6.8.1] (2023-09-09)
+### House Keeping
+* Tested on VS Code 1.82 🧪
+* Updated a few dependencies
+
 ## \[6.8.0] (2023-08-23)
 ### Features
 * Updated how search query URLs are built
