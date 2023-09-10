@@ -267,8 +267,14 @@ export async function searchText(query: string, demo: boolean, defaultSearch: bo
 	// Use this interface to get the default search engine list from the settings.json file:
 	const defaultSearchEngines: IDefaultObject[] = new Array(vscode.workspace.getConfiguration('webSearch').get('defaultSearchEngines'));
 
+	// Define a custom QuickPickItem type that includes iconPath
+	interface CustomQuickPickItem extends vscode.QuickPickItem {
+		iconPath: vscode.ThemeIcon | string;
+	}
+
 	// Now that we have an array of search engines, we need to loop through them and display them in a quick pick list
-	let items: vscode.QuickPickItem[] = [];
+	let items: CustomQuickPickItem[] = [];
+
 
 	// Only populate the default search engine list if the user wishes to use default search engines:
 	if (defaultSearch) {
@@ -279,7 +285,9 @@ export async function searchText(query: string, demo: boolean, defaultSearch: bo
 					label: value.sitename,
 					description: value.url,
 					// Display the selected text in the quick pick list. If the text exceeds 60 characters, it will be truncated with an ellipsis. If the site is PageSpeed Insights, then change the detail to match:
-					detail: `${(value.sitename === `PageSpeed Insights`) ? `Run` : 'Search'} ${value.sitename} ${(value.sitename === `PageSpeed Insights`) ? `on` : 'for'} ${query ? query.length <= 60 ? query.slice(0, 60) : query.slice(0, 60).concat('…') : ""}`, // TODO: Use a setting to do this to more, using verbs that user defines?
+					detail: `${(value.sitename === `PageSpeed Insights`) ? `Run` : 'Search'} ${value.sitename} ${(value.sitename === `PageSpeed Insights`) ? `on` : 'for'} ${query ? query.length <= 60 ? query.slice(0, 60) : query.slice(0, 60).concat('…') : ""}`,
+					// Add an icon for each item, replace 'symbol-search' with the desired icon name or use a file path to a custom icon:
+					iconPath: new vscode.ThemeIcon('search-view-icon'),
 				});
 			});
 		});
@@ -298,6 +306,9 @@ export async function searchText(query: string, demo: boolean, defaultSearch: bo
 			description: searchEngineArray[i][1],
 			// Display the selected text in the quick pick list. If the text exceeds 60 characters, it will be truncated with an ellipsis:
 			detail: `Search ${searchEngineArray[i][0]} for ` + truncatedQuery,
+			iconPath: new vscode.ThemeIcon('search-view-icon'), //TODO: Add user setting to allow custom user-defined icons. or...
+			//TODO: Allow user to turn off icons entirely
+			//FUTURE: Loop through sites and retrieve their favicons and use them as the icon for each site
 		});
 	}
 
@@ -305,10 +316,11 @@ export async function searchText(query: string, demo: boolean, defaultSearch: bo
 	if (defaultSearch || items.length === 0) {
 
 		// Create a quick pick list variable to handle the old search engine (defined as it is used a couple times, saving many lines of code):
-		const searchEngineOldArray: vscode.QuickPickItem = {
+		const searchEngineOldArray: CustomQuickPickItem = {
 			label: "Search Engine",
 			description: searchEngineOld,
 			detail: "Search Engine from old settings",
+			iconPath: new vscode.ThemeIcon('archive'),
 		};
 
 		items.push(searchEngineOldArray);

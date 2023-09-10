@@ -1,4 +1,12 @@
 # Changelog
+## \[6.9.0] (2023-09-10)
+### Features
+* Added icons to the web search selection screen quickpick menu for better user experience (Issue #444)
+
+### Code Cleanup
+* Added more ideas for future development to the Readme 💡
+* Added a few to-dos to the source code for future development
+
 ## \[6.8.1] (2023-09-09)
 ### House Keeping
 * Tested on VS Code 1.82 🧪

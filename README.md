@@ -125,6 +125,7 @@ When using the extension, this setting will keep the extension active (persisten
 ## Future Development Ideas and To-dos 📝
 
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
+- Add new setting to allow custom search icons on site list, or turn icons off
 - Examine performance analysis of code to find potential optimizations
 - Add setting to allow the search results screen to be persistent too
 - Incorporate some of the API for OpenAI ChatGPT into the extension
@@ -148,6 +149,7 @@ When using the extension, this setting will keep the extension active (persisten
 - ~~Enable extension to run on all UI elements (currently only works on Text Editor UI)~~
 - ~~Review when clauses in package.json as upcoming changes were noted in VS Code v1.76~~
 - ~~Try making the new `WebSearch.webSearch` command the default key command on Linux~~
+- ~~Add icons to the QuickPick menu and display them on the search engine submenu~~
 - ~~Use only one search engine (no submenu) if only one search engine is in settings~~
 - ~~Add a submenu to the function and allow multiple websites to be searched from~~
 - ~~Show message to user if they added a search engine that doesn't have a query~~
@@ -210,7 +212,6 @@ When using the extension, this setting will keep the extension active (persisten
 - Add dynamic sub context menu to right click menu containing all search engines
 - Use variables in setting descriptions, so that the keybindings are dynamic
 - Move cursor to the end of the search bar when using selected text
-- Poll site favicons and display them on the search engine submenu
 - Add tooltips to quickpick items (noted in VS Code v1.76)
 
 ## Requirements 📦
