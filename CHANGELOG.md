@@ -1,4 +1,9 @@
 # Changelog
+## \[6.9.1] (2023-10-09)
+### House Keeping
+* Tested on VS Code 1.83 🧪
+* Updated a few dependencies
+
 ## \[6.9.0] (2023-09-10)
 ### Features
 * Added icons to the web search selection screen quickpick menu for better user experience (Issue #444)
