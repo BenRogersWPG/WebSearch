@@ -416,7 +416,7 @@
 	},
 	"devDependencies": {
 		"@types/glob": "^8.1.0",
-		"@types/mocha": "^10.0.1",
+		"@types/mocha": "^10.0.7",
 		"@types/node": "^20.12.7",
 		"@types/sinon": "^10.0.13",
 		"@types/vscode": "^1.90.0",
@@ -425,7 +425,7 @@
 		"@vscode/test-electron": "^2.4.0",
 		"@vscode/vsce": "^2.29.0",
 		"eslint": "^8.55.0",
-		"mocha": "^10.2.0",
+		"mocha": "^10.5.0",
 		"path-browserify": "^1.0.1",
 		"process": "^0.11.10",
 		"ts-loader": "^9.5.1",
