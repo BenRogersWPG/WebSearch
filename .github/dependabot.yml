@@ -6,7 +6,7 @@ updates:
       interval: "daily"
       time: "15:30"
       timezone: "America/Vancouver"
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 100
     assignees:
       - "BenRogersWPG"
 
@@ -16,6 +16,6 @@ updates:
       interval: daily
       time: '15:30'
       timezone: "America/Vancouver"
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 100
     assignees:
       - "BenRogersWPG"
