@@ -1,4 +1,9 @@
 # Changelog
+## \[6.11.1] (2025-03-16)
+### House Keeping
+* Tested on VS Code 1.98 🧪
+* Updated a few dependencies
+
 ## \[6.11.0] (2025-02-08)
 ### Features
 * Updated the minimum required version of Visual Studio Code to 1.89.1. Users on older versions (below 1.89.1) will need to update VS Code to continue using this extension. This change was made to leverage new features and improvements introduced in recent versions.
