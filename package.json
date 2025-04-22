@@ -437,6 +437,6 @@
 	"dependencies": {
 		"get-google-suggestions": "^1.0.2",
 		"open": "^8.4.2",
-		"sinon": "^15.0.4"
+		"sinon": "^20.0.0"
 	}
 }
