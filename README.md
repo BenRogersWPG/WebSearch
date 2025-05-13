@@ -217,6 +217,7 @@ When using the extension, this setting will keep the extension active (persisten
 ## Requirements 📦
 
 - Visual Studio Code or Visual Studio Code for the Web running on any operating system
+- Will work with Visual Studio Code 1.89.1 or later (more recent)
 
 ## Known Issues 🐛
 
@@ -235,3 +236,17 @@ I spend a lot of time improving and maintaining this extension. If you'd like to
 ## Release Notes 🆕
 
 See [CHANGELOG](https://github.com/BenRogersWPG/WebSearch/blob/master/CHANGELOG.md) file.
+
+## Software Details 💿
+
+* **Author:** Ben Rogers
+* **Date Published:** 4/19/2022, 10:10:14 AM
+* **Publisher:** Ben Rogers
+* **Software Version:** 6.11.3
+* **Last Updated:** 5/9/2025, 7:02:23 PM
+* **Average Rating:** 5.0
+* **Rating Count:** 1
+* **Category:** DeveloperApplication
+* **Unique Identifier:** BenRogersWPG.websearchengine
+* **Install URL:** [https://marketplace.visualstudio.com/items?itemName=BenRogersWPG.websearchengine](https://marketplace.visualstudio.com/items?itemName=BenRogersWPG.websearchengine)
+* **Project URL:** [https://github.com/BenRogersWPG/WebSearch](https://github.com/BenRogersWPG/WebSearch)
