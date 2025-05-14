@@ -268,6 +268,10 @@ See [CHANGELOG](https://github.com/BenRogersWPG/WebSearch/blob/master/CHANGELOG.
     "@type": "Organization",
     "name": "Ben Rogers"
   },
+  "offers": {
+  "@type": "Offer",
+  "price": 0
+},
   "applicationCategory": "DeveloperApplication",
   "downloadUrl": "https://marketplace.visualstudio.com/items?itemName=BenRogersWPG.websearchengine",
   "operatingSystem": "Visual Studio Code",
