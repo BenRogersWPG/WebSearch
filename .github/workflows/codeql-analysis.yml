@@ -19,7 +19,7 @@ on:
     branches: [ master ]
   schedule:
     - cron: '34 10 * * 0'
-
+  workflow_dispatch:
 jobs:
   analyze:
     name: Analyze
@@ -33,7 +33,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'javascript' ]
+        language: [ 'javascript','typescript' ]
         # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
         # Learn more about CodeQL language support at https://git.io/codeql-language-support
 
