@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "images/icon.webp",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "6.11.5",
+	"version": "6.12.0",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -36,7 +36,7 @@
 		}
 	],
 	"engines": {
-		"vscode": "^1.89.1"
+		"vscode": "^1.100.2"
 	},
 	"categories": [
 		"Keymaps",
@@ -415,17 +415,17 @@
 		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
-		"@types/glob": "^9.0.0",
+		"@types/glob": "^8.1.0",
 		"@types/mocha": "^10.0.9",
 		"@types/node": "^22.15.30",
 		"@types/sinon": "^10.0.13",
-		"@types/vscode": "^1.102.0",
-		"@typescript-eslint/eslint-plugin": "^8.38.0",
-		"@typescript-eslint/parser": "^8.37.0",
+		"@types/vscode": "^1.100.2",
+		"@typescript-eslint/eslint-plugin": "^8.34.0",
+		"@typescript-eslint/parser": "^8.32.1",
 		"@vscode/test-electron": "^2.5.2",
-		"@vscode/vsce": "^3.6.0",
+		"@vscode/vsce": "^3.5.0",
 		"eslint": "^9.28.0",
-		"mocha": "^11.7.1",
+		"mocha": "^11.5.0",
 		"path-browserify": "^1.0.1",
 		"process": "^0.11.10",
 		"ts-loader": "^9.5.2",
@@ -436,7 +436,7 @@
 	},
 	"dependencies": {
 		"get-google-suggestions": "^1.0.2",
-		"open": "^10.2.0",
-		"sinon": "^21.0.0"
+		"open": "^8.4.2",
+		"sinon": "^15.0.4"
 	}
 }
