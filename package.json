@@ -431,7 +431,7 @@
 		"ts-loader": "^9.5.4",
 		"typescript": "^5.9.2",
 		"util": "^0.12.5",
-    "webpack": "^5.96.1",
+    "webpack": "^5.101.3",
 		"webpack-cli": "^6.0.1"
 	},
 	"dependencies": {
