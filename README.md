@@ -242,7 +242,7 @@ See [CHANGELOG](https://github.com/BenRogersWPG/WebSearch/blob/master/CHANGELOG.
 * **Author:** Ben Rogers
 * **Date Published:** 4/19/2022, 10:10:14 AM
 * **Publisher:** Ben Rogers
-* **Software Version:** 6.12.2
+* **Software Version:** 6.12.3
 * **Last Updated:** 11/13/2025, 7:25:00 AM
 * **Average Rating:** 5.0
 * **Rating Count:** 1
