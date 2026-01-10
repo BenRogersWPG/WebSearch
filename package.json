@@ -418,7 +418,7 @@
 		"@types/glob": "^9.0.0",
 		"@types/mocha": "^10.0.9",
 		"@types/node": "^24.5.2",
-		"@types/sinon": "^10.0.13",
+		"@types/sinon": "^21.0.0",
 		"@types/vscode": "^1.108.0",
 		"@typescript-eslint/eslint-plugin": "^8.46.0",
 		"@typescript-eslint/parser": "^8.43.0",
@@ -437,6 +437,6 @@
 	"dependencies": {
 		"get-google-suggestions": "^1.0.2",
 		"open": "^8.4.2",
-		"sinon": "^15.0.4"
+		"sinon": "^21.0.1"
 	}
 }
