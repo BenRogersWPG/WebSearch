@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "images/icon.webp",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "6.12.5",
+	"version": "6.12.6",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -350,12 +350,8 @@
 						"scope": "window",
 						"default": [
 							{
-								"sitename": "Google",
-								"url": "https://www.google.com/search?q=%s"
-							},
-							{
-								"sitename": "Stack Overflow",
-								"url": "https://stackoverflow.com/search?q=%s"
+								"sitename": "DuckDuckGo",
+								"url": "https://duckduckgo.com/?q=%s"
 							},
 							{
 								"sitename": "Wikipedia",
@@ -366,6 +362,10 @@
 								"url": "https://github.com/search?q=%s"
 							},
 							{
+								"sitename": "GitHub Code Search",
+								"url": "https://github.com/search?q=%s&type=code"
+							},
+							{
 								"sitename": "Reddit",
 								"url": "https://www.reddit.com/search?q=%s"
 							},
@@ -374,8 +374,8 @@
 								"url": "https://pagespeed.web.dev/report?url=%s"
 							},
 							{
-								"sitename": "DuckDuckGo",
-								"url": "https://duckduckgo.com/?q=%s"
+								"sitename": "Google",
+								"url": "https://www.google.com/search?q=%s"
 							}
 						]
 					}
@@ -417,26 +417,26 @@
 	"devDependencies": {
 		"@types/glob": "^9.0.0",
 		"@types/mocha": "^10.0.9",
-		"@types/node": "^25.2.0",
-		"@types/sinon": "^21.0.0",
-		"@types/vscode": "^1.108.1",
-		"@typescript-eslint/eslint-plugin": "^8.54.0",
-		"@typescript-eslint/parser": "^8.53.1",
+		"@types/node": "^24.10.1",
+		"@types/sinon": "^10.0.13",
+		"@types/vscode": "^1.100.2",
+		"@typescript-eslint/eslint-plugin": "^8.49.0",
+		"@typescript-eslint/parser": "^8.49.0",
 		"@vscode/test-electron": "^2.5.2",
-		"@vscode/vsce": "^3.6.2",
+		"@vscode/vsce": "^3.7.1",
 		"eslint": "^9.37.0",
-		"mocha": "^11.5.0",
+		"mocha": "^11.7.5",
 		"path-browserify": "^1.0.1",
 		"process": "^0.11.10",
 		"ts-loader": "^9.5.4",
 		"typescript": "^5.9.3",
 		"util": "^0.12.5",
-    "webpack": "^5.105.0",
+    "webpack": "^5.96.1",
 		"webpack-cli": "^6.0.1"
 	},
 	"dependencies": {
 		"get-google-suggestions": "^1.0.2",
-		"open": "^11.0.0",
-		"sinon": "^21.0.1"
+		"open": "^8.4.2",
+		"sinon": "^15.0.4"
 	}
 }

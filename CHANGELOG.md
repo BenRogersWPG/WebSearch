@@ -1,4 +1,14 @@
 # Changelog
+## \[6.12.6] (2026-02-08)
+### House Keeping
+* Tested on VS Code 1.109 🧪
+* Updated a few dependencies
+
+### Code Cleanup
+* Removed Stack Overflow as a default search engine
+* Added in GitHub Code Search as a default search engine
+* Reordered the default search engine list, moving DuckDuckGo to the top, and Google to the bottom
+
 ## \[6.12.5] (2026-01-08)
 ### House Keeping
 * Tested on VS Code 1.108 🧪
