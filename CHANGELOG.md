@@ -1,4 +1,9 @@
 # Changelog
+## \[6.12.8] (2026-03-09)
+### House Keeping
+* Tested on VS Code 1.111 🧪
+* Updated a few dependencies
+
 ## \[6.12.7] (2026-03-04)
 ### House Keeping
 * Tested on VS Code 1.110 🧪
