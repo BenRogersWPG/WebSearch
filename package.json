@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "images/icon.webp",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "6.12.8",
+	"version": "6.12.9",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -354,6 +354,10 @@
 								"url": "https://duckduckgo.com/?q=%s"
 							},
 							{
+								"sitename": "Claude (Anthropic)",
+								"url": "https://claude.ai/new?q=%s"
+							},
+							{
 								"sitename": "Wikipedia",
 								"url": "https://en.wikipedia.org/wiki/Special:Search?search=%s"
 							},
@@ -419,7 +423,7 @@
 		"@types/mocha": "^10.0.9",
 		"@types/node": "^24.10.1",
 		"@types/sinon": "^10.0.13",
-		"@types/vscode": "^1.110.0",
+		"@types/vscode": "^1.100.2",
 		"@typescript-eslint/eslint-plugin": "^8.49.0",
 		"@typescript-eslint/parser": "^8.49.0",
 		"@vscode/test-electron": "^2.5.2",

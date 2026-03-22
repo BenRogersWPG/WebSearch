@@ -1,4 +1,12 @@
 # Changelog
+## \[6.12.9] (2026-03-22)
+### House Keeping
+* Tested on VS Code 1.112 🧪
+* Updated a few dependencies
+
+### Features
+* Added in Claude Code (Anthropic) new chat as a possible search engine
+
 ## \[6.12.8] (2026-03-09)
 ### House Keeping
 * Tested on VS Code 1.111 🧪
@@ -14,9 +22,11 @@
 * Tested on VS Code 1.109 🧪
 * Updated a few dependencies
 
+### Features
+* Added in GitHub Code Search as a default search engine
+
 ### Code Cleanup
 * Removed Stack Overflow as a default search engine
-* Added in GitHub Code Search as a default search engine
 * Reordered the default search engine list, moving DuckDuckGo to the top, and Google to the bottom
 
 ## \[6.12.5] (2026-01-08)
