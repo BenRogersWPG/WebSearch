@@ -1,4 +1,12 @@
 # Changelog
+## \[6.13.0] (2026-03-28)
+### Features
+* Updated the minimum required version of Visual Studio Code to 1.112.0. Users on older versions (below 1.112.0) will need to update VS Code to continue using this extension. This change was made to leverage new features and improvements introduced in recent versions.
+
+### House Keeping
+* Tested on VS Code 1.113 🧪
+* Updated a few dependencies
+
 ## \[6.12.9] (2026-03-22)
 ### House Keeping
 * Tested on VS Code 1.112 🧪
