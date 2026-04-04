@@ -1,7 +1,15 @@
 # Changelog
+## \[6.14.0] (2026-04-04)
+### Features
+* Replaced the npm package `get-google-suggestions` with a [GitHub repository version](https://github.com/BenRogersWPG/get-google-suggestions) of the package. This is because the developer is no longer maintaining the npm package. The GitHub repository version is up to date and will allow for better maintenance of the package in the future.
+
+### House Keeping
+* Tested on VS Code 1.114 🧪
+* Updated a few dependencies
+
 ## \[6.13.0] (2026-03-28)
 ### Features
-* Updated the minimum required version of Visual Studio Code to 1.112.0. Users on older versions (below 1.112.0) will need to update VS Code to continue using this extension. This change was made to leverage new features and improvements introduced in recent versions.
+* Updated the minimum required version of Visual Studio Code to 1.110.0. Users on older versions (below 1.110.0) will need to update VS Code to continue using this extension. This change was made to leverage new features and improvements introduced in recent versions.
 
 ### House Keeping
 * Tested on VS Code 1.113 🧪

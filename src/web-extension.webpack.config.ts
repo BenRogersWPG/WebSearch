@@ -28,11 +28,14 @@ module.exports = /** @type WebpackConfig */ {
 			'assert': require.resolve('assert'),
 			'path': require.resolve('path-browserify'),
 			'util': require.resolve('util/'),
+			'process': require.resolve('process/browser'),
 			'fs': false,
 			'os': false,
 			'child_process': false,
-			'get-google-suggestions': false,
-			'axios': false
+			'http': false,
+			'https': false,
+			'net': false,
+			'tls': false
 		}
 	},
 	module: {
@@ -53,6 +56,8 @@ module.exports = /** @type WebpackConfig */ {
 	],
 	externals: {
 		'vscode': 'commonjs vscode', // ignored because it doesn't exist
+		'axios': 'commonjs axios',
+		'get-google-suggestions': 'commonjs get-google-suggestions'
 	},
 	performance: {
 		hints: false

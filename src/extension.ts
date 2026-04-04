@@ -218,14 +218,19 @@ export async function performWebSearch(demo: boolean = false) {
 
 			// Only allow suggestions if on desktop version:
 			if (vscode.env.uiKind === vscode.UIKind.Desktop) {
-
-				const getGoogleSuggestions = require('get-google-suggestions');
 				if (allowSuggestions) {
-					const suggestions = await getGoogleSuggestions(value);
-					suggestions.forEach((array: any) => {
-						quickpickItems.push({ label: array, description: "Search for: " + array });
-						quickpickItems = quickpickItems.filter(item => item.label.indexOf(value) !== -1);;
-					});
+					try {
+						const getGoogleSuggestions = require('get-google-suggestions');
+						const suggestions = await getGoogleSuggestions(value);
+						if (suggestions && Array.isArray(suggestions)) {
+							suggestions.forEach((array: any) => {
+								quickpickItems.push({ label: array, description: "Search for: " + array });
+								quickpickItems = quickpickItems.filter(item => item.label.indexOf(value) !== -1);;
+							});
+						}
+					} catch (error) {
+						console.error('Google suggestions error:', error);
+					}
 				}
 			}
 			input.items = quickpickItems;
@@ -267,13 +272,8 @@ export async function searchText(query: string, demo: boolean, defaultSearch: bo
 	// Use this interface to get the default search engine list from the settings.json file:
 	const defaultSearchEngines: IDefaultObject[] = new Array(vscode.workspace.getConfiguration('webSearch').get('defaultSearchEngines'));
 
-	// Define a custom QuickPickItem type that includes iconPath
-	interface CustomQuickPickItem extends vscode.QuickPickItem {
-		iconPath: vscode.ThemeIcon | string;
-	}
-
 	// Now that we have an array of search engines, we need to loop through them and display them in a quick pick list
-	let items: CustomQuickPickItem[] = [];
+	let items: vscode.QuickPickItem[] = [];
 
 
 	// Only populate the default search engine list if the user wishes to use default search engines:
@@ -316,7 +316,7 @@ export async function searchText(query: string, demo: boolean, defaultSearch: bo
 	if (defaultSearch || items.length === 0) {
 
 		// Create a quick pick list variable to handle the old search engine (defined as it is used a couple times, saving many lines of code):
-		const searchEngineOldArray: CustomQuickPickItem = {
+		const searchEngineOldArray: vscode.QuickPickItem = {
 			label: "Search Engine",
 			description: searchEngineOld,
 			detail: "Search Engine from old settings",
@@ -334,7 +334,7 @@ export async function searchText(query: string, demo: boolean, defaultSearch: bo
 	);
 
 	// Initialize selectedSearchEngine variable as a QuickPickItem:
-	let selectedSearchEngine: vscode.QuickPickItem;
+	let selectedSearchEngine: vscode.QuickPickItem | undefined;
 
 	// Initialize a boolean variable that, when set to true, indicates that there is only 1 search engine defined and the extension will open the URL directly:
 	let directSearch = false;
@@ -348,7 +348,7 @@ export async function searchText(query: string, demo: boolean, defaultSearch: bo
 		selectedSearchEngine = await vscode.window.showQuickPick(items, {
 			title: `Search for "` + truncatedQuery + `" on…`,
 			// TODO: Also allow the search engine selection window to be persistent? ignoreFocusOut: true
-		}) as vscode.QuickPickItem;
+		});
 
 		// FUTURE: Try adding some tooltips (noted in VS Code v1.76):
 		//selectedSearchEngine = await vscode.window.showQuickPick([

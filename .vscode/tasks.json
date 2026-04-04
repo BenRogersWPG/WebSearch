@@ -5,11 +5,24 @@
 	"tasks": [
 		{
 			"type": "npm",
+			"script": "compile",
+			"problemMatcher": "$tsc",
+			"label": "npm: compile"
+		},
+		{
+			"type": "npm",
 			"script": "watch",
-			"problemMatcher": "$tsc-watch",
+			"problemMatcher": {
+				"pattern": "$tsc-watch",
+				"background": {
+					"activeOnStart": true,
+					"beginsPattern": "^\\[.*\\] Compilation complete",
+					"endsPattern": "^\\[.*\\] Watching for file changes"
+				}
+			},
 			"isBackground": true,
 			"presentation": {
-				"reveal": "never"
+				"reveal": "silent"
 			},
 			"group": {
 				"kind": "build",
