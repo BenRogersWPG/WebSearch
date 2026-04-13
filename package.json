@@ -438,7 +438,7 @@
 	},
 	"dependencies": {
 		"get-google-suggestions": "github:BenRogersWPG/get-google-suggestions",
-		"open": "^8.4.2",
+		"open": "^11.0.0",
 		"sinon": "^15.0.4"
 	}
 }
