@@ -12,14 +12,7 @@
 		{
 			"type": "npm",
 			"script": "watch",
-			"problemMatcher": {
-				"pattern": "$tsc-watch",
-				"background": {
-					"activeOnStart": true,
-					"beginsPattern": "^\\[.*\\] Compilation complete",
-					"endsPattern": "^\\[.*\\] Watching for file changes"
-				}
-			},
+			"problemMatcher": "$tsc-watch",
 			"isBackground": true,
 			"presentation": {
 				"reveal": "silent"
