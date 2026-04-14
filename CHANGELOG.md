@@ -1,4 +1,9 @@
 # Changelog
+## \[6.14.1] (2026-04-14)
+### House Keeping
+* Tested on VS Code 1.115 🧪
+* Updated a few dependencies
+
 ## \[6.14.0] (2026-04-04)
 ### Features
 * Replaced the npm package `get-google-suggestions` with a [GitHub repository version](https://github.com/BenRogersWPG/get-google-suggestions) of the package. This is because the developer is no longer maintaining the npm package. The GitHub repository version is up to date and will allow for better maintenance of the package in the future.
