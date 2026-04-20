@@ -1,4 +1,12 @@
 # Changelog
+## \[6.14.2] (2026-04-20)
+### House Keeping
+* Tested on VS Code 1.116 🧪
+* Updated a few dependencies
+
+### Documentation
+* Updated extension badges as the badge provider no longer supports Microsoft Visual Studio Marketplace badges.
+
 ## \[6.14.1] (2026-04-14)
 ### House Keeping
 * Tested on VS Code 1.115 🧪

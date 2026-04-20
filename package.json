@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "images/icon.webp",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "6.14.1",
+	"version": "6.14.2",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -20,19 +20,19 @@
 	},
 	"badges": [
 		{
-			"url": "https://img.shields.io/visual-studio-marketplace/stars/BenRogersWPG.websearchengine",
+			"url": "https://img.shields.io/badge/dynamic/regex?url=https%3A%2F%2Fraw.githubusercontent.com%2FBenRogersWPG%2FWebSearch%2Fmaster%2FREADME.md&search=Average%20Rating%3A%5C*%5C*%20(%5B%5Cd.%5D%2B)&replace=%241&label=Marketplace%20rating",
 			"href": "https://marketplace.visualstudio.com/items?itemName=BenRogersWPG.websearchengine&ssr=false#review-details",
 			"description": "Marketplace rating"
 		},
 		{
-			"url": "https://img.shields.io/visual-studio-marketplace/azure-devops/installs/total/BenRogersWPG.websearchengine",
-			"href": "https://marketplace.visualstudio.com/items?itemName=BenRogersWPG.websearchengine",
-			"description": "Marketplace installs"
+			"url": "https://img.shields.io/github/last-commit/BenRogersWPG/WebSearch",
+			"href": "https://github.com/BenRogersWPG/WebSearch/commits/master/",
+			"description": "Last commit"
 		},
 		{
-			"url": "https://img.shields.io/visual-studio-marketplace/d/BenRogersWPG.websearchengine",
-			"href": "https://marketplace.visualstudio.com/items?itemName=BenRogersWPG.websearchengine",
-			"description": "Marketplace downloads"
+			"url": "https://img.shields.io/github/check-runs/BenRogersWPG/WebSearch/master",
+			"href": "https://github.com/BenRogersWPG/WebSearch",
+			"description": "Check runs"
 		}
 	],
 	"engines": {
