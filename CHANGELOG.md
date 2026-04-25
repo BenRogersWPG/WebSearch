@@ -1,4 +1,15 @@
 # Changelog
+## \[6.14.3] (2026-04-25)
+### Features
+* Updated the minimum required version of Visual Studio Code to 1.116.0. Users on older versions (below 1.116.0) will need to update VS Code to continue using this extension. This change was made to leverage new features and improvements introduced in recent versions.
+
+### House Keeping
+* Tested on VS Code 1.117 🧪
+* Updated a few dependencies
+
+### Documentation
+* Added some of the new badges to the project readme
+
 ## \[6.14.2] (2026-04-20)
 ### House Keeping
 * Tested on VS Code 1.116 🧪
