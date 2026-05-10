@@ -220,7 +220,7 @@ export async function performWebSearch(demo: boolean = false) {
 			if (vscode.env.uiKind === vscode.UIKind.Desktop) {
 				if (allowSuggestions) {
 					try {
-						const getGoogleSuggestions = require('get-google-suggestions');
+						const getGoogleSuggestions = require('google-suggestions');
 						const suggestions = await getGoogleSuggestions(value);
 						if (suggestions && Array.isArray(suggestions)) {
 							suggestions.forEach((array: any) => {
