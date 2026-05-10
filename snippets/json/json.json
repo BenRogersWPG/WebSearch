@@ -3,13 +3,14 @@
         "prefix": "searchengine",
         "body": [
             "{",
-            "\"Google\": \"https://www.google.com/search?q=%s\",",
-            "\"Stack Overflow\": \"https://stackoverflow.com/search?q=%s\",",
+            "\"DuckDuckGo\": \"https://duckduckgo.com/?q=%s\"",
+            "\"Claude (Anthropic)\": \"https://claude.ai/new?q=%s\"",
             "\"Wikipedia\": \"https://en.wikipedia.org/wiki/Special:Search?search=%s\",",
             "\"GitHub\": \"https://github.com/search?q=%s\",",
+            "\"GitHub Code Search\": \"https://github.com/search?q=%s&type=code\",",
             "\"Reddit\": \"https://www.reddit.com/search?q=%s\",",
             "\"PageSpeed Insights\": \"https://pagespeed.web.dev/report?url=%s\",",
-            "\"DuckDuckGo\": \"https://duckduckgo.com/?q=%s\"",
+            "\"Google\": \"https://www.google.com/search?q=%s\",",
             "}"
         ],
         "description": "Add Default Search Engines to Settings JSON"

@@ -1,4 +1,17 @@
 # Changelog
+## \[6.14.4] (2026-05-10)
+### Features
+* Updated the minimum required version of Visual Studio Code to 1.118.0. Users on older versions (below 1.118.0) will need to update VS Code to continue using this extension. This change was made to leverage new features and improvements introduced in recent versions.
+
+### House Keeping
+* Tested on VS Code 1.119 🧪
+* Updated a few dependencies
+
+### Code Cleanup
+* Removed mentions of Stack Overflow in Readme, as it is no longer a default search engine
+* Updated unit tests to match new search engine list
+* Updated the snippet to match the new search engine list
+
 ## \[6.14.3] (2026-04-25)
 ### Features
 * Updated the minimum required version of Visual Studio Code to 1.116.0. Users on older versions (below 1.116.0) will need to update VS Code to continue using this extension. This change was made to leverage new features and improvements introduced in recent versions.

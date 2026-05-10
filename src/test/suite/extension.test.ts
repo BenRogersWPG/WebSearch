@@ -78,21 +78,23 @@ suite('Extension Test Suite', () => {
 		}
 		const defaultSearchEngines: SearchEngine[] = vscode.workspace.getConfiguration('webSearch').get('defaultSearchEngines')!;
 		console.log(`\tdefaultSearchEngines: ${defaultSearchEngines}`);
-		assert.strictEqual(defaultSearchEngines.length, 7);
-		assert.strictEqual(defaultSearchEngines[0].sitename, "Google");
-		assert.strictEqual(defaultSearchEngines[0].url, "https://www.google.com/search?q=%s");
-		assert.strictEqual(defaultSearchEngines[1].sitename, "Stack Overflow");
-		assert.strictEqual(defaultSearchEngines[1].url, "https://stackoverflow.com/search?q=%s");
+		assert.strictEqual(defaultSearchEngines.length, 8);
+		assert.strictEqual(defaultSearchEngines[0].sitename, "DuckDuckGo");
+		assert.strictEqual(defaultSearchEngines[0].url, "https://duckduckgo.com/?q=%s");
+		assert.strictEqual(defaultSearchEngines[1].sitename, "Claude (Anthropic)");
+		assert.strictEqual(defaultSearchEngines[1].url, "https://claude.ai/new?q=%s");
 		assert.strictEqual(defaultSearchEngines[2].sitename, "Wikipedia");
 		assert.strictEqual(defaultSearchEngines[2].url, "https://en.wikipedia.org/wiki/Special:Search?search=%s");
 		assert.strictEqual(defaultSearchEngines[3].sitename, "GitHub");
 		assert.strictEqual(defaultSearchEngines[3].url, "https://github.com/search?q=%s");
-		assert.strictEqual(defaultSearchEngines[4].sitename, "Reddit");
-		assert.strictEqual(defaultSearchEngines[4].url, "https://www.reddit.com/search?q=%s");
-		assert.strictEqual(defaultSearchEngines[5].sitename, "PageSpeed Insights");
-		assert.strictEqual(defaultSearchEngines[5].url, "https://pagespeed.web.dev/report?url=%s");
-		assert.strictEqual(defaultSearchEngines[6].sitename, "DuckDuckGo");
-		assert.strictEqual(defaultSearchEngines[6].url, "https://duckduckgo.com/?q=%s");
+		assert.strictEqual(defaultSearchEngines[4].sitename, "GitHub Code Search");
+		assert.strictEqual(defaultSearchEngines[4].url, "https://github.com/search?q=%s&type=code");
+		assert.strictEqual(defaultSearchEngines[5].sitename, "Reddit");
+		assert.strictEqual(defaultSearchEngines[5].url, "https://www.reddit.com/search?q=%s");
+		assert.strictEqual(defaultSearchEngines[6].sitename, "PageSpeed Insights");
+		assert.strictEqual(defaultSearchEngines[6].url, "https://pagespeed.web.dev/report?url=%s");
+		assert.strictEqual(defaultSearchEngines[7].sitename, "Google");
+		assert.strictEqual(defaultSearchEngines[7].url, "https://www.google.com/search?q=%s");
 	});
 	test('Add To Selected Text', () => {
 		const addToSelectedText: boolean = vscode.workspace.getConfiguration('webSearch').get('addToSelectedText')!;

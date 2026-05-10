@@ -72,9 +72,9 @@ Use the extension settings to manage the search engines easily by pressing the *
 
 #### Search Engine Examples
 
-Want to search for the selected code on Stack Overflow?
+Want to search for the selected code on Claude (Anthropic)?
 
-* *Set it to `https://stackoverflow.com/search?q=%s`*
+* *Set it to `https://claude.ai/new?q=%s`*
 
 Want to search for the selected code on GitHub?
 
@@ -217,11 +217,10 @@ When using the extension, this setting will keep the extension active (persisten
 ## Requirements 📦
 
 - Visual Studio Code or Visual Studio Code for the Web running on any operating system
-- Will work with Visual Studio Code 1.116.0 or later (more recent)
+- Will work with Visual Studio Code 1.118.0 or later (more recent)
 
 ## Known Issues 🐛
 
-- Searching on Stack Overflow sometimes requires a CAPTCHA. Either log in or accept cookies to prevent this.
 - If using VS Code for Web, you may receive popups asking "Do you want Code to open the external website?". To have URLs open immediately, follow these quick and easy steps:
     1. On the popup that appears, click the *Configure Trusted Domains Button*
     2. Select the level of trust you wish to give to the website.
@@ -242,8 +241,8 @@ See [CHANGELOG](https://github.com/BenRogersWPG/WebSearch/blob/master/CHANGELOG.
 * **Author:** Ben Rogers
 * **Date Published:** 4/19/2022, 10:10:14 AM
 * **Publisher:** Ben Rogers
-* **Software Version:** 6.14.3
-* **Last Updated:** 04/25/2026, 9:18:00 AM
+* **Software Version:** 6.14.4
+* **Last Updated:** 05/10/2026, 9:13:00 AM
 * **Average Rating:** 5.0
 * **Rating Count:** 1
 * **Category:** DeveloperApplication
@@ -278,9 +277,9 @@ See [CHANGELOG](https://github.com/BenRogersWPG/WebSearch/blob/master/CHANGELOG.
   "applicationCategory": "DeveloperApplication",
   "downloadUrl": "https://marketplace.visualstudio.com/items?itemName=BenRogersWPG.websearchengine",
   "operatingSystem": "Visual Studio Code",
-  "requirements": "1.115.0 or later",
+  "requirements": "1.118.0 or later",
   "screenshot": "https://benrogerswpg.github.io/WebSearch/images/web-search-suggest-autocomplete.gif",
-  "softwareVersion": "6.14.3",
+  "softwareVersion": "6.14.4",
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5.0",
