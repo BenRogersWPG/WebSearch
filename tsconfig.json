@@ -8,7 +8,12 @@
 		"noImplicitAny": true,
 		"noImplicitReturns": true,
 		"lib": [
-			"es6"
+			"es2017",
+			"dom"
+		],
+		"types": [
+			"node",
+			"mocha"
 		],
 		"sourceMap": true,
 		"strictNullChecks": true,

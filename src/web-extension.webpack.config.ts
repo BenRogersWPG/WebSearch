@@ -57,7 +57,7 @@ module.exports = /** @type WebpackConfig */ {
 	externals: {
 		'vscode': 'commonjs vscode', // ignored because it doesn't exist
 		'axios': 'commonjs axios',
-		'get-google-suggestions': 'commonjs get-google-suggestions'
+		'get-google-suggestions-benrogerswpg': 'commonjs get-google-suggestions-benrogerswpg'
 	},
 	performance: {
 		hints: false
