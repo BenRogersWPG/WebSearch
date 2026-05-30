@@ -217,7 +217,7 @@ When using the extension, this setting will keep the extension active (persisten
 ## Requirements 📦
 
 - Visual Studio Code or Visual Studio Code for the Web running on any operating system
-- Will work with Visual Studio Code 1.118.0 or later (more recent)
+- Will work with Visual Studio Code 1.120.0 or later (more recent)
 
 ## Known Issues 🐛
 
@@ -241,8 +241,8 @@ See [CHANGELOG](https://github.com/BenRogersWPG/WebSearch/blob/master/CHANGELOG.
 * **Author:** Ben Rogers
 * **Date Published:** 4/19/2022, 10:10:14 AM
 * **Publisher:** Ben Rogers
-* **Software Version:** 6.14.6
-* **Last Updated:** 05/10/2026, 12:07:00 PM
+* **Software Version:** 6.14.7
+* **Last Updated:** 05/30/2026, 06:05:00 AM
 * **Average Rating:** 5.0
 * **Rating Count:** 1
 * **Category:** DeveloperApplication
@@ -277,9 +277,9 @@ See [CHANGELOG](https://github.com/BenRogersWPG/WebSearch/blob/master/CHANGELOG.
   "applicationCategory": "DeveloperApplication",
   "downloadUrl": "https://marketplace.visualstudio.com/items?itemName=BenRogersWPG.websearchengine",
   "operatingSystem": "Visual Studio Code",
-  "requirements": "1.118.0 or later",
+  "requirements": "1.120.0 or later",
   "screenshot": "https://benrogerswpg.github.io/WebSearch/images/web-search-suggest-autocomplete.gif",
-  "softwareVersion": "6.14.6",
+  "softwareVersion": "6.14.7",
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5.0",

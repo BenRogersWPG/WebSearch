@@ -1,4 +1,12 @@
 # Changelog
+## \[6.14.7] (2026-05-30)
+### Features
+* Updated the minimum required version of Visual Studio Code to 1.120.0. Users on older versions (below 1.120.0) will need to update VS Code to continue using this extension. This change was made to leverage new features and improvements introduced in recent versions.
+
+### House Keeping
+* Tested on VS Code 1.122 🧪
+* Updated a few dependencies
+
 ## \[6.14.6] (2026-05-11)
 ### Features
 * Replaced the npm package `get-google-suggestions` with a [GitHub repository version](https://github.com/BenRogersWPG/google-suggestions-benrogerswpg) of the package. The GitHub repository version is up to date and will allow for better maintenance of the package in the future.
