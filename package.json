@@ -434,7 +434,7 @@
 		"typescript": "^6.0.3",
 		"util": "^0.12.5",
 		"webpack": "^5.105.4",
-		"webpack-cli": "^7.0.2",
+		"webpack-cli": "^7.0.3",
 		"sinon": "^15.2.0"
 	},
 	"dependencies": {
