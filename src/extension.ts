@@ -398,8 +398,16 @@ export async function searchText(query: string, demo: boolean, defaultSearch: bo
 		// Perform a string replacement to replace the %s placeholder of the search engine with the $text search query:
 		searchUrl = searchUrl.replace(/%s/g, query ? query : "");
 
-		// Use built in browser if on web, otherwise use native OS browser:
-		vscode.env.uiKind === vscode.UIKind.Web ? vscode.env.openExternal(vscode.Uri.parse(searchUrl!)) : await open(searchUrl!);
+		// Get the setting for opening in integrated browser:
+		const openInIntegratedBrowser: boolean = vscode.workspace.getConfiguration('webSearch').get('openInIntegratedBrowser')!;
+
+		// Open the URL in the integrated browser if enabled, otherwise use the default browser:
+		if (openInIntegratedBrowser) {
+			vscode.commands.executeCommand('simpleBrowser.api.open', searchUrl);
+		} else {
+			// Use built in browser if on web, otherwise use native OS browser:
+			vscode.env.uiKind === vscode.UIKind.Web ? vscode.env.openExternal(vscode.Uri.parse(searchUrl!)) : await open(searchUrl!);
+		}
 
 		// Display to the user what action is being taken and on what search engine:
 		if (messageLevelsInt < 2) {

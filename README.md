@@ -128,14 +128,12 @@ When using the extension, this setting will keep the extension active (persisten
 - Add new setting to allow custom search icons on site list, or turn icons off
 - Examine performance analysis of code to find potential optimizations
 - Add setting to allow the search results screen to be persistent too
-- Incorporate some of the API for OpenAI ChatGPT into the extension
 - Add `webSearch.addToSelectedText` to the extension's walkthrough?
 - Add `webSearch.keepSearchBarOpen` to the extension's walkthrough?
 - Add ability to run extension from selected text in the terminal
 - Add support for more autocomplete search engine sources
 - Code a new setting to control user-defined search verbs
 - Translate the extension to other languages
-- Open search results in sidebar (webview)
 
 > ➕ Have a feature you'd like me to implement? [Submit a feature request on the Repo's Issues page](https://github.com/BenRogersWPG/WebSearch/issues)!
 
@@ -170,6 +168,7 @@ When using the extension, this setting will keep the extension active (persisten
 - ~~Use native browser opening to prevent external URL prompts~~
 - ~~Add setting to disable information messages when searching~~
 - ~~Allow a preferred default search engine to be set in settings~~
+- ~~Open search results in integrated vscode browser (webview)~~
 - ~~Ensure keybinding works properly on all operating systems~~
 - ~~Edit QuickPick detail, or allow user to write their own detail~~
 - ~~Ensure the extension uses the new LogOutputChannel API~~
@@ -241,8 +240,8 @@ See [CHANGELOG](https://github.com/BenRogersWPG/WebSearch/blob/master/CHANGELOG.
 * **Author:** Ben Rogers
 * **Date Published:** 4/19/2022, 10:10:14 AM
 * **Publisher:** Ben Rogers
-* **Software Version:** 6.14.8
-* **Last Updated:** 06/16/2026, 07:13:00 AM
+* **Software Version:** 7.0.0
+* **Last Updated:** 06/21/2026, 04:00:00 PM
 * **Average Rating:** 5.0
 * **Rating Count:** 1
 * **Category:** DeveloperApplication
@@ -279,7 +278,7 @@ See [CHANGELOG](https://github.com/BenRogersWPG/WebSearch/blob/master/CHANGELOG.
   "operatingSystem": "Visual Studio Code",
   "requirements": "1.120.0 or later",
   "screenshot": "https://benrogerswpg.github.io/WebSearch/images/web-search-suggest-autocomplete.gif",
-  "softwareVersion": "6.14.8",
+  "softwareVersion": "7.0.0",
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5.0",
