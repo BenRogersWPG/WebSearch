@@ -1,4 +1,9 @@
 # Changelog
+## \[7.0.1] (2026-06-25)
+### House Keeping
+* Tested on VS Code 1.126 🧪
+* Updated a few dependencies
+
 ## \[7.0.0] (2026-06-21)
 ### Features
 * New setting, `setting(webSearch.openInIntegratedBrowser)` (default: true) will allow you to open search results in the integrated browser instead of the default system browser. This can be useful for users who prefer to keep their browsing within VS Code or want a more seamless experience. If you wish to open search results in your default system browser, simply set `webSearch.openInIntegratedBrowser` to false.
