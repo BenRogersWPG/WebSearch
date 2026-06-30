@@ -441,7 +441,7 @@
 		"util": "^0.12.5",
 		"webpack": "^5.105.4",
 		"webpack-cli": "^7.0.2",
-		"sinon": "^15.2.0"
+		"sinon": "^22.0.0"
 	},
 	"dependencies": {
 		"@swc/helpers": "^0.5.21",
