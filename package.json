@@ -444,7 +444,7 @@
 		"sinon": "^15.2.0"
 	},
 	"dependencies": {
-		"@swc/helpers": "^0.5.21",
+		"@swc/helpers": "^0.5.23",
 		"google-suggestions-benrogerswpg": "github:BenRogersWPG/google-suggestions-benrogerswpg",
 		"open": "^8.4.2"
 	}
