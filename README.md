@@ -122,6 +122,10 @@ When using the extension with selected text, this setting will allow you to elab
 
 When using the extension, this setting will keep the extension active (persistent), even if focus is lost from the search bar or search engine selection dropdown. This can be useful if you wish to copy multiple parts of code to perform a search, or are referencing different sections. *Set to true to enable.*
 
+### `webSearch.openInIntegratedBrowser`
+
+This setting will allow you to open search results in the integrated browser instead of the default system browser. This can be useful for users who prefer to keep their browsing within VS Code or want a more seamless experience. If you wish to open search results in your default system browser, simply set `webSearch.openInIntegratedBrowser` to false *(true by default)*.
+
 ## Future Development Ideas and To-dos 📝
 
 - If selected text is a URL, open it directly or run it through PageSpeed Insights
