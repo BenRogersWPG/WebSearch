@@ -426,7 +426,7 @@
 		"@types/glob": "^9.0.0",
 		"@types/mocha": "^10.0.10",
 		"@types/node": "^25.9.1",
-		"@types/sinon": "^10.0.13",
+		"@types/sinon": "^22.0.0",
 		"@types/vscode": "^1.125.0",
 		"@typescript-eslint/eslint-plugin": "^8.64.0",
 		"@typescript-eslint/parser": "^8.61.0",
@@ -441,7 +441,7 @@
 		"util": "^0.12.5",
 		"webpack": "^5.105.4",
 		"webpack-cli": "^7.0.2",
-		"sinon": "^15.2.0"
+		"sinon": "^22.0.0"
 	},
 	"dependencies": {
 		"@swc/helpers": "^0.5.21",
