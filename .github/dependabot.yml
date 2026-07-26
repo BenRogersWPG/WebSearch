@@ -9,6 +9,7 @@ updates:
     open-pull-requests-limit: 100
     labels:
       - "typescript"    
+      - "dependencies"
     cooldown:
       # Default cooldown for any dependency without a more specific SemVer-level rule below (falls back to 3 days if you omit this entirely).
       default-days: 5       
