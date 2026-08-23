@@ -3,8 +3,8 @@ updates:
   - package-ecosystem: npm
     directory: "/"
     schedule:
-      interval: "daily"
-      time: "15:30"
+      interval: "cron"
+      cronjob: "30 14 * * *"
       timezone: "America/Vancouver"
     open-pull-requests-limit: 100
     labels:
@@ -19,8 +19,8 @@ updates:
   - package-ecosystem: github-actions
     directory: '/'
     schedule:
-      interval: daily
-      time: '15:30'
+      interval: "cron"
+      cronjob: "30 14 * * *"
       timezone: "America/Vancouver"
     open-pull-requests-limit: 100
     cooldown:
