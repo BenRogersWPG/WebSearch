@@ -3,7 +3,7 @@
 	"displayName": "Web Search",
 	"icon": "images/icon.webp",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "7.0.2",
+	"version": "7.0.3",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -425,15 +425,15 @@
 	"devDependencies": {
 		"@types/glob": "^9.0.0",
 		"@types/mocha": "^10.0.10",
-		"@types/node": "^25.9.1",
-		"@types/sinon": "^10.0.13",
-		"@types/vscode": "^1.120.0",
-		"@typescript-eslint/eslint-plugin": "^8.64.0",
+		"@types/node": "^26.2.0",
+		"@types/sinon": "^22.0.0",
+		"@types/vscode": "^1.134.0",
+		"@typescript-eslint/eslint-plugin": "^8.67.0",
 		"@typescript-eslint/parser": "^8.61.0",
-		"@vscode/test-electron": "^3.0.0",
+		"@vscode/test-electron": "^3.1.0",
 		"@vscode/vsce": "^3.9.2",
-		"eslint": "^10.7.0",
-		"mocha": "^11.7.5",
+		"eslint": "^10.8.1",
+		"mocha": "^11.8.0",
 		"path-browserify": "^1.0.1",
 		"process": "^0.11.10",
 		"ts-loader": "^9.6.2",
@@ -441,10 +441,10 @@
 		"util": "^0.12.5",
 		"webpack": "^5.105.4",
 		"webpack-cli": "^7.0.2",
-		"sinon": "^15.2.0"
+		"sinon": "^22.1.0"
 	},
 	"dependencies": {
-		"@swc/helpers": "^0.5.21",
+		"@swc/helpers": "^0.5.23",
 		"google-suggestions-benrogerswpg": "github:BenRogersWPG/google-suggestions-benrogerswpg",
 		"open": "^8.4.2"
 	}
