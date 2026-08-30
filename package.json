@@ -425,9 +425,9 @@
 	"devDependencies": {
 		"@types/glob": "^9.0.0",
 		"@types/mocha": "^10.0.10",
-		"@types/node": "^25.9.1",
+		"@types/node": "^26.2.0",
 		"@types/sinon": "^22.0.0",
-		"@types/vscode": "^1.120.0",
+		"@types/vscode": "^1.134.0",
 		"@typescript-eslint/eslint-plugin": "^8.67.0",
 		"@typescript-eslint/parser": "^8.61.0",
 		"@vscode/test-electron": "^3.1.0",
@@ -437,15 +437,17 @@
 		"path-browserify": "^1.0.1",
 		"process": "^0.11.10",
 		"ts-loader": "^9.6.2",
-		"typescript": "^6.0.3",
+		"typescript": "^7.0.2",
 		"util": "^0.12.5",
 		"webpack": "^5.105.4",
 		"webpack-cli": "^7.2.2",
+		"webpack": "^5.109.2",
+		"webpack-cli": "^7.0.2",
 		"sinon": "^22.1.0"
 	},
 	"dependencies": {
 		"@swc/helpers": "^0.5.23",
 		"google-suggestions-benrogerswpg": "github:BenRogersWPG/google-suggestions-benrogerswpg",
-		"open": "^8.4.2"
+		"open": "^11.0.1"
 	}
 }
