@@ -244,8 +244,8 @@ See [CHANGELOG](https://github.com/BenRogersWPG/WebSearch/blob/master/CHANGELOG.
 * **Author:** Ben Rogers
 * **Date Published:** 4/19/2022, 10:10:14 AM
 * **Publisher:** Ben Rogers
-* **Software Version:** 7.0.3
-* **Last Updated:** 08/13/2026, 08:09:00 PM
+* **Software Version:** 7.0.4
+* **Last Updated:** 09/05/2026, 10:25:00 AM
 * **Average Rating:** 5.0
 * **Rating Count:** 1
 * **Category:** DeveloperApplication
@@ -282,7 +282,7 @@ See [CHANGELOG](https://github.com/BenRogersWPG/WebSearch/blob/master/CHANGELOG.
   "operatingSystem": "Visual Studio Code",
   "requirements": "1.120.0 or later",
   "screenshot": "https://benrogerswpg.github.io/WebSearch/images/web-search-suggest-autocomplete.gif",
-  "softwareVersion": "7.0.3",
+  "softwareVersion": "7.0.4",
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5.0",
