@@ -431,7 +431,7 @@
 		"@typescript-eslint/eslint-plugin": "^8.72.1",
 		"@typescript-eslint/parser": "^8.70.1",
 		"@vscode/test-electron": "^3.1.0",
-		"@vscode/vsce": "^4.0.0",
+		"@vscode/vsce": "^4.1.0",
 		"eslint": "^10.8.1",
 		"mocha": "^11.8.0",
 		"path-browserify": "^1.0.1",
