@@ -1,9 +1,9 @@
 {
 	"name": "websearchengine",
 	"displayName": "Web Search",
-	"icon": "images/icon.webp",
+	"icon": "images/icon.png",
 	"description": "Search the web directly from inside VSCode on your favorite search engines / websites (add as many as you like, customizable in settings like Google Chrome / Edge)",
-	"version": "7.0.6",
+	"version": "7.0.7",
 	"publisher": "BenRogersWPG",
 	"author": {
 		"name": "Ben Rogers"
@@ -444,7 +444,7 @@
 		"sinon": "^22.1.0"
 	},
 	"dependencies": {
-		"@swc/helpers": "^0.5.24",
+		"@swc/helpers": "^0.5.21",
 		"google-suggestions-benrogerswpg": "github:BenRogersWPG/google-suggestions-benrogerswpg",
 		"open": "^8.4.2"
 	}

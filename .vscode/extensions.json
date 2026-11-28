@@ -3,6 +3,7 @@
 	// for the documentation about the extensions.json format
 	"recommendations": [
 		"dbaeumer.vscode-eslint",
-		"BenRogersWPG.transparent-minimap"
+		"BenRogersWPG.transparent-minimap",
+		"BenRogersWPG.bible-verse-statusbar"
 	]
 }
